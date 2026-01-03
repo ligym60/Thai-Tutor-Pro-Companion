@@ -18,6 +18,7 @@ import { Button } from "@/components/Button";
 import { AnswerCard } from "@/components/AnswerCard";
 import { ProgressBar } from "@/components/ProgressBar";
 import { LivesIndicator } from "@/components/LivesIndicator";
+import { SpeakerButton } from "@/components/SpeakerButton";
 import { useTheme } from "@/hooks/useTheme";
 import { useGameState } from "@/hooks/useGameState";
 import { Spacing, BorderRadius, Colors } from "@/constants/theme";
@@ -243,9 +244,12 @@ export default function PracticeScreen() {
 
       <Animated.View style={[styles.content, animatedShakeStyle]}>
         <View style={styles.questionContainer}>
-          <ThemedText type="thaiLarge" style={styles.thaiText}>
-            {currentQuestion.thai}
-          </ThemedText>
+          <View style={styles.thaiRow}>
+            <ThemedText type="thaiLarge" style={styles.thaiText}>
+              {currentQuestion.thai}
+            </ThemedText>
+            <SpeakerButton text={currentQuestion.thai} size="medium" />
+          </View>
           <ThemedText
             type="body"
             style={[styles.romanization, { color: theme.textSecondary }]}
@@ -356,9 +360,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: Spacing["3xl"],
   },
+  thaiRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: Spacing.md,
+    marginBottom: Spacing.sm,
+  },
   thaiText: {
     textAlign: "center",
-    marginBottom: Spacing.sm,
   },
   romanization: {
     textAlign: "center",
