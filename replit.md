@@ -8,6 +8,22 @@ The app uses local storage for user progress (no backend authentication required
 
 ## Content Overview
 
+### Expert Mode - Stories
+The app features an **Expert Mode** with **8 Thai stories** across all difficulty levels:
+- **Beginner**: "The Friendly Cat", "A Day at the Market"
+- **Elementary**: "Bangkok by Night", "The Lost Wallet"
+- **Intermediate**: "The Rice Farmer's Wisdom", "A Thai Wedding"
+- **Advanced**: "The Spirit of the River"
+- **Expert**: "The Legend of Nang Phom Hom"
+
+Each story includes:
+- Word-by-word audio playback with synchronized highlighting
+- Interactive translation popups (Thai, romanization, English) on word tap
+- Auto-scrolling to keep current word visible
+- Adjustable playback speed (0.5x, 0.8x, 1.0x)
+- Full story translation toggle
+
+### Lessons
 The app includes **26 lessons** across **7 categories**:
 - **Basics** (5 lessons): Hello/Goodbye, Yes/No, Common Questions, Pronouns, This/That
 - **Greetings** (3 lessons): Polite Expressions, Meeting People
@@ -38,9 +54,9 @@ Preferred communication style: Simple, everyday language.
 
 **Navigation**: React Navigation with a hybrid structure
 - Root: Native Stack Navigator (`RootStackNavigator.tsx`)
-- Main: Bottom Tab Navigator with 4 tabs (Home, Lessons, Leaderboard, Profile)
+- Main: Bottom Tab Navigator with 5 tabs (Home, Lessons, Stories, Leaderboard, Profile)
 - Each tab has its own Stack Navigator for internal navigation
-- Modal screens: LessonDetail and Practice (fullscreen modals)
+- Modal screens: LessonDetail, Practice, StoryReader (fullscreen modals)
 
 **State Management**:
 - Local game state via `useGameState` hook backed by AsyncStorage
