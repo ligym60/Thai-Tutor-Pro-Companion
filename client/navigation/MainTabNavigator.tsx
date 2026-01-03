@@ -9,6 +9,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import HomeStackNavigator from "@/navigation/HomeStackNavigator";
 import LessonsStackNavigator from "@/navigation/LessonsStackNavigator";
 import StoriesStackNavigator from "@/navigation/StoriesStackNavigator";
+import TipsStackNavigator from "@/navigation/TipsStackNavigator";
 import LeaderboardStackNavigator from "@/navigation/LeaderboardStackNavigator";
 import ProfileStackNavigator from "@/navigation/ProfileStackNavigator";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
@@ -19,6 +20,7 @@ export type MainTabParamList = {
   HomeTab: undefined;
   LessonsTab: undefined;
   StoriesTab: undefined;
+  TipsTab: undefined;
   LeaderboardTab: undefined;
   ProfileTab: undefined;
 };
@@ -88,6 +90,16 @@ export default function MainTabNavigator() {
             title: "Stories",
             tabBarIcon: ({ color, size }) => (
               <Feather name="book" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="TipsTab"
+          component={TipsStackNavigator}
+          options={{
+            title: "Tips",
+            tabBarIcon: ({ color, size }) => (
+              <Feather name="info" size={size} color={color} />
             ),
           }}
         />
