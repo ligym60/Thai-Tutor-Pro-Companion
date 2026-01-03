@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainTabNavigator from "@/navigation/MainTabNavigator";
 import LessonDetailScreen from "@/screens/LessonDetailScreen";
 import PracticeScreen from "@/screens/PracticeScreen";
+import SpeakingPracticeScreen from "@/screens/SpeakingPracticeScreen";
+import ReviewScreen from "@/screens/ReviewScreen";
 import StoryReaderScreen from "@/screens/StoryReaderScreen";
 import { useScreenOptions } from "@/hooks/useScreenOptions";
 
@@ -10,6 +12,8 @@ export type RootStackParamList = {
   Main: undefined;
   LessonDetail: { lessonId: string };
   Practice: undefined;
+  SpeakingPractice: undefined;
+  Review: undefined;
   StoryReader: { storyId: string };
 };
 
@@ -39,6 +43,22 @@ export default function RootStackNavigator() {
         options={{
           presentation: "fullScreenModal",
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="SpeakingPractice"
+        component={SpeakingPracticeScreen}
+        options={{
+          presentation: "card",
+          headerTitle: "Speaking Practice",
+        }}
+      />
+      <Stack.Screen
+        name="Review"
+        component={ReviewScreen}
+        options={{
+          presentation: "card",
+          headerTitle: "Vocabulary Review",
         }}
       />
       <Stack.Screen
