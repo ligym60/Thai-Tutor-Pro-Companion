@@ -54,7 +54,7 @@ Preferred communication style: Simple, everyday language.
 
 **Navigation**: React Navigation with a hybrid structure
 - Root: Native Stack Navigator (`RootStackNavigator.tsx`)
-- Main: Bottom Tab Navigator with 5 tabs (Home, Lessons, Stories, Leaderboard, Profile)
+- Main: Bottom Tab Navigator with 6 tabs (Home, Lessons, Stories, Tips, Leaderboard, Profile)
 - Each tab has its own Stack Navigator for internal navigation
 - Modal screens: LessonDetail, Practice, StoryReader (fullscreen modals)
 
