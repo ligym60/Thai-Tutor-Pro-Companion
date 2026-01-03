@@ -47,7 +47,7 @@ export interface Achievements {
 }
 
 const defaultUserProfile: UserProfile = {
-  displayName: "Learner",
+  displayName: "Student",
   avatarPreset: 0,
   dailyGoalMinutes: 10,
   soundEnabled: true,
