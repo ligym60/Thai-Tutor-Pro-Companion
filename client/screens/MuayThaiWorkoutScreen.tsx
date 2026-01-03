@@ -632,6 +632,216 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
   }
 }
 
+interface FootworkAnimationProps {
+  drillName: string;
+  color: string;
+}
+
+function FootworkAnimation({ drillName, color }: FootworkAnimationProps) {
+  const slide = useSharedValue(0);
+  const bounce = useSharedValue(0);
+  const rotate = useSharedValue(0);
+  
+  const darkerColor = color + "CC";
+  const lighterColor = color + "88";
+  const shadowColor = "#00000040";
+  
+  useEffect(() => {
+    slide.value = withRepeat(
+      withSequence(
+        withTiming(-20, { duration: 400, easing: Easing.out(Easing.quad) }),
+        withTiming(20, { duration: 800, easing: Easing.inOut(Easing.quad) }),
+        withTiming(0, { duration: 400, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    bounce.value = withRepeat(
+      withSequence(
+        withTiming(-8, { duration: 250, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 250, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    rotate.value = withRepeat(
+      withSequence(
+        withTiming(-15, { duration: 600, easing: Easing.out(Easing.quad) }),
+        withTiming(15, { duration: 1200, easing: Easing.inOut(Easing.quad) }),
+        withTiming(0, { duration: 600, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    
+    return () => {
+      cancelAnimation(slide);
+      cancelAnimation(bounce);
+      cancelAnimation(rotate);
+    };
+  }, []);
+  
+  const slideStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: slide.value }],
+  }));
+  
+  const bounceStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: bounce.value }],
+  }));
+  
+  const rotateStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${rotate.value}deg` }],
+  }));
+  
+  const renderFeet = () => (
+    <Svg width={130} height={130} viewBox="0 0 130 130">
+      <Defs>
+        <RadialGradient id="footGradL" cx="40%" cy="35%" r="60%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="100%" stopColor={color} stopOpacity="1" />
+        </RadialGradient>
+        <RadialGradient id="footGradR" cx="40%" cy="35%" r="60%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </RadialGradient>
+      </Defs>
+      <Ellipse cx="45" cy="85" rx="18" ry="8" fill={shadowColor} />
+      <Ellipse cx="85" cy="85" rx="18" ry="8" fill={shadowColor} />
+      <Ellipse cx="45" cy="70" rx="16" ry="25" fill="url(#footGradL)" />
+      <Ellipse cx="85" cy="70" rx="16" ry="25" fill="url(#footGradR)" />
+      <Circle cx="40" cy="58" r="4" fill="#FFFFFF" opacity="0.4" />
+      <Circle cx="80" cy="58" r="4" fill="#FFFFFF" opacity="0.4" />
+    </Svg>
+  );
+  
+  switch (drillName) {
+    case "Basic Shuffle":
+    case "Forward-Back Step":
+    case "Bounce Step":
+      return (
+        <Animated.View style={slideStyle}>
+          {renderFeet()}
+        </Animated.View>
+      );
+    case "Circle Left":
+    case "Circle Right":
+      return (
+        <Animated.View style={rotateStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="circleFootGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Circle cx="65" cy="65" r="40" stroke={darkerColor} strokeWidth="3" fill="none" strokeDasharray="8 5" />
+            <Path d="M65 25 L70 35 L60 35 Z" fill={color} />
+            <Ellipse cx="65" cy="65" rx="16" ry="25" fill="url(#circleFootGrad)" />
+            <Circle cx="60" cy="55" r="4" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Diamond Steps":
+    case "L-Step":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+            </Defs>
+            <Path d="M65 20 L100 65 L65 110 L30 65 Z" stroke={darkerColor} strokeWidth="3" fill="none" strokeDasharray="6 4" />
+            <Ellipse cx="65" cy="65" rx="14" ry="22" fill="url(#diamondGrad)" />
+            <Circle cx="60" cy="55" r="4" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Switch Stance":
+      return (
+        <Animated.View style={[slideStyle, bounceStyle]}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="switchGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="40" cy="90" rx="14" ry="6" fill={shadowColor} />
+            <Ellipse cx="90" cy="90" rx="14" ry="6" fill={shadowColor} />
+            <Ellipse cx="40" cy="65" rx="14" ry="22" fill="url(#switchGrad)" />
+            <Ellipse cx="90" cy="75" rx="14" ry="22" fill="url(#switchGrad)" />
+            <Path d="M55 60 L75 70" stroke={darkerColor} strokeWidth="2" strokeDasharray="4 2" />
+            <Path d="M73 67 L75 70 L71 70" fill={darkerColor} />
+            <Circle cx="36" cy="55" r="3" fill="#FFFFFF" opacity="0.4" />
+            <Circle cx="86" cy="65" r="3" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Angle Off":
+    case "Retreat & Reset":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="angleGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Path d="M65 85 L35 30" stroke={darkerColor} strokeWidth="3" strokeDasharray="6 4" />
+            <Path d="M35 30 L40 42 L32 38" fill={darkerColor} />
+            <Ellipse cx="65" cy="90" rx="20" ry="6" fill={shadowColor} />
+            <Ellipse cx="65" cy="75" rx="16" ry="22" fill="url(#angleGrad)" />
+            <Circle cx="60" cy="65" r="4" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Pendulum":
+      return (
+        <Animated.View style={slideStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="pendGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Path d="M25 65 L105 65" stroke={darkerColor} strokeWidth="2" strokeDasharray="4 3" />
+            <Ellipse cx="65" cy="90" rx="25" ry="5" fill={shadowColor} />
+            <Ellipse cx="65" cy="70" rx="18" ry="26" fill="url(#pendGrad)" />
+            <Circle cx="58" cy="58" r="5" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Check Step":
+      return (
+        <Animated.View style={[bounceStyle, slideStyle]}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="checkGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="55" cy="92" rx="16" ry="5" fill={shadowColor} />
+            <Ellipse cx="80" cy="92" rx="12" ry="4" fill={shadowColor} />
+            <Ellipse cx="55" cy="70" rx="16" ry="24" fill="url(#checkGrad)" />
+            <Ellipse cx="80" cy="78" rx="12" ry="18" fill="url(#checkGrad)" opacity="0.7" />
+            <Circle cx="50" cy="58" r="4" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    default:
+      return (
+        <Animated.View style={bounceStyle}>
+          {renderFeet()}
+        </Animated.View>
+      );
+  }
+}
+
 interface MoveAnimationProps {
   moveName: string;
   color: string;
@@ -966,6 +1176,29 @@ const WARMUP_EXERCISES: WarmupExercise[] = [
   { name: "Knee Raises", thai: "ยกเข่า", romanization: "Yok Khao", duration: 60, description: "Balance and core" },
 ];
 
+interface FootworkDrill {
+  name: string;
+  thai: string;
+  romanization: string;
+  duration: number;
+  description: string;
+}
+
+const FOOTWORK_DRILLS: FootworkDrill[] = [
+  { name: "Basic Shuffle", thai: "สลับเท้า", romanization: "Sa-lap Thao", duration: 45, description: "Side to side movement" },
+  { name: "Forward-Back Step", thai: "ก้าวหน้า-ถอย", romanization: "Kaao Naa - Thoi", duration: 45, description: "In and out movement" },
+  { name: "Circle Left", thai: "วงกลมซ้าย", romanization: "Wong Klom Saai", duration: 40, description: "Pivot around opponent" },
+  { name: "Circle Right", thai: "วงกลมขวา", romanization: "Wong Klom Khwaa", duration: 40, description: "Pivot around opponent" },
+  { name: "Diamond Steps", thai: "สี่เหลี่ยม", romanization: "Sii Liam", duration: 50, description: "Move in diamond pattern" },
+  { name: "Angle Off", thai: "หลบมุม", romanization: "Lop Mum", duration: 45, description: "Cut angles after strikes" },
+  { name: "Switch Stance", thai: "สลับท่า", romanization: "Sa-lap Thaa", duration: 40, description: "Orthodox to southpaw" },
+  { name: "Retreat & Reset", thai: "ถอยแล้วตั้งรับ", romanization: "Thoi Laeo Tang Rap", duration: 45, description: "Create distance" },
+  { name: "Bounce Step", thai: "เด้งเท้า", romanization: "Deng Thao", duration: 40, description: "Stay light and mobile" },
+  { name: "L-Step", thai: "ก้าวตัวแอล", romanization: "Kaao Tua L", duration: 45, description: "Exit at 90 degrees" },
+  { name: "Pendulum", thai: "เหวี่ยง", romanization: "Wiang", duration: 50, description: "Weight shift rhythm" },
+  { name: "Check Step", thai: "ก้าวเช็ค", romanization: "Kaao Check", duration: 40, description: "Feint with footwork" },
+];
+
 const COOLDOWN_EXERCISES: WarmupExercise[] = [
   { name: "Deep Breathing", thai: "หายใจลึก", romanization: "Hai Jai Luek", duration: 45, description: "Slow your heart rate" },
   { name: "Standing Side Stretch", thai: "ยืดข้าง", romanization: "Yuet Khang", duration: 45, description: "Side body stretch" },
@@ -1054,7 +1287,75 @@ const LEVEL_COLORS = {
   advanced: "#E53935",
 };
 
-type WorkoutPhase = "idle" | "warmup" | "warmup-exercise" | "countdown" | "calling" | "executing" | "rest" | "cooldown" | "cooldown-exercise" | "complete";
+type WorkoutPhase = "idle" | "warmup" | "warmup-exercise" | "footwork" | "footwork-drill" | "countdown" | "calling" | "executing" | "rest" | "cooldown" | "cooldown-exercise" | "complete";
+
+interface TrainingDay {
+  day: number;
+  type: "workout" | "active-recovery" | "rest";
+  workoutId?: string;
+  focus?: string;
+  description: string;
+}
+
+const TRAINING_SCHEDULES: Record<string, TrainingDay[]> = {
+  beginner: Array.from({ length: 30 }, (_, i) => {
+    const day = i + 1;
+    const week = Math.ceil(day / 7);
+    const dayOfWeek = ((day - 1) % 7) + 1;
+    
+    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
+    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: "Stretching & light cardio", description: "Active recovery" };
+    
+    const focuses = ["Fundamentals", "Punch combos", "Kick technique", "Defense basics", "Full combinations"];
+    const focusIndex = (day - 1) % focuses.length;
+    
+    return {
+      day,
+      type: "workout",
+      workoutId: "beginner-1",
+      focus: focuses[focusIndex],
+      description: `Week ${week} - ${focuses[focusIndex]}`,
+    };
+  }),
+  intermediate: Array.from({ length: 30 }, (_, i) => {
+    const day = i + 1;
+    const week = Math.ceil(day / 7);
+    const dayOfWeek = ((day - 1) % 7) + 1;
+    
+    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
+    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: "Mobility & shadow boxing", description: "Active recovery" };
+    
+    const focuses = ["Power punches", "Kick combinations", "Knee & clinch", "Counter attacks", "Flow drills", "Conditioning"];
+    const focusIndex = (day - 1) % focuses.length;
+    
+    return {
+      day,
+      type: "workout",
+      workoutId: "intermediate-1",
+      focus: focuses[focusIndex],
+      description: `Week ${week} - ${focuses[focusIndex]}`,
+    };
+  }),
+  advanced: Array.from({ length: 30 }, (_, i) => {
+    const day = i + 1;
+    const week = Math.ceil(day / 7);
+    const dayOfWeek = ((day - 1) % 7) + 1;
+    
+    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
+    if (dayOfWeek === 3 || dayOfWeek === 6) return { day, type: "active-recovery", focus: "Technical drilling", description: "Active recovery" };
+    
+    const focuses = ["All 8 limbs", "Speed & timing", "Power rounds", "Clinch work", "Sparring prep"];
+    const focusIndex = (day - 1) % focuses.length;
+    
+    return {
+      day,
+      type: "workout",
+      workoutId: "advanced-1",
+      focus: focuses[focusIndex],
+      description: `Week ${week} - ${focuses[focusIndex]}`,
+    };
+  }),
+};
 
 export default function MuayThaiWorkoutScreen() {
   const { theme } = useTheme();
@@ -1073,6 +1374,8 @@ export default function MuayThaiWorkoutScreen() {
   const [currentRepetition, setCurrentRepetition] = useState(0);
   const [currentCooldownIndex, setCurrentCooldownIndex] = useState(0);
   const [cooldownTimeLeft, setCooldownTimeLeft] = useState(0);
+  const [currentFootworkIndex, setCurrentFootworkIndex] = useState(0);
+  const [footworkTimeLeft, setFootworkTimeLeft] = useState(0);
   
   const scale = useSharedValue(1);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1080,12 +1383,14 @@ export default function MuayThaiWorkoutScreen() {
   const restIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const warmupIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const cooldownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const footworkIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isActiveRef = useRef(false);
   
   const currentCombo = selectedWorkout?.combinations[currentComboIndex];
   const currentMove = currentMoveIndex >= 0 && currentCombo ? currentCombo.moves[currentMoveIndex] : null;
   const currentWarmup = WARMUP_EXERCISES[currentWarmupIndex];
   const currentCooldown = COOLDOWN_EXERCISES[currentCooldownIndex];
+  const currentFootwork = FOOTWORK_DRILLS[currentFootworkIndex];
   
   const clearAllTimers = () => {
     if (timerRef.current) {
@@ -1107,6 +1412,10 @@ export default function MuayThaiWorkoutScreen() {
     if (cooldownIntervalRef.current) {
       clearInterval(cooldownIntervalRef.current);
       cooldownIntervalRef.current = null;
+    }
+    if (footworkIntervalRef.current) {
+      clearInterval(footworkIntervalRef.current);
+      footworkIntervalRef.current = null;
     }
   };
   
@@ -1181,13 +1490,7 @@ export default function MuayThaiWorkoutScreen() {
     if (!isActiveRef.current) return;
     
     if (index >= WARMUP_EXERCISES.length) {
-      const text = useThai ? "อบอุ่นเสร็จแล้ว เริ่มฝึกซ้อม" : "Warmup complete. Starting combinations.";
-      speakText(text, 0.85);
-      timerRef.current = setTimeout(() => {
-        if (isActiveRef.current) {
-          startMainWorkout(workout);
-        }
-      }, 3000);
+      startFootwork(workout);
       return;
     }
     
@@ -1215,6 +1518,68 @@ export default function MuayThaiWorkoutScreen() {
       if (timeLeft <= 0) {
         if (warmupIntervalRef.current) clearInterval(warmupIntervalRef.current);
         startWarmupExercise(index + 1, workout);
+      }
+    }, 1000);
+  };
+  
+  const startFootwork = (workout: Workout) => {
+    if (!isActiveRef.current) return;
+    
+    setPhase("footwork");
+    setCurrentFootworkIndex(0);
+    const text = useThai ? "ฝึกก้าวเท้า เคลื่อนไหวให้คล่อง" : "Footwork drills. Stay light on your feet.";
+    speakText(text, 0.85);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    
+    timerRef.current = setTimeout(() => {
+      if (isActiveRef.current) {
+        startFootworkDrill(0, workout);
+      }
+    }, 3000);
+  };
+  
+  const startFootworkDrill = (index: number, workout: Workout) => {
+    if (!isActiveRef.current) return;
+    
+    const drillsForLevel = selectedWorkout?.level === "beginner" ? 4 : 
+                           selectedWorkout?.level === "intermediate" ? 6 : 8;
+    
+    if (index >= drillsForLevel) {
+      const text = useThai ? "ฝึกก้าวเท้าเสร็จแล้ว เริ่มคอมโบ" : "Footwork complete. Starting combinations.";
+      speakText(text, 0.85);
+      timerRef.current = setTimeout(() => {
+        if (isActiveRef.current) {
+          startMainWorkout(workout);
+        }
+      }, 3000);
+      return;
+    }
+    
+    const drill = FOOTWORK_DRILLS[index];
+    setCurrentFootworkIndex(index);
+    setFootworkTimeLeft(drill.duration);
+    setPhase("footwork-drill");
+    
+    const drillText = useThai ? `${drill.thai}` : `${drill.name}`;
+    speakText(drillText, 0.9);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    
+    let timeLeft = drill.duration;
+    footworkIntervalRef.current = setInterval(() => {
+      if (!isActiveRef.current) {
+        if (footworkIntervalRef.current) clearInterval(footworkIntervalRef.current);
+        return;
+      }
+      timeLeft--;
+      setFootworkTimeLeft(timeLeft);
+      
+      if (timeLeft === 5) {
+        speakText(useThai ? "ห้าวินาที" : "5 seconds");
+      }
+      
+      if (timeLeft <= 0) {
+        if (footworkIntervalRef.current) clearInterval(footworkIntervalRef.current);
+        startFootworkDrill(index + 1, workout);
       }
     }, 1000);
   };
@@ -1328,6 +1693,7 @@ export default function MuayThaiWorkoutScreen() {
     setCurrentRepetition(0);
     setCurrentWarmupIndex(0);
     setCurrentCooldownIndex(0);
+    setCurrentFootworkIndex(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
   
@@ -1458,6 +1824,59 @@ export default function MuayThaiWorkoutScreen() {
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
                   {useThai ? currentWarmup.romanization : currentWarmup.description}
+                </ThemedText>
+              </>
+            )}
+          </View>
+        ) : (phase === "footwork" || phase === "footwork-drill") ? (
+          <View style={styles.centerContent}>
+            {phase === "footwork" ? (
+              <>
+                <View style={[styles.warmupIcon, { backgroundColor: "#2196F3" + "20" }]}>
+                  <Feather name="move" size={64} color="#2196F3" />
+                </View>
+                <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
+                  {useThai ? "ฝึกก้าวเท้า" : "Footwork Drills"}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? "เคลื่อนไหวให้คล่อง" : "Stay light and mobile"}
+                </ThemedText>
+              </>
+            ) : (
+              <>
+                <View style={styles.warmupProgress}>
+                  <ThemedText type="small" style={{ color: theme.textSecondary }}>
+                    Drill {currentFootworkIndex + 1} / {selectedWorkout?.level === "beginner" ? 4 : selectedWorkout?.level === "intermediate" ? 6 : 8}
+                  </ThemedText>
+                  <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary, marginTop: Spacing.sm }]}>
+                    <View
+                      style={[
+                        styles.progressFill,
+                        {
+                          backgroundColor: "#2196F3",
+                          width: `${((currentFootworkIndex + 1) / (selectedWorkout?.level === "beginner" ? 4 : selectedWorkout?.level === "intermediate" ? 6 : 8)) * 100}%`,
+                        },
+                      ]}
+                    />
+                  </View>
+                </View>
+                
+                <View style={styles.animationContainer}>
+                  <FootworkAnimation 
+                    drillName={currentFootwork.name} 
+                    color="#2196F3" 
+                  />
+                </View>
+                
+                <ThemedText type="h1" style={[styles.countdownText, { color: "#2196F3", fontSize: 72 }]}>
+                  {formatTime(footworkTimeLeft)}
+                </ThemedText>
+                
+                <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
+                  {useThai ? currentFootwork.thai : currentFootwork.name}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? currentFootwork.romanization : currentFootwork.description}
                 </ThemedText>
               </>
             )}
