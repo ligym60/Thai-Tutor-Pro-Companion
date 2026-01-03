@@ -429,3 +429,168 @@ export const getThingsToAvoidBySeverity = (severity: ThingToAvoid["severity"]) =
 export const getMuayThaiTipsByType = (type: MuayThaiTip["type"]) => {
   return muayThaiTips.filter((tip) => tip.type === type);
 };
+
+export interface TravelEssential {
+  id: string;
+  title: string;
+  titleThai: string;
+  description: string;
+  category: "documents" | "health" | "insurance" | "money" | "safety";
+  icon: string;
+  priority: "essential" | "recommended" | "helpful";
+}
+
+export const travelEssentials: TravelEssential[] = [
+  {
+    id: "travel-1",
+    title: "International Driving Permit",
+    titleThai: "ใบขับขี่สากล",
+    description: "If you plan to drive a car or motorbike, get an International Driving Permit (IDP) from your home country before traveling. Thai police conduct regular checkpoints and can fine or arrest drivers without proper documentation. Your home license alone is not valid.",
+    category: "documents",
+    icon: "file-text",
+    priority: "essential",
+  },
+  {
+    id: "travel-2",
+    title: "Travel Insurance",
+    titleThai: "ประกันการเดินทาง",
+    description: "Purchase comprehensive travel insurance before departure. Ensure it covers medical emergencies, evacuation, trip cancellation, and lost luggage. Many hospitals require proof of insurance or upfront payment before treatment.",
+    category: "insurance",
+    icon: "shield",
+    priority: "essential",
+  },
+  {
+    id: "travel-3",
+    title: "Medical Emergency Coverage",
+    titleThai: "ความคุ้มครองฉุกเฉินทางการแพทย์",
+    description: "Verify your insurance covers at least $100,000 USD for medical emergencies and evacuation. Thailand has excellent private hospitals but costs add up quickly. Keep your policy number and emergency hotline accessible at all times.",
+    category: "insurance",
+    icon: "heart",
+    priority: "essential",
+  },
+  {
+    id: "travel-4",
+    title: "Motorbike Accident Coverage",
+    titleThai: "ความคุ้มครองอุบัติเหตุมอเตอร์ไซค์",
+    description: "Many travel insurance policies exclude motorbike accidents unless you have a valid license and wear a helmet. Read your policy carefully - motorbike injuries are common for tourists. Consider specialized coverage if riding.",
+    category: "insurance",
+    icon: "alert-triangle",
+    priority: "essential",
+  },
+  {
+    id: "travel-5",
+    title: "Passport Validity",
+    titleThai: "อายุหนังสือเดินทาง",
+    description: "Your passport must be valid for at least 6 months from your entry date. Make photocopies and store them separately from your passport. Consider registering with your embassy for emergencies.",
+    category: "documents",
+    icon: "book",
+    priority: "essential",
+  },
+  {
+    id: "travel-6",
+    title: "Vaccinations",
+    titleThai: "วัคซีน",
+    description: "Consult a travel clinic 4-6 weeks before departure. Recommended vaccines include Hepatitis A & B, Typhoid, and Tetanus. Japanese Encephalitis may be advised for rural areas. Bring your vaccination record.",
+    category: "health",
+    icon: "activity",
+    priority: "recommended",
+  },
+  {
+    id: "travel-7",
+    title: "Prescription Medications",
+    titleThai: "ยาตามใบสั่งแพทย์",
+    description: "Bring enough medication for your entire trip plus extra in case of delays. Keep medicines in original containers with your name on the label. Carry a doctor's letter for controlled substances - some are illegal in Thailand.",
+    category: "health",
+    icon: "package",
+    priority: "essential",
+  },
+  {
+    id: "travel-8",
+    title: "First Aid Kit",
+    titleThai: "ชุดปฐมพยาบาล",
+    description: "Pack basics: bandages, antiseptic, pain relievers, anti-diarrhea medicine, antihistamines, and insect repellent with DEET. Pharmacies are common in cities but having essentials saves time when you need them.",
+    category: "health",
+    icon: "plus-square",
+    priority: "recommended",
+  },
+  {
+    id: "travel-9",
+    title: "Credit Cards and Cash",
+    titleThai: "บัตรเครดิตและเงินสด",
+    description: "Notify your bank of travel plans to avoid card blocks. Bring at least two cards from different banks. ATMs are widespread but charge 220 baht per withdrawal. Carry some Thai baht cash for markets and small shops.",
+    category: "money",
+    icon: "credit-card",
+    priority: "essential",
+  },
+  {
+    id: "travel-10",
+    title: "Emergency Contacts",
+    titleThai: "เบอร์ติดต่อฉุกเฉิน",
+    description: "Save these numbers: Tourist Police (1155), Emergency (191), Ambulance (1669), and your embassy. Keep a physical card with emergency contacts, insurance info, blood type, and allergies in your wallet.",
+    category: "safety",
+    icon: "phone",
+    priority: "essential",
+  },
+  {
+    id: "travel-11",
+    title: "Digital Copies of Documents",
+    titleThai: "สำเนาเอกสารดิจิทัล",
+    description: "Email yourself copies of your passport, visa, insurance policy, flight confirmations, and hotel bookings. Store them in cloud storage too. If documents are lost or stolen, digital copies speed up replacements.",
+    category: "documents",
+    icon: "upload-cloud",
+    priority: "recommended",
+  },
+  {
+    id: "travel-12",
+    title: "Visa Requirements",
+    titleThai: "ข้อกำหนดวีซ่า",
+    description: "Many nationalities get 30-60 days visa-free entry. Check requirements for your passport. Overstaying is taken seriously with fines and potential bans. If staying longer, apply for appropriate visa before arrival.",
+    category: "documents",
+    icon: "file",
+    priority: "essential",
+  },
+  {
+    id: "travel-13",
+    title: "Hospital Research",
+    titleThai: "ค้นหาโรงพยาบาล",
+    description: "Identify quality hospitals near your destinations before arrival. Bangkok Hospital, Bumrungrad, and Samitivej are international-standard. In tourist areas, private hospitals often have English-speaking staff.",
+    category: "health",
+    icon: "map-pin",
+    priority: "helpful",
+  },
+  {
+    id: "travel-14",
+    title: "Dengue and Malaria Prevention",
+    titleThai: "ป้องกันไข้เลือดออกและมาลาเรีย",
+    description: "Use mosquito repellent, especially at dawn and dusk. Dengue is present in urban areas - no vaccine is widely available. Malaria risk exists in border areas; consult a doctor about antimalarials if visiting rural regions.",
+    category: "health",
+    icon: "alert-circle",
+    priority: "recommended",
+  },
+  {
+    id: "travel-15",
+    title: "Adventure Activities Insurance",
+    titleThai: "ประกันกิจกรรมผจญภัย",
+    description: "Standard policies may exclude scuba diving, rock climbing, or Muay Thai training. If planning adventure activities, verify your policy covers them or purchase additional coverage. Injuries abroad are extremely expensive.",
+    category: "insurance",
+    icon: "zap",
+    priority: "recommended",
+  },
+  {
+    id: "travel-16",
+    title: "Sun and Heat Protection",
+    titleThai: "ป้องกันแดดและความร้อน",
+    description: "Thailand's tropical sun is intense. Bring high SPF sunscreen (expensive locally), a hat, and sunglasses. Stay hydrated and recognize heat exhaustion symptoms: dizziness, nausea, headache. Seek air conditioning when overheated.",
+    category: "health",
+    icon: "sun",
+    priority: "recommended",
+  },
+];
+
+export const getTravelEssentialsByCategory = (category: TravelEssential["category"]) => {
+  return travelEssentials.filter((item) => item.category === category);
+};
+
+export const getTravelEssentialsByPriority = (priority: TravelEssential["priority"]) => {
+  return travelEssentials.filter((item) => item.priority === priority);
+};
