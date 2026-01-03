@@ -15,7 +15,7 @@ import Animated, {
   Easing,
   cancelAnimation,
 } from "react-native-reanimated";
-import Svg, { Circle, Line, Path, G } from "react-native-svg";
+import Svg, { Circle, Line, Path, G, Defs, LinearGradient, Stop, Ellipse, Rect, RadialGradient } from "react-native-svg";
 
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
@@ -85,6 +85,7 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
   const rotation = useSharedValue(0);
   const bounce = useSharedValue(0);
   const swing = useSharedValue(0);
+  const pulse = useSharedValue(1);
   
   useEffect(() => {
     rotation.value = withRepeat(
@@ -94,16 +95,24 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
     );
     bounce.value = withRepeat(
       withSequence(
-        withTiming(-20, { duration: 400, easing: Easing.out(Easing.quad) }),
-        withTiming(0, { duration: 400, easing: Easing.in(Easing.quad) })
+        withTiming(-15, { duration: 350, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 350, easing: Easing.in(Easing.quad) })
       ),
       -1,
       true
     );
     swing.value = withRepeat(
       withSequence(
-        withTiming(30, { duration: 500, easing: Easing.inOut(Easing.quad) }),
-        withTiming(-30, { duration: 500, easing: Easing.inOut(Easing.quad) })
+        withTiming(25, { duration: 450, easing: Easing.inOut(Easing.quad) }),
+        withTiming(-25, { duration: 450, easing: Easing.inOut(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    pulse.value = withRepeat(
+      withSequence(
+        withTiming(1.05, { duration: 600, easing: Easing.inOut(Easing.quad) }),
+        withTiming(0.95, { duration: 600, easing: Easing.inOut(Easing.quad) })
       ),
       -1,
       true
@@ -113,6 +122,7 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
       cancelAnimation(rotation);
       cancelAnimation(bounce);
       cancelAnimation(swing);
+      cancelAnimation(pulse);
     };
   }, []);
   
@@ -128,14 +138,89 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
     transform: [{ rotate: `${swing.value}deg` }],
   }));
   
-  const renderStickFigure = (armAngle: number = 45, legSpread: number = 20) => (
-    <Svg width={120} height={120} viewBox="0 0 120 120">
-      <Circle cx="60" cy="20" r="12" stroke={color} strokeWidth="3" fill="none" />
-      <Line x1="60" y1="32" x2="60" y2="70" stroke={color} strokeWidth="3" />
-      <Line x1="60" y1="45" x2={60 - armAngle} y2="60" stroke={color} strokeWidth="3" />
-      <Line x1="60" y1="45" x2={60 + armAngle} y2="60" stroke={color} strokeWidth="3" />
-      <Line x1="60" y1="70" x2={60 - legSpread} y2="100" stroke={color} strokeWidth="3" />
-      <Line x1="60" y1="70" x2={60 + legSpread} y2="100" stroke={color} strokeWidth="3" />
+  const pulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulse.value }],
+  }));
+  
+  const darkerColor = color + "CC";
+  const lighterColor = color + "88";
+  const shadowColor = "#00000040";
+  
+  const render3DFigure = (pose: "standing" | "jumping" | "punching" | "kicking" | "kneeUp") => (
+    <Svg width={130} height={130} viewBox="0 0 130 130">
+      <Defs>
+        <LinearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <Stop offset="0%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </LinearGradient>
+        <RadialGradient id="headGrad" cx="40%" cy="35%" r="60%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="100%" stopColor={color} stopOpacity="1" />
+        </RadialGradient>
+        <LinearGradient id="limbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <Stop offset="0%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </LinearGradient>
+      </Defs>
+      <Ellipse cx="65" cy="125" rx="25" ry="5" fill={shadowColor} />
+      <Ellipse cx="65" cy="22" rx="14" ry="16" fill="url(#headGrad)" />
+      <Circle cx="58" cy="18" r="2" fill="#FFFFFF" opacity="0.4" />
+      <Ellipse cx="65" cy="50" rx="16" ry="22" fill="url(#bodyGrad)" />
+      <Ellipse cx="65" cy="45" rx="8" ry="4" fill={lighterColor} opacity="0.3" />
+      {pose === "jumping" ? (
+        <>
+          <Path d="M52 42 Q35 30 25 18" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M78 42 Q95 30 105 18" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M55 68 Q40 85 30 110" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Path d="M75 68 Q90 85 100 110" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+        </>
+      ) : pose === "punching" ? (
+        <>
+          <Path d="M78 45 Q100 42 120 40" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Ellipse cx="125" cy="40" rx="8" ry="10" fill={color} />
+          <Path d="M52 48 Q40 55 35 60" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M55 70 Q50 90 42 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Path d="M75 70 Q80 90 88 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+        </>
+      ) : pose === "kicking" ? (
+        <>
+          <Path d="M52 45 Q35 50 25 55" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M78 45 Q85 55 80 60" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M55 70 Q50 90 45 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Path d="M75 68 Q100 55 120 50" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Ellipse cx="125" cy="48" rx="12" ry="8" fill={color} />
+        </>
+      ) : pose === "kneeUp" ? (
+        <>
+          <Path d="M52 45 Q40 50 35 55" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M78 45 Q90 50 95 55" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M55 70 Q50 90 45 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Path d="M75 68 Q85 65 80 50" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Circle cx="80" cy="48" r="10" fill={color} />
+        </>
+      ) : (
+        <>
+          <Path d="M52 45 Q35 55 30 65" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M78 45 Q95 55 100 65" stroke="url(#limbGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M55 70 Q50 90 48 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          <Path d="M75 70 Q80 90 82 115" stroke="url(#limbGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+        </>
+      )}
+    </Svg>
+  );
+  
+  const render3DCircle = () => (
+    <Svg width={130} height={130} viewBox="0 0 130 130">
+      <Defs>
+        <RadialGradient id="sphereGrad" cx="35%" cy="30%" r="65%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="60%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </RadialGradient>
+      </Defs>
+      <Circle cx="65" cy="65" r="45" stroke={darkerColor} strokeWidth="4" fill="none" strokeDasharray="15 8" />
+      <Circle cx="65" cy="20" r="12" fill="url(#sphereGrad)" />
+      <Circle cx="60" cy="16" r="3" fill="#FFFFFF" opacity="0.5" />
     </Svg>
   );
   
@@ -143,150 +228,138 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
     case "Jumping Jacks":
       return (
         <Animated.View style={bounceStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="20" r="12" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="32" x2="60" y2="70" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="42" x2="25" y2="25" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="42" x2="95" y2="25" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="70" x2="35" y2="105" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="70" x2="85" y2="105" stroke={color} strokeWidth="3" />
-          </Svg>
+          {render3DFigure("jumping")}
         </Animated.View>
       );
     case "Arm Circles":
       return (
         <Animated.View style={rotationStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="60" r="40" stroke={color} strokeWidth="3" fill="none" strokeDasharray="10 5" />
-            <Circle cx="60" cy="20" r="8" fill={color} />
-          </Svg>
+          {render3DCircle()}
         </Animated.View>
       );
     case "Hip Rotations":
       return (
         <Animated.View style={swingStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="35" x2="60" y2="60" stroke={color} strokeWidth="3" />
-            <Circle cx="60" cy="70" r="15" stroke={color} strokeWidth="3" fill="none" strokeDasharray="8 4" />
-            <Line x1="60" y1="85" x2="45" y2="110" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="85" x2="75" y2="110" stroke={color} strokeWidth="3" />
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="hipBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="hipHeadGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="125" rx="20" ry="4" fill={shadowColor} />
+            <Ellipse cx="65" cy="20" rx="12" ry="14" fill="url(#hipHeadGrad)" />
+            <Ellipse cx="65" cy="45" rx="14" ry="18" fill="url(#hipBodyGrad)" />
+            <Ellipse cx="65" cy="70" rx="18" ry="12" fill={color} stroke={darkerColor} strokeWidth="2" strokeDasharray="6 4" />
+            <Path d="M52 80 Q45 100 40 120" stroke="url(#hipBodyGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
+            <Path d="M78 80 Q85 100 90 120" stroke="url(#hipBodyGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
           </Svg>
         </Animated.View>
       );
     case "High Knees":
       return (
         <Animated.View style={bounceStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="15" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="25" x2="60" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="35" x2="40" y2="50" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="35" x2="80" y2="50" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="55" x2="60" y2="75" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="75" x2="50" y2="60" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="55" x2="75" y2="100" stroke={color} strokeWidth="3" />
-          </Svg>
+          {render3DFigure("kneeUp")}
         </Animated.View>
       );
     case "Leg Swings":
       return (
         <Animated.View style={swingStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="20" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="30" x2="60" y2="60" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="40" x2="40" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="40" x2="80" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="60" x2="60" y2="100" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="60" x2="30" y2="90" stroke={color} strokeWidth="3" />
-          </Svg>
+          {render3DFigure("kicking")}
         </Animated.View>
       );
     case "Shadow Boxing":
       return (
         <Animated.View style={bounceStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="50" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="50" y1="35" x2="50" y2="70" stroke={color} strokeWidth="3" />
-            <Line x1="50" y1="45" x2="90" y2="40" stroke={color} strokeWidth="3" />
-            <Circle cx="95" cy="40" r="8" fill={color} />
-            <Line x1="50" y1="50" x2="30" y2="60" stroke={color} strokeWidth="3" />
-            <Line x1="50" y1="70" x2="35" y2="100" stroke={color} strokeWidth="3" />
-            <Line x1="50" y1="70" x2="65" y2="100" stroke={color} strokeWidth="3" />
-          </Svg>
+          {render3DFigure("punching")}
         </Animated.View>
       );
     case "Neck Rotations":
       return (
-        <Animated.View style={rotationStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="60" r="25" stroke={color} strokeWidth="3" fill="none" />
-            <Circle cx="60" cy="35" r="15" stroke={color} strokeWidth="3" fill="none" />
-            <Circle cx="60" cy="30" r="5" fill={color} />
+        <Animated.View style={[rotationStyle, pulseStyle]}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="neckGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Circle cx="65" cy="65" r="30" stroke={darkerColor} strokeWidth="3" fill="none" />
+            <Ellipse cx="65" cy="65" rx="18" ry="22" fill="url(#neckGrad)" />
+            <Circle cx="58" cy="58" r="4" fill="#FFFFFF" opacity="0.4" />
+            <Circle cx="65" cy="30" r="6" fill={color} />
           </Svg>
         </Animated.View>
       );
     case "Torso Twists":
       return (
         <Animated.View style={swingStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="20" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="30" x2="60" y2="65" stroke={color} strokeWidth="3" />
-            <Line x1="30" y1="50" x2="90" y2="50" stroke={color} strokeWidth="3" />
-            <Circle cx="30" cy="50" r="5" fill={color} />
-            <Circle cx="90" cy="50" r="5" fill={color} />
-            <Line x1="60" y1="65" x2="45" y2="100" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="65" x2="75" y2="100" stroke={color} strokeWidth="3" />
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="twistGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="twistHeadGrad" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="125" rx="22" ry="4" fill={shadowColor} />
+            <Ellipse cx="65" cy="18" rx="12" ry="14" fill="url(#twistHeadGrad)" />
+            <Ellipse cx="65" cy="48" rx="16" ry="22" fill="url(#twistGrad)" />
+            <Path d="M20 50 L110 50" stroke="url(#twistGrad)" strokeWidth="10" strokeLinecap="round" />
+            <Ellipse cx="15" cy="50" rx="10" ry="12" fill={color} />
+            <Ellipse cx="115" cy="50" rx="10" ry="12" fill={color} />
+            <Circle cx="12" cy="46" r="3" fill="#FFFFFF" opacity="0.4" />
+            <Circle cx="112" cy="46" r="3" fill="#FFFFFF" opacity="0.4" />
+            <Path d="M55 70 Q48 95 42 120" stroke="url(#twistGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 70 Q82 95 88 120" stroke="url(#twistGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
           </Svg>
         </Animated.View>
       );
     case "Ankle Circles":
       return (
         <Animated.View style={rotationStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="60" r="30" stroke={color} strokeWidth="3" fill="none" strokeDasharray="8 4" />
-            <Path d="M60 85 L55 110 L65 110 Z" fill={color} />
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="ankleGrad" cx="35%" cy="30%" r="65%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Circle cx="65" cy="65" r="35" stroke={darkerColor} strokeWidth="4" fill="none" strokeDasharray="10 6" />
+            <Ellipse cx="65" cy="28" rx="14" ry="10" fill="url(#ankleGrad)" />
+            <Circle cx="60" cy="25" r="3" fill="#FFFFFF" opacity="0.4" />
           </Svg>
         </Animated.View>
       );
     case "Light Bouncing":
       return (
         <Animated.View style={bounceStyle}>
-          {renderStickFigure(30, 15)}
+          {render3DFigure("standing")}
         </Animated.View>
       );
     case "Slow Teeps":
       return (
         <Animated.View style={swingStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="40" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="40" y1="35" x2="40" y2="65" stroke={color} strokeWidth="3" />
-            <Line x1="40" y1="45" x2="25" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="40" y1="45" x2="55" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="40" y1="65" x2="30" y2="100" stroke={color} strokeWidth="3" />
-            <Line x1="40" y1="65" x2="90" y2="60" stroke={color} strokeWidth="3" />
-            <Path d="M85 55 L100 60 L85 65 Z" fill={color} />
-          </Svg>
+          {render3DFigure("kicking")}
         </Animated.View>
       );
     case "Knee Raises":
       return (
         <Animated.View style={bounceStyle}>
-          <Svg width={120} height={120} viewBox="0 0 120 120">
-            <Circle cx="60" cy="15" r="10" stroke={color} strokeWidth="3" fill="none" />
-            <Line x1="60" y1="25" x2="60" y2="55" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="35" x2="40" y2="50" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="35" x2="80" y2="50" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="55" x2="60" y2="75" stroke={color} strokeWidth="3" />
-            <Line x1="60" y1="75" x2="60" y2="55" stroke={color} strokeWidth="3" />
-            <Circle cx="55" cy="55" r="8" stroke={color} strokeWidth="2" fill="none" />
-            <Line x1="60" y1="55" x2="75" y2="100" stroke={color} strokeWidth="3" />
-          </Svg>
+          {render3DFigure("kneeUp")}
         </Animated.View>
       );
     default:
       return (
-        <Animated.View style={bounceStyle}>
-          {renderStickFigure()}
+        <Animated.View style={[bounceStyle, pulseStyle]}>
+          {render3DFigure("standing")}
         </Animated.View>
       );
   }
@@ -300,6 +373,11 @@ interface MoveAnimationProps {
 function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   const strike = useSharedValue(0);
   const kick = useSharedValue(0);
+  const pulse = useSharedValue(1);
+  
+  const darkerColor = color + "CC";
+  const lighterColor = color + "88";
+  const shadowColor = "#00000040";
   
   useEffect(() => {
     strike.value = withRepeat(
@@ -312,8 +390,16 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
     );
     kick.value = withRepeat(
       withSequence(
-        withTiming(45, { duration: 300, easing: Easing.out(Easing.quad) }),
-        withTiming(0, { duration: 500, easing: Easing.in(Easing.quad) })
+        withTiming(40, { duration: 280, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 450, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      false
+    );
+    pulse.value = withRepeat(
+      withSequence(
+        withTiming(1.08, { duration: 250, easing: Easing.out(Easing.quad) }),
+        withTiming(1, { duration: 350, easing: Easing.in(Easing.quad) })
       ),
       -1,
       false
@@ -322,30 +408,80 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
     return () => {
       cancelAnimation(strike);
       cancelAnimation(kick);
+      cancelAnimation(pulse);
     };
   }, []);
   
   const strikeStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: strike.value * 30 }],
+    transform: [{ translateX: strike.value * 25 }, { scale: 1 + strike.value * 0.05 }],
   }));
   
   const kickStyle = useAnimatedStyle(() => ({
     transform: [{ rotate: `${kick.value}deg` }],
   }));
   
-  const renderFist = (x: number, y: number) => (
+  const pulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulse.value }],
+  }));
+  
+  const render3DFist = (x: number, y: number) => (
     <G>
-      <Circle cx={x} cy={y} r="12" fill={color} />
-      <Circle cx={x} cy={y} r="12" stroke={color} strokeWidth="2" fill="none" />
+      <Defs>
+        <RadialGradient id="fistGrad" cx="35%" cy="30%" r="65%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="60%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </RadialGradient>
+      </Defs>
+      <Ellipse cx={x} cy={y + 2} rx="14" ry="12" fill={shadowColor} />
+      <Ellipse cx={x} cy={y} rx="14" ry="16" fill="url(#fistGrad)" />
+      <Circle cx={x - 4} cy={y - 4} r="3" fill="#FFFFFF" opacity="0.4" />
+    </G>
+  );
+  
+  const render3DFoot = (x: number, y: number, rotation: number = 0) => (
+    <G>
+      <Defs>
+        <RadialGradient id="footGrad" cx="35%" cy="30%" r="65%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="60%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </RadialGradient>
+      </Defs>
+      <Ellipse cx={x} cy={y} rx="16" ry="10" fill="url(#footGrad)" transform={`rotate(${rotation} ${x} ${y})`} />
+      <Circle cx={x - 5} cy={y - 3} r="2" fill="#FFFFFF" opacity="0.4" />
+    </G>
+  );
+  
+  const render3DKnee = (x: number, y: number) => (
+    <G>
+      <Defs>
+        <RadialGradient id="kneeGrad" cx="40%" cy="35%" r="60%">
+          <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+          <Stop offset="60%" stopColor={color} stopOpacity="1" />
+          <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+        </RadialGradient>
+      </Defs>
+      <Ellipse cx={x} cy={y + 3} rx="16" ry="14" fill={shadowColor} />
+      <Ellipse cx={x} cy={y} rx="16" ry="18" fill="url(#kneeGrad)" />
+      <Circle cx={x - 4} cy={y - 5} r="4" fill="#FFFFFF" opacity="0.35" />
     </G>
   );
   
   if (moveName.includes("Jab") || moveName === "Jab") {
     return (
-      <Animated.View style={strikeStyle}>
-        <Svg width={140} height={100} viewBox="0 0 140 100">
-          <Line x1="20" y1="50" x2="100" y2="50" stroke={color} strokeWidth="6" strokeLinecap="round" />
-          {renderFist(110, 50)}
+      <Animated.View style={[strikeStyle, pulseStyle]}>
+        <Svg width={150} height={100} viewBox="0 0 150 100">
+          <Defs>
+            <LinearGradient id="armGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="50%" stopColor={color} stopOpacity="1" />
+              <Stop offset="100%" stopColor={lighterColor} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="70" cy="55" rx="50" ry="6" fill={shadowColor} />
+          <Path d="M15 50 Q60 48 105 50" stroke="url(#armGrad)" strokeWidth="14" strokeLinecap="round" fill="none" />
+          {render3DFist(120, 50)}
         </Svg>
       </Animated.View>
     );
@@ -353,10 +489,18 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   
   if (moveName.includes("Cross") || moveName === "Cross") {
     return (
-      <Animated.View style={strikeStyle}>
-        <Svg width={140} height={100} viewBox="0 0 140 100">
-          <Line x1="10" y1="60" x2="100" y2="45" stroke={color} strokeWidth="6" strokeLinecap="round" />
-          {renderFist(112, 42)}
+      <Animated.View style={[strikeStyle, pulseStyle]}>
+        <Svg width={150} height={100} viewBox="0 0 150 100">
+          <Defs>
+            <LinearGradient id="crossArmGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="50%" stopColor={color} stopOpacity="1" />
+              <Stop offset="100%" stopColor={lighterColor} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="70" cy="58" rx="55" ry="5" fill={shadowColor} />
+          <Path d="M5 65 Q55 55 105 45" stroke="url(#crossArmGrad)" strokeWidth="14" strokeLinecap="round" fill="none" />
+          {render3DFist(118, 42)}
         </Svg>
       </Animated.View>
     );
@@ -365,16 +509,23 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   if (moveName.includes("Hook")) {
     const isLeft = moveName.includes("Left");
     return (
-      <Animated.View style={strikeStyle}>
-        <Svg width={140} height={100} viewBox="0 0 140 100">
+      <Animated.View style={[strikeStyle, pulseStyle]}>
+        <Svg width={150} height={100} viewBox="0 0 150 100">
+          <Defs>
+            <LinearGradient id="hookGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="75" cy="60" rx="45" ry="5" fill={shadowColor} />
           <Path 
-            d={isLeft ? "M30 70 Q60 70 70 50 Q80 30 100 35" : "M110 70 Q80 70 70 50 Q60 30 40 35"} 
-            stroke={color} 
-            strokeWidth="6" 
+            d={isLeft ? "M25 75 Q55 75 70 55 Q85 35 110 38" : "M125 75 Q95 75 80 55 Q65 35 40 38"} 
+            stroke="url(#hookGrad)" 
+            strokeWidth="12" 
             fill="none" 
             strokeLinecap="round"
           />
-          {renderFist(isLeft ? 105 : 35, 35)}
+          {render3DFist(isLeft ? 118 : 32, 38)}
         </Svg>
       </Animated.View>
     );
@@ -382,10 +533,17 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   
   if (moveName.includes("Uppercut")) {
     return (
-      <Animated.View style={[strikeStyle, { transform: [{ rotate: "-45deg" }] }]}>
+      <Animated.View style={[strikeStyle, pulseStyle, { transform: [{ rotate: "-40deg" }] }]}>
         <Svg width={120} height={120} viewBox="0 0 120 120">
-          <Line x1="60" y1="100" x2="60" y2="40" stroke={color} strokeWidth="6" strokeLinecap="round" />
-          {renderFist(60, 30)}
+          <Defs>
+            <LinearGradient id="upperGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="60" cy="65" rx="8" ry="35" fill={shadowColor} />
+          <Path d="M60 105 Q58 75 60 45" stroke="url(#upperGrad)" strokeWidth="14" strokeLinecap="round" fill="none" />
+          {render3DFist(60, 32)}
         </Svg>
       </Animated.View>
     );
@@ -395,12 +553,23 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
     const isLeft = moveName.includes("Left");
     return (
       <Animated.View style={kickStyle}>
-        <Svg width={140} height={120} viewBox="0 0 140 120">
-          <Line x1={isLeft ? 20 : 120} y1="80" x2={isLeft ? 110 : 30} y2="50" stroke={color} strokeWidth="8" strokeLinecap="round" />
+        <Svg width={160} height={120} viewBox="0 0 160 120">
+          <Defs>
+            <LinearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="50%" stopColor={color} stopOpacity="1" />
+              <Stop offset="100%" stopColor={lighterColor} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="80" cy="75" rx="60" ry="8" fill={shadowColor} />
           <Path 
-            d={isLeft ? "M105 45 L125 40 L120 55 Z" : "M35 45 L15 40 L20 55 Z"} 
-            fill={color} 
+            d={isLeft ? "M15 85 Q60 70 115 55" : "M145 85 Q100 70 45 55"} 
+            stroke="url(#legGrad)" 
+            strokeWidth="18" 
+            strokeLinecap="round" 
+            fill="none" 
           />
+          {render3DFoot(isLeft ? 130 : 30, 52, isLeft ? -15 : 15)}
         </Svg>
       </Animated.View>
     );
@@ -409,9 +578,16 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   if (moveName.includes("Knee")) {
     return (
       <Animated.View style={kickStyle}>
-        <Svg width={120} height={120} viewBox="0 0 120 120">
-          <Line x1="60" y1="100" x2="60" y2="60" stroke={color} strokeWidth="8" strokeLinecap="round" />
-          <Circle cx="60" cy="50" r="15" fill={color} />
+        <Svg width={120} height={130} viewBox="0 0 120 130">
+          <Defs>
+            <LinearGradient id="kneeLegGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="60" cy="75" rx="10" ry="40" fill={shadowColor} />
+          <Path d="M60 115 Q55 85 60 60" stroke="url(#kneeLegGrad)" strokeWidth="18" strokeLinecap="round" fill="none" />
+          {render3DKnee(60, 48)}
         </Svg>
       </Animated.View>
     );
@@ -420,19 +596,31 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   if (moveName.includes("Elbow")) {
     const isLeft = moveName.includes("Left");
     return (
-      <Animated.View style={strikeStyle}>
-        <Svg width={120} height={100} viewBox="0 0 120 100">
+      <Animated.View style={[strikeStyle, pulseStyle]}>
+        <Svg width={130} height={100} viewBox="0 0 130 100">
+          <Defs>
+            <LinearGradient id="elbowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </LinearGradient>
+            <RadialGradient id="elbowTipGrad" cx="40%" cy="35%" r="60%">
+              <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </RadialGradient>
+          </Defs>
+          <Ellipse cx="65" cy="55" rx="40" ry="6" fill={shadowColor} />
           <Path 
-            d={isLeft ? "M20 60 L50 60 L80 40" : "M100 60 L70 60 L40 40"} 
-            stroke={color} 
-            strokeWidth="6" 
+            d={isLeft ? "M15 65 L50 65 L90 40" : "M115 65 L80 65 L40 40"} 
+            stroke="url(#elbowGrad)" 
+            strokeWidth="12" 
             fill="none" 
             strokeLinecap="round"
           />
           <Path 
-            d={isLeft ? "M75 35 L90 30 L85 50 Z" : "M45 35 L30 30 L35 50 Z"} 
-            fill={color} 
+            d={isLeft ? "M82 32 L105 25 L98 52 Z" : "M48 32 L25 25 L32 52 Z"} 
+            fill="url(#elbowTipGrad)" 
           />
+          <Circle cx={isLeft ? 92 : 38} cy={35} r="3" fill="#FFFFFF" opacity="0.4" />
         </Svg>
       </Animated.View>
     );
@@ -441,9 +629,17 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   if (moveName.includes("Teep")) {
     return (
       <Animated.View style={kickStyle}>
-        <Svg width={140} height={100} viewBox="0 0 140 100">
-          <Line x1="20" y1="70" x2="100" y2="50" stroke={color} strokeWidth="8" strokeLinecap="round" />
-          <Path d="M95 40 L120 45 L100 60 Z" fill={color} />
+        <Svg width={160} height={100} viewBox="0 0 160 100">
+          <Defs>
+            <LinearGradient id="teepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor={darkerColor} stopOpacity="1" />
+              <Stop offset="50%" stopColor={color} stopOpacity="1" />
+              <Stop offset="100%" stopColor={lighterColor} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="75" cy="68" rx="55" ry="6" fill={shadowColor} />
+          <Path d="M15 75 Q60 60 115 50" stroke="url(#teepGrad)" strokeWidth="18" strokeLinecap="round" fill="none" />
+          {render3DFoot(130, 48, -10)}
         </Svg>
       </Animated.View>
     );
@@ -451,21 +647,34 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
   
   if (moveName.includes("Slip") || moveName.includes("Block")) {
     return (
-      <Animated.View style={strikeStyle}>
-        <Svg width={120} height={100} viewBox="0 0 120 100">
-          <Circle cx="60" cy="40" r="20" stroke={color} strokeWidth="3" fill="none" />
-          <Line x1="40" y1="60" x2="30" y2="80" stroke={color} strokeWidth="4" />
-          <Line x1="80" y1="60" x2="90" y2="80" stroke={color} strokeWidth="4" />
-          <Path d="M50 25 L40 15 M70 25 L80 15" stroke={color} strokeWidth="3" />
+      <Animated.View style={[strikeStyle, pulseStyle]}>
+        <Svg width={130} height={110} viewBox="0 0 130 110">
+          <Defs>
+            <RadialGradient id="blockHeadGrad" cx="40%" cy="35%" r="60%">
+              <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+              <Stop offset="100%" stopColor={color} stopOpacity="1" />
+            </RadialGradient>
+            <LinearGradient id="blockArmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <Stop offset="0%" stopColor={color} stopOpacity="1" />
+              <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Ellipse cx="65" cy="105" rx="22" ry="4" fill={shadowColor} />
+          <Ellipse cx="65" cy="45" rx="22" ry="26" fill="url(#blockHeadGrad)" />
+          <Circle cx="58" cy="38" r="4" fill="#FFFFFF" opacity="0.35" />
+          <Path d="M45 60 Q35 45 40 25" stroke="url(#blockArmGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          <Path d="M85 60 Q95 45 90 25" stroke="url(#blockArmGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+          {render3DFist(40, 20)}
+          {render3DFist(90, 20)}
         </Svg>
       </Animated.View>
     );
   }
   
   return (
-    <Animated.View style={strikeStyle}>
+    <Animated.View style={[strikeStyle, pulseStyle]}>
       <Svg width={100} height={100} viewBox="0 0 100 100">
-        {renderFist(50, 50)}
+        {render3DFist(50, 50)}
       </Svg>
     </Animated.View>
   );
