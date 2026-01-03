@@ -356,6 +356,273 @@ function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
           {render3DFigure("kneeUp")}
         </Animated.View>
       );
+    case "Standing Side Stretch":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="sideStretchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="sideStretchHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="125" rx="20" ry="4" fill={shadowColor} />
+            <Ellipse cx="65" cy="22" rx="12" ry="14" fill="url(#sideStretchHead)" />
+            <Ellipse cx="65" cy="50" rx="14" ry="20" fill="url(#sideStretchGrad)" />
+            <Path d="M52 40 Q30 25 20 15" stroke="url(#sideStretchGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 40 Q95 25 110 15" stroke="url(#sideStretchGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 70 Q50 95 48 120" stroke="url(#sideStretchGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 70 Q80 95 82 120" stroke="url(#sideStretchGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Quad Stretch":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="quadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="quadHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="55" cy="125" rx="18" ry="4" fill={shadowColor} />
+            <Ellipse cx="55" cy="22" rx="12" ry="14" fill="url(#quadHead)" />
+            <Ellipse cx="55" cy="50" rx="14" ry="20" fill="url(#quadGrad)" />
+            <Path d="M42 45 Q30 50 25 55" stroke="url(#quadGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M68 45 Q85 40 95 50" stroke="url(#quadGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M45 70 Q40 95 38 120" stroke="url(#quadGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M65 70 Q80 75 85 55 Q90 40 100 45" stroke="url(#quadGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Hamstring Stretch":
+    case "Forward Fold":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="hamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="hamHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="120" rx="22" ry="4" fill={shadowColor} />
+            <Ellipse cx="65" cy="75" rx="14" ry="18" fill="url(#hamGrad)" />
+            <Ellipse cx="65" cy="100" rx="12" ry="14" fill="url(#hamHead)" />
+            <Path d="M52 65 Q40 80 35 95" stroke="url(#hamGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 65 Q90 80 95 95" stroke="url(#hamGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 60 Q50 40 45 25" stroke="url(#hamGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 60 Q80 40 85 25" stroke="url(#hamGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Calf Stretch":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="calfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="calfHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="55" cy="125" rx="25" ry="4" fill={shadowColor} />
+            <Ellipse cx="45" cy="28" rx="12" ry="14" fill="url(#calfHead)" />
+            <Ellipse cx="45" cy="55" rx="14" ry="18" fill="url(#calfGrad)" />
+            <Path d="M32 48 Q20 55 15 60" stroke="url(#calfGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M58 48 Q70 55 75 60" stroke="url(#calfGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M35 72 Q30 95 28 120" stroke="url(#calfGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M55 72 Q75 85 95 120" stroke="url(#calfGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Deep Breathing":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <RadialGradient id="breathGrad" cx="50%" cy="50%" r="50%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="0.8" />
+                <Stop offset="70%" stopColor={color} stopOpacity="0.6" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="0.3" />
+              </RadialGradient>
+              <RadialGradient id="breathHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Circle cx="65" cy="65" r="50" fill="url(#breathGrad)" />
+            <Circle cx="65" cy="65" r="35" fill="url(#breathGrad)" />
+            <Circle cx="65" cy="65" r="20" fill="url(#breathHead)" />
+            <Circle cx="60" cy="60" r="4" fill="#FFFFFF" opacity="0.4" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Hip Flexor Stretch":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="hipFlexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="hipFlexHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="120" rx="30" ry="4" fill={shadowColor} />
+            <Ellipse cx="50" cy="35" rx="12" ry="14" fill="url(#hipFlexHead)" />
+            <Ellipse cx="50" cy="60" rx="14" ry="18" fill="url(#hipFlexGrad)" />
+            <Path d="M37 55 Q25 60 20 65" stroke="url(#hipFlexGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M63 55 Q75 60 80 65" stroke="url(#hipFlexGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M40 78 Q35 100 30 118" stroke="url(#hipFlexGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M60 78 Q85 90 105 118" stroke="url(#hipFlexGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Shoulder Stretch":
+    case "Tricep Stretch":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="shoulderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="shoulderHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="125" rx="20" ry="4" fill={shadowColor} />
+            <Ellipse cx="65" cy="22" rx="12" ry="14" fill="url(#shoulderHead)" />
+            <Ellipse cx="65" cy="50" rx="14" ry="20" fill="url(#shoulderGrad)" />
+            <Path d="M52 42 Q35 45 25 50 Q40 55 55 50" stroke="url(#shoulderGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 45 Q95 50 100 55" stroke="url(#shoulderGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 70 Q50 95 48 120" stroke="url(#shoulderGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 70 Q80 95 82 120" stroke="url(#shoulderGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Neck Stretch":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="neckStretchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="neckStretchHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="125" rx="20" ry="4" fill={shadowColor} />
+            <Ellipse cx="50" cy="25" rx="14" ry="16" fill="url(#neckStretchHead)" />
+            <Circle cx="45" cy="20" r="3" fill="#FFFFFF" opacity="0.4" />
+            <Ellipse cx="65" cy="55" rx="14" ry="20" fill="url(#neckStretchGrad)" />
+            <Path d="M52 50 Q40 55 35 60" stroke="url(#neckStretchGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 50 Q90 55 95 60" stroke="url(#neckStretchGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 75 Q50 95 48 120" stroke="url(#neckStretchGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 75 Q80 95 82 120" stroke="url(#neckStretchGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Seated Twist":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="seatedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="seatedHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="115" rx="30" ry="5" fill={shadowColor} />
+            <Ellipse cx="65" cy="35" rx="12" ry="14" fill="url(#seatedHead)" />
+            <Ellipse cx="65" cy="60" rx="14" ry="18" fill="url(#seatedGrad)" />
+            <Path d="M52 55 Q30 50 20 55" stroke="url(#seatedGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 55 Q100 50 110 55" stroke="url(#seatedGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 78 Q45 90 30 100" stroke="url(#seatedGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 78 Q85 90 100 100" stroke="url(#seatedGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Butterfly Stretch":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="butterflyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="butterflyHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="110" rx="35" ry="5" fill={shadowColor} />
+            <Ellipse cx="65" cy="30" rx="12" ry="14" fill="url(#butterflyHead)" />
+            <Ellipse cx="65" cy="55" rx="14" ry="16" fill="url(#butterflyGrad)" />
+            <Path d="M52 50 Q40 55 35 60" stroke="url(#butterflyGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M78 50 Q90 55 95 60" stroke="url(#butterflyGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M55 70 Q30 85 20 100" stroke="url(#butterflyGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M75 70 Q100 85 110 100" stroke="url(#butterflyGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Ellipse cx="65" cy="95" rx="20" ry="10" fill={color} opacity="0.6" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Child's Pose":
+      return (
+        <Animated.View style={pulseStyle}>
+          <Svg width={130} height={130} viewBox="0 0 130 130">
+            <Defs>
+              <LinearGradient id="childGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <Stop offset="0%" stopColor={color} stopOpacity="1" />
+                <Stop offset="100%" stopColor={darkerColor} stopOpacity="1" />
+              </LinearGradient>
+              <RadialGradient id="childHead" cx="40%" cy="35%" r="60%">
+                <Stop offset="0%" stopColor={lighterColor} stopOpacity="1" />
+                <Stop offset="100%" stopColor={color} stopOpacity="1" />
+              </RadialGradient>
+            </Defs>
+            <Ellipse cx="65" cy="90" rx="40" ry="6" fill={shadowColor} />
+            <Ellipse cx="65" cy="75" rx="30" ry="15" fill="url(#childGrad)" />
+            <Ellipse cx="65" cy="55" rx="14" ry="16" fill="url(#childHead)" />
+            <Circle cx="60" cy="50" r="3" fill="#FFFFFF" opacity="0.4" />
+            <Path d="M35 70 Q15 65 5 60" stroke="url(#childGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M95 70 Q115 65 125 60" stroke="url(#childGrad)" strokeWidth="10" strokeLinecap="round" fill="none" />
+            <Path d="M50 88 Q45 100 40 110" stroke="url(#childGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+            <Path d="M80 88 Q85 100 90 110" stroke="url(#childGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
+          </Svg>
+        </Animated.View>
+      );
     default:
       return (
         <Animated.View style={[bounceStyle, pulseStyle]}>
@@ -683,16 +950,35 @@ function MoveAnimation({ moveName, color }: MoveAnimationProps) {
 const WARMUP_EXERCISES: WarmupExercise[] = [
   { name: "Jumping Jacks", thai: "กระโดดตบ", romanization: "Kra-dot Top", duration: 60, description: "Full body warm up" },
   { name: "Arm Circles", thai: "หมุนแขน", romanization: "Mun Khaen", duration: 45, description: "Shoulder mobility" },
+  { name: "Standing Side Stretch", thai: "ยืดข้าง", romanization: "Yuet Khang", duration: 40, description: "Side body stretch" },
   { name: "Hip Rotations", thai: "หมุนสะโพก", romanization: "Mun Sa-phok", duration: 45, description: "Hip flexibility" },
+  { name: "Quad Stretch", thai: "ยืดต้นขา", romanization: "Yuet Ton Khaa", duration: 40, description: "Front thigh stretch" },
   { name: "High Knees", thai: "ยกเข่าสูง", romanization: "Yok Khao Soong", duration: 60, description: "Cardio warm up" },
   { name: "Leg Swings", thai: "แกว่งขา", romanization: "Kwaeng Khaa", duration: 45, description: "Dynamic stretching" },
+  { name: "Hamstring Stretch", thai: "ยืดขาหลัง", romanization: "Yuet Khaa Lang", duration: 40, description: "Back of leg stretch" },
   { name: "Shadow Boxing", thai: "ชกลม", romanization: "Chok Lom", duration: 90, description: "Light punching practice" },
   { name: "Neck Rotations", thai: "หมุนคอ", romanization: "Mun Kho", duration: 30, description: "Neck mobility" },
   { name: "Torso Twists", thai: "บิดลำตัว", romanization: "Bit Lam Tua", duration: 45, description: "Core activation" },
+  { name: "Calf Stretch", thai: "ยืดน่อง", romanization: "Yuet Nong", duration: 40, description: "Lower leg stretch" },
   { name: "Ankle Circles", thai: "หมุนข้อเท้า", romanization: "Mun Kho Thao", duration: 30, description: "Ankle mobility" },
   { name: "Light Bouncing", thai: "เด้งเบาๆ", romanization: "Deng Bao Bao", duration: 60, description: "Ready stance practice" },
   { name: "Slow Teeps", thai: "ถีบช้าๆ", romanization: "Teep Cha Cha", duration: 60, description: "Kick technique warm up" },
   { name: "Knee Raises", thai: "ยกเข่า", romanization: "Yok Khao", duration: 60, description: "Balance and core" },
+];
+
+const COOLDOWN_EXERCISES: WarmupExercise[] = [
+  { name: "Deep Breathing", thai: "หายใจลึก", romanization: "Hai Jai Luek", duration: 45, description: "Slow your heart rate" },
+  { name: "Standing Side Stretch", thai: "ยืดข้าง", romanization: "Yuet Khang", duration: 45, description: "Side body stretch" },
+  { name: "Forward Fold", thai: "ก้มตัว", romanization: "Kom Tua", duration: 50, description: "Hamstring and back stretch" },
+  { name: "Quad Stretch", thai: "ยืดต้นขา", romanization: "Yuet Ton Khaa", duration: 45, description: "Front thigh stretch" },
+  { name: "Hip Flexor Stretch", thai: "ยืดสะโพก", romanization: "Yuet Sa-phok", duration: 50, description: "Hip opening stretch" },
+  { name: "Calf Stretch", thai: "ยืดน่อง", romanization: "Yuet Nong", duration: 40, description: "Lower leg stretch" },
+  { name: "Shoulder Stretch", thai: "ยืดไหล่", romanization: "Yuet Lai", duration: 40, description: "Shoulder release" },
+  { name: "Tricep Stretch", thai: "ยืดแขน", romanization: "Yuet Khaen", duration: 40, description: "Upper arm stretch" },
+  { name: "Neck Stretch", thai: "ยืดคอ", romanization: "Yuet Kho", duration: 40, description: "Neck release" },
+  { name: "Seated Twist", thai: "บิดตัวนั่ง", romanization: "Bit Tua Nang", duration: 50, description: "Spine rotation" },
+  { name: "Butterfly Stretch", thai: "ผีเสื้อ", romanization: "Phii Suea", duration: 50, description: "Inner thigh stretch" },
+  { name: "Child's Pose", thai: "ท่าเด็ก", romanization: "Thaa Dek", duration: 60, description: "Full body relaxation" },
 ];
 
 const WORKOUTS: Workout[] = [
@@ -768,7 +1054,7 @@ const LEVEL_COLORS = {
   advanced: "#E53935",
 };
 
-type WorkoutPhase = "idle" | "warmup" | "warmup-exercise" | "countdown" | "calling" | "executing" | "rest" | "complete";
+type WorkoutPhase = "idle" | "warmup" | "warmup-exercise" | "countdown" | "calling" | "executing" | "rest" | "cooldown" | "cooldown-exercise" | "complete";
 
 export default function MuayThaiWorkoutScreen() {
   const { theme } = useTheme();
@@ -785,17 +1071,21 @@ export default function MuayThaiWorkoutScreen() {
   const [currentWarmupIndex, setCurrentWarmupIndex] = useState(0);
   const [warmupTimeLeft, setWarmupTimeLeft] = useState(0);
   const [currentRepetition, setCurrentRepetition] = useState(0);
+  const [currentCooldownIndex, setCurrentCooldownIndex] = useState(0);
+  const [cooldownTimeLeft, setCooldownTimeLeft] = useState(0);
   
   const scale = useSharedValue(1);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const countdownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const restIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const warmupIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const cooldownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isActiveRef = useRef(false);
   
   const currentCombo = selectedWorkout?.combinations[currentComboIndex];
   const currentMove = currentMoveIndex >= 0 && currentCombo ? currentCombo.moves[currentMoveIndex] : null;
   const currentWarmup = WARMUP_EXERCISES[currentWarmupIndex];
+  const currentCooldown = COOLDOWN_EXERCISES[currentCooldownIndex];
   
   const clearAllTimers = () => {
     if (timerRef.current) {
@@ -813,6 +1103,10 @@ export default function MuayThaiWorkoutScreen() {
     if (warmupIntervalRef.current) {
       clearInterval(warmupIntervalRef.current);
       warmupIntervalRef.current = null;
+    }
+    if (cooldownIntervalRef.current) {
+      clearInterval(cooldownIntervalRef.current);
+      cooldownIntervalRef.current = null;
     }
   };
   
@@ -1003,9 +1297,7 @@ export default function MuayThaiWorkoutScreen() {
           }
         }, 1000);
       } else {
-        setPhase("complete");
-        speakText(useThai ? "ฝึกซ้อมเสร็จแล้ว ทำได้ดีมาก" : "Workout complete. Great job!");
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        startCooldown();
       }
       return;
     }
@@ -1035,7 +1327,63 @@ export default function MuayThaiWorkoutScreen() {
     setCurrentMoveIndex(-1);
     setCurrentRepetition(0);
     setCurrentWarmupIndex(0);
+    setCurrentCooldownIndex(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  };
+  
+  const startCooldown = () => {
+    if (!isActiveRef.current) return;
+    
+    setPhase("cooldown");
+    setCurrentCooldownIndex(0);
+    const text = useThai ? "เริ่มคูลดาวน์ ยืดกล้ามเนื้อ" : "Starting cooldown. Let's stretch and recover.";
+    speakText(text, 0.85);
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    
+    timerRef.current = setTimeout(() => {
+      if (isActiveRef.current) {
+        startCooldownExercise(0);
+      }
+    }, 3500);
+  };
+  
+  const startCooldownExercise = (index: number) => {
+    if (!isActiveRef.current) return;
+    
+    if (index >= COOLDOWN_EXERCISES.length) {
+      setPhase("complete");
+      const text = useThai ? "ฝึกซ้อมเสร็จแล้ว ทำได้ดีมาก" : "Workout complete. Great job!";
+      speakText(text, 0.85);
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      return;
+    }
+    
+    const exercise = COOLDOWN_EXERCISES[index];
+    setCurrentCooldownIndex(index);
+    setCooldownTimeLeft(exercise.duration);
+    setPhase("cooldown-exercise");
+    
+    speakExercise(exercise);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    
+    let timeLeft = exercise.duration;
+    cooldownIntervalRef.current = setInterval(() => {
+      if (!isActiveRef.current) {
+        if (cooldownIntervalRef.current) clearInterval(cooldownIntervalRef.current);
+        return;
+      }
+      timeLeft--;
+      setCooldownTimeLeft(timeLeft);
+      
+      if (timeLeft === 10 && timeLeft > 0) {
+        speakText(useThai ? "สิบวินาที" : "10 seconds");
+      }
+      
+      if (timeLeft <= 0) {
+        if (cooldownIntervalRef.current) clearInterval(cooldownIntervalRef.current);
+        startCooldownExercise(index + 1);
+      }
+    }, 1000);
   };
   
   const animatedMoveStyle = useAnimatedStyle(() => ({
@@ -1069,10 +1417,10 @@ export default function MuayThaiWorkoutScreen() {
                   <Feather name="sun" size={64} color="#FF9800" />
                 </View>
                 <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
-                  Warmup Starting
+                  {useThai ? "เริ่มอบอุ่นร่างกาย" : "Warmup Starting"}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  10 minutes to prepare your body
+                  {useThai ? "ยืดกล้ามเนื้อและเตรียมร่างกาย" : "Stretching and preparing your body"}
                 </ThemedText>
               </>
             ) : (
@@ -1110,6 +1458,59 @@ export default function MuayThaiWorkoutScreen() {
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
                   {useThai ? currentWarmup.romanization : currentWarmup.description}
+                </ThemedText>
+              </>
+            )}
+          </View>
+        ) : (phase === "cooldown" || phase === "cooldown-exercise") ? (
+          <View style={styles.centerContent}>
+            {phase === "cooldown" ? (
+              <>
+                <View style={[styles.warmupIcon, { backgroundColor: "#9C27B0" + "20" }]}>
+                  <Feather name="moon" size={64} color="#9C27B0" />
+                </View>
+                <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
+                  {useThai ? "คูลดาวน์" : "Cool Down"}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? "ยืดกล้ามเนื้อและผ่อนคลาย" : "Stretching and recovery time"}
+                </ThemedText>
+              </>
+            ) : (
+              <>
+                <View style={styles.warmupProgress}>
+                  <ThemedText type="small" style={{ color: theme.textSecondary }}>
+                    Stretch {currentCooldownIndex + 1} / {COOLDOWN_EXERCISES.length}
+                  </ThemedText>
+                  <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary, marginTop: Spacing.sm }]}>
+                    <View
+                      style={[
+                        styles.progressFill,
+                        {
+                          backgroundColor: "#9C27B0",
+                          width: `${((currentCooldownIndex + 1) / COOLDOWN_EXERCISES.length) * 100}%`,
+                        },
+                      ]}
+                    />
+                  </View>
+                </View>
+                
+                <View style={styles.animationContainer}>
+                  <ExerciseAnimation 
+                    exerciseName={currentCooldown.name} 
+                    color="#9C27B0" 
+                  />
+                </View>
+                
+                <ThemedText type="h1" style={[styles.countdownText, { color: "#9C27B0", fontSize: 72 }]}>
+                  {formatTime(cooldownTimeLeft)}
+                </ThemedText>
+                
+                <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
+                  {useThai ? currentCooldown.thai : currentCooldown.name}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? currentCooldown.romanization : currentCooldown.description}
                 </ThemedText>
               </>
             )}
