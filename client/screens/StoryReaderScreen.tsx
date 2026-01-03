@@ -331,6 +331,20 @@ export default function StoryReaderScreen() {
             </ThemedText>
           </View>
         </View>
+
+        <Pressable
+          onPress={() => {
+            Speech.stop();
+            setIsPlaying(false);
+            navigation.navigate("StoryQuiz", { storyId: story.id });
+          }}
+          style={[styles.quizButton, { backgroundColor: Colors.light.primary }]}
+        >
+          <Feather name="help-circle" size={20} color="#FFFFFF" />
+          <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600", marginLeft: Spacing.sm }}>
+            Take Quiz
+          </ThemedText>
+        </Pressable>
       </ScrollView>
 
       <View
@@ -537,6 +551,14 @@ const styles = StyleSheet.create({
   legendItem: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  quizButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: Spacing.lg,
+    borderRadius: BorderRadius.xl,
+    marginTop: Spacing.lg,
   },
   legendDot: {
     width: 12,
