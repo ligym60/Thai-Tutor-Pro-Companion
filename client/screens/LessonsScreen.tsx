@@ -9,10 +9,12 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { ThemedText } from "@/components/ThemedText";
 import { LessonCard } from "@/components/LessonCard";
 import { CategoryChip } from "@/components/CategoryChip";
+import { DifficultyChip } from "@/components/DifficultyChip";
 import { useTheme } from "@/hooks/useTheme";
 import { useGameState } from "@/hooks/useGameState";
 import { Spacing } from "@/constants/theme";
-import { LESSONS, CATEGORIES, Category } from "@/lib/lessonData";
+import { Colors } from "@/constants/theme";
+import { LESSONS, CATEGORIES, DIFFICULTIES, Category, Difficulty } from "@/lib/lessonData";
 import { RootStackParamList } from "@/navigation/RootStackNavigator";
 
 export default function LessonsScreen() {
@@ -23,6 +25,7 @@ export default function LessonsScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { lessonProgress, reload } = useGameState();
   const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
+  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | "all">("all");
 
   useFocusEffect(
     useCallback(() => {
@@ -30,10 +33,11 @@ export default function LessonsScreen() {
     }, [reload])
   );
 
-  const filteredLessons =
-    selectedCategory === "all"
-      ? LESSONS
-      : LESSONS.filter((lesson) => lesson.category === selectedCategory);
+  const filteredLessons = LESSONS.filter((lesson) => {
+    const categoryMatch = selectedCategory === "all" || lesson.category === selectedCategory;
+    const difficultyMatch = selectedDifficulty === "all" || lesson.difficulty === selectedDifficulty;
+    return categoryMatch && difficultyMatch;
+  });
 
   const handleLessonPress = (lessonId: string) => {
     navigation.navigate("LessonDetail", { lessonId });
@@ -49,6 +53,9 @@ export default function LessonsScreen() {
       }}
       scrollIndicatorInsets={{ bottom: insets.bottom }}
     >
+      <ThemedText type="small" style={[styles.filterLabel, { color: theme.textSecondary }]}>
+        Category
+      </ThemedText>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -68,6 +75,32 @@ export default function LessonsScreen() {
             icon={cat.icon}
             isSelected={selectedCategory === cat.id}
             onPress={() => setSelectedCategory(cat.id)}
+          />
+        ))}
+      </ScrollView>
+
+      <ThemedText type="small" style={[styles.filterLabel, { color: theme.textSecondary }]}>
+        Level
+      </ThemedText>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.difficultyContainer}
+        contentContainerStyle={styles.categoriesContent}
+      >
+        <DifficultyChip
+          label="All Levels"
+          color={Colors.light.primary}
+          isSelected={selectedDifficulty === "all"}
+          onPress={() => setSelectedDifficulty("all")}
+        />
+        {DIFFICULTIES.map((diff) => (
+          <DifficultyChip
+            key={diff.id}
+            label={diff.label}
+            color={diff.color}
+            isSelected={selectedDifficulty === diff.id}
+            onPress={() => setSelectedDifficulty(diff.id)}
           />
         ))}
       </ScrollView>
@@ -102,12 +135,20 @@ export default function LessonsScreen() {
 }
 
 const styles = StyleSheet.create({
+  filterLabel: {
+    marginBottom: Spacing.xs,
+    marginLeft: Spacing.xs,
+  },
   categoriesContainer: {
-    marginBottom: Spacing.lg,
+    marginBottom: Spacing.md,
     marginHorizontal: -Spacing.lg,
   },
   categoriesContent: {
     paddingHorizontal: Spacing.lg,
+  },
+  difficultyContainer: {
+    marginBottom: Spacing.lg,
+    marginHorizontal: -Spacing.lg,
   },
   lessonsContainer: {
     marginTop: Spacing.sm,
