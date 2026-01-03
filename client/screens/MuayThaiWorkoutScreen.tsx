@@ -10,7 +10,12 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
   withSequence,
+  withRepeat,
+  withTiming,
+  Easing,
+  cancelAnimation,
 } from "react-native-reanimated";
+import Svg, { Circle, Line, Path, G } from "react-native-svg";
 
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
@@ -68,6 +73,403 @@ const MOVES: Record<string, Move> = {
   block: { name: "Block", thai: "บล็อก", romanization: "Block" },
   slip: { name: "Slip", thai: "หลบ", romanization: "Lop" },
 };
+
+const AnimatedSvg = Animated.createAnimatedComponent(Svg);
+
+interface ExerciseAnimationProps {
+  exerciseName: string;
+  color: string;
+}
+
+function ExerciseAnimation({ exerciseName, color }: ExerciseAnimationProps) {
+  const rotation = useSharedValue(0);
+  const bounce = useSharedValue(0);
+  const swing = useSharedValue(0);
+  
+  useEffect(() => {
+    rotation.value = withRepeat(
+      withTiming(360, { duration: 2000, easing: Easing.linear }),
+      -1,
+      false
+    );
+    bounce.value = withRepeat(
+      withSequence(
+        withTiming(-20, { duration: 400, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 400, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    swing.value = withRepeat(
+      withSequence(
+        withTiming(30, { duration: 500, easing: Easing.inOut(Easing.quad) }),
+        withTiming(-30, { duration: 500, easing: Easing.inOut(Easing.quad) })
+      ),
+      -1,
+      true
+    );
+    
+    return () => {
+      cancelAnimation(rotation);
+      cancelAnimation(bounce);
+      cancelAnimation(swing);
+    };
+  }, []);
+  
+  const rotationStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${rotation.value}deg` }],
+  }));
+  
+  const bounceStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: bounce.value }],
+  }));
+  
+  const swingStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${swing.value}deg` }],
+  }));
+  
+  const renderStickFigure = (armAngle: number = 45, legSpread: number = 20) => (
+    <Svg width={120} height={120} viewBox="0 0 120 120">
+      <Circle cx="60" cy="20" r="12" stroke={color} strokeWidth="3" fill="none" />
+      <Line x1="60" y1="32" x2="60" y2="70" stroke={color} strokeWidth="3" />
+      <Line x1="60" y1="45" x2={60 - armAngle} y2="60" stroke={color} strokeWidth="3" />
+      <Line x1="60" y1="45" x2={60 + armAngle} y2="60" stroke={color} strokeWidth="3" />
+      <Line x1="60" y1="70" x2={60 - legSpread} y2="100" stroke={color} strokeWidth="3" />
+      <Line x1="60" y1="70" x2={60 + legSpread} y2="100" stroke={color} strokeWidth="3" />
+    </Svg>
+  );
+  
+  switch (exerciseName) {
+    case "Jumping Jacks":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="20" r="12" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="32" x2="60" y2="70" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="42" x2="25" y2="25" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="42" x2="95" y2="25" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="70" x2="35" y2="105" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="70" x2="85" y2="105" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Arm Circles":
+      return (
+        <Animated.View style={rotationStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="60" r="40" stroke={color} strokeWidth="3" fill="none" strokeDasharray="10 5" />
+            <Circle cx="60" cy="20" r="8" fill={color} />
+          </Svg>
+        </Animated.View>
+      );
+    case "Hip Rotations":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="35" x2="60" y2="60" stroke={color} strokeWidth="3" />
+            <Circle cx="60" cy="70" r="15" stroke={color} strokeWidth="3" fill="none" strokeDasharray="8 4" />
+            <Line x1="60" y1="85" x2="45" y2="110" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="85" x2="75" y2="110" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "High Knees":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="15" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="25" x2="60" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="35" x2="40" y2="50" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="35" x2="80" y2="50" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="55" x2="60" y2="75" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="75" x2="50" y2="60" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="55" x2="75" y2="100" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Leg Swings":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="20" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="30" x2="60" y2="60" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="40" x2="40" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="40" x2="80" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="60" x2="60" y2="100" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="60" x2="30" y2="90" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Shadow Boxing":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="50" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="50" y1="35" x2="50" y2="70" stroke={color} strokeWidth="3" />
+            <Line x1="50" y1="45" x2="90" y2="40" stroke={color} strokeWidth="3" />
+            <Circle cx="95" cy="40" r="8" fill={color} />
+            <Line x1="50" y1="50" x2="30" y2="60" stroke={color} strokeWidth="3" />
+            <Line x1="50" y1="70" x2="35" y2="100" stroke={color} strokeWidth="3" />
+            <Line x1="50" y1="70" x2="65" y2="100" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Neck Rotations":
+      return (
+        <Animated.View style={rotationStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="60" r="25" stroke={color} strokeWidth="3" fill="none" />
+            <Circle cx="60" cy="35" r="15" stroke={color} strokeWidth="3" fill="none" />
+            <Circle cx="60" cy="30" r="5" fill={color} />
+          </Svg>
+        </Animated.View>
+      );
+    case "Torso Twists":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="20" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="30" x2="60" y2="65" stroke={color} strokeWidth="3" />
+            <Line x1="30" y1="50" x2="90" y2="50" stroke={color} strokeWidth="3" />
+            <Circle cx="30" cy="50" r="5" fill={color} />
+            <Circle cx="90" cy="50" r="5" fill={color} />
+            <Line x1="60" y1="65" x2="45" y2="100" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="65" x2="75" y2="100" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    case "Ankle Circles":
+      return (
+        <Animated.View style={rotationStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="60" r="30" stroke={color} strokeWidth="3" fill="none" strokeDasharray="8 4" />
+            <Path d="M60 85 L55 110 L65 110 Z" fill={color} />
+          </Svg>
+        </Animated.View>
+      );
+    case "Light Bouncing":
+      return (
+        <Animated.View style={bounceStyle}>
+          {renderStickFigure(30, 15)}
+        </Animated.View>
+      );
+    case "Slow Teeps":
+      return (
+        <Animated.View style={swingStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="40" cy="25" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="40" y1="35" x2="40" y2="65" stroke={color} strokeWidth="3" />
+            <Line x1="40" y1="45" x2="25" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="40" y1="45" x2="55" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="40" y1="65" x2="30" y2="100" stroke={color} strokeWidth="3" />
+            <Line x1="40" y1="65" x2="90" y2="60" stroke={color} strokeWidth="3" />
+            <Path d="M85 55 L100 60 L85 65 Z" fill={color} />
+          </Svg>
+        </Animated.View>
+      );
+    case "Knee Raises":
+      return (
+        <Animated.View style={bounceStyle}>
+          <Svg width={120} height={120} viewBox="0 0 120 120">
+            <Circle cx="60" cy="15" r="10" stroke={color} strokeWidth="3" fill="none" />
+            <Line x1="60" y1="25" x2="60" y2="55" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="35" x2="40" y2="50" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="35" x2="80" y2="50" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="55" x2="60" y2="75" stroke={color} strokeWidth="3" />
+            <Line x1="60" y1="75" x2="60" y2="55" stroke={color} strokeWidth="3" />
+            <Circle cx="55" cy="55" r="8" stroke={color} strokeWidth="2" fill="none" />
+            <Line x1="60" y1="55" x2="75" y2="100" stroke={color} strokeWidth="3" />
+          </Svg>
+        </Animated.View>
+      );
+    default:
+      return (
+        <Animated.View style={bounceStyle}>
+          {renderStickFigure()}
+        </Animated.View>
+      );
+  }
+}
+
+interface MoveAnimationProps {
+  moveName: string;
+  color: string;
+}
+
+function MoveAnimation({ moveName, color }: MoveAnimationProps) {
+  const strike = useSharedValue(0);
+  const kick = useSharedValue(0);
+  
+  useEffect(() => {
+    strike.value = withRepeat(
+      withSequence(
+        withTiming(1, { duration: 200, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 400, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      false
+    );
+    kick.value = withRepeat(
+      withSequence(
+        withTiming(45, { duration: 300, easing: Easing.out(Easing.quad) }),
+        withTiming(0, { duration: 500, easing: Easing.in(Easing.quad) })
+      ),
+      -1,
+      false
+    );
+    
+    return () => {
+      cancelAnimation(strike);
+      cancelAnimation(kick);
+    };
+  }, []);
+  
+  const strikeStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: strike.value * 30 }],
+  }));
+  
+  const kickStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${kick.value}deg` }],
+  }));
+  
+  const renderFist = (x: number, y: number) => (
+    <G>
+      <Circle cx={x} cy={y} r="12" fill={color} />
+      <Circle cx={x} cy={y} r="12" stroke={color} strokeWidth="2" fill="none" />
+    </G>
+  );
+  
+  if (moveName.includes("Jab") || moveName === "Jab") {
+    return (
+      <Animated.View style={strikeStyle}>
+        <Svg width={140} height={100} viewBox="0 0 140 100">
+          <Line x1="20" y1="50" x2="100" y2="50" stroke={color} strokeWidth="6" strokeLinecap="round" />
+          {renderFist(110, 50)}
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Cross") || moveName === "Cross") {
+    return (
+      <Animated.View style={strikeStyle}>
+        <Svg width={140} height={100} viewBox="0 0 140 100">
+          <Line x1="10" y1="60" x2="100" y2="45" stroke={color} strokeWidth="6" strokeLinecap="round" />
+          {renderFist(112, 42)}
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Hook")) {
+    const isLeft = moveName.includes("Left");
+    return (
+      <Animated.View style={strikeStyle}>
+        <Svg width={140} height={100} viewBox="0 0 140 100">
+          <Path 
+            d={isLeft ? "M30 70 Q60 70 70 50 Q80 30 100 35" : "M110 70 Q80 70 70 50 Q60 30 40 35"} 
+            stroke={color} 
+            strokeWidth="6" 
+            fill="none" 
+            strokeLinecap="round"
+          />
+          {renderFist(isLeft ? 105 : 35, 35)}
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Uppercut")) {
+    return (
+      <Animated.View style={[strikeStyle, { transform: [{ rotate: "-45deg" }] }]}>
+        <Svg width={120} height={120} viewBox="0 0 120 120">
+          <Line x1="60" y1="100" x2="60" y2="40" stroke={color} strokeWidth="6" strokeLinecap="round" />
+          {renderFist(60, 30)}
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Kick")) {
+    const isLeft = moveName.includes("Left");
+    return (
+      <Animated.View style={kickStyle}>
+        <Svg width={140} height={120} viewBox="0 0 140 120">
+          <Line x1={isLeft ? 20 : 120} y1="80" x2={isLeft ? 110 : 30} y2="50" stroke={color} strokeWidth="8" strokeLinecap="round" />
+          <Path 
+            d={isLeft ? "M105 45 L125 40 L120 55 Z" : "M35 45 L15 40 L20 55 Z"} 
+            fill={color} 
+          />
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Knee")) {
+    return (
+      <Animated.View style={kickStyle}>
+        <Svg width={120} height={120} viewBox="0 0 120 120">
+          <Line x1="60" y1="100" x2="60" y2="60" stroke={color} strokeWidth="8" strokeLinecap="round" />
+          <Circle cx="60" cy="50" r="15" fill={color} />
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Elbow")) {
+    const isLeft = moveName.includes("Left");
+    return (
+      <Animated.View style={strikeStyle}>
+        <Svg width={120} height={100} viewBox="0 0 120 100">
+          <Path 
+            d={isLeft ? "M20 60 L50 60 L80 40" : "M100 60 L70 60 L40 40"} 
+            stroke={color} 
+            strokeWidth="6" 
+            fill="none" 
+            strokeLinecap="round"
+          />
+          <Path 
+            d={isLeft ? "M75 35 L90 30 L85 50 Z" : "M45 35 L30 30 L35 50 Z"} 
+            fill={color} 
+          />
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Teep")) {
+    return (
+      <Animated.View style={kickStyle}>
+        <Svg width={140} height={100} viewBox="0 0 140 100">
+          <Line x1="20" y1="70" x2="100" y2="50" stroke={color} strokeWidth="8" strokeLinecap="round" />
+          <Path d="M95 40 L120 45 L100 60 Z" fill={color} />
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  if (moveName.includes("Slip") || moveName.includes("Block")) {
+    return (
+      <Animated.View style={strikeStyle}>
+        <Svg width={120} height={100} viewBox="0 0 120 100">
+          <Circle cx="60" cy="40" r="20" stroke={color} strokeWidth="3" fill="none" />
+          <Line x1="40" y1="60" x2="30" y2="80" stroke={color} strokeWidth="4" />
+          <Line x1="80" y1="60" x2="90" y2="80" stroke={color} strokeWidth="4" />
+          <Path d="M50 25 L40 15 M70 25 L80 15" stroke={color} strokeWidth="3" />
+        </Svg>
+      </Animated.View>
+    );
+  }
+  
+  return (
+    <Animated.View style={strikeStyle}>
+      <Svg width={100} height={100} viewBox="0 0 100 100">
+        {renderFist(50, 50)}
+      </Svg>
+    </Animated.View>
+  );
+}
 
 const WARMUP_EXERCISES: WarmupExercise[] = [
   { name: "Jumping Jacks", thai: "กระโดดตบ", romanization: "Kra-dot Top", duration: 60, description: "Full body warm up" },
@@ -483,11 +885,18 @@ export default function MuayThaiWorkoutScreen() {
                   </View>
                 </View>
                 
-                <ThemedText type="h1" style={[styles.countdownText, { color: "#FF9800" }]}>
+                <View style={styles.animationContainer}>
+                  <ExerciseAnimation 
+                    exerciseName={currentWarmup.name} 
+                    color="#FF9800" 
+                  />
+                </View>
+                
+                <ThemedText type="h1" style={[styles.countdownText, { color: "#FF9800", fontSize: 72 }]}>
                   {formatTime(warmupTimeLeft)}
                 </ThemedText>
                 
-                <ThemedText type="h2" style={{ marginTop: Spacing.lg }}>
+                <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
                   {useThai ? currentWarmup.thai : currentWarmup.name}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
@@ -561,6 +970,15 @@ export default function MuayThaiWorkoutScreen() {
                     <ThemedText type="body" style={{ color: theme.textSecondary }}>
                       {currentCombo.name}
                     </ThemedText>
+                    
+                    {currentMove ? (
+                      <View style={styles.moveAnimationContainer}>
+                        <MoveAnimation 
+                          moveName={currentMove.name} 
+                          color={LEVEL_COLORS[selectedWorkout.level]} 
+                        />
+                      </View>
+                    ) : null}
                     
                     <Animated.View style={[styles.moveDisplay, animatedMoveStyle]}>
                       {currentMove ? (
@@ -799,7 +1217,21 @@ const styles = StyleSheet.create({
   },
   warmupProgress: {
     width: "100%",
-    marginBottom: Spacing.xl,
+    marginBottom: Spacing.md,
+  },
+  animationContainer: {
+    height: 140,
+    width: 140,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: Spacing.md,
+  },
+  moveAnimationContainer: {
+    height: 120,
+    width: 160,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: Spacing.md,
   },
   doneButton: {
     paddingHorizontal: Spacing.xl,
