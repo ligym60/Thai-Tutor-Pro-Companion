@@ -8,6 +8,7 @@ import ReviewScreen from "@/screens/ReviewScreen";
 import StoryReaderScreen from "@/screens/StoryReaderScreen";
 import StoryQuizScreen from "@/screens/StoryQuizScreen";
 import WritingPracticeScreen from "@/screens/WritingPracticeScreen";
+import MuayThaiWorkoutScreen from "@/screens/MuayThaiWorkoutScreen";
 import { useScreenOptions } from "@/hooks/useScreenOptions";
 
 export type RootStackParamList = {
@@ -19,6 +20,7 @@ export type RootStackParamList = {
   StoryReader: { storyId: string };
   StoryQuiz: { storyId: string };
   WritingPractice: undefined;
+  MuayThaiWorkout: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -87,6 +89,14 @@ export default function RootStackNavigator() {
         options={{
           presentation: "card",
           headerTitle: "Writing Practice",
+        }}
+      />
+      <Stack.Screen
+        name="MuayThaiWorkout"
+        component={MuayThaiWorkoutScreen}
+        options={{
+          presentation: "fullScreenModal",
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

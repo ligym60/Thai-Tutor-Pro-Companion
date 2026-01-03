@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Pressable } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 
@@ -8,8 +10,9 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Card } from "@/components/Card";
 import { useTheme } from "@/hooks/useTheme";
-import { Spacing, BorderRadius } from "@/constants/theme";
+import { Colors, Spacing, BorderRadius } from "@/constants/theme";
 import { muayThaiTips, MuayThaiTip } from "@/lib/tipsData";
+import { RootStackParamList } from "@/navigation/RootStackNavigator";
 
 const TYPE_COLORS = {
   do: "#4CAF50",
@@ -85,9 +88,15 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
 export default function MuayThaiScreen() {
   const { theme } = useTheme();
   const tabBarHeight = useBottomTabBarHeight();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   
   const doTips = muayThaiTips.filter(t => t.type === "do");
   const dontTips = muayThaiTips.filter(t => t.type === "dont");
+  
+  const handleWorkoutPress = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    navigation.navigate("MuayThaiWorkout");
+  };
 
   return (
     <ThemedView style={styles.container}>
@@ -99,6 +108,25 @@ export default function MuayThaiScreen() {
         ]}
         showsVerticalScrollIndicator={false}
       >
+        <Pressable
+          onPress={handleWorkoutPress}
+          style={[styles.workoutBanner, { backgroundColor: "#E53935" }]}
+        >
+          <View style={styles.workoutBannerContent}>
+            <View style={styles.workoutBannerText}>
+              <ThemedText type="h4" style={{ color: "#FFFFFF" }}>
+                Master Workout
+              </ThemedText>
+              <ThemedText type="small" style={{ color: "#FFFFFF" + "CC", marginTop: 2 }}>
+                Follow voice-guided combinations
+              </ThemedText>
+            </View>
+            <View style={styles.workoutBannerIcon}>
+              <Feather name="play-circle" size={32} color="#FFFFFF" />
+            </View>
+          </View>
+        </Pressable>
+        
         <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
           Essential tips for your first Muay Thai experience in Thailand. Respect the traditions and enjoy the art.
         </ThemedText>
@@ -132,6 +160,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg,
     paddingTop: Spacing.xl,
     gap: Spacing.sm,
+  },
+  workoutBanner: {
+    borderRadius: BorderRadius.xl,
+    padding: Spacing.lg,
+    marginBottom: Spacing.md,
+  },
+  workoutBannerContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  workoutBannerText: {
+    flex: 1,
+  },
+  workoutBannerIcon: {
+    marginLeft: Spacing.md,
   },
   sectionIntro: {
     marginBottom: Spacing.sm,
