@@ -9,9 +9,9 @@ import { ThemedView } from "@/components/ThemedView";
 import { Card } from "@/components/Card";
 import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius, Colors } from "@/constants/theme";
-import { culturalTips, thingsToAvoid, CulturalTip, ThingToAvoid } from "@/lib/tipsData";
+import { culturalTips, thingsToAvoid, muayThaiTips, CulturalTip, ThingToAvoid, MuayThaiTip } from "@/lib/tipsData";
 
-type TabType = "culture" | "avoid";
+type TabType = "culture" | "avoid" | "muaythai";
 
 const CATEGORY_COLORS = {
   etiquette: Colors.light.primary,
@@ -147,6 +147,65 @@ function AvoidCard({ item }: AvoidCardProps) {
   );
 }
 
+const MUAYTHAI_COLORS = {
+  do: "#4CAF50",
+  dont: "#E53935",
+};
+
+interface MuayThaiCardProps {
+  tip: MuayThaiTip;
+}
+
+function MuayThaiCard({ tip }: MuayThaiCardProps) {
+  const { theme } = useTheme();
+  const [expanded, setExpanded] = useState(false);
+
+  const handlePress = () => {
+    Haptics.selectionAsync();
+    setExpanded(!expanded);
+  };
+
+  const typeColor = MUAYTHAI_COLORS[tip.type];
+  const typeLabel = tip.type === "do" ? "Do" : "Don't";
+
+  return (
+    <Card elevation={2} onPress={handlePress} style={styles.muayThaiCard}>
+      <View style={styles.muayThaiHeader}>
+        <View style={[styles.iconContainer, { backgroundColor: typeColor + "20" }]}>
+          <Feather name={tip.icon as any} size={20} color={typeColor} />
+        </View>
+        <View style={styles.muayThaiTitleContainer}>
+          <ThemedText type="body" style={{ fontWeight: "600" }}>
+            {tip.title}
+          </ThemedText>
+          <ThemedText type="small" style={{ color: theme.textSecondary }}>
+            {tip.titleThai}
+          </ThemedText>
+        </View>
+        <View style={[styles.typeBadge, { backgroundColor: typeColor + "20" }]}>
+          <ThemedText type="small" style={{ color: typeColor, fontWeight: "600", fontSize: 10 }}>
+            {typeLabel}
+          </ThemedText>
+        </View>
+      </View>
+      
+      {expanded ? (
+        <ThemedText type="small" style={[styles.muayThaiDescription, { color: theme.textSecondary }]}>
+          {tip.description}
+        </ThemedText>
+      ) : null}
+      
+      <View style={styles.expandIndicator}>
+        <Feather 
+          name={expanded ? "chevron-up" : "chevron-down"} 
+          size={16} 
+          color={theme.textSecondary} 
+        />
+      </View>
+    </Card>
+  );
+}
+
 export default function TipsScreen() {
   const { theme } = useTheme();
   const tabBarHeight = useBottomTabBarHeight();
@@ -213,7 +272,31 @@ export default function TipsScreen() {
                 color: activeTab === "avoid" ? "#E53935" : theme.textSecondary,
               }}
             >
-              Things to Avoid
+              Avoid
+            </ThemedText>
+          </Pressable>
+          
+          <Pressable
+            onPress={() => handleTabChange("muaythai")}
+            style={[
+              styles.tab,
+              activeTab === "muaythai" && { backgroundColor: "#FF6B00" + "20" },
+            ]}
+          >
+            <Feather 
+              name="zap" 
+              size={18} 
+              color={activeTab === "muaythai" ? "#FF6B00" : theme.textSecondary} 
+            />
+            <ThemedText 
+              type="body" 
+              style={{ 
+                marginLeft: Spacing.xs,
+                fontWeight: activeTab === "muaythai" ? "600" : "400",
+                color: activeTab === "muaythai" ? "#FF6B00" : theme.textSecondary,
+              }}
+            >
+              Muay Thai
             </ThemedText>
           </Pressable>
         </View>
@@ -227,13 +310,28 @@ export default function TipsScreen() {
               <CulturalTipCard key={tip.id} tip={tip} />
             ))}
           </>
-        ) : (
+        ) : activeTab === "avoid" ? (
           <>
             <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
               Top 20 things to avoid while visiting Thailand. Ranked by importance.
             </ThemedText>
             {thingsToAvoid.map((item) => (
               <AvoidCard key={item.id} item={item} />
+            ))}
+          </>
+        ) : (
+          <>
+            <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
+              Essential dos and don'ts for your first Muay Thai experience in Thailand.
+            </ThemedText>
+            {muayThaiTips.filter(t => t.type === "do").map((tip) => (
+              <MuayThaiCard key={tip.id} tip={tip} />
+            ))}
+            <ThemedText type="body" style={{ fontWeight: "600", marginTop: Spacing.md }}>
+              Things to Avoid
+            </ThemedText>
+            {muayThaiTips.filter(t => t.type === "dont").map((tip) => (
+              <MuayThaiCard key={tip.id} tip={tip} />
             ))}
           </>
         )}
@@ -331,6 +429,26 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   avoidDescription: {
+    marginTop: Spacing.md,
+    lineHeight: 20,
+  },
+  muayThaiCard: {
+    padding: Spacing.md,
+  },
+  muayThaiHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  muayThaiTitleContainer: {
+    flex: 1,
+    marginLeft: Spacing.md,
+  },
+  typeBadge: {
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 4,
+    borderRadius: BorderRadius.sm,
+  },
+  muayThaiDescription: {
     marginTop: Spacing.md,
     lineHeight: 20,
   },

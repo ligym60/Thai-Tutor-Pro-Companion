@@ -16,6 +16,15 @@ export interface ThingToAvoid {
   icon: string;
 }
 
+export interface MuayThaiTip {
+  id: string;
+  title: string;
+  titleThai: string;
+  description: string;
+  type: "do" | "dont";
+  icon: string;
+}
+
 export const culturalTips: CulturalTip[] = [
   {
     id: "tip-1",
@@ -278,10 +287,145 @@ export const thingsToAvoid: ThingToAvoid[] = [
   },
 ];
 
+export const muayThaiTips: MuayThaiTip[] = [
+  {
+    id: "mt-do-1",
+    title: "Respect the Wai Kru",
+    titleThai: "ไหว้ครู",
+    description: "The Wai Kru Ram Muay is a sacred pre-fight ritual honoring teachers, parents, and the sport. Watch respectfully and never mock or imitate it disrespectfully. It's a deeply spiritual tradition.",
+    type: "do",
+    icon: "heart",
+  },
+  {
+    id: "mt-do-2",
+    title: "Bow When Entering the Ring",
+    titleThai: "ก้มหัวเข้าเวที",
+    description: "Always step over the bottom rope and bow your head when entering or exiting a Muay Thai ring. The ring is considered sacred space, and this shows respect to the art.",
+    type: "do",
+    icon: "check-circle",
+  },
+  {
+    id: "mt-do-3",
+    title: "Wear Proper Attire",
+    titleThai: "แต่งกายเหมาะสม",
+    description: "Wear traditional Muay Thai shorts and remove your shoes before training. Many gyms provide or sell appropriate gear. Avoid wearing regular shorts or pants.",
+    type: "do",
+    icon: "check-circle",
+  },
+  {
+    id: "mt-do-4",
+    title: "Show Respect to Your Kru",
+    titleThai: "เคารพครู",
+    description: "Your trainer (Kru) deserves deep respect. Listen attentively, follow instructions, and thank them after each session. A simple wai before and after class is customary.",
+    type: "do",
+    icon: "user",
+  },
+  {
+    id: "mt-do-5",
+    title: "Start with Basics",
+    titleThai: "เริ่มจากพื้นฐาน",
+    description: "Focus on proper technique before power. Thai trainers emphasize fundamentals - stance, balance, and form. Don't rush to learn advanced moves before mastering basics.",
+    type: "do",
+    icon: "target",
+  },
+  {
+    id: "mt-do-6",
+    title: "Stay Hydrated",
+    titleThai: "ดื่มน้ำให้เพียงพอ",
+    description: "Thailand's heat and humidity combined with intense training can lead to dehydration quickly. Drink plenty of water before, during, and after training sessions.",
+    type: "do",
+    icon: "droplet",
+  },
+  {
+    id: "mt-do-7",
+    title: "Visit Authentic Gyms",
+    titleThai: "ไปค่ายมวยแท้",
+    description: "Train at reputable gyms with experienced trainers. Research reviews and ask locals for recommendations. Authentic camps offer the real Muay Thai experience.",
+    type: "do",
+    icon: "home",
+  },
+  {
+    id: "mt-do-8",
+    title: "Watch Live Fights",
+    titleThai: "ดูมวยสด",
+    description: "Experience a live Muay Thai match at stadiums like Lumpinee or Rajadamnern in Bangkok. It's an electrifying cultural experience with traditional music and passionate crowds.",
+    type: "do",
+    icon: "eye",
+  },
+  {
+    id: "mt-dont-1",
+    title: "Never Step Over Equipment",
+    titleThai: "อย่าข้ามอุปกรณ์",
+    description: "Never step over gloves, pads, or training equipment - always walk around them. Stepping over gear is considered extremely disrespectful in Thai culture.",
+    type: "dont",
+    icon: "x-circle",
+  },
+  {
+    id: "mt-dont-2",
+    title: "Don't Point Feet at Sacred Items",
+    titleThai: "อย่าชี้เท้า",
+    description: "Never point your feet toward the shrine, Buddha images, or your Kru. Feet are the lowest part of the body. Be mindful when stretching or resting.",
+    type: "dont",
+    icon: "alert-triangle",
+  },
+  {
+    id: "mt-dont-3",
+    title: "Don't Touch the Mongkol",
+    titleThai: "อย่าจับมงคล",
+    description: "The Mongkol headband is blessed and sacred to fighters. Never touch someone's Mongkol without permission, and never place it on the ground or step over it.",
+    type: "dont",
+    icon: "alert-triangle",
+  },
+  {
+    id: "mt-dont-4",
+    title: "Avoid Showing Off",
+    titleThai: "อย่าโอ้อวด",
+    description: "Thai fighters are humble and respectful. Don't brag about your skills or try to impress others. Focus on learning and improving yourself quietly.",
+    type: "dont",
+    icon: "x-circle",
+  },
+  {
+    id: "mt-dont-5",
+    title: "Don't Train Injured",
+    titleThai: "อย่าซ้อมตอนบาดเจ็บ",
+    description: "Listen to your body and communicate injuries to your trainer. Pushing through serious injuries can cause long-term damage and shows poor judgment, not toughness.",
+    type: "dont",
+    icon: "alert-circle",
+  },
+  {
+    id: "mt-dont-6",
+    title: "Never Throw Your Gloves",
+    titleThai: "อย่าโยนนวม",
+    description: "Treat your gloves and all equipment with respect. Throwing gear on the ground or treating it carelessly is disrespectful to the sport and the gym.",
+    type: "dont",
+    icon: "x-circle",
+  },
+  {
+    id: "mt-dont-7",
+    title: "Don't Skip the Warm-Up",
+    titleThai: "อย่าข้ามวอร์มอัพ",
+    description: "Always complete the full warm-up routine. Skipping it risks injury and shows disrespect to the training process. Thai trainers take preparation seriously.",
+    type: "dont",
+    icon: "alert-circle",
+  },
+  {
+    id: "mt-dont-8",
+    title: "Avoid Betting Scams",
+    titleThai: "ระวังพนัน",
+    description: "Be cautious of 'helpful' strangers offering betting tips at stadiums. Many are scammers. If you choose to bet, do so responsibly and only with official bookmakers.",
+    type: "dont",
+    icon: "alert-triangle",
+  },
+];
+
 export const getCulturalTipsByCategory = (category: CulturalTip["category"]) => {
   return culturalTips.filter((tip) => tip.category === category);
 };
 
 export const getThingsToAvoidBySeverity = (severity: ThingToAvoid["severity"]) => {
   return thingsToAvoid.filter((item) => item.severity === severity);
+};
+
+export const getMuayThaiTipsByType = (type: MuayThaiTip["type"]) => {
+  return muayThaiTips.filter((tip) => tip.type === type);
 };
