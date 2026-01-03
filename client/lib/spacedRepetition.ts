@@ -185,3 +185,36 @@ export async function getReviewStats(): Promise<{
     reviewStreak: data.currentStreak,
   };
 }
+
+export async function addWordToReview(
+  wordId: string,
+  thai: string,
+  romanization: string,
+  english: string
+): Promise<void> {
+  const data = await getSpacedRepetitionData();
+  
+  if (data.words[wordId]) {
+    return;
+  }
+  
+  const now = new Date();
+  const newWord: WordProgress = {
+    wordId,
+    easeFactor: 2.5,
+    interval: 0,
+    repetitions: 0,
+    nextReviewDate: now.toISOString(),
+    lastReviewDate: null,
+    totalReviews: 0,
+    correctReviews: 0,
+  };
+  
+  data.words[wordId] = newWord;
+  await saveSpacedRepetitionData(data);
+}
+
+export async function isWordSaved(wordId: string): Promise<boolean> {
+  const data = await getSpacedRepetitionData();
+  return !!data.words[wordId];
+}

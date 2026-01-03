@@ -18,6 +18,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius, Colors } from "@/constants/theme";
 import { getStoryById, StoryWord } from "@/lib/storyData";
 import { RootStackParamList } from "@/navigation/RootStackNavigator";
+import { addWordToReview, isWordSaved } from "@/lib/spacedRepetition";
 
 type StoryReaderRouteProp = RouteProp<RootStackParamList, "StoryReader">;
 
@@ -47,9 +48,10 @@ export default function StoryReaderScreen() {
   
   const [currentWordIndex, setCurrentWordIndex] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [selectedWordData, setSelectedWordData] = useState<{ word: StoryWord; position: PopupPosition } | null>(null);
+  const [selectedWordData, setSelectedWordData] = useState<{ word: StoryWord; position: PopupPosition; index: number } | null>(null);
   const [showFullTranslation, setShowFullTranslation] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(0.8);
+  const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
   
   const scrollViewRef = useRef<ScrollView>(null);
   const storyCardRef = useRef<View>(null);
@@ -183,7 +185,7 @@ export default function StoryReaderScreen() {
     const pageX = event.nativeEvent.pageX;
     const pageY = event.nativeEvent.pageY;
     
-    setSelectedWordData({ word, position: { pageX, pageY } });
+    setSelectedWordData({ word, position: { pageX, pageY }, index });
     popupScale.value = 0;
     popupScale.value = withSpring(1, {
       damping: 15,
@@ -407,20 +409,59 @@ export default function StoryReaderScreen() {
             <ThemedText type="body" style={styles.popupEnglish}>
               {selectedWordData.word.english}
             </ThemedText>
-            <Pressable
-              onPress={() => {
-                Speech.speak(selectedWordData.word.thai, {
-                  language: "th-TH",
-                  rate: playbackSpeed,
-                });
-              }}
-              style={[styles.popupSpeakButton, { backgroundColor: Colors.light.primary + "20" }]}
-            >
-              <Feather name="volume-2" size={16} color={Colors.light.primary} />
-              <ThemedText type="small" style={{ color: Colors.light.primary, marginLeft: Spacing.xs }}>
-                Play again
-              </ThemedText>
-            </Pressable>
+            <View style={styles.popupButtons}>
+              <Pressable
+                onPress={() => {
+                  Speech.speak(selectedWordData.word.thai, {
+                    language: "th-TH",
+                    rate: playbackSpeed,
+                  });
+                }}
+                style={[styles.popupSpeakButton, { backgroundColor: Colors.light.primary + "20" }]}
+              >
+                <Feather name="volume-2" size={16} color={Colors.light.primary} />
+                <ThemedText type="small" style={{ color: Colors.light.primary, marginLeft: Spacing.xs }}>
+                  Listen
+                </ThemedText>
+              </Pressable>
+              
+              <Pressable
+                onPress={async () => {
+                  const wordId = `story-word-${story.id}-${selectedWordData.index}`;
+                  await addWordToReview(
+                    wordId,
+                    selectedWordData.word.thai,
+                    selectedWordData.word.romanization,
+                    selectedWordData.word.english
+                  );
+                  setSavedWords((prev) => new Set(prev).add(wordId));
+                  Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+                }}
+                style={[
+                  styles.popupSaveButton,
+                  {
+                    backgroundColor: savedWords.has(`story-word-${story.id}-${selectedWordData.index}`)
+                      ? "#4CAF50" + "20"
+                      : theme.backgroundSecondary,
+                  },
+                ]}
+              >
+                <Feather
+                  name={savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "check" : "plus"}
+                  size={16}
+                  color={savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "#4CAF50" : theme.text}
+                />
+                <ThemedText
+                  type="small"
+                  style={{
+                    color: savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "#4CAF50" : theme.text,
+                    marginLeft: Spacing.xs,
+                  }}
+                >
+                  {savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "Saved" : "Save"}
+                </ThemedText>
+              </Pressable>
+            </View>
           </Animated.View>
         </Pressable>
       ) : null}
@@ -587,11 +628,24 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "500",
   },
+  popupButtons: {
+    flexDirection: "row",
+    gap: Spacing.sm,
+    marginTop: Spacing.md,
+  },
   popupSpeakButton: {
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: Spacing.md,
+    padding: Spacing.sm,
+    borderRadius: BorderRadius.sm,
+  },
+  popupSaveButton: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     padding: Spacing.sm,
     borderRadius: BorderRadius.sm,
   },
