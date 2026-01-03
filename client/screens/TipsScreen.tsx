@@ -9,9 +9,9 @@ import { ThemedView } from "@/components/ThemedView";
 import { Card } from "@/components/Card";
 import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius, Colors } from "@/constants/theme";
-import { culturalTips, thingsToAvoid, muayThaiTips, CulturalTip, ThingToAvoid, MuayThaiTip } from "@/lib/tipsData";
+import { culturalTips, thingsToAvoid, travelEssentials, CulturalTip, ThingToAvoid, TravelEssential } from "@/lib/tipsData";
 
-type TabType = "culture" | "avoid" | "muaythai";
+type TabType = "culture" | "avoid" | "travel";
 
 const CATEGORY_COLORS = {
   etiquette: Colors.light.primary,
@@ -147,16 +147,23 @@ function AvoidCard({ item }: AvoidCardProps) {
   );
 }
 
-const MUAYTHAI_COLORS = {
-  do: "#4CAF50",
-  dont: "#E53935",
+const PRIORITY_COLORS = {
+  essential: "#E53935",
+  recommended: "#FF9800",
+  helpful: "#4CAF50",
 };
 
-interface MuayThaiCardProps {
-  tip: MuayThaiTip;
+const PRIORITY_LABELS = {
+  essential: "Essential",
+  recommended: "Recommended",
+  helpful: "Helpful",
+};
+
+interface TravelCardProps {
+  item: TravelEssential;
 }
 
-function MuayThaiCard({ tip }: MuayThaiCardProps) {
+function TravelCard({ item }: TravelCardProps) {
   const { theme } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
@@ -165,33 +172,32 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
     setExpanded(!expanded);
   };
 
-  const typeColor = MUAYTHAI_COLORS[tip.type];
-  const typeLabel = tip.type === "do" ? "Do" : "Don't";
+  const priorityColor = PRIORITY_COLORS[item.priority];
 
   return (
-    <Card elevation={2} onPress={handlePress} style={styles.muayThaiCard}>
-      <View style={styles.muayThaiHeader}>
-        <View style={[styles.iconContainer, { backgroundColor: typeColor + "20" }]}>
-          <Feather name={tip.icon as any} size={20} color={typeColor} />
+    <Card elevation={2} onPress={handlePress} style={styles.travelCard}>
+      <View style={styles.travelHeader}>
+        <View style={[styles.iconContainer, { backgroundColor: priorityColor + "20" }]}>
+          <Feather name={item.icon as any} size={20} color={priorityColor} />
         </View>
-        <View style={styles.muayThaiTitleContainer}>
+        <View style={styles.travelTitleContainer}>
           <ThemedText type="body" style={{ fontWeight: "600" }}>
-            {tip.title}
+            {item.title}
           </ThemedText>
           <ThemedText type="small" style={{ color: theme.textSecondary }}>
-            {tip.titleThai}
+            {item.titleThai}
           </ThemedText>
         </View>
-        <View style={[styles.typeBadge, { backgroundColor: typeColor + "20" }]}>
-          <ThemedText type="small" style={{ color: typeColor, fontWeight: "600", fontSize: 10 }}>
-            {typeLabel}
+        <View style={[styles.priorityBadge, { backgroundColor: priorityColor + "20" }]}>
+          <ThemedText type="small" style={{ color: priorityColor, fontWeight: "600", fontSize: 10 }}>
+            {PRIORITY_LABELS[item.priority]}
           </ThemedText>
         </View>
       </View>
       
       {expanded ? (
-        <ThemedText type="small" style={[styles.muayThaiDescription, { color: theme.textSecondary }]}>
-          {tip.description}
+        <ThemedText type="small" style={[styles.travelDescription, { color: theme.textSecondary }]}>
+          {item.description}
         </ThemedText>
       ) : null}
       
@@ -277,26 +283,26 @@ export default function TipsScreen() {
           </Pressable>
           
           <Pressable
-            onPress={() => handleTabChange("muaythai")}
+            onPress={() => handleTabChange("travel")}
             style={[
               styles.tab,
-              activeTab === "muaythai" && { backgroundColor: "#FF6B00" + "20" },
+              activeTab === "travel" && { backgroundColor: "#2196F3" + "20" },
             ]}
           >
             <Feather 
-              name="zap" 
+              name="briefcase" 
               size={18} 
-              color={activeTab === "muaythai" ? "#FF6B00" : theme.textSecondary} 
+              color={activeTab === "travel" ? "#2196F3" : theme.textSecondary} 
             />
             <ThemedText 
               type="body" 
               style={{ 
                 marginLeft: Spacing.xs,
-                fontWeight: activeTab === "muaythai" ? "600" : "400",
-                color: activeTab === "muaythai" ? "#FF6B00" : theme.textSecondary,
+                fontWeight: activeTab === "travel" ? "600" : "400",
+                color: activeTab === "travel" ? "#2196F3" : theme.textSecondary,
               }}
             >
-              Muay Thai
+              Essentials
             </ThemedText>
           </Pressable>
         </View>
@@ -322,16 +328,10 @@ export default function TipsScreen() {
         ) : (
           <>
             <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
-              Essential dos and don'ts for your first Muay Thai experience in Thailand.
+              Essential documents, insurance, and health tips for your Thailand trip.
             </ThemedText>
-            {muayThaiTips.filter(t => t.type === "do").map((tip) => (
-              <MuayThaiCard key={tip.id} tip={tip} />
-            ))}
-            <ThemedText type="body" style={{ fontWeight: "600", marginTop: Spacing.md }}>
-              Things to Avoid
-            </ThemedText>
-            {muayThaiTips.filter(t => t.type === "dont").map((tip) => (
-              <MuayThaiCard key={tip.id} tip={tip} />
+            {travelEssentials.map((item) => (
+              <TravelCard key={item.id} item={item} />
             ))}
           </>
         )}
@@ -432,23 +432,23 @@ const styles = StyleSheet.create({
     marginTop: Spacing.md,
     lineHeight: 20,
   },
-  muayThaiCard: {
+  travelCard: {
     padding: Spacing.md,
   },
-  muayThaiHeader: {
+  travelHeader: {
     flexDirection: "row",
     alignItems: "center",
   },
-  muayThaiTitleContainer: {
+  travelTitleContainer: {
     flex: 1,
     marginLeft: Spacing.md,
   },
-  typeBadge: {
+  priorityBadge: {
     paddingHorizontal: Spacing.sm,
     paddingVertical: 4,
     borderRadius: BorderRadius.sm,
   },
-  muayThaiDescription: {
+  travelDescription: {
     marginTop: Spacing.md,
     lineHeight: 20,
   },

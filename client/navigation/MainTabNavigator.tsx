@@ -10,6 +10,7 @@ import HomeStackNavigator from "@/navigation/HomeStackNavigator";
 import LessonsStackNavigator from "@/navigation/LessonsStackNavigator";
 import StoriesStackNavigator from "@/navigation/StoriesStackNavigator";
 import TipsStackNavigator from "@/navigation/TipsStackNavigator";
+import MuayThaiStackNavigator from "@/navigation/MuayThaiStackNavigator";
 import LeaderboardStackNavigator from "@/navigation/LeaderboardStackNavigator";
 import ProfileStackNavigator from "@/navigation/ProfileStackNavigator";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
@@ -21,6 +22,7 @@ export type MainTabParamList = {
   LessonsTab: undefined;
   StoriesTab: undefined;
   TipsTab: undefined;
+  MuayThaiTab: undefined;
   LeaderboardTab: undefined;
   ProfileTab: undefined;
 };
@@ -100,6 +102,16 @@ export default function MainTabNavigator() {
             title: "Tips",
             tabBarIcon: ({ color, size }) => (
               <Feather name="info" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="MuayThaiTab"
+          component={MuayThaiStackNavigator}
+          options={{
+            title: "Muay Thai",
+            tabBarIcon: ({ color, size }) => (
+              <Feather name="zap" size={size} color={color} />
             ),
           }}
         />
