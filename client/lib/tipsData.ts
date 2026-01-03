@@ -23,6 +23,7 @@ export interface MuayThaiTip {
   description: string;
   type: "do" | "dont";
   icon: string;
+  priority?: "safety";
 }
 
 export const culturalTips: CulturalTip[] = [
@@ -415,6 +416,15 @@ export const muayThaiTips: MuayThaiTip[] = [
     description: "Be cautious of 'helpful' strangers offering betting tips at stadiums. Many are scammers. If you choose to bet, do so responsibly and only with official bookmakers.",
     type: "dont",
     icon: "alert-triangle",
+  },
+  {
+    id: "mt-do-9",
+    title: "Get Medical Insurance",
+    titleThai: "ทำประกันสุขภาพ",
+    description: "Before training Muay Thai, ensure you have comprehensive medical insurance that covers combat sports injuries. Staph infections are common in gyms due to shared equipment and skin-to-skin contact. Insurance should cover emergency treatment, hospitalization, and potential infection-related care.",
+    type: "do",
+    icon: "shield",
+    priority: "safety",
   },
 ];
 

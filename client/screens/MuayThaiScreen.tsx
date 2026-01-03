@@ -16,6 +16,8 @@ const TYPE_COLORS = {
   dont: "#E53935",
 };
 
+const SAFETY_COLOR = "#FF9800";
+
 interface MuayThaiCardProps {
   tip: MuayThaiTip;
 }
@@ -39,9 +41,19 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
           <Feather name={tip.icon as any} size={20} color={typeColor} />
         </View>
         <View style={styles.titleContainer}>
-          <ThemedText type="body" style={{ fontWeight: "600" }}>
-            {tip.title}
-          </ThemedText>
+          <View style={styles.titleRow}>
+            <ThemedText type="body" style={{ fontWeight: "600", flex: 1 }}>
+              {tip.title}
+            </ThemedText>
+            {tip.priority === "safety" ? (
+              <View style={[styles.safetyBadge, { backgroundColor: SAFETY_COLOR + "20" }]}>
+                <Feather name="alert-circle" size={10} color={SAFETY_COLOR} />
+                <ThemedText type="small" style={{ color: SAFETY_COLOR, fontWeight: "600", fontSize: 10, marginLeft: 4 }}>
+                  Safety
+                </ThemedText>
+              </View>
+            ) : null}
+          </View>
           <ThemedText type="small" style={{ color: theme.textSecondary }}>
             {tip.titleThai}
           </ThemedText>
@@ -146,6 +158,18 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
     marginLeft: Spacing.md,
+  },
+  titleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.xs,
+  },
+  safetyBadge: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: BorderRadius.sm,
   },
   typeBadge: {
     paddingHorizontal: Spacing.sm,
