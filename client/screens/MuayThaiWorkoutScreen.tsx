@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { View, StyleSheet, Pressable, ScrollView } from "react-native";
+import { View, StyleSheet, Pressable, ScrollView, Switch } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
@@ -10,7 +10,6 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
   withSequence,
-  withTiming,
 } from "react-native-reanimated";
 
 import { ThemedView } from "@/components/ThemedView";
@@ -26,11 +25,20 @@ interface Move {
   number?: string;
 }
 
+interface WarmupExercise {
+  name: string;
+  thai: string;
+  romanization: string;
+  duration: number;
+  description: string;
+}
+
 interface Combination {
   id: string;
   name: string;
   moves: Move[];
   description: string;
+  repetitions?: number;
 }
 
 interface Workout {
@@ -40,6 +48,7 @@ interface Workout {
   duration: string;
   combinations: Combination[];
   restBetweenCombos: number;
+  warmupDuration: number;
 }
 
 const MOVES: Record<string, Move> = {
@@ -47,135 +56,97 @@ const MOVES: Record<string, Move> = {
   cross: { name: "Cross", thai: "หมัดตรง", romanization: "Mat Trong", number: "2" },
   leftHook: { name: "Left Hook", thai: "หมัดเหวี่ยงซ้าย", romanization: "Mat Wiang Sai", number: "3" },
   rightHook: { name: "Right Hook", thai: "หมัดเหวี่ยงขวา", romanization: "Mat Wiang Kwaa", number: "4" },
-  leftUppercut: { name: "Left Uppercut", thai: "หมัดเสย", romanization: "Mat Soei Sai", number: "5" },
-  rightUppercut: { name: "Right Uppercut", thai: "หมัดเสย", romanization: "Mat Soei Kwaa", number: "6" },
+  leftUppercut: { name: "Left Uppercut", thai: "หมัดเสยซ้าย", romanization: "Mat Soei Sai", number: "5" },
+  rightUppercut: { name: "Right Uppercut", thai: "หมัดเสยขวา", romanization: "Mat Soei Kwaa", number: "6" },
   leftKick: { name: "Left Kick", thai: "เตะซ้าย", romanization: "Te Sai" },
   rightKick: { name: "Right Kick", thai: "เตะขวา", romanization: "Te Kwaa" },
   leftKnee: { name: "Left Knee", thai: "เข่าซ้าย", romanization: "Khao Sai" },
   rightKnee: { name: "Right Knee", thai: "เข่าขวา", romanization: "Khao Kwaa" },
   leftElbow: { name: "Left Elbow", thai: "ศอกซ้าย", romanization: "Sok Sai" },
   rightElbow: { name: "Right Elbow", thai: "ศอกขวา", romanization: "Sok Kwaa" },
-  teep: { name: "Teep (Push Kick)", thai: "ถีบ", romanization: "Teep" },
+  teep: { name: "Teep", thai: "ถีบ", romanization: "Teep" },
   block: { name: "Block", thai: "บล็อก", romanization: "Block" },
   slip: { name: "Slip", thai: "หลบ", romanization: "Lop" },
 };
 
+const WARMUP_EXERCISES: WarmupExercise[] = [
+  { name: "Jumping Jacks", thai: "กระโดดตบ", romanization: "Kra-dot Top", duration: 60, description: "Full body warm up" },
+  { name: "Arm Circles", thai: "หมุนแขน", romanization: "Mun Khaen", duration: 45, description: "Shoulder mobility" },
+  { name: "Hip Rotations", thai: "หมุนสะโพก", romanization: "Mun Sa-phok", duration: 45, description: "Hip flexibility" },
+  { name: "High Knees", thai: "ยกเข่าสูง", romanization: "Yok Khao Soong", duration: 60, description: "Cardio warm up" },
+  { name: "Leg Swings", thai: "แกว่งขา", romanization: "Kwaeng Khaa", duration: 45, description: "Dynamic stretching" },
+  { name: "Shadow Boxing", thai: "ชกลม", romanization: "Chok Lom", duration: 90, description: "Light punching practice" },
+  { name: "Neck Rotations", thai: "หมุนคอ", romanization: "Mun Kho", duration: 30, description: "Neck mobility" },
+  { name: "Torso Twists", thai: "บิดลำตัว", romanization: "Bit Lam Tua", duration: 45, description: "Core activation" },
+  { name: "Ankle Circles", thai: "หมุนข้อเท้า", romanization: "Mun Kho Thao", duration: 30, description: "Ankle mobility" },
+  { name: "Light Bouncing", thai: "เด้งเบาๆ", romanization: "Deng Bao Bao", duration: 60, description: "Ready stance practice" },
+  { name: "Slow Teeps", thai: "ถีบช้าๆ", romanization: "Teep Cha Cha", duration: 60, description: "Kick technique warm up" },
+  { name: "Knee Raises", thai: "ยกเข่า", romanization: "Yok Khao", duration: 60, description: "Balance and core" },
+];
+
 const WORKOUTS: Workout[] = [
   {
     id: "beginner-1",
-    name: "Beginner Basics",
+    name: "Foundation Training",
     level: "beginner",
-    duration: "5 min",
-    restBetweenCombos: 5,
+    duration: "22 min",
+    warmupDuration: 630,
+    restBetweenCombos: 12,
     combinations: [
-      {
-        id: "b1",
-        name: "Basic 1-2",
-        moves: [MOVES.jab, MOVES.cross],
-        description: "The fundamental combination",
-      },
-      {
-        id: "b2",
-        name: "1-2-3",
-        moves: [MOVES.jab, MOVES.cross, MOVES.leftHook],
-        description: "Add the hook",
-      },
-      {
-        id: "b3",
-        name: "Teep Drill",
-        moves: [MOVES.teep, MOVES.teep],
-        description: "Double push kick",
-      },
-      {
-        id: "b4",
-        name: "Jab-Kick",
-        moves: [MOVES.jab, MOVES.rightKick],
-        description: "Punch to kick transition",
-      },
+      { id: "b1", name: "Basic 1-2", moves: [MOVES.jab, MOVES.cross], description: "The fundamental punch combo", repetitions: 12 },
+      { id: "b2", name: "1-2-3", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Add the hook", repetitions: 12 },
+      { id: "b3", name: "Double Jab", moves: [MOVES.jab, MOVES.jab, MOVES.cross], description: "Set up with jabs", repetitions: 10 },
+      { id: "b4", name: "Teep Drill", moves: [MOVES.teep, MOVES.teep], description: "Double push kick", repetitions: 12 },
+      { id: "b5", name: "Jab-Teep", moves: [MOVES.jab, MOVES.teep], description: "Range management", repetitions: 12 },
+      { id: "b6", name: "Jab-Kick", moves: [MOVES.jab, MOVES.rightKick], description: "Punch to kick", repetitions: 12 },
+      { id: "b7", name: "1-2-Kick", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic combo", repetitions: 10 },
+      { id: "b8", name: "Hook Practice", moves: [MOVES.leftHook, MOVES.rightHook], description: "Power hooks", repetitions: 12 },
+      { id: "b9", name: "Teep-Cross", moves: [MOVES.teep, MOVES.cross], description: "Push and punch", repetitions: 12 },
+      { id: "b10", name: "Final 1-2-3", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Finish strong", repetitions: 12 },
     ],
   },
   {
     id: "intermediate-1",
-    name: "Power Combos",
+    name: "Power Development",
     level: "intermediate",
-    duration: "8 min",
-    restBetweenCombos: 4,
+    duration: "28 min",
+    warmupDuration: 630,
+    restBetweenCombos: 10,
     combinations: [
-      {
-        id: "i1",
-        name: "1-2-Kick",
-        moves: [MOVES.jab, MOVES.cross, MOVES.rightKick],
-        description: "Classic Muay Thai combo",
-      },
-      {
-        id: "i2",
-        name: "Hook-Cross-Hook",
-        moves: [MOVES.leftHook, MOVES.cross, MOVES.leftHook],
-        description: "Power punching",
-      },
-      {
-        id: "i3",
-        name: "Teep-Cross-Kick",
-        moves: [MOVES.teep, MOVES.cross, MOVES.rightKick],
-        description: "Range management",
-      },
-      {
-        id: "i4",
-        name: "1-2-Knee",
-        moves: [MOVES.jab, MOVES.cross, MOVES.rightKnee],
-        description: "Close the distance",
-      },
-      {
-        id: "i5",
-        name: "Double Kick",
-        moves: [MOVES.rightKick, MOVES.leftKick],
-        description: "Switching kicks",
-      },
+      { id: "i1", name: "1-2-Kick", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic Muay Thai", repetitions: 12 },
+      { id: "i2", name: "Hook-Cross-Hook", moves: [MOVES.leftHook, MOVES.cross, MOVES.leftHook], description: "Power punching", repetitions: 12 },
+      { id: "i3", name: "Teep-Cross-Kick", moves: [MOVES.teep, MOVES.cross, MOVES.rightKick], description: "Range control", repetitions: 10 },
+      { id: "i4", name: "1-2-Knee", moves: [MOVES.jab, MOVES.cross, MOVES.rightKnee], description: "Close distance", repetitions: 10 },
+      { id: "i5", name: "Double Kick", moves: [MOVES.rightKick, MOVES.leftKick], description: "Switching kicks", repetitions: 12 },
+      { id: "i6", name: "1-2-3-2", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross], description: "Boxing combo", repetitions: 10 },
+      { id: "i7", name: "Teep-Knee", moves: [MOVES.teep, MOVES.rightKnee], description: "Push then knee", repetitions: 12 },
+      { id: "i8", name: "Hook-Kick", moves: [MOVES.leftHook, MOVES.rightKick], description: "Same side attack", repetitions: 12 },
+      { id: "i9", name: "Triple Kick", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick], description: "Kick flow", repetitions: 10 },
+      { id: "i10", name: "1-2-Elbow", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow], description: "Close range", repetitions: 10 },
+      { id: "i11", name: "Full Combo", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combo", repetitions: 12 },
+      { id: "i12", name: "Finisher", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross, MOVES.rightKick], description: "5-hit finish", repetitions: 10 },
     ],
   },
   {
     id: "advanced-1",
-    name: "Master Combos",
+    name: "Warrior Workout",
     level: "advanced",
-    duration: "12 min",
-    restBetweenCombos: 3,
+    duration: "35 min",
+    warmupDuration: 630,
+    restBetweenCombos: 8,
     combinations: [
-      {
-        id: "a1",
-        name: "Full Combo",
-        moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick],
-        description: "4-hit combination",
-      },
-      {
-        id: "a2",
-        name: "Elbow Entry",
-        moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow, MOVES.rightElbow],
-        description: "Close range devastation",
-      },
-      {
-        id: "a3",
-        name: "Knee Storm",
-        moves: [MOVES.leftKnee, MOVES.rightKnee, MOVES.leftKnee, MOVES.rightKnee],
-        description: "Clinch knees",
-      },
-      {
-        id: "a4",
-        name: "Kick-Punch-Kick",
-        moves: [MOVES.rightKick, MOVES.jab, MOVES.cross, MOVES.leftKick],
-        description: "Full range attack",
-      },
-      {
-        id: "a5",
-        name: "Defense Counter",
-        moves: [MOVES.slip, MOVES.cross, MOVES.leftHook, MOVES.rightKick],
-        description: "Defensive counter-attack",
-      },
-      {
-        id: "a6",
-        name: "The Finisher",
-        moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightUppercut, MOVES.rightKick],
-        description: "5-hit knockout combo",
-      },
+      { id: "a1", name: "Full Combo", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combination", repetitions: 14 },
+      { id: "a2", name: "Elbow Entry", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow, MOVES.rightElbow], description: "Close range", repetitions: 12 },
+      { id: "a3", name: "Knee Storm", moves: [MOVES.leftKnee, MOVES.rightKnee, MOVES.leftKnee, MOVES.rightKnee], description: "Clinch knees", repetitions: 12 },
+      { id: "a4", name: "Kick-Punch-Kick", moves: [MOVES.rightKick, MOVES.jab, MOVES.cross, MOVES.leftKick], description: "Full range", repetitions: 12 },
+      { id: "a5", name: "Defense Counter", moves: [MOVES.slip, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "Counter attack", repetitions: 12 },
+      { id: "a6", name: "Elbow-Knee", moves: [MOVES.leftElbow, MOVES.rightKnee, MOVES.rightElbow, MOVES.leftKnee], description: "Clinch weapons", repetitions: 10 },
+      { id: "a7", name: "Triple Kick Flow", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick, MOVES.teep], description: "Kick variety", repetitions: 12 },
+      { id: "a8", name: "Box-Kick-Box", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick, MOVES.jab, MOVES.cross], description: "Mix it up", repetitions: 12 },
+      { id: "a9", name: "Uppercut Entry", moves: [MOVES.jab, MOVES.leftUppercut, MOVES.rightUppercut, MOVES.leftHook], description: "Inside fighting", repetitions: 10 },
+      { id: "a10", name: "Teep-Kick-Knee", moves: [MOVES.teep, MOVES.rightKick, MOVES.rightKnee], description: "Leg weapons", repetitions: 12 },
+      { id: "a11", name: "All Eight", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.leftElbow, MOVES.rightKnee, MOVES.rightKick], description: "All weapons", repetitions: 10 },
+      { id: "a12", name: "The Finisher", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightUppercut, MOVES.rightKick], description: "KO combo", repetitions: 14 },
     ],
   },
 ];
@@ -186,7 +157,7 @@ const LEVEL_COLORS = {
   advanced: "#E53935",
 };
 
-type WorkoutPhase = "idle" | "countdown" | "calling" | "executing" | "rest" | "complete";
+type WorkoutPhase = "idle" | "warmup" | "warmup-exercise" | "countdown" | "calling" | "executing" | "rest" | "complete";
 
 export default function MuayThaiWorkoutScreen() {
   const { theme } = useTheme();
@@ -199,16 +170,21 @@ export default function MuayThaiWorkoutScreen() {
   const [currentMoveIndex, setCurrentMoveIndex] = useState(-1);
   const [countdown, setCountdown] = useState(3);
   const [restCountdown, setRestCountdown] = useState(0);
+  const [useThai, setUseThai] = useState(false);
+  const [currentWarmupIndex, setCurrentWarmupIndex] = useState(0);
+  const [warmupTimeLeft, setWarmupTimeLeft] = useState(0);
+  const [currentRepetition, setCurrentRepetition] = useState(0);
   
   const scale = useSharedValue(1);
-  const opacity = useSharedValue(1);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const countdownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const restIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const warmupIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isActiveRef = useRef(false);
   
   const currentCombo = selectedWorkout?.combinations[currentComboIndex];
   const currentMove = currentMoveIndex >= 0 && currentCombo ? currentCombo.moves[currentMoveIndex] : null;
+  const currentWarmup = WARMUP_EXERCISES[currentWarmupIndex];
   
   const clearAllTimers = () => {
     if (timerRef.current) {
@@ -223,6 +199,10 @@ export default function MuayThaiWorkoutScreen() {
       clearInterval(restIntervalRef.current);
       restIntervalRef.current = null;
     }
+    if (warmupIntervalRef.current) {
+      clearInterval(warmupIntervalRef.current);
+      warmupIntervalRef.current = null;
+    }
   };
   
   useEffect(() => {
@@ -233,17 +213,27 @@ export default function MuayThaiWorkoutScreen() {
   }, []);
   
   const speakMove = (move: Move) => {
-    Speech.speak(move.name, {
-      language: "en-US",
-      rate: 1.2,
+    const text = useThai ? move.thai : move.name;
+    Speech.speak(text, {
+      language: useThai ? "th-TH" : "en-US",
+      rate: useThai ? 0.85 : 1.2,
       pitch: 1.0,
     });
   };
   
   const speakText = (text: string, rate = 0.9) => {
     Speech.speak(text, {
-      language: "en-US",
+      language: useThai ? "th-TH" : "en-US",
       rate,
+      pitch: 1.0,
+    });
+  };
+  
+  const speakExercise = (exercise: WarmupExercise) => {
+    const text = useThai ? exercise.thai : exercise.name;
+    Speech.speak(text, {
+      language: useThai ? "th-TH" : "en-US",
+      rate: 0.9,
       pitch: 1.0,
     });
   };
@@ -259,15 +249,80 @@ export default function MuayThaiWorkoutScreen() {
     clearAllTimers();
     isActiveRef.current = true;
     setSelectedWorkout(workout);
-    setPhase("countdown");
     setCurrentComboIndex(0);
     setCurrentMoveIndex(-1);
-    setCountdown(3);
+    setCurrentRepetition(0);
+    setCurrentWarmupIndex(0);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     
-    speakText("Get ready. Workout starting in 3, 2, 1");
+    startWarmup(workout);
+  };
+  
+  const startWarmup = (workout: Workout) => {
+    if (!isActiveRef.current) return;
     
-    let count = 3;
+    setPhase("warmup");
+    const text = useThai ? "เริ่มอบอุ่นร่างกาย" : "Starting warmup. Let's get your body ready.";
+    speakText(text, 0.85);
+    
+    timerRef.current = setTimeout(() => {
+      if (isActiveRef.current) {
+        startWarmupExercise(0, workout);
+      }
+    }, 3000);
+  };
+  
+  const startWarmupExercise = (index: number, workout: Workout) => {
+    if (!isActiveRef.current) return;
+    
+    if (index >= WARMUP_EXERCISES.length) {
+      const text = useThai ? "อบอุ่นเสร็จแล้ว เริ่มฝึกซ้อม" : "Warmup complete. Starting combinations.";
+      speakText(text, 0.85);
+      timerRef.current = setTimeout(() => {
+        if (isActiveRef.current) {
+          startMainWorkout(workout);
+        }
+      }, 3000);
+      return;
+    }
+    
+    const exercise = WARMUP_EXERCISES[index];
+    setCurrentWarmupIndex(index);
+    setWarmupTimeLeft(exercise.duration);
+    setPhase("warmup-exercise");
+    
+    speakExercise(exercise);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    
+    let timeLeft = exercise.duration;
+    warmupIntervalRef.current = setInterval(() => {
+      if (!isActiveRef.current) {
+        if (warmupIntervalRef.current) clearInterval(warmupIntervalRef.current);
+        return;
+      }
+      timeLeft--;
+      setWarmupTimeLeft(timeLeft);
+      
+      if (timeLeft === 10 && timeLeft > 0) {
+        speakText(useThai ? "สิบวินาที" : "10 seconds");
+      }
+      
+      if (timeLeft <= 0) {
+        if (warmupIntervalRef.current) clearInterval(warmupIntervalRef.current);
+        startWarmupExercise(index + 1, workout);
+      }
+    }, 1000);
+  };
+  
+  const startMainWorkout = (workout: Workout) => {
+    if (!isActiveRef.current) return;
+    
+    setPhase("countdown");
+    setCountdown(5);
+    const text = useThai ? "เตรียมตัว ห้า สี่ สาม สอง หนึ่ง" : "Get ready. 5, 4, 3, 2, 1";
+    speakText(text);
+    
+    let count = 5;
     countdownIntervalRef.current = setInterval(() => {
       if (!isActiveRef.current) {
         if (countdownIntervalRef.current) clearInterval(countdownIntervalRef.current);
@@ -277,37 +332,51 @@ export default function MuayThaiWorkoutScreen() {
       setCountdown(count);
       if (count <= 0) {
         if (countdownIntervalRef.current) clearInterval(countdownIntervalRef.current);
-        startCombo(workout, 0);
+        startCombo(workout, 0, 0);
       }
     }, 1000);
   };
   
-  const startCombo = (workout: Workout, comboIndex: number) => {
+  const startCombo = (workout: Workout, comboIndex: number, repIndex: number) => {
     if (!isActiveRef.current) return;
     
     const combo = workout.combinations[comboIndex];
+    const reps = combo.repetitions || 3;
+    
+    setCurrentComboIndex(comboIndex);
+    setCurrentRepetition(repIndex);
     setPhase("calling");
     setCurrentMoveIndex(-1);
     
-    speakText(`Combo: ${combo.name}`, 0.8);
+    if (repIndex === 0) {
+      const text = useThai ? `คอมโบ ${combo.name}` : `Combo: ${combo.name}`;
+      speakText(text, 0.8);
+    }
     
     timerRef.current = setTimeout(() => {
       if (isActiveRef.current) {
-        callMoves(workout, comboIndex, 0);
+        callMoves(workout, comboIndex, 0, repIndex);
       }
-    }, 2000);
+    }, repIndex === 0 ? 2000 : 800);
   };
   
-  const callMoves = (workout: Workout, comboIndex: number, moveIndex: number) => {
+  const callMoves = (workout: Workout, comboIndex: number, moveIndex: number, repIndex: number) => {
     if (!isActiveRef.current) return;
     
     const combo = workout.combinations[comboIndex];
+    const reps = combo.repetitions || 3;
     
     if (moveIndex >= combo.moves.length) {
-      if (comboIndex < workout.combinations.length - 1) {
+      if (repIndex < reps - 1) {
+        timerRef.current = setTimeout(() => {
+          if (isActiveRef.current) {
+            startCombo(workout, comboIndex, repIndex + 1);
+          }
+        }, 1500);
+      } else if (comboIndex < workout.combinations.length - 1) {
         setPhase("rest");
         setRestCountdown(workout.restBetweenCombos);
-        speakText("Rest");
+        speakText(useThai ? "พัก" : "Rest");
         
         let rest = workout.restBetweenCombos;
         restIntervalRef.current = setInterval(() => {
@@ -319,13 +388,12 @@ export default function MuayThaiWorkoutScreen() {
           setRestCountdown(rest);
           if (rest <= 0) {
             if (restIntervalRef.current) clearInterval(restIntervalRef.current);
-            setCurrentComboIndex(comboIndex + 1);
-            startCombo(workout, comboIndex + 1);
+            startCombo(workout, comboIndex + 1, 0);
           }
         }, 1000);
       } else {
         setPhase("complete");
-        speakText("Workout complete. Great job!");
+        speakText(useThai ? "ฝึกซ้อมเสร็จแล้ว ทำได้ดีมาก" : "Workout complete. Great job!");
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       }
       return;
@@ -341,7 +409,7 @@ export default function MuayThaiWorkoutScreen() {
     
     timerRef.current = setTimeout(() => {
       if (isActiveRef.current) {
-        callMoves(workout, comboIndex, moveIndex + 1);
+        callMoves(workout, comboIndex, moveIndex + 1, repIndex);
       }
     }, 1200);
   };
@@ -354,12 +422,20 @@ export default function MuayThaiWorkoutScreen() {
     setSelectedWorkout(null);
     setCurrentComboIndex(0);
     setCurrentMoveIndex(-1);
+    setCurrentRepetition(0);
+    setCurrentWarmupIndex(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
   
   const animatedMoveStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
+  
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
   
   if (phase !== "idle" && selectedWorkout) {
     return (
@@ -374,133 +450,168 @@ export default function MuayThaiWorkoutScreen() {
           <View style={{ width: 44 }} />
         </View>
         
-        <View style={styles.progressSection}>
-          <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary }]}>
-            <View
-              style={[
-                styles.progressFill,
-                {
-                  backgroundColor: LEVEL_COLORS[selectedWorkout.level],
-                  width: `${((currentComboIndex + 1) / selectedWorkout.combinations.length) * 100}%`,
-                },
-              ]}
-            />
-          </View>
-          <ThemedText type="small" style={{ color: theme.textSecondary }}>
-            Combo {currentComboIndex + 1} / {selectedWorkout.combinations.length}
-          </ThemedText>
-        </View>
-        
-        {phase === "countdown" ? (
+        {(phase === "warmup" || phase === "warmup-exercise") ? (
           <View style={styles.centerContent}>
-            <ThemedText type="h1" style={styles.countdownText}>
-              {countdown}
-            </ThemedText>
-            <ThemedText type="body" style={{ color: theme.textSecondary }}>
-              Get Ready
-            </ThemedText>
-          </View>
-        ) : phase === "rest" ? (
-          <View style={styles.centerContent}>
-            <ThemedText type="h1" style={[styles.countdownText, { color: "#FF9800" }]}>
-              {restCountdown}
-            </ThemedText>
-            <ThemedText type="body" style={{ color: theme.textSecondary }}>
-              Rest - Next combo coming up
-            </ThemedText>
-          </View>
-        ) : phase === "complete" ? (
-          <View style={styles.centerContent}>
-            <View style={[styles.completeIcon, { backgroundColor: "#4CAF50" + "20" }]}>
-              <Feather name="check" size={64} color="#4CAF50" />
-            </View>
-            <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
-              Workout Complete!
-            </ThemedText>
-            <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-              Great training session
-            </ThemedText>
-            <Pressable
-              onPress={stopWorkout}
-              style={[styles.doneButton, { backgroundColor: Colors.light.primary }]}
-            >
-              <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600" }}>
-                Done
-              </ThemedText>
-            </Pressable>
-          </View>
-        ) : (
-          <View style={styles.centerContent}>
-            {currentCombo ? (
+            {phase === "warmup" ? (
               <>
-                <ThemedText type="body" style={{ color: theme.textSecondary, marginBottom: Spacing.md }}>
-                  {currentCombo.name}
+                <View style={[styles.warmupIcon, { backgroundColor: "#FF9800" + "20" }]}>
+                  <Feather name="sun" size={64} color="#FF9800" />
+                </View>
+                <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
+                  Warmup Starting
                 </ThemedText>
-                
-                <Animated.View style={[styles.moveDisplay, animatedMoveStyle]}>
-                  {currentMove ? (
-                    <>
-                      <ThemedText style={styles.moveName}>
-                        {currentMove.name}
-                      </ThemedText>
-                      <ThemedText style={[styles.moveThai, { color: Colors.light.primary }]}>
-                        {currentMove.thai}
-                      </ThemedText>
-                      <ThemedText type="body" style={{ color: theme.textSecondary }}>
-                        {currentMove.romanization}
-                      </ThemedText>
-                    </>
-                  ) : (
-                    <ThemedText type="body" style={{ color: theme.textSecondary }}>
-                      Listen for the moves...
-                    </ThemedText>
-                  )}
-                </Animated.View>
-                
-                <View style={styles.comboPreview}>
-                  {currentCombo.moves.map((move, index) => (
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  10 minutes to prepare your body
+                </ThemedText>
+              </>
+            ) : (
+              <>
+                <View style={styles.warmupProgress}>
+                  <ThemedText type="small" style={{ color: theme.textSecondary }}>
+                    Exercise {currentWarmupIndex + 1} / {WARMUP_EXERCISES.length}
+                  </ThemedText>
+                  <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary, marginTop: Spacing.sm }]}>
                     <View
-                      key={index}
                       style={[
-                        styles.moveIndicator,
+                        styles.progressFill,
                         {
-                          backgroundColor:
-                            index === currentMoveIndex
-                              ? Colors.light.primary
-                              : index < currentMoveIndex
-                              ? "#4CAF50"
-                              : theme.backgroundSecondary,
+                          backgroundColor: "#FF9800",
+                          width: `${((currentWarmupIndex + 1) / WARMUP_EXERCISES.length) * 100}%`,
                         },
                       ]}
-                    >
-                      <ThemedText
-                        type="small"
-                        style={{
-                          color: index <= currentMoveIndex ? "#FFFFFF" : theme.textSecondary,
-                          fontWeight: "600",
-                        }}
-                      >
-                        {move.number || move.name.charAt(0)}
-                      </ThemedText>
-                    </View>
-                  ))}
+                    />
+                  </View>
                 </View>
+                
+                <ThemedText type="h1" style={[styles.countdownText, { color: "#FF9800" }]}>
+                  {formatTime(warmupTimeLeft)}
+                </ThemedText>
+                
+                <ThemedText type="h2" style={{ marginTop: Spacing.lg }}>
+                  {useThai ? currentWarmup.thai : currentWarmup.name}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? currentWarmup.romanization : currentWarmup.description}
+                </ThemedText>
               </>
-            ) : null}
+            )}
           </View>
+        ) : (
+          <>
+            <View style={styles.progressSection}>
+              <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary }]}>
+                <View
+                  style={[
+                    styles.progressFill,
+                    {
+                      backgroundColor: LEVEL_COLORS[selectedWorkout.level],
+                      width: `${((currentComboIndex + 1) / selectedWorkout.combinations.length) * 100}%`,
+                    },
+                  ]}
+                />
+              </View>
+              <ThemedText type="small" style={{ color: theme.textSecondary }}>
+                Combo {currentComboIndex + 1} / {selectedWorkout.combinations.length}
+                {currentCombo?.repetitions ? ` (Rep ${currentRepetition + 1}/${currentCombo.repetitions})` : ""}
+              </ThemedText>
+            </View>
+            
+            {phase === "countdown" ? (
+              <View style={styles.centerContent}>
+                <ThemedText type="h1" style={styles.countdownText}>
+                  {countdown}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary }}>
+                  {useThai ? "เตรียมตัว" : "Get Ready"}
+                </ThemedText>
+              </View>
+            ) : phase === "rest" ? (
+              <View style={styles.centerContent}>
+                <ThemedText type="h1" style={[styles.countdownText, { color: "#FF9800" }]}>
+                  {restCountdown}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary }}>
+                  {useThai ? "พัก - คอมโบถัดไปกำลังมา" : "Rest - Next combo coming up"}
+                </ThemedText>
+              </View>
+            ) : phase === "complete" ? (
+              <View style={styles.centerContent}>
+                <View style={[styles.completeIcon, { backgroundColor: "#4CAF50" + "20" }]}>
+                  <Feather name="check" size={64} color="#4CAF50" />
+                </View>
+                <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
+                  {useThai ? "ฝึกซ้อมเสร็จแล้ว!" : "Workout Complete!"}
+                </ThemedText>
+                <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+                  {useThai ? "ทำได้ดีมาก" : "Great training session"}
+                </ThemedText>
+                <Pressable
+                  onPress={stopWorkout}
+                  style={[styles.doneButton, { backgroundColor: LEVEL_COLORS[selectedWorkout.level] }]}
+                >
+                  <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600" }}>
+                    {useThai ? "เสร็จสิ้น" : "Done"}
+                  </ThemedText>
+                </Pressable>
+              </View>
+            ) : (
+              <View style={styles.centerContent}>
+                {currentCombo ? (
+                  <>
+                    <ThemedText type="body" style={{ color: theme.textSecondary }}>
+                      {currentCombo.name}
+                    </ThemedText>
+                    
+                    <Animated.View style={[styles.moveDisplay, animatedMoveStyle]}>
+                      {currentMove ? (
+                        <>
+                          <ThemedText type="h1" style={styles.moveName}>
+                            {useThai ? currentMove.thai : currentMove.name}
+                          </ThemedText>
+                          <ThemedText type="h3" style={{ color: LEVEL_COLORS[selectedWorkout.level], marginTop: Spacing.sm }}>
+                            {useThai ? currentMove.name : currentMove.romanization}
+                          </ThemedText>
+                        </>
+                      ) : (
+                        <ThemedText type="h2" style={{ color: theme.textSecondary }}>
+                          {useThai ? "เตรียมพร้อม..." : "Ready..."}
+                        </ThemedText>
+                      )}
+                    </Animated.View>
+                    
+                    <View style={styles.comboPreview}>
+                      {currentCombo.moves.map((move, idx) => (
+                        <View
+                          key={idx}
+                          style={[
+                            styles.comboMoveIndicator,
+                            {
+                              backgroundColor: idx === currentMoveIndex
+                                ? LEVEL_COLORS[selectedWorkout.level]
+                                : idx < currentMoveIndex
+                                  ? LEVEL_COLORS[selectedWorkout.level] + "60"
+                                  : theme.backgroundSecondary,
+                            },
+                          ]}
+                        >
+                          <ThemedText
+                            type="small"
+                            style={{
+                              color: idx <= currentMoveIndex ? "#FFFFFF" : theme.textSecondary,
+                              fontSize: 10,
+                            }}
+                          >
+                            {useThai ? move.romanization.split(" ")[0] : move.number || move.name.split(" ")[0]}
+                          </ThemedText>
+                        </View>
+                      ))}
+                    </View>
+                  </>
+                ) : null}
+              </View>
+            )}
+          </>
         )}
-        
-        <View style={[styles.footer, { paddingBottom: insets.bottom + Spacing.lg }]}>
-          <Pressable
-            onPress={stopWorkout}
-            style={[styles.stopWorkoutButton, { backgroundColor: "#E53935" }]}
-          >
-            <Feather name="square" size={20} color="#FFFFFF" />
-            <ThemedText type="body" style={{ color: "#FFFFFF", marginLeft: Spacing.sm }}>
-              Stop Workout
-            </ThemedText>
-          </Pressable>
-        </View>
       </ThemedView>
     );
   }
@@ -508,90 +619,99 @@ export default function MuayThaiWorkoutScreen() {
   return (
     <ThemedView style={styles.container}>
       <ScrollView
-        style={styles.content}
-        contentContainerStyle={[
-          styles.contentContainer,
-          { paddingTop: insets.top + Spacing.lg, paddingBottom: insets.bottom + Spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingTop: insets.top + Spacing.xl,
+          paddingBottom: insets.bottom + Spacing.xl,
+          paddingHorizontal: Spacing.lg,
+        }}
       >
-        <View style={styles.header}>
-          <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
-            <Feather name="arrow-left" size={24} color={theme.text} />
-          </Pressable>
-          <View style={styles.headerText}>
-            <ThemedText type="h2">Master Workout</ThemedText>
-            <ThemedText type="body" style={{ color: theme.textSecondary }}>
-              Follow the voice commands
+        <ThemedText type="h2">Master Workout</ThemedText>
+        <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.xs }}>
+          20-30 minute sessions with 10 min warmup
+        </ThemedText>
+        
+        <View style={styles.languageToggle}>
+          <ThemedText type="body">
+            Voice Commands:
+          </ThemedText>
+          <View style={styles.toggleContainer}>
+            <ThemedText type="body" style={{ color: !useThai ? theme.primary : theme.textSecondary }}>
+              English
+            </ThemedText>
+            <Switch
+              value={useThai}
+              onValueChange={setUseThai}
+              trackColor={{ false: theme.backgroundSecondary, true: "#FF9800" }}
+              thumbColor="#FFFFFF"
+              style={{ marginHorizontal: Spacing.sm }}
+            />
+            <ThemedText type="body" style={{ color: useThai ? "#FF9800" : theme.textSecondary }}>
+              Thai
             </ThemedText>
           </View>
         </View>
         
-        <View style={[styles.instructionCard, { backgroundColor: theme.backgroundSecondary }]}>
-          <Feather name="volume-2" size={24} color={Colors.light.primary} />
-          <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.md, flex: 1 }}>
-            Listen to the Muay Thai master call out combinations. Follow along with each move!
-          </ThemedText>
-        </View>
-        
         {WORKOUTS.map((workout) => (
-          <Card
-            key={workout.id}
-            elevation={2}
-            onPress={() => startWorkout(workout)}
-            style={styles.workoutCard}
-          >
-            <View style={styles.workoutCardHeader}>
-              <View
-                style={[
-                  styles.levelBadge,
-                  { backgroundColor: LEVEL_COLORS[workout.level] + "20" },
-                ]}
-              >
-                <ThemedText
-                  type="small"
-                  style={{ color: LEVEL_COLORS[workout.level], fontWeight: "600" }}
-                >
-                  {workout.level.charAt(0).toUpperCase() + workout.level.slice(1)}
-                </ThemedText>
-              </View>
-              <ThemedText type="small" style={{ color: theme.textSecondary }}>
-                {workout.duration}
-              </ThemedText>
-            </View>
-            
-            <ThemedText type="h4" style={{ marginTop: Spacing.sm }}>
-              {workout.name}
-            </ThemedText>
-            
-            <ThemedText type="small" style={{ color: theme.textSecondary, marginTop: Spacing.xs }}>
-              {workout.combinations.length} combinations
-            </ThemedText>
-            
-            <View style={styles.comboList}>
-              {workout.combinations.slice(0, 3).map((combo, index) => (
-                <View key={combo.id} style={styles.comboItem}>
-                  <View style={[styles.comboDot, { backgroundColor: LEVEL_COLORS[workout.level] }]} />
-                  <ThemedText type="small" style={{ color: theme.textSecondary }}>
-                    {combo.name}: {combo.moves.map((m) => m.name).join(" - ")}
-                  </ThemedText>
+          <Card key={workout.id} style={{ marginTop: Spacing.lg }}>
+            <View style={styles.workoutCard}>
+              <View style={styles.workoutInfo}>
+                <View style={styles.workoutTitleRow}>
+                  <ThemedText type="h3">{workout.name}</ThemedText>
+                  <View
+                    style={[
+                      styles.levelBadge,
+                      { backgroundColor: LEVEL_COLORS[workout.level] + "20" },
+                    ]}
+                  >
+                    <ThemedText
+                      type="small"
+                      style={{ color: LEVEL_COLORS[workout.level], fontWeight: "600" }}
+                    >
+                      {workout.level.charAt(0).toUpperCase() + workout.level.slice(1)}
+                    </ThemedText>
+                  </View>
                 </View>
-              ))}
-              {workout.combinations.length > 3 ? (
-                <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.lg }}>
-                  +{workout.combinations.length - 3} more...
-                </ThemedText>
-              ) : null}
-            </View>
-            
-            <View style={[styles.startButton, { backgroundColor: LEVEL_COLORS[workout.level] }]}>
-              <Feather name="play" size={16} color="#FFFFFF" />
-              <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600", marginLeft: Spacing.sm }}>
-                Start Workout
-              </ThemedText>
+                
+                <View style={styles.workoutMeta}>
+                  <View style={styles.metaItem}>
+                    <Feather name="clock" size={14} color={theme.textSecondary} />
+                    <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: 4 }}>
+                      {workout.duration} (+ 10 min warmup)
+                    </ThemedText>
+                  </View>
+                  <View style={styles.metaItem}>
+                    <Feather name="layers" size={14} color={theme.textSecondary} />
+                    <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: 4 }}>
+                      {workout.combinations.length} combos
+                    </ThemedText>
+                  </View>
+                </View>
+                
+                <View style={styles.combosList}>
+                  {workout.combinations.slice(0, 3).map((combo, idx) => (
+                    <ThemedText key={idx} type="small" style={{ color: theme.textSecondary }}>
+                      {combo.name}: {combo.moves.map(m => m.name).join(" - ")}
+                    </ThemedText>
+                  ))}
+                  {workout.combinations.length > 3 ? (
+                    <ThemedText type="small" style={{ color: theme.textSecondary, fontStyle: "italic" }}>
+                      + {workout.combinations.length - 3} more combos
+                    </ThemedText>
+                  ) : null}
+                </View>
+              </View>
+              
+              <Pressable
+                onPress={() => startWorkout(workout)}
+                style={[styles.startButton, { backgroundColor: LEVEL_COLORS[workout.level] }]}
+              >
+                <Feather name="play" size={24} color="#FFFFFF" />
+              </Pressable>
             </View>
           </Card>
         ))}
+        
+        <View style={{ height: Spacing.xl }} />
       </ScrollView>
     </ThemedView>
   );
@@ -600,67 +720,6 @@ export default function MuayThaiWorkoutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  content: {
-    flex: 1,
-  },
-  contentContainer: {
-    paddingHorizontal: Spacing.lg,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: Spacing.xl,
-  },
-  backButton: {
-    padding: Spacing.sm,
-    marginRight: Spacing.md,
-  },
-  headerText: {
-    flex: 1,
-  },
-  instructionCard: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: Spacing.lg,
-    borderRadius: BorderRadius.xl,
-    marginBottom: Spacing.xl,
-  },
-  workoutCard: {
-    padding: Spacing.lg,
-    marginBottom: Spacing.md,
-  },
-  workoutCardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  levelBadge: {
-    paddingHorizontal: Spacing.md,
-    paddingVertical: Spacing.xs,
-    borderRadius: BorderRadius.full,
-  },
-  comboList: {
-    marginTop: Spacing.md,
-  },
-  comboItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: Spacing.xs,
-  },
-  comboDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    marginRight: Spacing.sm,
-  },
-  startButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: Spacing.md,
-    borderRadius: BorderRadius.xl,
-    marginTop: Spacing.lg,
   },
   workoutHeader: {
     flexDirection: "row",
@@ -677,54 +736,52 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   progressSection: {
-    flexDirection: "row",
+    paddingHorizontal: Spacing.xl,
     alignItems: "center",
-    paddingHorizontal: Spacing.lg,
-    gap: Spacing.sm,
   },
   progressBar: {
-    flex: 1,
-    height: 6,
-    borderRadius: 3,
+    width: "100%",
+    height: 8,
+    borderRadius: 4,
     overflow: "hidden",
   },
   progressFill: {
     height: "100%",
-    borderRadius: 3,
+    borderRadius: 4,
   },
   centerContent: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
     paddingHorizontal: Spacing.xl,
   },
   countdownText: {
     fontSize: 120,
-    fontWeight: "700",
+    fontWeight: "bold",
+    lineHeight: 130,
   },
   moveDisplay: {
     alignItems: "center",
-    padding: Spacing.xl,
+    marginVertical: Spacing.xl,
   },
   moveName: {
     fontSize: 48,
-    fontWeight: "700",
-  },
-  moveThai: {
-    fontSize: 32,
-    marginTop: Spacing.sm,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   comboPreview: {
     flexDirection: "row",
-    gap: Spacing.sm,
-    marginTop: Spacing.xl,
-  },
-  moveIndicator: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: "center",
+    flexWrap: "wrap",
     justifyContent: "center",
+    marginTop: Spacing.xl,
+    gap: Spacing.sm,
+  },
+  comboMoveIndicator: {
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+    borderRadius: BorderRadius.md,
+    minWidth: 50,
+    alignItems: "center",
   },
   completeIcon: {
     width: 120,
@@ -733,20 +790,74 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  doneButton: {
-    paddingHorizontal: Spacing["2xl"],
-    paddingVertical: Spacing.md,
-    borderRadius: BorderRadius.xl,
-    marginTop: Spacing.xl,
-  },
-  footer: {
-    paddingHorizontal: Spacing.lg,
-  },
-  stopWorkoutButton: {
-    flexDirection: "row",
+  warmupIcon: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
     alignItems: "center",
     justifyContent: "center",
+  },
+  warmupProgress: {
+    width: "100%",
+    marginBottom: Spacing.xl,
+  },
+  doneButton: {
+    paddingHorizontal: Spacing.xl,
     paddingVertical: Spacing.md,
-    borderRadius: BorderRadius.xl,
+    borderRadius: BorderRadius.lg,
+    marginTop: Spacing.xl,
+  },
+  languageToggle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: Spacing.lg,
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.md,
+    backgroundColor: "rgba(128, 128, 128, 0.1)",
+    borderRadius: BorderRadius.md,
+  },
+  toggleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  workoutCard: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  workoutInfo: {
+    flex: 1,
+  },
+  workoutTitleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: Spacing.sm,
+  },
+  levelBadge: {
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 2,
+    borderRadius: BorderRadius.sm,
+  },
+  workoutMeta: {
+    flexDirection: "row",
+    marginTop: Spacing.sm,
+    gap: Spacing.lg,
+  },
+  metaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  combosList: {
+    marginTop: Spacing.md,
+    gap: 2,
+  },
+  startButton: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: Spacing.md,
   },
 });
