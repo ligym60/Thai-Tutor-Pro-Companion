@@ -307,6 +307,20 @@ export default function PracticeScreen() {
         </ThemedText>
       </Animated.View>
 
+      {isChecked && currentQuestion.explanation ? (
+        <View style={[styles.explanationContainer, { backgroundColor: theme.backgroundSecondary }]}>
+          <View style={styles.explanationHeader}>
+            <Feather name="info" size={16} color={Colors.light.primary} />
+            <ThemedText type="small" style={[styles.explanationTitle, { color: Colors.light.primary }]}>
+              Explanation
+            </ThemedText>
+          </View>
+          <ThemedText type="small" style={[styles.explanationText, { color: theme.textSecondary }]}>
+            {currentQuestion.explanation}
+          </ThemedText>
+        </View>
+      ) : null}
+
       <View style={styles.footer}>
         {isChecked ? (
           <Button onPress={handleContinue} style={styles.actionButton}>
@@ -380,6 +394,23 @@ const styles = StyleSheet.create({
   },
   answersContainer: {
     flex: 1,
+  },
+  explanationContainer: {
+    padding: Spacing.md,
+    borderRadius: BorderRadius.md,
+    marginBottom: Spacing.md,
+  },
+  explanationHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: Spacing.xs,
+  },
+  explanationTitle: {
+    marginLeft: Spacing.xs,
+    fontWeight: "600",
+  },
+  explanationText: {
+    lineHeight: 20,
   },
   feedback: {
     position: "absolute",

@@ -6,6 +6,24 @@ SawasdeeLearn is a Thai language learning mobile application built with React Na
 
 The app uses local storage for user progress (no backend authentication required) and includes a simulated leaderboard system. The backend server is set up with Express but currently serves primarily as a static file server and API proxy for the Expo development workflow.
 
+## Content Overview
+
+The app includes **26 lessons** across **7 categories**:
+- **Basics** (5 lessons): Hello/Goodbye, Yes/No, Common Questions, Pronouns, This/That
+- **Greetings** (3 lessons): Polite Expressions, Meeting People
+- **Numbers** (3 lessons): Numbers 1-5, 6-10, Bigger Numbers (100s, 1000s, millions)
+- **Food** (4 lessons): Basic Food Words, Restaurant Phrases, Thai Dishes, Ordering Food
+- **Travel** (4 lessons): Getting Around, Transportation, At the Hotel, Asking Directions
+- **Sentences** (6 lessons): Simple Sentences, Daily Activities, Expressing Feelings, Making Plans, Time Expressions, Comparisons
+- **Conversations** (4 lessons): At a Restaurant, Shopping, Making Small Talk, Emergency Phrases
+
+Each question includes:
+- Thai text with audio pronunciation (expo-speech)
+- Romanization (pronunciation guide)
+- English translation
+- Multiple choice answers
+- Detailed explanation of usage, grammar, and cultural context
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
