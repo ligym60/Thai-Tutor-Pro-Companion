@@ -56,6 +56,11 @@ export default function HomeScreen() {
     navigation.navigate("Review");
   };
 
+  const handleWritingPress = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    navigation.navigate("WritingPractice");
+  };
+
   const nextLesson = LESSONS.find(
     (lesson) => !lessonProgress[lesson.id]?.completed
   ) || LESSONS[0];
@@ -154,6 +159,22 @@ export default function HomeScreen() {
             </ThemedText>
           )}
         </Card>
+      </View>
+
+      <View style={[styles.practiceRow, { marginTop: Spacing.md }]}>
+        <Card elevation={2} onPress={handleWritingPress} style={styles.practiceCard}>
+          <View style={[styles.practiceIcon, { backgroundColor: "#FF5722" + "20" }]}>
+            <Feather name="edit-3" size={24} color="#FF5722" />
+          </View>
+          <ThemedText type="small" style={{ fontWeight: "600", marginTop: Spacing.sm }}>
+            Writing
+          </ThemedText>
+          <ThemedText type="small" style={{ color: theme.textSecondary, fontSize: 10 }}>
+            Trace Characters
+          </ThemedText>
+        </Card>
+
+        <View style={styles.practiceCard} />
       </View>
     </ScrollView>
   );
