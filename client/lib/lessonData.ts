@@ -8,6 +8,7 @@ export interface Question {
   english: string;
   options: string[];
   correctAnswer: number;
+  hint?: string;
   explanation?: string;
 }
 
@@ -47,6 +48,7 @@ export const LESSONS: Lesson[] = [
         english: "Hello",
         options: ["Hello", "Goodbye", "Thank you", "Sorry"],
         correctAnswer: 0,
+        hint: "This is the most common greeting in Thailand - you'll hear it everywhere!",
         explanation: "สวัสดี (Sa-wat-dee) is the universal Thai greeting used for both 'hello' and 'goodbye'. Add ครับ (krap) if you're male or ค่ะ (ka) if you're female to be polite.",
       },
       {
@@ -56,6 +58,7 @@ export const LESSONS: Lesson[] = [
         english: "Goodbye",
         options: ["Hello", "Goodbye", "Please", "Yes"],
         correctAnswer: 1,
+        hint: "This is what you say when leaving someone - think of 'leaving'.",
         explanation: "ลาก่อน (La-gorn) is a more formal way to say goodbye, often used when parting for a longer time. สวัสดี can also be used for goodbye in casual situations.",
       },
       {
@@ -65,6 +68,7 @@ export const LESSONS: Lesson[] = [
         english: "Thank you",
         options: ["Sorry", "Please", "Thank you", "Welcome"],
         correctAnswer: 2,
+        hint: "You say this when someone gives you something or helps you.",
         explanation: "ขอบคุณ (Kob-khun) means 'thank you'. Add ครับ/ค่ะ for politeness. For extra gratitude, say ขอบคุณมาก (Kob-khun maak) meaning 'thank you very much'.",
       },
       {
@@ -74,6 +78,7 @@ export const LESSONS: Lesson[] = [
         english: "No problem / You're welcome",
         options: ["Sorry", "No problem / You're welcome", "Hello", "Goodbye"],
         correctAnswer: 1,
+        hint: "This phrase means 'don't worry about it' - a very Thai attitude!",
         explanation: "ไม่เป็นไร (Mai-pen-rai) is a very common Thai expression meaning 'no problem', 'never mind', or 'you're welcome'. It reflects the Thai philosophy of not worrying about small things.",
       },
     ],
@@ -93,6 +98,7 @@ export const LESSONS: Lesson[] = [
         english: "Yes",
         options: ["No", "Yes", "Maybe", "Later"],
         correctAnswer: 1,
+        hint: "This is the positive response - sounds like 'chai' tea!",
         explanation: "ใช่ (Chai) means 'yes' or 'correct'. It's used to confirm something is true or right.",
       },
       {
@@ -102,6 +108,7 @@ export const LESSONS: Lesson[] = [
         english: "No",
         options: ["Yes", "Maybe", "No", "Later"],
         correctAnswer: 2,
+        hint: "The opposite of yes - a simple one-syllable word.",
         explanation: "ไม่ (Mai) means 'no' or 'not'. It's placed before verbs or adjectives to negate them. For example: ไม่ดี (mai dee) = not good.",
       },
       {
@@ -111,6 +118,7 @@ export const LESSONS: Lesson[] = [
         english: "Not / It's not",
         options: ["Yes it is", "Not / It's not", "Maybe", "I don't know"],
         correctAnswer: 1,
+        hint: "It combines 'no' + 'yes' to mean 'no, it isn't'.",
         explanation: "ไม่ใช่ (Mai-chai) means 'it's not' or 'that's not right'. It's the opposite of ใช่ (chai).",
       },
       {
@@ -120,6 +128,7 @@ export const LESSONS: Lesson[] = [
         english: "Polite particle (m/f)",
         options: ["Thank you", "Sorry", "Polite particle (m/f)", "Hello"],
         correctAnswer: 2,
+        hint: "These words don't have a meaning on their own - they show respect.",
         explanation: "ครับ (Krap) is used by males, and ค่ะ (Ka) is used by females. These particles are added at the end of sentences to show politeness and respect.",
       },
     ],
@@ -139,6 +148,7 @@ export const LESSONS: Lesson[] = [
         english: "What?",
         options: ["Who?", "What?", "Where?", "When?"],
         correctAnswer: 1,
+        hint: "Think about asking for information about a thing or object.",
         explanation: "อะไร (A-rai) means 'what'. In Thai, question words usually come at the end of the sentence. Example: นี่คืออะไร (Nee kue a-rai) = What is this?",
       },
       {
@@ -148,6 +158,7 @@ export const LESSONS: Lesson[] = [
         english: "Why?",
         options: ["How?", "When?", "Why?", "What?"],
         correctAnswer: 2,
+        hint: "This asks for a reason or cause.",
         explanation: "ทำไม (Tam-mai) means 'why'. It can be placed at the beginning or end of a question. Example: ทำไมมาสาย (Tam-mai ma sai) = Why are you late?",
       },
       {
@@ -157,6 +168,7 @@ export const LESSONS: Lesson[] = [
         english: "When?",
         options: ["Where?", "How?", "What?", "When?"],
         correctAnswer: 3,
+        hint: "This asks about time.",
         explanation: "เมื่อไหร่ (Mua-rai) means 'when'. Example: คุณจะมาเมื่อไหร่ (Khun ja ma mua-rai) = When will you come?",
       },
       {
@@ -166,6 +178,7 @@ export const LESSONS: Lesson[] = [
         english: "Who?",
         options: ["Who?", "What?", "Where?", "Why?"],
         correctAnswer: 0,
+        hint: "This asks about a person's identity.",
         explanation: "ใคร (Krai) means 'who'. Example: นั่นคือใคร (Nan kue krai) = Who is that?",
       },
       {
@@ -175,6 +188,7 @@ export const LESSONS: Lesson[] = [
         english: "Where?",
         options: ["What?", "When?", "Where?", "How?"],
         correctAnswer: 2,
+        hint: "This asks about a place or location.",
         explanation: "ที่ไหน (Tee-nai) means 'where'. Example: ห้องน้ำอยู่ที่ไหน (Hong-nam yoo tee-nai) = Where is the bathroom?",
       },
     ],
@@ -194,6 +208,7 @@ export const LESSONS: Lesson[] = [
         english: "I (male)",
         options: ["You", "He", "I (male)", "We"],
         correctAnswer: 2,
+        hint: "This is what men use to refer to themselves.",
         explanation: "ผม (Phom) means 'I' when spoken by a male. It's the polite form used in most situations.",
       },
       {
@@ -203,6 +218,7 @@ export const LESSONS: Lesson[] = [
         english: "I (female)",
         options: ["I (female)", "She", "They", "You"],
         correctAnswer: 0,
+        hint: "This is what women use to refer to themselves.",
         explanation: "ฉัน (Chan) means 'I' when spoken by a female. ดิฉัน (Di-chan) is more formal.",
       },
       {
@@ -212,6 +228,7 @@ export const LESSONS: Lesson[] = [
         english: "You",
         options: ["I", "You", "He", "She"],
         correctAnswer: 1,
+        hint: "Used when talking to someone - the person you're speaking to.",
         explanation: "คุณ (Khun) means 'you' and is used for both genders. It's polite and respectful.",
       },
       {
@@ -221,6 +238,7 @@ export const LESSONS: Lesson[] = [
         english: "He/She/They",
         options: ["I", "You", "We", "He/She/They"],
         correctAnswer: 3,
+        hint: "Used when talking about someone else - a third person.",
         explanation: "เขา (Khao) can mean 'he', 'she', or 'they'. Thai doesn't distinguish gender in third-person pronouns.",
       },
       {
@@ -230,6 +248,7 @@ export const LESSONS: Lesson[] = [
         english: "We",
         options: ["We", "They", "You all", "Everyone"],
         correctAnswer: 0,
+        hint: "Used when referring to yourself and others together.",
         explanation: "เรา (Rao) means 'we' or 'us'. It can also be used informally to mean 'I'.",
       },
     ],
@@ -313,6 +332,7 @@ export const LESSONS: Lesson[] = [
         english: "Three",
         options: ["Two", "Four", "Five", "Three"],
         correctAnswer: 3,
+        hint: "Count after two: one, two, ___",
         explanation: "สาม (Sam) is the number three.",
       },
       {
@@ -322,6 +342,7 @@ export const LESSONS: Lesson[] = [
         english: "Four",
         options: ["Four", "Three", "Five", "Six"],
         correctAnswer: 0,
+        hint: "This comes after three.",
         explanation: "สี่ (See) is the number four. Note: สี (See) without the tone mark means 'color'.",
       },
       {
@@ -331,6 +352,7 @@ export const LESSONS: Lesson[] = [
         english: "Five",
         options: ["Four", "Six", "Three", "Five"],
         correctAnswer: 3,
+        hint: "Count the fingers on one hand.",
         explanation: "ห้า (Ha) is the number five.",
       },
     ],
@@ -350,6 +372,7 @@ export const LESSONS: Lesson[] = [
         english: "Six",
         options: ["Five", "Six", "Seven", "Eight"],
         correctAnswer: 1,
+        hint: "One more than five.",
         explanation: "หก (Hok) is the number six.",
       },
       {
@@ -359,6 +382,7 @@ export const LESSONS: Lesson[] = [
         english: "Seven",
         options: ["Six", "Eight", "Seven", "Nine"],
         correctAnswer: 2,
+        hint: "Days in a week.",
         explanation: "เจ็ด (Jet) is the number seven.",
       },
       {
@@ -368,6 +392,7 @@ export const LESSONS: Lesson[] = [
         english: "Eight",
         options: ["Seven", "Nine", "Ten", "Eight"],
         correctAnswer: 3,
+        hint: "Sounds like 'pet' in the romanization.",
         explanation: "แปด (Paet) is the number eight.",
       },
       {
@@ -377,6 +402,7 @@ export const LESSONS: Lesson[] = [
         english: "Nine",
         options: ["Nine", "Eight", "Ten", "Seven"],
         correctAnswer: 0,
+        hint: "One before ten.",
         explanation: "เก้า (Gao) is the number nine.",
       },
       {
@@ -386,6 +412,7 @@ export const LESSONS: Lesson[] = [
         english: "Ten",
         options: ["Nine", "Eleven", "Eight", "Ten"],
         correctAnswer: 3,
+        hint: "Fingers on both hands.",
         explanation: "สิบ (Sip) is the number ten. For 11-19, add the unit after สิบ: สิบเอ็ด (11), สิบสอง (12), etc.",
       },
     ],

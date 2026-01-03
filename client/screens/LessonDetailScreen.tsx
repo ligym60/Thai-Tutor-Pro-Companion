@@ -43,6 +43,7 @@ export default function LessonDetailScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [lives, setLives] = useState(progress?.lives || 5);
   const [isComplete, setIsComplete] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   const shakeX = useSharedValue(0);
   const feedbackOpacity = useSharedValue(0);
@@ -129,6 +130,7 @@ export default function LessonDetailScreen() {
       setSelectedAnswer(null);
       setIsChecked(false);
       setIsCorrect(false);
+      setShowHint(false);
     }
   };
 
@@ -275,6 +277,32 @@ export default function LessonDetailScreen() {
             />
           ))}
         </View>
+
+        {!isChecked && currentQuestion.hint ? (
+          <View style={styles.hintContainer}>
+            {showHint ? (
+              <View style={[styles.hintBox, { backgroundColor: theme.backgroundSecondary }]}>
+                <Feather name="help-circle" size={16} color={Colors.light.primary} />
+                <ThemedText type="small" style={[styles.hintText, { color: theme.textSecondary }]}>
+                  {currentQuestion.hint}
+                </ThemedText>
+              </View>
+            ) : (
+              <Pressable
+                style={styles.hintButton}
+                onPress={() => {
+                  setShowHint(true);
+                  Haptics.selectionAsync();
+                }}
+              >
+                <Feather name="help-circle" size={16} color={Colors.light.primary} />
+                <ThemedText type="small" style={{ color: Colors.light.primary }}>
+                  Need a hint?
+                </ThemedText>
+              </Pressable>
+            )}
+          </View>
+        ) : null}
       </Animated.View>
 
       <Animated.View
@@ -376,6 +404,28 @@ const styles = StyleSheet.create({
   },
   answersContainer: {
     flex: 1,
+  },
+  hintContainer: {
+    marginTop: Spacing.md,
+    alignItems: "center",
+  },
+  hintButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.xs,
+    padding: Spacing.sm,
+  },
+  hintBox: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: Spacing.sm,
+    padding: Spacing.md,
+    borderRadius: BorderRadius.md,
+    width: "100%",
+  },
+  hintText: {
+    flex: 1,
+    lineHeight: 20,
   },
   explanationContainer: {
     padding: Spacing.md,
