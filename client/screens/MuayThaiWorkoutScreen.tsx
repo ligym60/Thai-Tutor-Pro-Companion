@@ -2225,7 +2225,17 @@ export default function MuayThaiWorkoutScreen() {
           paddingHorizontal: Spacing.lg,
         }}
       >
-        <ThemedText type="h2">Master Workout</ThemedText>
+        <Pressable 
+          onPress={() => navigation.goBack()} 
+          style={styles.backButton}
+        >
+          <Feather name="arrow-left" size={20} color={theme.text} />
+          <ThemedText type="body" style={{ marginLeft: Spacing.sm }}>
+            Back
+          </ThemedText>
+        </Pressable>
+        
+        <ThemedText type="h2" style={{ marginTop: Spacing.md }}>Master Workout</ThemedText>
         <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.xs }}>
           20-30 minute sessions with 10 min warmup
         </ThemedText>
@@ -2488,5 +2498,10 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.sm,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
+  },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: Spacing.sm,
   },
 });
