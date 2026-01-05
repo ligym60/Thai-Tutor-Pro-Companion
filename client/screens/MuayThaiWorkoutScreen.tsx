@@ -1696,6 +1696,99 @@ export default function MuayThaiWorkoutScreen() {
     setCurrentFootworkIndex(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
+
+  const skipWarmupExercise = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const nextIndex = currentWarmupIndex + 1;
+    if (nextIndex >= WARMUP_EXERCISES.length) {
+      startFootwork(selectedWorkout);
+    } else {
+      startWarmupExercise(nextIndex, selectedWorkout);
+    }
+  };
+
+  const skipWarmup = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    speakText(useThai ? "ข้ามอบอุ่น" : "Skipping warmup");
+    startFootwork(selectedWorkout);
+  };
+
+  const skipFootworkDrill = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const drillsForLevel = selectedWorkout.level === "beginner" ? 4 : 
+                           selectedWorkout.level === "intermediate" ? 6 : 8;
+    const nextIndex = currentFootworkIndex + 1;
+    if (nextIndex >= drillsForLevel) {
+      startMainWorkout(selectedWorkout);
+    } else {
+      startFootworkDrill(nextIndex, selectedWorkout);
+    }
+  };
+
+  const skipFootwork = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    speakText(useThai ? "ข้ามก้าวเท้า" : "Skipping footwork");
+    startMainWorkout(selectedWorkout);
+  };
+
+  const skipCombo = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const nextIndex = currentComboIndex + 1;
+    if (nextIndex >= selectedWorkout.combinations.length) {
+      startCooldown();
+    } else {
+      startCombo(selectedWorkout, nextIndex, 0);
+    }
+  };
+
+  const skipCombos = () => {
+    if (!isActiveRef.current || !selectedWorkout) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    speakText(useThai ? "ข้ามคอมโบ" : "Skipping combinations");
+    startCooldown();
+  };
+
+  const skipCooldownExercise = () => {
+    if (!isActiveRef.current) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const nextIndex = currentCooldownIndex + 1;
+    if (nextIndex >= COOLDOWN_EXERCISES.length) {
+      setPhase("complete");
+      speakText(useThai ? "ฝึกซ้อมเสร็จแล้ว ทำได้ดีมาก" : "Workout complete. Great job!");
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } else {
+      startCooldownExercise(nextIndex);
+    }
+  };
+
+  const skipCooldown = () => {
+    if (!isActiveRef.current) return;
+    clearAllTimers();
+    Speech.stop();
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setPhase("complete");
+    speakText(useThai ? "ฝึกซ้อมเสร็จแล้ว ทำได้ดีมาก" : "Workout complete. Great job!");
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+  };
   
   const startCooldown = () => {
     if (!isActiveRef.current) return;
@@ -1825,6 +1918,21 @@ export default function MuayThaiWorkoutScreen() {
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
                   {useThai ? currentWarmup.romanization : currentWarmup.description}
                 </ThemedText>
+                
+                <View style={styles.skipButtonsRow}>
+                  <Pressable onPress={skipWarmupExercise} style={[styles.skipButton, { borderColor: "#FF9800" }]}>
+                    <Feather name="skip-forward" size={16} color="#FF9800" />
+                    <ThemedText type="small" style={{ color: "#FF9800", marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามท่านี้" : "Skip Exercise"}
+                    </ThemedText>
+                  </Pressable>
+                  <Pressable onPress={skipWarmup} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
+                    <Feather name="fast-forward" size={16} color={theme.textSecondary} />
+                    <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามอบอุ่น" : "Skip Warmup"}
+                    </ThemedText>
+                  </Pressable>
+                </View>
               </>
             )}
           </View>
@@ -1878,6 +1986,21 @@ export default function MuayThaiWorkoutScreen() {
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
                   {useThai ? currentFootwork.romanization : currentFootwork.description}
                 </ThemedText>
+                
+                <View style={styles.skipButtonsRow}>
+                  <Pressable onPress={skipFootworkDrill} style={[styles.skipButton, { borderColor: "#2196F3" }]}>
+                    <Feather name="skip-forward" size={16} color="#2196F3" />
+                    <ThemedText type="small" style={{ color: "#2196F3", marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามท่านี้" : "Skip Drill"}
+                    </ThemedText>
+                  </Pressable>
+                  <Pressable onPress={skipFootwork} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
+                    <Feather name="fast-forward" size={16} color={theme.textSecondary} />
+                    <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามก้าวเท้า" : "Skip Footwork"}
+                    </ThemedText>
+                  </Pressable>
+                </View>
               </>
             )}
           </View>
@@ -1931,6 +2054,21 @@ export default function MuayThaiWorkoutScreen() {
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
                   {useThai ? currentCooldown.romanization : currentCooldown.description}
                 </ThemedText>
+                
+                <View style={styles.skipButtonsRow}>
+                  <Pressable onPress={skipCooldownExercise} style={[styles.skipButton, { borderColor: "#9C27B0" }]}>
+                    <Feather name="skip-forward" size={16} color="#9C27B0" />
+                    <ThemedText type="small" style={{ color: "#9C27B0", marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามท่านี้" : "Skip Stretch"}
+                    </ThemedText>
+                  </Pressable>
+                  <Pressable onPress={skipCooldown} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
+                    <Feather name="fast-forward" size={16} color={theme.textSecondary} />
+                    <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
+                      {useThai ? "ข้ามคูลดาวน์" : "Skip Cooldown"}
+                    </ThemedText>
+                  </Pressable>
+                </View>
               </>
             )}
           </View>
@@ -2052,6 +2190,21 @@ export default function MuayThaiWorkoutScreen() {
                           </ThemedText>
                         </View>
                       ))}
+                    </View>
+                    
+                    <View style={styles.skipButtonsRow}>
+                      <Pressable onPress={skipCombo} style={[styles.skipButton, { borderColor: LEVEL_COLORS[selectedWorkout.level] }]}>
+                        <Feather name="skip-forward" size={16} color={LEVEL_COLORS[selectedWorkout.level]} />
+                        <ThemedText type="small" style={{ color: LEVEL_COLORS[selectedWorkout.level], marginLeft: Spacing.xs }}>
+                          {useThai ? "ข้ามคอมโบ" : "Skip Combo"}
+                        </ThemedText>
+                      </Pressable>
+                      <Pressable onPress={skipCombos} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
+                        <Feather name="fast-forward" size={16} color={theme.textSecondary} />
+                        <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
+                          {useThai ? "ข้ามทุกคอมโบ" : "Skip All"}
+                        </ThemedText>
+                      </Pressable>
                     </View>
                   </>
                 ) : null}
@@ -2320,5 +2473,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginLeft: Spacing.md,
+  },
+  skipButtonsRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: Spacing.xl,
+    gap: Spacing.md,
+  },
+  skipButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+    borderRadius: BorderRadius.lg,
+    borderWidth: 1,
   },
 });
