@@ -25,17 +25,26 @@ export const STORIES: Story[] = [
       { thai: "สวัสดี", romanization: "sa-wat-dee", english: "Hello" },
       { thai: "ตอน", romanization: "dtawn", english: "time/period" },
       { thai: "เช้า", romanization: "chao", english: "morning" },
-      { thai: "ครับ", romanization: "khrap", english: "(polite particle, male)" },
+      {
+        thai: "ครับ",
+        romanization: "khrap",
+        english: "(polite particle, male)",
+      },
       { thai: "คุณ", romanization: "khun", english: "you" },
       { thai: "สบาย", romanization: "sa-bai", english: "comfortable/well" },
       { thai: "ดี", romanization: "dee", english: "good" },
       { thai: "ไหม", romanization: "mai", english: "(question particle)" },
-      { thai: "ค่ะ", romanization: "kha", english: "(polite particle, female)" },
+      {
+        thai: "ค่ะ",
+        romanization: "kha",
+        english: "(polite particle, female)",
+      },
       { thai: "ขอบคุณ", romanization: "khawp-khun", english: "thank you" },
       { thai: "ที่", romanization: "thee", english: "that/which" },
       { thai: "ถาม", romanization: "tham", english: "ask" },
     ],
-    fullTranslation: "Good morning! How are you? I'm fine, thank you for asking.",
+    fullTranslation:
+      "Good morning! How are you? I'm fine, thank you for asking.",
   },
   {
     id: "story-2",
@@ -54,10 +63,15 @@ export const STORIES: Story[] = [
       { thai: "สอง", romanization: "sawng", english: "two" },
       { thai: "กิโล", romanization: "gi-loh", english: "kilogram" },
       { thai: "นะ", romanization: "na", english: "(softening particle)" },
-      { thai: "ค่ะ", romanization: "kha", english: "(polite particle, female)" },
+      {
+        thai: "ค่ะ",
+        romanization: "kha",
+        english: "(polite particle, female)",
+      },
       { thai: "ได้", romanization: "dai", english: "can/okay" },
     ],
-    fullTranslation: "How much are the mangoes? Fifteen baht per kilo. I'll take two kilos please. Okay!",
+    fullTranslation:
+      "How much are the mangoes? Fifteen baht per kilo. I'll take two kilos please. Okay!",
   },
   {
     id: "story-3",
@@ -82,7 +96,8 @@ export const STORIES: Story[] = [
       { thai: "ขอบคุณ", romanization: "khawp-khun", english: "thank you" },
       { thai: "มาก", romanization: "mak", english: "very much" },
     ],
-    fullTranslation: "Excuse me, where is the temple? Go straight, then turn right. It's not far, about a 5 minute walk. Thank you very much!",
+    fullTranslation:
+      "Excuse me, where is the temple? Go straight, then turn right. It's not far, about a 5 minute walk. Thank you very much!",
   },
   {
     id: "story-4",
@@ -105,7 +120,8 @@ export const STORIES: Story[] = [
       { thai: "ครู่", romanization: "khru", english: "moment" },
       { thai: "อร่อย", romanization: "a-roi", english: "delicious" },
     ],
-    fullTranslation: "Can I see the menu? I'd like Pad Thai, not spicy please. And one glass of cold water. Please wait a moment. The food is delicious!",
+    fullTranslation:
+      "Can I see the menu? I'd like Pad Thai, not spicy please. And one glass of cold water. Please wait a moment. The food is delicious!",
   },
   {
     id: "story-5",
@@ -130,7 +146,8 @@ export const STORIES: Story[] = [
       { thai: "พระอาทิตย์", romanization: "phra-a-thit", english: "sun" },
       { thai: "ตก", romanization: "dtok", english: "set/fall" },
     ],
-    fullTranslation: "The beach is very beautiful. The sky is blue and the waves are gentle. The sand is white. I sit and relax, then swim in the sea. It's very fun! I watch the sunset.",
+    fullTranslation:
+      "The beach is very beautiful. The sky is blue and the waves are gentle. The sand is white. I sit and relax, then swim in the sea. It's very fun! I watch the sunset.",
   },
   {
     id: "story-6",
@@ -139,7 +156,11 @@ export const STORIES: Story[] = [
     difficulty: "advanced",
     description: "Celebrating Songkran, the Thai New Year festival",
     words: [
-      { thai: "สงกรานต์", romanization: "song-kran", english: "Songkran (Thai New Year)" },
+      {
+        thai: "สงกรานต์",
+        romanization: "song-kran",
+        english: "Songkran (Thai New Year)",
+      },
       { thai: "เทศกาล", romanization: "thet-sa-kan", english: "festival" },
       { thai: "เมษายน", romanization: "may-sa-yon", english: "April" },
       { thai: "ครอบครัว", romanization: "khrawp-khrua", english: "family" },
@@ -149,12 +170,17 @@ export const STORIES: Story[] = [
       { thai: "สาดน้ำ", romanization: "sat-nam", english: "splash water" },
       { thai: "เล่น", romanization: "len", english: "play" },
       { thai: "ถนน", romanization: "tha-non", english: "street/road" },
-      { thai: "สนุกสนาน", romanization: "sa-nuk-sa-nan", english: "enjoyable/merry" },
+      {
+        thai: "สนุกสนาน",
+        romanization: "sa-nuk-sa-nan",
+        english: "enjoyable/merry",
+      },
       { thai: "ปีใหม่", romanization: "bpee-mai", english: "new year" },
       { thai: "ไทย", romanization: "thai", english: "Thai" },
       { thai: "ประเพณี", romanization: "bpra-pay-nee", english: "tradition" },
     ],
-    fullTranslation: "Songkran is the Thai New Year festival in April. Families gather together. We pour water on elders and ask for their blessings. People play by splashing water on the streets. It's a very enjoyable Thai tradition!",
+    fullTranslation:
+      "Songkran is the Thai New Year festival in April. Families gather together. We pour water on elders and ask for their blessings. People play by splashing water on the streets. It's a very enjoyable Thai tradition!",
   },
   {
     id: "story-7",
@@ -180,7 +206,8 @@ export const STORIES: Story[] = [
       { thai: "ฉลาด", romanization: "cha-lat", english: "intelligent" },
       { thai: "น่ารัก", romanization: "na-rak", english: "cute/lovely" },
     ],
-    fullTranslation: "I visited an elephant conservation center in Chiang Mai. The elephants live freely in nature and the forest. I fed them bananas and sugarcane. We helped bathe the elephants in the river. I was very impressed. Elephants are intelligent and lovely animals.",
+    fullTranslation:
+      "I visited an elephant conservation center in Chiang Mai. The elephants live freely in nature and the forest. I fed them bananas and sugarcane. We helped bathe the elephants in the river. I was very impressed. Elephants are intelligent and lovely animals.",
   },
   {
     id: "story-8",
@@ -190,21 +217,46 @@ export const STORIES: Story[] = [
     description: "Daily life experiences in Thailand's capital city",
     words: [
       { thai: "กรุงเทพ", romanization: "grung-thep", english: "Bangkok" },
-      { thai: "เมืองหลวง", romanization: "mueang-luang", english: "capital city" },
-      { thai: "รถไฟฟ้า", romanization: "rot-fai-fa", english: "BTS/electric train" },
+      {
+        thai: "เมืองหลวง",
+        romanization: "mueang-luang",
+        english: "capital city",
+      },
+      {
+        thai: "รถไฟฟ้า",
+        romanization: "rot-fai-fa",
+        english: "BTS/electric train",
+      },
       { thai: "สะดวก", romanization: "sa-duak", english: "convenient" },
       { thai: "รถติด", romanization: "rot-dtit", english: "traffic jam" },
-      { thai: "ห้างสรรพสินค้า", romanization: "hang-sap-pa-sin-ka", english: "shopping mall" },
-      { thai: "อาหารริมทาง", romanization: "a-han-rim-thang", english: "street food" },
+      {
+        thai: "ห้างสรรพสินค้า",
+        romanization: "hang-sap-pa-sin-ka",
+        english: "shopping mall",
+      },
+      {
+        thai: "อาหารริมทาง",
+        romanization: "a-han-rim-thang",
+        english: "street food",
+      },
       { thai: "หลากหลาย", romanization: "lak-lai", english: "diverse/variety" },
       { thai: "วัฒนธรรม", romanization: "wat-tha-na-tham", english: "culture" },
       { thai: "สมัยใหม่", romanization: "sa-mai-mai", english: "modern" },
       { thai: "โบราณ", romanization: "bo-ran", english: "ancient" },
-      { thai: "ผสมผสาน", romanization: "pha-som-pha-san", english: "blend/mix" },
+      {
+        thai: "ผสมผสาน",
+        romanization: "pha-som-pha-san",
+        english: "blend/mix",
+      },
       { thai: "น่าสนใจ", romanization: "na-son-jai", english: "interesting" },
-      { thai: "ประสบการณ์", romanization: "bpra-sop-gaan", english: "experience" },
+      {
+        thai: "ประสบการณ์",
+        romanization: "bpra-sop-gaan",
+        english: "experience",
+      },
     ],
-    fullTranslation: "Bangkok is the capital of Thailand. I take the BTS train because it's convenient. Traffic jams are common. There are many shopping malls and diverse street food. Bangkok blends modern and ancient culture together. It's an interesting experience living here.",
+    fullTranslation:
+      "Bangkok is the capital of Thailand. I take the BTS train because it's convenient. Traffic jams are common. There are many shopping malls and diverse street food. Bangkok blends modern and ancient culture together. It's an interesting experience living here.",
   },
 ];
 

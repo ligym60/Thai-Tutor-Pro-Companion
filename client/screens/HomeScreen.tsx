@@ -1,5 +1,11 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { ScrollView, View, StyleSheet, RefreshControl, Pressable } from "react-native";
+import {
+  ScrollView,
+  View,
+  StyleSheet,
+  RefreshControl,
+  Pressable,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -26,7 +32,8 @@ export default function HomeScreen() {
   const headerHeight = useHeaderHeight();
   const tabBarHeight = useBottomTabBarHeight();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const {
     userProfile,
     progress,
@@ -36,14 +43,17 @@ export default function HomeScreen() {
     getAccuracy,
     reload,
   } = useGameState();
-  
-  const [reviewStats, setReviewStats] = useState({ wordsForReview: 0, totalWordsLearned: 0 });
+
+  const [reviewStats, setReviewStats] = useState({
+    wordsForReview: 0,
+    totalWordsLearned: 0,
+  });
 
   useFocusEffect(
     useCallback(() => {
       reload();
       getReviewStats().then(setReviewStats);
-    }, [reload])
+    }, [reload]),
   );
 
   const handleSpeakingPress = () => {
@@ -61,9 +71,9 @@ export default function HomeScreen() {
     navigation.navigate("WritingPractice");
   };
 
-  const nextLesson = LESSONS.find(
-    (lesson) => !lessonProgress[lesson.id]?.completed
-  ) || LESSONS[0];
+  const nextLesson =
+    LESSONS.find((lesson) => !lessonProgress[lesson.id]?.completed) ||
+    LESSONS[0];
 
   const handleLessonPress = () => {
     navigation.navigate("LessonDetail", { lessonId: nextLesson.id });
@@ -108,7 +118,7 @@ export default function HomeScreen() {
       />
 
       <View style={styles.sectionHeader}>
-        <ThemedText type="h4">Today's Lesson</ThemedText>
+        <ThemedText type="h4">Today&apos;s Lesson</ThemedText>
       </View>
 
       <LessonCard
@@ -128,33 +138,60 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.practiceRow}>
-        <Card elevation={2} onPress={handleSpeakingPress} style={styles.practiceCard}>
-          <View style={[styles.practiceIcon, { backgroundColor: "#2196F3" + "20" }]}>
+        <Card
+          elevation={2}
+          onPress={handleSpeakingPress}
+          style={styles.practiceCard}
+        >
+          <View
+            style={[styles.practiceIcon, { backgroundColor: "#2196F3" + "20" }]}
+          >
             <Feather name="mic" size={24} color="#2196F3" />
           </View>
-          <ThemedText type="small" style={{ fontWeight: "600", marginTop: Spacing.sm }}>
+          <ThemedText
+            type="small"
+            style={{ fontWeight: "600", marginTop: Spacing.sm }}
+          >
             Speaking
           </ThemedText>
-          <ThemedText type="small" style={{ color: theme.textSecondary, fontSize: 10 }}>
+          <ThemedText
+            type="small"
+            style={{ color: theme.textSecondary, fontSize: 10 }}
+          >
             Listen & Repeat
           </ThemedText>
         </Card>
 
-        <Card elevation={2} onPress={handleReviewPress} style={styles.practiceCard}>
-          <View style={[styles.practiceIcon, { backgroundColor: "#9C27B0" + "20" }]}>
+        <Card
+          elevation={2}
+          onPress={handleReviewPress}
+          style={styles.practiceCard}
+        >
+          <View
+            style={[styles.practiceIcon, { backgroundColor: "#9C27B0" + "20" }]}
+          >
             <Feather name="layers" size={24} color="#9C27B0" />
           </View>
-          <ThemedText type="small" style={{ fontWeight: "600", marginTop: Spacing.sm }}>
+          <ThemedText
+            type="small"
+            style={{ fontWeight: "600", marginTop: Spacing.sm }}
+          >
             Review
           </ThemedText>
           {reviewStats.wordsForReview > 0 ? (
             <View style={styles.reviewBadge}>
-              <ThemedText type="small" style={{ color: "#FF9800", fontWeight: "600", fontSize: 10 }}>
+              <ThemedText
+                type="small"
+                style={{ color: "#FF9800", fontWeight: "600", fontSize: 10 }}
+              >
                 {reviewStats.wordsForReview} due
               </ThemedText>
             </View>
           ) : (
-            <ThemedText type="small" style={{ color: theme.textSecondary, fontSize: 10 }}>
+            <ThemedText
+              type="small"
+              style={{ color: theme.textSecondary, fontSize: 10 }}
+            >
               Spaced Repetition
             </ThemedText>
           )}
@@ -162,14 +199,26 @@ export default function HomeScreen() {
       </View>
 
       <View style={[styles.practiceRow, { marginTop: Spacing.md }]}>
-        <Card elevation={2} onPress={handleWritingPress} style={styles.practiceCard}>
-          <View style={[styles.practiceIcon, { backgroundColor: "#FF5722" + "20" }]}>
+        <Card
+          elevation={2}
+          onPress={handleWritingPress}
+          style={styles.practiceCard}
+        >
+          <View
+            style={[styles.practiceIcon, { backgroundColor: "#FF5722" + "20" }]}
+          >
             <Feather name="edit-3" size={24} color="#FF5722" />
           </View>
-          <ThemedText type="small" style={{ fontWeight: "600", marginTop: Spacing.sm }}>
+          <ThemedText
+            type="small"
+            style={{ fontWeight: "600", marginTop: Spacing.sm }}
+          >
             Writing
           </ThemedText>
-          <ThemedText type="small" style={{ color: theme.textSecondary, fontSize: 10 }}>
+          <ThemedText
+            type="small"
+            style={{ color: theme.textSecondary, fontSize: 10 }}
+          >
             Trace Characters
           </ThemedText>
         </Card>

@@ -3,7 +3,6 @@ import { View, StyleSheet, Pressable, Platform } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
-import * as Speech from "expo-speech";
 import * as Haptics from "expo-haptics";
 import Animated, {
   useSharedValue,
@@ -20,8 +19,7 @@ import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { useTheme } from "@/hooks/useTheme";
 import { Spacing, BorderRadius } from "@/constants/theme";
-import { VOCABULARY, VocabularyWord } from "@/lib/vocabularyData";
-import { recordReview, ReviewQuality } from "@/lib/spacedRepetition";
+import { useSpeech } from "@/hooks/useSpeech";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -49,7 +47,11 @@ function RatingButton({ label, quality, color, onPress }: RatingButtonProps) {
 
   return (
     <AnimatedPressable
-      style={[styles.ratingButton, { backgroundColor: color + "20" }, animatedStyle]}
+      style={[
+        styles.ratingButton,
+        { backgroundColor: color + "20" },
+        animatedStyle,
+      ]}
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
@@ -65,19 +67,19 @@ export default function SpeakingPracticeScreen() {
   const { theme } = useTheme();
   const insets = useSafeAreaInsets();
   const tabBarHeight = useBottomTabBarHeight();
-  
+  const { speak, isSpeaking, isAvailable } = useSpeech();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showRating, setShowRating] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
   const [wordsCompleted, setWordsCompleted] = useState(0);
   const [shuffledWords, setShuffledWords] = useState<VocabularyWord[]>([]);
-  
+
   const pulseScale = useSharedValue(1);
   const cardProgress = useSharedValue(0);
 
   useEffect(() => {
     const shuffled = [...VOCABULARY]
-      .filter(w => w.difficulty === "beginner")
+      .filter((w) => w.difficulty === "beginner")
       .sort(() => Math.random() - 0.5)
       .slice(0, 10);
     setShuffledWords(shuffled);
@@ -85,22 +87,12 @@ export default function SpeakingPracticeScreen() {
 
   const currentWord = shuffledWords[currentIndex];
 
-  const speakWord = useCallback(async () => {
-    if (!currentWord || isSpeaking) return;
-    
-    setIsSpeaking(true);
-    pulseScale.value = withSequence(
-      withSpring(1.1),
-      withSpring(1)
-    );
-    
-    await Speech.speak(currentWord.thai, {
-      language: "th-TH",
-      rate: 0.8,
-      onDone: () => setIsSpeaking(false),
-      onError: () => setIsSpeaking(false),
-    });
-  }, [currentWord, isSpeaking, pulseScale]);
+  const speakWord = useCallback(() => {
+    if (!currentWord || !isAvailable) return;
+
+    pulseScale.value = withSequence(withSpring(1.1), withSpring(1));
+    speak(currentWord.thai);
+  }, [currentWord, isAvailable, speak, pulseScale]);
 
   const handleListenPress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -114,20 +106,22 @@ export default function SpeakingPracticeScreen() {
 
   const handleRating = async (quality: ReviewQuality) => {
     if (!currentWord) return;
-    
+
     Haptics.notificationAsync(
-      quality >= 3 ? Haptics.NotificationFeedbackType.Success : Haptics.NotificationFeedbackType.Warning
+      quality >= 3
+        ? Haptics.NotificationFeedbackType.Success
+        : Haptics.NotificationFeedbackType.Warning,
     );
-    
+
     await recordReview(currentWord.id, quality);
-    setWordsCompleted(prev => prev + 1);
-    
+    setWordsCompleted((prev) => prev + 1);
+
     cardProgress.value = withTiming(1, { duration: 300 }, () => {
       cardProgress.value = 0;
     });
-    
+
     if (currentIndex < shuffledWords.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+      setCurrentIndex((prev) => prev + 1);
       setShowRating(false);
     } else {
       setCurrentIndex(0);
@@ -163,35 +157,60 @@ export default function SpeakingPracticeScreen() {
         ]}
       >
         <View style={styles.progressHeader}>
-          <View style={[styles.progressBadge, { backgroundColor: theme.backgroundSecondary }]}>
+          <View
+            style={[
+              styles.progressBadge,
+              { backgroundColor: theme.backgroundSecondary },
+            ]}
+          >
             <Feather name="volume-2" size={16} color={theme.primary} />
-            <ThemedText type="small" style={{ marginLeft: 6, color: theme.textSecondary }}>
+            <ThemedText
+              type="small"
+              style={{ marginLeft: 6, color: theme.textSecondary }}
+            >
               {currentIndex + 1} / {shuffledWords.length}
             </ThemedText>
           </View>
-          <View style={[styles.progressBadge, { backgroundColor: theme.backgroundSecondary }]}>
+          <View
+            style={[
+              styles.progressBadge,
+              { backgroundColor: theme.backgroundSecondary },
+            ]}
+          >
             <Feather name="check-circle" size={16} color="#4CAF50" />
-            <ThemedText type="small" style={{ marginLeft: 6, color: theme.textSecondary }}>
+            <ThemedText
+              type="small"
+              style={{ marginLeft: 6, color: theme.textSecondary }}
+            >
               {wordsCompleted} practiced
             </ThemedText>
           </View>
         </View>
 
         <Card elevation={2} style={styles.wordCard}>
-          <ThemedText type="small" style={{ color: theme.textSecondary, marginBottom: Spacing.sm }}>
+          <ThemedText
+            type="small"
+            style={{ color: theme.textSecondary, marginBottom: Spacing.sm }}
+          >
             Listen and repeat:
           </ThemedText>
-          
+
           <ThemedText type="h1" style={styles.thaiText}>
             {currentWord?.thai}
           </ThemedText>
-          
-          <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+
+          <ThemedText
+            type="body"
+            style={{ color: theme.textSecondary, marginTop: Spacing.sm }}
+          >
             {currentWord?.romanization}
           </ThemedText>
-          
+
           {showRating ? (
-            <ThemedText type="body" style={[styles.englishText, { color: theme.primary }]}>
+            <ThemedText
+              type="body"
+              style={[styles.englishText, { color: theme.primary }]}
+            >
               {currentWord?.english}
             </ThemedText>
           ) : null}
@@ -200,35 +219,58 @@ export default function SpeakingPracticeScreen() {
             <Pressable
               style={[
                 styles.speakerButton,
-                { backgroundColor: isSpeaking ? theme.primary : theme.primary + "20" },
+                {
+                  backgroundColor: !isAvailable
+                    ? "#ccc"
+                    : isSpeaking
+                    ? theme.primary
+                    : theme.primary + "20",
+                },
               ]}
               onPress={handleListenPress}
-              disabled={isSpeaking}
+              disabled={isSpeaking || !isAvailable}
             >
               <Feather
-                name="volume-2"
+                name={isSpeaking ? "volume-2" : "volume-2"}
                 size={32}
-                color={isSpeaking ? "#fff" : theme.primary}
+                color={!isAvailable ? "#999" : isSpeaking ? "#fff" : theme.primary}
               />
             </Pressable>
-            <ThemedText type="small" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-              {isSpeaking ? "Speaking..." : "Tap to listen"}
+            <ThemedText
+              type="small"
+              style={{ color: theme.textSecondary, marginTop: Spacing.sm }}
+            >
+              {!isAvailable ? "Speech not available" : isSpeaking ? "Speaking..." : "Tap to listen"}
             </ThemedText>
           </Animated.View>
 
           {currentWord?.exampleSentence ? (
-            <View style={[styles.exampleContainer, { backgroundColor: theme.backgroundRoot }]}>
-              <ThemedText type="small" style={{ fontWeight: "600", marginBottom: 4 }}>
+            <View
+              style={[
+                styles.exampleContainer,
+                { backgroundColor: theme.backgroundRoot },
+              ]}
+            >
+              <ThemedText
+                type="small"
+                style={{ fontWeight: "600", marginBottom: 4 }}
+              >
                 Example:
               </ThemedText>
               <ThemedText type="small" style={{ color: theme.textSecondary }}>
                 {currentWord.exampleSentence.thai}
               </ThemedText>
-              <ThemedText type="small" style={{ color: theme.textSecondary, fontStyle: "italic" }}>
+              <ThemedText
+                type="small"
+                style={{ color: theme.textSecondary, fontStyle: "italic" }}
+              >
                 {currentWord.exampleSentence.romanization}
               </ThemedText>
               {showRating ? (
-                <ThemedText type="small" style={{ color: theme.primary, marginTop: 4 }}>
+                <ThemedText
+                  type="small"
+                  style={{ color: theme.primary, marginTop: 4 }}
+                >
                   {currentWord.exampleSentence.english}
                 </ThemedText>
               ) : null}
@@ -237,18 +279,18 @@ export default function SpeakingPracticeScreen() {
         </Card>
 
         {!showRating ? (
-          <Button
-            onPress={handleShowRating}
-            style={styles.practiceButton}
-          >
-            I've practiced saying it
+          <Button onPress={handleShowRating} style={styles.practiceButton}>
+            I&apos;ve practiced saying it
           </Button>
         ) : (
           <View style={styles.ratingContainer}>
-            <ThemedText type="body" style={{ textAlign: "center", marginBottom: Spacing.md }}>
+            <ThemedText
+              type="body"
+              style={{ textAlign: "center", marginBottom: Spacing.md }}
+            >
               How well did you pronounce it?
             </ThemedText>
-            
+
             <View style={styles.ratingRow}>
               <RatingButton
                 label="Again"
@@ -277,9 +319,13 @@ export default function SpeakingPracticeScreen() {
             </View>
           </View>
         )}
-        
-        <ThemedText type="small" style={[styles.tipText, { color: theme.textSecondary }]}>
-          Tip: Listen carefully to the tones. Thai is a tonal language where pitch changes the meaning!
+
+        <ThemedText
+          type="small"
+          style={[styles.tipText, { color: theme.textSecondary }]}
+        >
+          Tip: Listen carefully to the tones. Thai is a tonal language where
+          pitch changes the meaning!
         </ThemedText>
       </View>
     </ThemedView>

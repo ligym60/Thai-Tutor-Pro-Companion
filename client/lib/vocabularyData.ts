@@ -3,7 +3,14 @@ export interface VocabularyWord {
   thai: string;
   romanization: string;
   english: string;
-  category: "greetings" | "numbers" | "food" | "travel" | "basics" | "phrases" | "time";
+  category:
+    | "greetings"
+    | "numbers"
+    | "food"
+    | "travel"
+    | "basics"
+    | "phrases"
+    | "time";
   difficulty: "beginner" | "intermediate" | "advanced";
   exampleSentence?: {
     thai: string;
@@ -370,10 +377,14 @@ export const VOCABULARY: VocabularyWord[] = [
   },
 ];
 
-export const getVocabularyByCategory = (category: VocabularyWord["category"]) => {
+export const getVocabularyByCategory = (
+  category: VocabularyWord["category"],
+) => {
   return VOCABULARY.filter((word) => word.category === category);
 };
 
-export const getVocabularyByDifficulty = (difficulty: VocabularyWord["difficulty"]) => {
+export const getVocabularyByDifficulty = (
+  difficulty: VocabularyWord["difficulty"],
+) => {
   return VOCABULARY.filter((word) => word.difficulty === difficulty);
 };

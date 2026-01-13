@@ -20,7 +20,7 @@ interface SpeakerButtonProps {
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export function SpeakerButton({ text, size = "medium" }: SpeakerButtonProps) {
-  const { speak, isSpeaking } = useSpeech();
+  const { speak, isSpeaking, isAvailable } = useSpeech();
   const scale = useSharedValue(1);
 
   const iconSize = size === "small" ? 18 : size === "large" ? 28 : 22;
@@ -31,10 +31,11 @@ export function SpeakerButton({ text, size = "medium" }: SpeakerButtonProps) {
   }));
 
   const handlePress = () => {
+    if (!isAvailable) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     scale.value = withSequence(
       withTiming(0.9, { duration: 100 }),
-      withTiming(1, { duration: 100 })
+      withTiming(1, { duration: 100 }),
     );
     speak(text);
   };
@@ -47,7 +48,9 @@ export function SpeakerButton({ text, size = "medium" }: SpeakerButtonProps) {
         {
           width: buttonSize,
           height: buttonSize,
-          backgroundColor: isSpeaking
+          backgroundColor: !isAvailable
+            ? "#ccc"
+            : isSpeaking
             ? Colors.light.primary
             : Colors.light.primary + "20",
         },
@@ -55,9 +58,9 @@ export function SpeakerButton({ text, size = "medium" }: SpeakerButtonProps) {
       ]}
     >
       <Feather
-        name={isSpeaking ? "volume-2" : "volume-2"}
+        name={isSpeaking ? "volume-2" : "volume-x"}
         size={iconSize}
-        color={isSpeaking ? "#FFFFFF" : Colors.light.primary}
+        color={!isAvailable ? "#999" : isSpeaking ? "#FFFFFF" : Colors.light.primary}
       />
     </AnimatedPressable>
   );

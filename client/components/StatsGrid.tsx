@@ -41,7 +41,11 @@ interface StatsGridProps {
   accuracy: number;
 }
 
-export function StatsGrid({ totalXP, lessonsCompleted, accuracy }: StatsGridProps) {
+export function StatsGrid({
+  totalXP,
+  lessonsCompleted,
+  accuracy,
+}: StatsGridProps) {
   return (
     <Card elevation={1} style={styles.card}>
       <View style={styles.grid}>

@@ -81,17 +81,24 @@ const defaultAchievements: Achievements = {
 export async function getUserProfile(): Promise<UserProfile> {
   try {
     const data = await AsyncStorage.getItem(STORAGE_KEYS.USER_PROFILE);
-    return data ? { ...defaultUserProfile, ...JSON.parse(data) } : defaultUserProfile;
+    return data
+      ? { ...defaultUserProfile, ...JSON.parse(data) }
+      : defaultUserProfile;
   } catch {
     return defaultUserProfile;
   }
 }
 
-export async function saveUserProfile(profile: Partial<UserProfile>): Promise<void> {
+export async function saveUserProfile(
+  profile: Partial<UserProfile>,
+): Promise<void> {
   try {
     const current = await getUserProfile();
     const updated = { ...current, ...profile };
-    await AsyncStorage.setItem(STORAGE_KEYS.USER_PROFILE, JSON.stringify(updated));
+    await AsyncStorage.setItem(
+      STORAGE_KEYS.USER_PROFILE,
+      JSON.stringify(updated),
+    );
   } catch (error) {
     console.error("Failed to save user profile:", error);
   }
@@ -100,8 +107,10 @@ export async function saveUserProfile(profile: Partial<UserProfile>): Promise<vo
 export async function getProgress(): Promise<Progress> {
   try {
     const data = await AsyncStorage.getItem(STORAGE_KEYS.PROGRESS);
-    const progress = data ? { ...defaultProgress, ...JSON.parse(data) } : defaultProgress;
-    
+    const progress = data
+      ? { ...defaultProgress, ...JSON.parse(data) }
+      : defaultProgress;
+
     const today = new Date().toDateString();
     if (progress.dailyGoalLastReset !== today) {
       progress.dailyXPEarned = 0;
@@ -111,7 +120,7 @@ export async function getProgress(): Promise<Progress> {
       progress.lives = 5;
       progress.livesLastReset = today;
     }
-    
+
     return progress;
   } catch {
     return defaultProgress;
@@ -137,9 +146,14 @@ export async function getLessonProgress(): Promise<LessonProgress> {
   }
 }
 
-export async function saveLessonProgress(lessonProgress: LessonProgress): Promise<void> {
+export async function saveLessonProgress(
+  lessonProgress: LessonProgress,
+): Promise<void> {
   try {
-    await AsyncStorage.setItem(STORAGE_KEYS.LESSON_PROGRESS, JSON.stringify(lessonProgress));
+    await AsyncStorage.setItem(
+      STORAGE_KEYS.LESSON_PROGRESS,
+      JSON.stringify(lessonProgress),
+    );
   } catch (error) {
     console.error("Failed to save lesson progress:", error);
   }
@@ -148,17 +162,24 @@ export async function saveLessonProgress(lessonProgress: LessonProgress): Promis
 export async function getAchievements(): Promise<Achievements> {
   try {
     const data = await AsyncStorage.getItem(STORAGE_KEYS.ACHIEVEMENTS);
-    return data ? { ...defaultAchievements, ...JSON.parse(data) } : defaultAchievements;
+    return data
+      ? { ...defaultAchievements, ...JSON.parse(data) }
+      : defaultAchievements;
   } catch {
     return defaultAchievements;
   }
 }
 
-export async function saveAchievements(achievements: Partial<Achievements>): Promise<void> {
+export async function saveAchievements(
+  achievements: Partial<Achievements>,
+): Promise<void> {
   try {
     const current = await getAchievements();
     const updated = { ...current, ...achievements };
-    await AsyncStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(updated));
+    await AsyncStorage.setItem(
+      STORAGE_KEYS.ACHIEVEMENTS,
+      JSON.stringify(updated),
+    );
   } catch (error) {
     console.error("Failed to save achievements:", error);
   }

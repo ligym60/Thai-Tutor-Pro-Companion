@@ -26,10 +26,10 @@ export function StreakCard({ streak }: StreakCardProps) {
     scale.value = withRepeat(
       withSequence(
         withTiming(1.1, { duration: 500 }),
-        withTiming(1, { duration: 500 })
+        withTiming(1, { duration: 500 }),
       ),
       -1,
-      true
+      true,
     );
   }, []);
 
@@ -41,11 +41,7 @@ export function StreakCard({ streak }: StreakCardProps) {
     <Card elevation={1} style={styles.card}>
       <View style={styles.content}>
         <Animated.View style={animatedStyle}>
-          <Feather
-            name="zap"
-            size={32}
-            color={Colors.light.streakGold}
-          />
+          <Feather name="zap" size={32} color={Colors.light.streakGold} />
         </Animated.View>
         <View style={styles.textContainer}>
           <ThemedText type="h2" style={styles.streakNumber}>

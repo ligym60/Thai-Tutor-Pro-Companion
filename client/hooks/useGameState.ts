@@ -50,136 +50,182 @@ export function useGameState() {
     await saveUserProfile(updates);
   }, []);
 
-  const addXP = useCallback(async (amount: number) => {
-    if (!progress) return;
-    
-    const today = new Date().toDateString();
-    const lastDate = progress.lastLessonDate;
-    let newStreak = progress.currentStreak;
-    
-    if (lastDate) {
-      const lastDateObj = new Date(lastDate);
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      
-      if (lastDate === today) {
-      } else if (lastDateObj.toDateString() === yesterday.toDateString()) {
-        newStreak += 1;
+  const addXP = useCallback(
+    async (amount: number) => {
+      if (!progress) return;
+
+      const today = new Date().toDateString();
+      const lastDate = progress.lastLessonDate;
+      let newStreak = progress.currentStreak;
+
+      if (lastDate) {
+        const lastDateObj = new Date(lastDate);
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (lastDate === today) {
+        } else if (lastDateObj.toDateString() === yesterday.toDateString()) {
+          newStreak += 1;
+        } else {
+          newStreak = 1;
+        }
       } else {
         newStreak = 1;
       }
-    } else {
-      newStreak = 1;
-    }
-    
-    const newProgress: Partial<Progress> = {
-      totalXP: progress.totalXP + amount,
-      dailyXPEarned: progress.dailyXPEarned + amount,
-      currentStreak: newStreak,
-      lastLessonDate: today,
-    };
-    
-    setProgress((prev) => (prev ? { ...prev, ...newProgress } : null));
-    await saveProgress(newProgress);
-    
-    await checkAndUnlockAchievements({
-      ...progress,
-      ...newProgress,
-    } as Progress);
-  }, [progress, achievements]);
 
-  const completeLesson = useCallback(async (
-    lessonId: string,
-    correctAnswers: number,
-    totalQuestions: number,
-    xpEarned: number
-  ) => {
-    if (!progress) return;
-    
-    const existingProgress = lessonProgress[lessonId];
-    const isPerfect = correctAnswers === totalQuestions;
-    const score = Math.round((correctAnswers / totalQuestions) * 100);
-    
-    const newLessonProgress: LessonProgress = {
-      ...lessonProgress,
-      [lessonId]: {
-        completed: true,
-        questionsAnswered: totalQuestions,
-        correctAnswers,
-        bestScore: existingProgress ? Math.max(existingProgress.bestScore, score) : score,
-      },
-    };
-    
-    setLessonProgress(newLessonProgress);
-    await saveLessonProgress(newLessonProgress);
-    
-    const isNewCompletion = !existingProgress?.completed;
-    const newProgress: Partial<Progress> = {
-      correctAnswers: progress.correctAnswers + correctAnswers,
-      totalAnswers: progress.totalAnswers + totalQuestions,
-      lessonsCompleted: isNewCompletion
-        ? progress.lessonsCompleted + 1
-        : progress.lessonsCompleted,
-    };
-    
-    setProgress((prev) => (prev ? { ...prev, ...newProgress } : null));
-    await saveProgress(newProgress);
-    
-    await addXP(xpEarned);
-    
-    if (isPerfect && achievements && !achievements.perfectScore.unlocked) {
-      await unlockAchievement("perfectScore");
-    }
-  }, [progress, lessonProgress, achievements, addXP]);
+      const newProgress: Partial<Progress> = {
+        totalXP: progress.totalXP + amount,
+        dailyXPEarned: progress.dailyXPEarned + amount,
+        currentStreak: newStreak,
+        lastLessonDate: today,
+      };
+
+      setProgress((prev) => (prev ? { ...prev, ...newProgress } : null));
+      await saveProgress(newProgress);
+
+      await checkAndUnlockAchievements({
+        ...progress,
+        ...newProgress,
+      } as Progress);
+    },
+    [progress, achievements],
+  );
+
+  const completeLesson = useCallback(
+    async (
+      lessonId: string,
+      correctAnswers: number,
+      totalQuestions: number,
+      xpEarned: number,
+    ) => {
+      if (!progress) return;
+
+      const existingProgress = lessonProgress[lessonId];
+      const isPerfect = correctAnswers === totalQuestions;
+      const score = Math.round((correctAnswers / totalQuestions) * 100);
+
+      const newLessonProgress: LessonProgress = {
+        ...lessonProgress,
+        [lessonId]: {
+          completed: true,
+          questionsAnswered: totalQuestions,
+          correctAnswers,
+          bestScore: existingProgress
+            ? Math.max(existingProgress.bestScore, score)
+            : score,
+        },
+      };
+
+      setLessonProgress(newLessonProgress);
+      await saveLessonProgress(newLessonProgress);
+
+      const isNewCompletion = !existingProgress?.completed;
+      const newProgress: Partial<Progress> = {
+        correctAnswers: progress.correctAnswers + correctAnswers,
+        totalAnswers: progress.totalAnswers + totalQuestions,
+        lessonsCompleted: isNewCompletion
+          ? progress.lessonsCompleted + 1
+          : progress.lessonsCompleted,
+      };
+
+      setProgress((prev) => (prev ? { ...prev, ...newProgress } : null));
+      await saveProgress(newProgress);
+
+      await addXP(xpEarned);
+
+      if (isPerfect && achievements && !achievements.perfectScore.unlocked) {
+        await unlockAchievement("perfectScore");
+      }
+    },
+    [progress, lessonProgress, achievements, addXP],
+  );
 
   const loseLife = useCallback(async () => {
     if (!progress || progress.lives <= 0) return false;
-    
+
     const newLives = progress.lives - 1;
     setProgress((prev) => (prev ? { ...prev, lives: newLives } : null));
     await saveProgress({ lives: newLives });
-    
+
     return newLives > 0;
   }, [progress]);
 
-  const checkAndUnlockAchievements = useCallback(async (currentProgress: Progress) => {
-    if (!achievements) return;
-    
-    const updates: Partial<Achievements> = {};
-    
-    if (!achievements.firstLesson.unlocked && currentProgress.lessonsCompleted >= 1) {
-      updates.firstLesson = { unlocked: true, unlockedAt: new Date().toISOString() };
-    }
-    
-    if (!achievements.streak7.unlocked && currentProgress.currentStreak >= 7) {
-      updates.streak7 = { unlocked: true, unlockedAt: new Date().toISOString() };
-    }
-    
-    if (!achievements.streak30.unlocked && currentProgress.currentStreak >= 30) {
-      updates.streak30 = { unlocked: true, unlockedAt: new Date().toISOString() };
-    }
-    
-    if (!achievements.lessons50.unlocked && currentProgress.lessonsCompleted >= 50) {
-      updates.lessons50 = { unlocked: true, unlockedAt: new Date().toISOString() };
-    }
-    
-    if (!achievements.thaiMaster.unlocked && currentProgress.totalXP >= 5000) {
-      updates.thaiMaster = { unlocked: true, unlockedAt: new Date().toISOString() };
-    }
-    
-    if (Object.keys(updates).length > 0) {
-      setAchievements((prev) => (prev ? { ...prev, ...updates } : null));
-      await saveAchievements(updates);
-    }
-  }, [achievements]);
+  const checkAndUnlockAchievements = useCallback(
+    async (currentProgress: Progress) => {
+      if (!achievements) return;
 
-  const unlockAchievement = useCallback(async (key: keyof Achievements) => {
-    if (!achievements || achievements[key].unlocked) return;
-    
-    const update = { [key]: { unlocked: true, unlockedAt: new Date().toISOString() } };
-    setAchievements((prev) => (prev ? { ...prev, ...update } : null));
-    await saveAchievements(update);
-  }, [achievements]);
+      const updates: Partial<Achievements> = {};
+
+      if (
+        !achievements.firstLesson.unlocked &&
+        currentProgress.lessonsCompleted >= 1
+      ) {
+        updates.firstLesson = {
+          unlocked: true,
+          unlockedAt: new Date().toISOString(),
+        };
+      }
+
+      if (
+        !achievements.streak7.unlocked &&
+        currentProgress.currentStreak >= 7
+      ) {
+        updates.streak7 = {
+          unlocked: true,
+          unlockedAt: new Date().toISOString(),
+        };
+      }
+
+      if (
+        !achievements.streak30.unlocked &&
+        currentProgress.currentStreak >= 30
+      ) {
+        updates.streak30 = {
+          unlocked: true,
+          unlockedAt: new Date().toISOString(),
+        };
+      }
+
+      if (
+        !achievements.lessons50.unlocked &&
+        currentProgress.lessonsCompleted >= 50
+      ) {
+        updates.lessons50 = {
+          unlocked: true,
+          unlockedAt: new Date().toISOString(),
+        };
+      }
+
+      if (
+        !achievements.thaiMaster.unlocked &&
+        currentProgress.totalXP >= 5000
+      ) {
+        updates.thaiMaster = {
+          unlocked: true,
+          unlockedAt: new Date().toISOString(),
+        };
+      }
+
+      if (Object.keys(updates).length > 0) {
+        setAchievements((prev) => (prev ? { ...prev, ...updates } : null));
+        await saveAchievements(updates);
+      }
+    },
+    [achievements],
+  );
+
+  const unlockAchievement = useCallback(
+    async (key: keyof Achievements) => {
+      if (!achievements || achievements[key].unlocked) return;
+
+      const update = {
+        [key]: { unlocked: true, unlockedAt: new Date().toISOString() },
+      };
+      setAchievements((prev) => (prev ? { ...prev, ...update } : null));
+      await saveAchievements(update);
+    },
+    [achievements],
+  );
 
   const resetProgress = useCallback(async () => {
     await resetAllData();

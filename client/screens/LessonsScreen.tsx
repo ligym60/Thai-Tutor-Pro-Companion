@@ -12,9 +12,15 @@ import { CategoryChip } from "@/components/CategoryChip";
 import { DifficultyChip } from "@/components/DifficultyChip";
 import { useTheme } from "@/hooks/useTheme";
 import { useGameState } from "@/hooks/useGameState";
-import { Spacing } from "@/constants/theme";
-import { Colors } from "@/constants/theme";
-import { LESSONS, CATEGORIES, DIFFICULTIES, Category, Difficulty } from "@/lib/lessonData";
+import { Spacing, Colors } from "@/constants/theme";
+
+import {
+  LESSONS,
+  CATEGORIES,
+  DIFFICULTIES,
+  Category,
+  Difficulty,
+} from "@/lib/lessonData";
 import { RootStackParamList } from "@/navigation/RootStackNavigator";
 
 export default function LessonsScreen() {
@@ -22,20 +28,27 @@ export default function LessonsScreen() {
   const headerHeight = useHeaderHeight();
   const tabBarHeight = useBottomTabBarHeight();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { lessonProgress, reload } = useGameState();
-  const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | "all">("all");
+  const [selectedCategory, setSelectedCategory] = useState<Category | "all">(
+    "all",
+  );
+  const [selectedDifficulty, setSelectedDifficulty] = useState<
+    Difficulty | "all"
+  >("all");
 
   useFocusEffect(
     useCallback(() => {
       reload();
-    }, [reload])
+    }, [reload]),
   );
 
   const filteredLessons = LESSONS.filter((lesson) => {
-    const categoryMatch = selectedCategory === "all" || lesson.category === selectedCategory;
-    const difficultyMatch = selectedDifficulty === "all" || lesson.difficulty === selectedDifficulty;
+    const categoryMatch =
+      selectedCategory === "all" || lesson.category === selectedCategory;
+    const difficultyMatch =
+      selectedDifficulty === "all" || lesson.difficulty === selectedDifficulty;
     return categoryMatch && difficultyMatch;
   });
 
@@ -53,7 +66,10 @@ export default function LessonsScreen() {
       }}
       scrollIndicatorInsets={{ bottom: insets.bottom }}
     >
-      <ThemedText type="small" style={[styles.filterLabel, { color: theme.textSecondary }]}>
+      <ThemedText
+        type="small"
+        style={[styles.filterLabel, { color: theme.textSecondary }]}
+      >
         Category
       </ThemedText>
       <ScrollView
@@ -79,7 +95,10 @@ export default function LessonsScreen() {
         ))}
       </ScrollView>
 
-      <ThemedText type="small" style={[styles.filterLabel, { color: theme.textSecondary }]}>
+      <ThemedText
+        type="small"
+        style={[styles.filterLabel, { color: theme.textSecondary }]}
+      >
         Level
       </ThemedText>
       <ScrollView

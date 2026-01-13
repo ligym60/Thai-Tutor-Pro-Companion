@@ -42,18 +42,23 @@ function shuffleArray<T>(array: T[]): T[] {
 
 function generateQuestions(words: StoryWord[]): QuizQuestion[] {
   const questions: QuizQuestion[] = [];
-  const uniqueWords = words.filter((word, index, self) =>
-    index === self.findIndex((w) => w.thai === word.thai)
+  const uniqueWords = words.filter(
+    (word, index, self) =>
+      index === self.findIndex((w) => w.thai === word.thai),
   );
-  
-  const selectedWords = shuffleArray(uniqueWords).slice(0, Math.min(10, uniqueWords.length));
-  
+
+  const selectedWords = shuffleArray(uniqueWords).slice(
+    0,
+    Math.min(10, uniqueWords.length),
+  );
+
   for (const word of selectedWords) {
-    const questionType = Math.random() < 0.5 ? "thai-to-english" : "english-to-thai";
-    
+    const questionType =
+      Math.random() < 0.5 ? "thai-to-english" : "english-to-thai";
+
     let options: string[] = [];
     let correctAnswer: string;
-    
+
     if (questionType === "thai-to-english") {
       correctAnswer = word.english;
       const otherWords = uniqueWords
@@ -73,7 +78,7 @@ function generateQuestions(words: StoryWord[]): QuizQuestion[] {
         ...shuffleArray(otherWords).slice(0, 3),
       ]);
     }
-    
+
     questions.push({
       type: questionType,
       word,
@@ -81,41 +86,42 @@ function generateQuestions(words: StoryWord[]): QuizQuestion[] {
       correctIndex: options.indexOf(correctAnswer),
     });
   }
-  
+
   return questions;
 }
 
 export default function StoryQuizScreen() {
   const insets = useSafeAreaInsets();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const route = useRoute<StoryQuizRouteProp>();
-  
+
   const story = getStoryById(route.params.storyId);
-  
+
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [score, setScore] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
-  
+
   const shakeX = useSharedValue(0);
   const scaleValue = useSharedValue(1);
-  
+
   useEffect(() => {
     if (story) {
       setQuestions(generateQuestions(story.words));
     }
   }, [story]);
-  
+
   const currentQuestion = questions[currentQuestionIndex];
-  
+
   const handleClose = () => {
     Speech.stop();
     navigation.goBack();
   };
-  
+
   const handlePlayAudio = () => {
     if (currentQuestion) {
       Speech.speak(currentQuestion.word.thai, {
@@ -124,20 +130,20 @@ export default function StoryQuizScreen() {
       });
     }
   };
-  
+
   const handleAnswerSelect = (index: number) => {
     if (selectedAnswer !== null) return;
-    
+
     setSelectedAnswer(index);
     const correct = index === currentQuestion.correctIndex;
     setIsCorrect(correct);
-    
+
     if (correct) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       setScore((prev) => prev + 1);
       scaleValue.value = withSequence(
         withSpring(1.1, { damping: 10 }),
-        withSpring(1, { damping: 10 })
+        withSpring(1, { damping: 10 }),
       );
     } else {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
@@ -146,11 +152,11 @@ export default function StoryQuizScreen() {
         withTiming(10, { duration: 50 }),
         withTiming(-10, { duration: 50 }),
         withTiming(10, { duration: 50 }),
-        withTiming(0, { duration: 50 })
+        withTiming(0, { duration: 50 }),
       );
     }
   };
-  
+
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
@@ -160,7 +166,7 @@ export default function StoryQuizScreen() {
       setQuizComplete(true);
     }
   };
-  
+
   const handleRetry = () => {
     if (story) {
       setQuestions(generateQuestions(story.words));
@@ -171,15 +177,15 @@ export default function StoryQuizScreen() {
       setQuizComplete(false);
     }
   };
-  
+
   const animatedShakeStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: shakeX.value }],
   }));
-  
+
   const animatedScaleStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scaleValue.value }],
   }));
-  
+
   if (!story || questions.length === 0) {
     return (
       <ThemedView style={[styles.container, { paddingTop: insets.top }]}>
@@ -189,12 +195,12 @@ export default function StoryQuizScreen() {
       </ThemedView>
     );
   }
-  
+
   if (quizComplete) {
     const percentage = Math.round((score / questions.length) * 100);
     let message = "";
     let icon: keyof typeof Feather.glyphMap = "star";
-    
+
     if (percentage >= 90) {
       message = "Excellent! You really know this story!";
       icon = "award";
@@ -208,7 +214,7 @@ export default function StoryQuizScreen() {
       message = "Keep learning! Practice makes perfect.";
       icon = "heart";
     }
-    
+
     return (
       <ThemedView style={styles.container}>
         <View style={[styles.header, { paddingTop: insets.top + Spacing.md }]}>
@@ -218,38 +224,62 @@ export default function StoryQuizScreen() {
           <ThemedText type="h4">Quiz Complete</ThemedText>
           <View style={{ width: 40 }} />
         </View>
-        
+
         <View style={styles.resultContainer}>
-          <View style={[styles.resultIcon, { backgroundColor: Colors.light.primary + "20" }]}>
+          <View
+            style={[
+              styles.resultIcon,
+              { backgroundColor: Colors.light.primary + "20" },
+            ]}
+          >
             <Feather name={icon} size={48} color={Colors.light.primary} />
           </View>
-          
+
           <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
             {score} / {questions.length}
           </ThemedText>
-          
-          <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+
+          <ThemedText
+            type="body"
+            style={{ color: theme.textSecondary, marginTop: Spacing.sm }}
+          >
             {percentage}% Correct
           </ThemedText>
-          
-          <ThemedText type="body" style={{ textAlign: "center", marginTop: Spacing.lg, paddingHorizontal: Spacing.xl }}>
+
+          <ThemedText
+            type="body"
+            style={{
+              textAlign: "center",
+              marginTop: Spacing.lg,
+              paddingHorizontal: Spacing.xl,
+            }}
+          >
             {message}
           </ThemedText>
-          
+
           <View style={styles.resultButtons}>
             <Pressable
               onPress={handleRetry}
-              style={[styles.resultButton, { backgroundColor: Colors.light.primary }]}
+              style={[
+                styles.resultButton,
+                { backgroundColor: Colors.light.primary },
+              ]}
             >
               <Feather name="refresh-cw" size={20} color="#FFFFFF" />
-              <ThemedText type="body" style={{ color: "#FFFFFF", marginLeft: Spacing.sm }}>
+              <ThemedText
+                type="body"
+                style={{ color: "#FFFFFF", marginLeft: Spacing.sm }}
+              >
                 Try Again
               </ThemedText>
             </Pressable>
-            
+
             <Pressable
               onPress={handleClose}
-              style={[styles.resultButton, { backgroundColor: theme.backgroundSecondary }]}
+              style={[
+                styles.resultButton,
+                { backgroundColor: theme.backgroundSecondary },
+              ]}
             >
               <Feather name="check" size={20} color={theme.text} />
               <ThemedText type="body" style={{ marginLeft: Spacing.sm }}>
@@ -261,7 +291,7 @@ export default function StoryQuizScreen() {
       </ThemedView>
     );
   }
-  
+
   return (
     <ThemedView style={styles.container}>
       <View style={[styles.header, { paddingTop: insets.top + Spacing.md }]}>
@@ -273,9 +303,14 @@ export default function StoryQuizScreen() {
         </View>
         <View style={{ width: 40 }} />
       </View>
-      
+
       <View style={styles.progressRow}>
-        <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary }]}>
+        <View
+          style={[
+            styles.progressBar,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
+        >
           <View
             style={[
               styles.progressFill,
@@ -286,11 +321,14 @@ export default function StoryQuizScreen() {
             ]}
           />
         </View>
-        <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.md }}>
+        <ThemedText
+          type="small"
+          style={{ color: theme.textSecondary, marginLeft: Spacing.md }}
+        >
           {currentQuestionIndex + 1}/{questions.length}
         </ThemedText>
       </View>
-      
+
       <ScrollView
         style={styles.content}
         contentContainerStyle={[
@@ -300,12 +338,15 @@ export default function StoryQuizScreen() {
       >
         <Animated.View style={animatedShakeStyle}>
           <Card elevation={2} style={styles.questionCard}>
-            <ThemedText type="small" style={{ color: theme.textSecondary, marginBottom: Spacing.md }}>
+            <ThemedText
+              type="small"
+              style={{ color: theme.textSecondary, marginBottom: Spacing.md }}
+            >
               {currentQuestion.type === "thai-to-english"
                 ? "What does this word mean?"
                 : "How do you say this in Thai?"}
             </ThemedText>
-            
+
             <Pressable onPress={handlePlayAudio} style={styles.wordContainer}>
               <Animated.View style={animatedScaleStyle}>
                 <ThemedText style={styles.questionWord}>
@@ -316,27 +357,40 @@ export default function StoryQuizScreen() {
               </Animated.View>
               {currentQuestion.type === "thai-to-english" ? (
                 <View style={styles.audioHint}>
-                  <Feather name="volume-2" size={16} color={Colors.light.primary} />
-                  <ThemedText type="small" style={{ color: Colors.light.primary, marginLeft: Spacing.xs }}>
+                  <Feather
+                    name="volume-2"
+                    size={16}
+                    color={Colors.light.primary}
+                  />
+                  <ThemedText
+                    type="small"
+                    style={{
+                      color: Colors.light.primary,
+                      marginLeft: Spacing.xs,
+                    }}
+                  >
                     Tap to hear
                   </ThemedText>
                 </View>
               ) : null}
             </Pressable>
-            
+
             {currentQuestion.type === "thai-to-english" ? (
-              <ThemedText type="small" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
+              <ThemedText
+                type="small"
+                style={{ color: theme.textSecondary, marginTop: Spacing.sm }}
+              >
                 {currentQuestion.word.romanization}
               </ThemedText>
             ) : null}
           </Card>
         </Animated.View>
-        
+
         <View style={styles.optionsContainer}>
           {currentQuestion.options.map((option, index) => {
             let optionStyle = { backgroundColor: theme.backgroundSecondary };
             let textColor = theme.text;
-            
+
             if (selectedAnswer !== null) {
               if (index === currentQuestion.correctIndex) {
                 optionStyle = { backgroundColor: "#4CAF50" + "20" };
@@ -346,7 +400,7 @@ export default function StoryQuizScreen() {
                 textColor = "#F44336";
               }
             }
-            
+
             return (
               <Pressable
                 key={index}
@@ -358,12 +412,15 @@ export default function StoryQuizScreen() {
                   style={[
                     styles.optionText,
                     { color: textColor },
-                    currentQuestion.type === "english-to-thai" && { fontSize: 24 },
+                    currentQuestion.type === "english-to-thai" && {
+                      fontSize: 24,
+                    },
                   ]}
                 >
                   {option}
                 </ThemedText>
-                {selectedAnswer !== null && index === currentQuestion.correctIndex ? (
+                {selectedAnswer !== null &&
+                index === currentQuestion.correctIndex ? (
                   <Feather name="check-circle" size={20} color="#4CAF50" />
                 ) : null}
                 {selectedAnswer === index && !isCorrect ? (
@@ -373,13 +430,17 @@ export default function StoryQuizScreen() {
             );
           })}
         </View>
-        
+
         {selectedAnswer !== null ? (
           <View style={styles.feedbackContainer}>
             <View
               style={[
                 styles.feedbackCard,
-                { backgroundColor: isCorrect ? "#4CAF50" + "10" : "#F44336" + "10" },
+                {
+                  backgroundColor: isCorrect
+                    ? "#4CAF50" + "10"
+                    : "#F44336" + "10",
+                },
               ]}
             >
               <View style={styles.feedbackHeader}>
@@ -400,20 +461,37 @@ export default function StoryQuizScreen() {
                 </ThemedText>
               </View>
               {!isCorrect ? (
-                <ThemedText type="body" style={{ marginTop: Spacing.sm, color: theme.textSecondary }}>
-                  The correct answer is: {currentQuestion.options[currentQuestion.correctIndex]}
+                <ThemedText
+                  type="body"
+                  style={{ marginTop: Spacing.sm, color: theme.textSecondary }}
+                >
+                  The correct answer is:{" "}
+                  {currentQuestion.options[currentQuestion.correctIndex]}
                 </ThemedText>
               ) : null}
             </View>
-            
+
             <Pressable
               onPress={handleNext}
-              style={[styles.continueButton, { backgroundColor: Colors.light.primary }]}
+              style={[
+                styles.continueButton,
+                { backgroundColor: Colors.light.primary },
+              ]}
             >
-              <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600" }}>
-                {currentQuestionIndex < questions.length - 1 ? "Continue" : "See Results"}
+              <ThemedText
+                type="body"
+                style={{ color: "#FFFFFF", fontWeight: "600" }}
+              >
+                {currentQuestionIndex < questions.length - 1
+                  ? "Continue"
+                  : "See Results"}
               </ThemedText>
-              <Feather name="arrow-right" size={20} color="#FFFFFF" style={{ marginLeft: Spacing.sm }} />
+              <Feather
+                name="arrow-right"
+                size={20}
+                color="#FFFFFF"
+                style={{ marginLeft: Spacing.sm }}
+              />
             </Pressable>
           </View>
         ) : null}

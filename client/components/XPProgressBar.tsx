@@ -19,7 +19,11 @@ interface XPProgressBarProps {
   progress: number;
 }
 
-export function XPProgressBar({ dailyXP, dailyGoal, progress }: XPProgressBarProps) {
+export function XPProgressBar({
+  dailyXP,
+  dailyGoal,
+  progress,
+}: XPProgressBarProps) {
   const { theme } = useTheme();
   const progressWidth = useSharedValue(0);
 
@@ -58,7 +62,12 @@ export function XPProgressBar({ dailyXP, dailyGoal, progress }: XPProgressBarPro
           {dailyXP} / {goalXP} XP
         </ThemedText>
       </View>
-      <View style={[styles.progressTrack, { backgroundColor: theme.backgroundSecondary }]}>
+      <View
+        style={[
+          styles.progressTrack,
+          { backgroundColor: theme.backgroundSecondary },
+        ]}
+      >
         <Animated.View
           style={[
             styles.progressBar,

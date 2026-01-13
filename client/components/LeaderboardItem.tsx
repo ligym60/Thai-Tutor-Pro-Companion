@@ -58,10 +58,7 @@ export function LeaderboardItem({
         },
       ]}
     >
-      <ThemedText
-        type="body"
-        style={[styles.rank, { color: getRankColor() }]}
-      >
+      <ThemedText type="body" style={[styles.rank, { color: getRankColor() }]}>
         {rank}
       </ThemedText>
       <Avatar preset={avatarPreset} size={40} />

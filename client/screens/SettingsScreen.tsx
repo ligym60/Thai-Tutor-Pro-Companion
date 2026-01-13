@@ -18,23 +18,20 @@ export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const headerHeight = useHeaderHeight();
   const { theme } = useTheme();
-  const {
-    userProfile,
-    loading,
-    updateProfile,
-    resetProgress,
-    reload,
-  } = useGameState();
+  const { userProfile, loading, updateProfile, resetProgress, reload } =
+    useGameState();
 
   useFocusEffect(
     useCallback(() => {
       reload();
-    }, [reload])
+    }, [reload]),
   );
 
   const handleDailyGoalChange = (value: number) => {
     const roundedValue = Math.round(value / 5) * 5;
-    updateProfile({ dailyGoalMinutes: Math.max(5, Math.min(30, roundedValue)) });
+    updateProfile({
+      dailyGoalMinutes: Math.max(5, Math.min(30, roundedValue)),
+    });
   };
 
   const handleSoundToggle = () => {
@@ -56,7 +53,7 @@ export default function SettingsScreen() {
             Alert.alert("Progress Reset", "Your progress has been reset.");
           },
         },
-      ]
+      ],
     );
   };
 

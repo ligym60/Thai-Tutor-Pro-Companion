@@ -28,7 +28,7 @@ export default function LeaderboardScreen() {
   useFocusEffect(
     useCallback(() => {
       reload();
-    }, [reload])
+    }, [reload]),
   );
 
   const leaderboard = useMemo(() => {
@@ -82,17 +82,16 @@ export default function LeaderboardScreen() {
         {topThree[1] ? (
           <View style={styles.podiumItem}>
             <Avatar preset={topThree[1].avatarPreset} size={50} />
-            <View
-              style={[
-                styles.podiumBadge,
-                { backgroundColor: "#C0C0C0" },
-              ]}
-            >
+            <View style={[styles.podiumBadge, { backgroundColor: "#C0C0C0" }]}>
               <ThemedText type="small" style={styles.podiumRank}>
                 2
               </ThemedText>
             </View>
-            <ThemedText type="small" style={styles.podiumName} numberOfLines={1}>
+            <ThemedText
+              type="small"
+              style={styles.podiumName}
+              numberOfLines={1}
+            >
               {topThree[1].name}
             </ThemedText>
             <ThemedText
@@ -106,19 +105,23 @@ export default function LeaderboardScreen() {
 
         {topThree[0] ? (
           <View style={[styles.podiumItem, styles.firstPlace]}>
-            <Feather name="award" size={24} color="#FFD700" style={styles.crown} />
+            <Feather
+              name="award"
+              size={24}
+              color="#FFD700"
+              style={styles.crown}
+            />
             <Avatar preset={topThree[0].avatarPreset} size={60} />
-            <View
-              style={[
-                styles.podiumBadge,
-                { backgroundColor: "#FFD700" },
-              ]}
-            >
+            <View style={[styles.podiumBadge, { backgroundColor: "#FFD700" }]}>
               <ThemedText type="small" style={styles.podiumRank}>
                 1
               </ThemedText>
             </View>
-            <ThemedText type="small" style={styles.podiumName} numberOfLines={1}>
+            <ThemedText
+              type="small"
+              style={styles.podiumName}
+              numberOfLines={1}
+            >
               {topThree[0].name}
             </ThemedText>
             <ThemedText
@@ -133,17 +136,16 @@ export default function LeaderboardScreen() {
         {topThree[2] ? (
           <View style={styles.podiumItem}>
             <Avatar preset={topThree[2].avatarPreset} size={50} />
-            <View
-              style={[
-                styles.podiumBadge,
-                { backgroundColor: "#CD7F32" },
-              ]}
-            >
+            <View style={[styles.podiumBadge, { backgroundColor: "#CD7F32" }]}>
               <ThemedText type="small" style={styles.podiumRank}>
                 3
               </ThemedText>
             </View>
-            <ThemedText type="small" style={styles.podiumName} numberOfLines={1}>
+            <ThemedText
+              type="small"
+              style={styles.podiumName}
+              numberOfLines={1}
+            >
               {topThree[2].name}
             </ThemedText>
             <ThemedText

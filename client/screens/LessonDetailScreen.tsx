@@ -31,7 +31,8 @@ type LessonDetailRouteProp = RouteProp<RootStackParamList, "LessonDetail">;
 export default function LessonDetailScreen() {
   const insets = useSafeAreaInsets();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const route = useRoute<LessonDetailRouteProp>();
   const { progress, completeLesson, loseLife, reload } = useGameState();
 
@@ -94,14 +95,14 @@ export default function LessonDetailScreen() {
         withTiming(10, { duration: 50 }),
         withTiming(-10, { duration: 50 }),
         withTiming(10, { duration: 50 }),
-        withTiming(0, { duration: 50 })
+        withTiming(0, { duration: 50 }),
       );
 
       if (!hasLives) {
         Alert.alert(
           "Out of Lives",
           "You've run out of lives. Try again tomorrow!",
-          [{ text: "OK", onPress: handleClose }]
+          [{ text: "OK", onPress: handleClose }],
         );
         return;
       }
@@ -110,7 +111,7 @@ export default function LessonDetailScreen() {
     feedbackOpacity.value = withSequence(
       withTiming(1, { duration: 200 }),
       withTiming(1, { duration: 800 }),
-      withTiming(0, { duration: 200 })
+      withTiming(0, { duration: 200 }),
     );
   };
 
@@ -123,7 +124,7 @@ export default function LessonDetailScreen() {
         lesson.id,
         correctCount + (isCorrect ? 0 : 0),
         lesson.questions.length,
-        lesson.xpReward
+        lesson.xpReward,
       );
     } else {
       setCurrentQuestionIndex((prev) => prev + 1);
@@ -184,10 +185,7 @@ export default function LessonDetailScreen() {
               <ThemedText type="h4" style={styles.rewardValue}>
                 +{lesson.xpReward}
               </ThemedText>
-              <ThemedText
-                type="small"
-                style={{ color: theme.textSecondary }}
-              >
+              <ThemedText type="small" style={{ color: theme.textSecondary }}>
                 XP Earned
               </ThemedText>
             </View>
@@ -196,10 +194,7 @@ export default function LessonDetailScreen() {
               <ThemedText type="h4" style={styles.rewardValue}>
                 {score}%
               </ThemedText>
-              <ThemedText
-                type="small"
-                style={{ color: theme.textSecondary }}
-              >
+              <ThemedText type="small" style={{ color: theme.textSecondary }}>
                 Score
               </ThemedText>
             </View>
@@ -264,9 +259,7 @@ export default function LessonDetailScreen() {
               key={index}
               text={option}
               isSelected={selectedAnswer === index}
-              isCorrect={
-                isChecked && index === currentQuestion.correctAnswer
-              }
+              isCorrect={isChecked && index === currentQuestion.correctAnswer}
               isIncorrect={
                 isChecked &&
                 selectedAnswer === index &&
@@ -281,9 +274,21 @@ export default function LessonDetailScreen() {
         {!isChecked && currentQuestion.hint ? (
           <View style={styles.hintContainer}>
             {showHint ? (
-              <View style={[styles.hintBox, { backgroundColor: theme.backgroundSecondary }]}>
-                <Feather name="help-circle" size={16} color={Colors.light.primary} />
-                <ThemedText type="small" style={[styles.hintText, { color: theme.textSecondary }]}>
+              <View
+                style={[
+                  styles.hintBox,
+                  { backgroundColor: theme.backgroundSecondary },
+                ]}
+              >
+                <Feather
+                  name="help-circle"
+                  size={16}
+                  color={Colors.light.primary}
+                />
+                <ThemedText
+                  type="small"
+                  style={[styles.hintText, { color: theme.textSecondary }]}
+                >
                   {currentQuestion.hint}
                 </ThemedText>
               </View>
@@ -295,8 +300,15 @@ export default function LessonDetailScreen() {
                   Haptics.selectionAsync();
                 }}
               >
-                <Feather name="help-circle" size={16} color={Colors.light.primary} />
-                <ThemedText type="small" style={{ color: Colors.light.primary }}>
+                <Feather
+                  name="help-circle"
+                  size={16}
+                  color={Colors.light.primary}
+                />
+                <ThemedText
+                  type="small"
+                  style={{ color: Colors.light.primary }}
+                >
                   Need a hint?
                 </ThemedText>
               </Pressable>
@@ -317,25 +329,32 @@ export default function LessonDetailScreen() {
         ]}
         pointerEvents="none"
       >
-        <Feather
-          name={isCorrect ? "check" : "x"}
-          size={32}
-          color="#FFFFFF"
-        />
+        <Feather name={isCorrect ? "check" : "x"} size={32} color="#FFFFFF" />
         <ThemedText type="h4" style={styles.feedbackText}>
           {isCorrect ? "Correct!" : "Incorrect"}
         </ThemedText>
       </Animated.View>
 
       {isChecked && currentQuestion.explanation ? (
-        <View style={[styles.explanationContainer, { backgroundColor: theme.backgroundSecondary }]}>
+        <View
+          style={[
+            styles.explanationContainer,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
+        >
           <View style={styles.explanationHeader}>
             <Feather name="info" size={16} color={Colors.light.primary} />
-            <ThemedText type="small" style={[styles.explanationTitle, { color: Colors.light.primary }]}>
+            <ThemedText
+              type="small"
+              style={[styles.explanationTitle, { color: Colors.light.primary }]}
+            >
               Explanation
             </ThemedText>
           </View>
-          <ThemedText type="small" style={[styles.explanationText, { color: theme.textSecondary }]}>
+          <ThemedText
+            type="small"
+            style={[styles.explanationText, { color: theme.textSecondary }]}
+          >
             {currentQuestion.explanation}
           </ThemedText>
         </View>

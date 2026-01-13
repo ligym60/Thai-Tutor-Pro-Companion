@@ -1,30 +1,46 @@
 import * as Speech from "expo-speech";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 export function useSpeech() {
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isAvailable, setIsAvailable] = useState(false);
 
-  const speak = useCallback((text: string) => {
-    if (isSpeaking) {
-      Speech.stop();
-      setIsSpeaking(false);
-      return;
-    }
+  useEffect(() => {
+    const checkAvailability = async () => {
+      try {
+        const voices = await Speech.getAvailableVoicesAsync();
+        setIsAvailable(voices.length > 0);
+      } catch (error) {
+        console.warn("Speech not available:", error);
+        setIsAvailable(false);
+      }
+    };
+    checkAvailability();
+  }, []);
 
-    setIsSpeaking(true);
-    Speech.speak(text, {
-      language: "th-TH",
-      rate: 0.8,
-      onDone: () => setIsSpeaking(false),
-      onStopped: () => setIsSpeaking(false),
-      onError: () => setIsSpeaking(false),
-    });
-  }, [isSpeaking]);
+  const speak = useCallback(
+    (text: string) => {
+      if (!isAvailable || isSpeaking) return;
+
+      setIsSpeaking(true);
+      Speech.speak(text, {
+        language: "th-TH",
+        rate: 0.8,
+        onDone: () => setIsSpeaking(false),
+        onStopped: () => setIsSpeaking(false),
+        onError: (error) => {
+          console.error("Speech error:", error);
+          setIsSpeaking(false);
+        },
+      });
+    },
+    [isSpeaking, isAvailable],
+  );
 
   const stop = useCallback(() => {
     Speech.stop();
     setIsSpeaking(false);
   }, []);
 
-  return { speak, stop, isSpeaking };
+  return { speak, stop, isSpeaking, isAvailable };
 }

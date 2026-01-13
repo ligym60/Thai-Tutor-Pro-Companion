@@ -66,10 +66,7 @@ export function DifficultyChip({
     >
       <ThemedText
         type="small"
-        style={[
-          styles.label,
-          { color: isSelected ? "#FFFFFF" : color },
-        ]}
+        style={[styles.label, { color: isSelected ? "#FFFFFF" : color }]}
       >
         {label}
       </ThemedText>

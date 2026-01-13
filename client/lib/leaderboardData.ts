@@ -24,13 +24,17 @@ const MOCK_NAMES = [
   "Kim",
 ];
 
-export function generateLeaderboard(userXP: number, userName: string): LeaderboardEntry[] {
+export function generateLeaderboard(
+  userXP: number,
+  userName: string,
+): LeaderboardEntry[] {
   const entries: LeaderboardEntry[] = [];
-  
+
   const baseXPs = [
-    2500, 2100, 1800, 1500, 1200, 1000, 850, 700, 550, 400, 300, 200, 150, 100, 50
+    2500, 2100, 1800, 1500, 1200, 1000, 850, 700, 550, 400, 300, 200, 150, 100,
+    50,
   ];
-  
+
   for (let i = 0; i < 15; i++) {
     const variation = Math.floor(Math.random() * 200) - 100;
     entries.push({
@@ -38,10 +42,13 @@ export function generateLeaderboard(userXP: number, userName: string): Leaderboa
       name: MOCK_NAMES[i],
       avatarPreset: i % 3,
       xp: Math.max(0, baseXPs[i] + variation),
-      trend: ["up", "down", "same"][Math.floor(Math.random() * 3)] as "up" | "down" | "same",
+      trend: ["up", "down", "same"][Math.floor(Math.random() * 3)] as
+        | "up"
+        | "down"
+        | "same",
     });
   }
-  
+
   entries.push({
     id: "current-user",
     name: userName,
@@ -49,9 +56,9 @@ export function generateLeaderboard(userXP: number, userName: string): Leaderboa
     xp: userXP,
     trend: "up",
   });
-  
+
   entries.sort((a, b) => b.xp - a.xp);
-  
+
   return entries;
 }
 

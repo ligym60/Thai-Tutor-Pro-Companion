@@ -31,12 +31,13 @@ const PRACTICE_QUESTION_COUNT = 5;
 export default function PracticeScreen() {
   const insets = useSafeAreaInsets();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { progress, addXP, loseLife, reload } = useGameState();
 
   const questions = useMemo(
     () => getRandomPracticeQuestions(PRACTICE_QUESTION_COUNT),
-    []
+    [],
   );
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -97,14 +98,14 @@ export default function PracticeScreen() {
         withTiming(10, { duration: 50 }),
         withTiming(-10, { duration: 50 }),
         withTiming(10, { duration: 50 }),
-        withTiming(0, { duration: 50 })
+        withTiming(0, { duration: 50 }),
       );
 
       if (!hasLives) {
         Alert.alert(
           "Out of Lives",
           "You've run out of lives. Try again tomorrow!",
-          [{ text: "OK", onPress: handleClose }]
+          [{ text: "OK", onPress: handleClose }],
         );
         return;
       }
@@ -113,7 +114,7 @@ export default function PracticeScreen() {
     feedbackOpacity.value = withSequence(
       withTiming(1, { duration: 200 }),
       withTiming(1, { duration: 800 }),
-      withTiming(0, { duration: 200 })
+      withTiming(0, { duration: 200 }),
     );
   };
 
@@ -161,11 +162,7 @@ export default function PracticeScreen() {
         ]}
       >
         <View style={styles.completeContainer}>
-          <Feather
-            name="zap"
-            size={80}
-            color={Colors.light.primary}
-          />
+          <Feather name="zap" size={80} color={Colors.light.primary} />
           <ThemedText type="h2" style={styles.completeTitle}>
             Practice Complete!
           </ThemedText>
@@ -182,10 +179,7 @@ export default function PracticeScreen() {
               <ThemedText type="h4" style={styles.rewardValue}>
                 +{xpEarned}
               </ThemedText>
-              <ThemedText
-                type="small"
-                style={{ color: theme.textSecondary }}
-              >
+              <ThemedText type="small" style={{ color: theme.textSecondary }}>
                 XP Earned
               </ThemedText>
             </View>
@@ -194,10 +188,7 @@ export default function PracticeScreen() {
               <ThemedText type="h4" style={styles.rewardValue}>
                 {score}%
               </ThemedText>
-              <ThemedText
-                type="small"
-                style={{ color: theme.textSecondary }}
-              >
+              <ThemedText type="small" style={{ color: theme.textSecondary }}>
                 Score
               </ThemedText>
             </View>
@@ -272,9 +263,7 @@ export default function PracticeScreen() {
               key={index}
               text={option}
               isSelected={selectedAnswer === index}
-              isCorrect={
-                isChecked && index === currentQuestion.correctAnswer
-              }
+              isCorrect={isChecked && index === currentQuestion.correctAnswer}
               isIncorrect={
                 isChecked &&
                 selectedAnswer === index &&
@@ -289,9 +278,21 @@ export default function PracticeScreen() {
         {!isChecked && currentQuestion.hint ? (
           <View style={styles.hintContainer}>
             {showHint ? (
-              <View style={[styles.hintBox, { backgroundColor: theme.backgroundSecondary }]}>
-                <Feather name="help-circle" size={16} color={Colors.light.primary} />
-                <ThemedText type="small" style={[styles.hintText, { color: theme.textSecondary }]}>
+              <View
+                style={[
+                  styles.hintBox,
+                  { backgroundColor: theme.backgroundSecondary },
+                ]}
+              >
+                <Feather
+                  name="help-circle"
+                  size={16}
+                  color={Colors.light.primary}
+                />
+                <ThemedText
+                  type="small"
+                  style={[styles.hintText, { color: theme.textSecondary }]}
+                >
                   {currentQuestion.hint}
                 </ThemedText>
               </View>
@@ -303,8 +304,15 @@ export default function PracticeScreen() {
                   Haptics.selectionAsync();
                 }}
               >
-                <Feather name="help-circle" size={16} color={Colors.light.primary} />
-                <ThemedText type="small" style={{ color: Colors.light.primary }}>
+                <Feather
+                  name="help-circle"
+                  size={16}
+                  color={Colors.light.primary}
+                />
+                <ThemedText
+                  type="small"
+                  style={{ color: Colors.light.primary }}
+                >
                   Need a hint?
                 </ThemedText>
               </Pressable>
@@ -325,25 +333,32 @@ export default function PracticeScreen() {
         ]}
         pointerEvents="none"
       >
-        <Feather
-          name={isCorrect ? "check" : "x"}
-          size={32}
-          color="#FFFFFF"
-        />
+        <Feather name={isCorrect ? "check" : "x"} size={32} color="#FFFFFF" />
         <ThemedText type="h4" style={styles.feedbackText}>
           {isCorrect ? "Correct!" : "Incorrect"}
         </ThemedText>
       </Animated.View>
 
       {isChecked && currentQuestion.explanation ? (
-        <View style={[styles.explanationContainer, { backgroundColor: theme.backgroundSecondary }]}>
+        <View
+          style={[
+            styles.explanationContainer,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
+        >
           <View style={styles.explanationHeader}>
             <Feather name="info" size={16} color={Colors.light.primary} />
-            <ThemedText type="small" style={[styles.explanationTitle, { color: Colors.light.primary }]}>
+            <ThemedText
+              type="small"
+              style={[styles.explanationTitle, { color: Colors.light.primary }]}
+            >
               Explanation
             </ThemedText>
           </View>
-          <ThemedText type="small" style={[styles.explanationText, { color: theme.textSecondary }]}>
+          <ThemedText
+            type="small"
+            style={[styles.explanationText, { color: theme.textSecondary }]}
+          >
             {currentQuestion.explanation}
           </ThemedText>
         </View>

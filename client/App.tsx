@@ -5,6 +5,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
+import { NotoSansThai_400Regular } from "@expo-google-fonts/noto-sans-thai";
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/query-client";
@@ -13,6 +15,14 @@ import RootStackNavigator from "@/navigation/RootStackNavigator";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    NotoSansThai: NotoSansThai_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading screen
+  }
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>

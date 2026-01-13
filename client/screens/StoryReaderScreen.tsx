@@ -1,5 +1,12 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { View, StyleSheet, Pressable, ScrollView, Dimensions, LayoutChangeEvent } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Pressable,
+  ScrollView,
+  Dimensions,
+  LayoutChangeEvent,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -41,24 +48,29 @@ interface PopupPosition {
 export default function StoryReaderScreen() {
   const insets = useSafeAreaInsets();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const route = useRoute<StoryReaderRouteProp>();
-  
+
   const story = getStoryById(route.params.storyId);
-  
+
   const [currentWordIndex, setCurrentWordIndex] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [selectedWordData, setSelectedWordData] = useState<{ word: StoryWord; position: PopupPosition; index: number } | null>(null);
+  const [selectedWordData, setSelectedWordData] = useState<{
+    word: StoryWord;
+    position: PopupPosition;
+    index: number;
+  } | null>(null);
   const [showFullTranslation, setShowFullTranslation] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(0.8);
   const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
-  
+
   const scrollViewRef = useRef<ScrollView>(null);
   const storyCardRef = useRef<View>(null);
   const wordLayouts = useRef<WordLayout[]>([]);
   const isPlayingRef = useRef(false);
   const currentIndexRef = useRef(-1);
-  
+
   const popupScale = useSharedValue(0);
 
   useEffect(() => {
@@ -81,52 +93,55 @@ export default function StoryReaderScreen() {
     navigation.goBack();
   };
 
-  const speakWordAtIndex = useCallback((index: number) => {
-    if (!story || index >= story.words.length) {
-      setIsPlaying(false);
-      setCurrentWordIndex(-1);
-      return;
-    }
+  const speakWordAtIndex = useCallback(
+    (index: number) => {
+      if (!story || index >= story.words.length) {
+        setIsPlaying(false);
+        setCurrentWordIndex(-1);
+        return;
+      }
 
-    setCurrentWordIndex(index);
-    
-    const wordLayout = wordLayouts.current[index];
-    if (wordLayout && scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({
-        y: Math.max(0, wordLayout.y - 100),
-        animated: true,
+      setCurrentWordIndex(index);
+
+      const wordLayout = wordLayouts.current[index];
+      if (wordLayout && scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({
+          y: Math.max(0, wordLayout.y - 100),
+          animated: true,
+        });
+      }
+
+      Speech.speak(story.words[index].thai, {
+        language: "th-TH",
+        rate: playbackSpeed,
+        onDone: () => {
+          if (isPlayingRef.current && index < story.words.length - 1) {
+            setTimeout(() => {
+              if (isPlayingRef.current) {
+                speakWordAtIndex(index + 1);
+              }
+            }, 400);
+          } else {
+            setIsPlaying(false);
+            setCurrentWordIndex(-1);
+          }
+        },
       });
-    }
-    
-    Speech.speak(story.words[index].thai, {
-      language: "th-TH",
-      rate: playbackSpeed,
-      onDone: () => {
-        if (isPlayingRef.current && index < story.words.length - 1) {
-          setTimeout(() => {
-            if (isPlayingRef.current) {
-              speakWordAtIndex(index + 1);
-            }
-          }, 400);
-        } else {
-          setIsPlaying(false);
-          setCurrentWordIndex(-1);
-        }
-      },
-    });
-  }, [story, playbackSpeed]);
+    },
+    [story, playbackSpeed],
+  );
 
   const handlePlay = () => {
     if (!story) return;
-    
+
     Speech.stop();
     setIsPlaying(true);
     const startIndex = currentWordIndex >= 0 ? currentWordIndex : 0;
-    
+
     setTimeout(() => {
       speakWordAtIndex(startIndex);
     }, 100);
-    
+
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
@@ -148,7 +163,7 @@ export default function StoryReaderScreen() {
     Speech.stop();
     const nextIndex = Math.min(currentWordIndex + 1, story.words.length - 1);
     setCurrentWordIndex(nextIndex);
-    
+
     if (isPlaying) {
       setTimeout(() => {
         speakWordAtIndex(nextIndex);
@@ -169,22 +184,22 @@ export default function StoryReaderScreen() {
 
   const handleWordPress = (word: StoryWord, index: number, event: any) => {
     Haptics.selectionAsync();
-    
+
     if (isPlaying) {
       Speech.stop();
       setIsPlaying(false);
     }
-    
+
     setCurrentWordIndex(index);
-    
+
     Speech.speak(word.thai, {
       language: "th-TH",
       rate: playbackSpeed,
     });
-    
+
     const pageX = event.nativeEvent.pageX;
     const pageY = event.nativeEvent.pageY;
-    
+
     setSelectedWordData({ word, position: { pageX, pageY }, index });
     popupScale.value = 0;
     popupScale.value = withSpring(1, {
@@ -208,23 +223,23 @@ export default function StoryReaderScreen() {
 
   const getPopupPosition = () => {
     if (!selectedWordData) return { top: 0, left: 0 };
-    
+
     const { position } = selectedWordData;
     const safeTop = insets.top + 20;
     const safeBottom = SCREEN_HEIGHT - insets.bottom - 160;
     const safeLeft = Spacing.lg;
     const safeRight = SCREEN_WIDTH - POPUP_WIDTH - Spacing.lg;
-    
+
     let top = position.pageY + 20;
     let left = position.pageX - POPUP_WIDTH / 2;
-    
+
     if (top + POPUP_HEIGHT > safeBottom) {
       top = position.pageY - POPUP_HEIGHT - 20;
     }
-    
+
     top = Math.max(safeTop, Math.min(top, safeBottom - POPUP_HEIGHT));
     left = Math.max(safeLeft, Math.min(left, safeRight));
-    
+
     return { top, left };
   };
 
@@ -250,8 +265,10 @@ export default function StoryReaderScreen() {
           <Feather name="x" size={24} color={theme.text} />
         </Pressable>
         <View style={styles.headerCenter}>
-          <ThemedText type="h4" numberOfLines={1}>{story.title}</ThemedText>
-          <ThemedText type="small" style={{ color: theme.textSecondary }}>
+          <ThemedText type="h4" numberOfLines={1}>
+            {story.title}
+          </ThemedText>
+          <ThemedText type="small" style={{ color: theme.textSecondary, fontFamily: "NotoSansThai" }}>
             {story.titleThai}
           </ThemedText>
         </View>
@@ -271,9 +288,12 @@ export default function StoryReaderScreen() {
         ]}
         showsVerticalScrollIndicator={false}
       >
-        <View 
+        <View
           ref={storyCardRef}
-          style={[styles.storyCard, { backgroundColor: theme.backgroundSecondary }]}
+          style={[
+            styles.storyCard,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
         >
           <View style={styles.wordsContainer}>
             {story.words.map((word, index) => (
@@ -283,13 +303,18 @@ export default function StoryReaderScreen() {
                 onPress={(e) => handleWordPress(word, index, e)}
                 style={[
                   styles.wordWrapper,
-                  currentWordIndex === index && { backgroundColor: Colors.light.primary + "30" },
+                  currentWordIndex === index && {
+                    backgroundColor: Colors.light.primary + "30",
+                  },
                 ]}
               >
                 <ThemedText
                   style={[
                     styles.thaiWord,
-                    currentWordIndex === index && { color: Colors.light.primary, fontWeight: "700" },
+                    currentWordIndex === index && {
+                      color: Colors.light.primary,
+                      fontWeight: "700",
+                    },
                   ]}
                 >
                   {word.thai}
@@ -301,7 +326,10 @@ export default function StoryReaderScreen() {
 
         <Pressable
           onPress={() => setShowFullTranslation(!showFullTranslation)}
-          style={[styles.translationCard, { backgroundColor: theme.backgroundSecondary }]}
+          style={[
+            styles.translationCard,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
         >
           <View style={styles.translationHeader}>
             <ThemedText type="body" style={{ fontWeight: "600" }}>
@@ -314,18 +342,34 @@ export default function StoryReaderScreen() {
             />
           </View>
           {showFullTranslation ? (
-            <ThemedText type="body" style={[styles.translationText, { color: theme.textSecondary }]}>
+            <ThemedText
+              type="body"
+              style={[styles.translationText, { color: theme.textSecondary }]}
+            >
               {story.fullTranslation}
             </ThemedText>
           ) : null}
         </Pressable>
 
-        <View style={[styles.legendCard, { backgroundColor: theme.backgroundSecondary }]}>
-          <ThemedText type="small" style={{ color: theme.textSecondary, marginBottom: Spacing.sm }}>
+        <View
+          style={[
+            styles.legendCard,
+            { backgroundColor: theme.backgroundSecondary },
+          ]}
+        >
+          <ThemedText
+            type="small"
+            style={{ color: theme.textSecondary, marginBottom: Spacing.sm }}
+          >
             Tap any word to hear pronunciation and see translation
           </ThemedText>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: Colors.light.primary }]} />
+            <View
+              style={[
+                styles.legendDot,
+                { backgroundColor: Colors.light.primary },
+              ]}
+            />
             <ThemedText type="small" style={{ color: theme.textSecondary }}>
               Currently playing word
             </ThemedText>
@@ -341,7 +385,14 @@ export default function StoryReaderScreen() {
           style={[styles.quizButton, { backgroundColor: Colors.light.primary }]}
         >
           <Feather name="help-circle" size={20} color="#FFFFFF" />
-          <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600", marginLeft: Spacing.sm }}>
+          <ThemedText
+            type="body"
+            style={{
+              color: "#FFFFFF",
+              fontWeight: "600",
+              marginLeft: Spacing.sm,
+            }}
+          >
             Take Quiz
           </ThemedText>
         </Pressable>
@@ -357,33 +408,49 @@ export default function StoryReaderScreen() {
         ]}
       >
         <View style={styles.progressContainer}>
-          <View style={[styles.progressBar, { backgroundColor: theme.backgroundSecondary }]}>
-            <View 
+          <View
+            style={[
+              styles.progressBar,
+              { backgroundColor: theme.backgroundSecondary },
+            ]}
+          >
+            <View
               style={[
-                styles.progressFill, 
-                { 
+                styles.progressFill,
+                {
                   backgroundColor: Colors.light.primary,
                   width: `${story.words.length > 0 ? ((currentWordIndex + 1) / story.words.length) * 100 : 0}%`,
                 },
-              ]} 
+              ]}
             />
           </View>
           <ThemedText type="small" style={{ color: theme.textSecondary }}>
-            {currentWordIndex >= 0 ? currentWordIndex + 1 : 0} / {story.words.length}
+            {currentWordIndex >= 0 ? currentWordIndex + 1 : 0} /{" "}
+            {story.words.length}
           </ThemedText>
         </View>
         <View style={styles.controls}>
           <Pressable onPress={handleStop} style={styles.controlButton}>
-            <View style={[styles.controlButtonInner, { backgroundColor: theme.backgroundSecondary }]}>
+            <View
+              style={[
+                styles.controlButtonInner,
+                { backgroundColor: theme.backgroundSecondary },
+              ]}
+            >
               <Feather name="square" size={20} color={theme.text} />
             </View>
           </Pressable>
-          
+
           <Pressable
             onPress={isPlaying ? handlePause : handlePlay}
             style={styles.playButton}
           >
-            <View style={[styles.playButtonInner, { backgroundColor: Colors.light.primary }]}>
+            <View
+              style={[
+                styles.playButtonInner,
+                { backgroundColor: Colors.light.primary },
+              ]}
+            >
               <Feather
                 name={isPlaying ? "pause" : "play"}
                 size={32}
@@ -391,9 +458,14 @@ export default function StoryReaderScreen() {
               />
             </View>
           </Pressable>
-          
+
           <Pressable onPress={handleSkipForward} style={styles.controlButton}>
-            <View style={[styles.controlButtonInner, { backgroundColor: theme.backgroundSecondary }]}>
+            <View
+              style={[
+                styles.controlButtonInner,
+                { backgroundColor: theme.backgroundSecondary },
+              ]}
+            >
               <Feather name="skip-forward" size={20} color={theme.text} />
             </View>
           </Pressable>
@@ -416,10 +488,15 @@ export default function StoryReaderScreen() {
             <ThemedText style={styles.popupThai}>
               {selectedWordData.word.thai}
             </ThemedText>
-            <ThemedText type="small" style={[styles.popupRoman, { color: theme.textSecondary }]}>
+            <ThemedText
+              type="small"
+              style={[styles.popupRoman, { color: theme.textSecondary }]}
+            >
               {selectedWordData.word.romanization}
             </ThemedText>
-            <View style={[styles.popupDivider, { backgroundColor: theme.border }]} />
+            <View
+              style={[styles.popupDivider, { backgroundColor: theme.border }]}
+            />
             <ThemedText type="body" style={styles.popupEnglish}>
               {selectedWordData.word.english}
             </ThemedText>
@@ -431,14 +508,27 @@ export default function StoryReaderScreen() {
                     rate: playbackSpeed,
                   });
                 }}
-                style={[styles.popupSpeakButton, { backgroundColor: Colors.light.primary + "20" }]}
+                style={[
+                  styles.popupSpeakButton,
+                  { backgroundColor: Colors.light.primary + "20" },
+                ]}
               >
-                <Feather name="volume-2" size={16} color={Colors.light.primary} />
-                <ThemedText type="small" style={{ color: Colors.light.primary, marginLeft: Spacing.xs }}>
+                <Feather
+                  name="volume-2"
+                  size={16}
+                  color={Colors.light.primary}
+                />
+                <ThemedText
+                  type="small"
+                  style={{
+                    color: Colors.light.primary,
+                    marginLeft: Spacing.xs,
+                  }}
+                >
                   Listen
                 </ThemedText>
               </Pressable>
-              
+
               <Pressable
                 onPress={async () => {
                   const wordId = `story-word-${story.id}-${selectedWordData.index}`;
@@ -446,33 +536,57 @@ export default function StoryReaderScreen() {
                     wordId,
                     selectedWordData.word.thai,
                     selectedWordData.word.romanization,
-                    selectedWordData.word.english
+                    selectedWordData.word.english,
                   );
                   setSavedWords((prev) => new Set(prev).add(wordId));
-                  Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+                  Haptics.notificationAsync(
+                    Haptics.NotificationFeedbackType.Success,
+                  );
                 }}
                 style={[
                   styles.popupSaveButton,
                   {
-                    backgroundColor: savedWords.has(`story-word-${story.id}-${selectedWordData.index}`)
+                    backgroundColor: savedWords.has(
+                      `story-word-${story.id}-${selectedWordData.index}`,
+                    )
                       ? "#4CAF50" + "20"
                       : theme.backgroundSecondary,
                   },
                 ]}
               >
                 <Feather
-                  name={savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "check" : "plus"}
+                  name={
+                    savedWords.has(
+                      `story-word-${story.id}-${selectedWordData.index}`,
+                    )
+                      ? "check"
+                      : "plus"
+                  }
                   size={16}
-                  color={savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "#4CAF50" : theme.text}
+                  color={
+                    savedWords.has(
+                      `story-word-${story.id}-${selectedWordData.index}`,
+                    )
+                      ? "#4CAF50"
+                      : theme.text
+                  }
                 />
                 <ThemedText
                   type="small"
                   style={{
-                    color: savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "#4CAF50" : theme.text,
+                    color: savedWords.has(
+                      `story-word-${story.id}-${selectedWordData.index}`,
+                    )
+                      ? "#4CAF50"
+                      : theme.text,
                     marginLeft: Spacing.xs,
                   }}
                 >
-                  {savedWords.has(`story-word-${story.id}-${selectedWordData.index}`) ? "Saved" : "Save"}
+                  {savedWords.has(
+                    `story-word-${story.id}-${selectedWordData.index}`,
+                  )
+                    ? "Saved"
+                    : "Save"}
                 </ThemedText>
               </Pressable>
             </View>
@@ -529,6 +643,7 @@ const styles = StyleSheet.create({
   thaiWord: {
     fontSize: 28,
     fontWeight: "500",
+    fontFamily: "NotoSansThai",
   },
   translationCard: {
     padding: Spacing.lg,

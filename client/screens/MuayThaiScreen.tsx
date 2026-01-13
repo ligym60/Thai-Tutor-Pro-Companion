@@ -16,7 +16,10 @@ import { muayThaiTips, MuayThaiTip } from "@/lib/tipsData";
 import { RootStackParamList } from "@/navigation/RootStackNavigator";
 
 type WorkoutLevel = "beginner" | "intermediate" | "advanced";
-type ScheduleDay = { type: "workout"; focus: string } | { type: "rest" } | { type: "active-recovery"; activity: string };
+type ScheduleDay =
+  | { type: "workout"; focus: string }
+  | { type: "rest" }
+  | { type: "active-recovery"; activity: string };
 
 const LEVEL_COLORS: Record<WorkoutLevel, string> = {
   beginner: "#4CAF50",
@@ -149,7 +152,9 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
   return (
     <Card elevation={2} onPress={handlePress} style={styles.card}>
       <View style={styles.cardHeader}>
-        <View style={[styles.iconContainer, { backgroundColor: typeColor + "20" }]}>
+        <View
+          style={[styles.iconContainer, { backgroundColor: typeColor + "20" }]}
+        >
           <Feather name={tip.icon as any} size={20} color={typeColor} />
         </View>
         <View style={styles.titleContainer}>
@@ -158,9 +163,22 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
               {tip.title}
             </ThemedText>
             {tip.priority === "safety" ? (
-              <View style={[styles.safetyBadge, { backgroundColor: SAFETY_COLOR + "20" }]}>
+              <View
+                style={[
+                  styles.safetyBadge,
+                  { backgroundColor: SAFETY_COLOR + "20" },
+                ]}
+              >
                 <Feather name="alert-circle" size={10} color={SAFETY_COLOR} />
-                <ThemedText type="small" style={{ color: SAFETY_COLOR, fontWeight: "600", fontSize: 10, marginLeft: 4 }}>
+                <ThemedText
+                  type="small"
+                  style={{
+                    color: SAFETY_COLOR,
+                    fontWeight: "600",
+                    fontSize: 10,
+                    marginLeft: 4,
+                  }}
+                >
                   Safety
                 </ThemedText>
               </View>
@@ -171,23 +189,29 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
           </ThemedText>
         </View>
         <View style={[styles.typeBadge, { backgroundColor: typeColor + "20" }]}>
-          <ThemedText type="small" style={{ color: typeColor, fontWeight: "600", fontSize: 10 }}>
+          <ThemedText
+            type="small"
+            style={{ color: typeColor, fontWeight: "600", fontSize: 10 }}
+          >
             {typeLabel}
           </ThemedText>
         </View>
       </View>
-      
+
       {expanded ? (
-        <ThemedText type="small" style={[styles.description, { color: theme.textSecondary }]}>
+        <ThemedText
+          type="small"
+          style={[styles.description, { color: theme.textSecondary }]}
+        >
           {tip.description}
         </ThemedText>
       ) : null}
-      
+
       <View style={styles.expandIndicator}>
-        <Feather 
-          name={expanded ? "chevron-up" : "chevron-down"} 
-          size={16} 
-          color={theme.textSecondary} 
+        <Feather
+          name={expanded ? "chevron-up" : "chevron-down"}
+          size={16}
+          color={theme.textSecondary}
         />
       </View>
     </Card>
@@ -196,29 +220,33 @@ function MuayThaiCard({ tip }: MuayThaiCardProps) {
 
 const STORAGE_KEY = "@sawasdee_muaythai_schedule";
 
-function ScheduleCalendar({ 
-  level, 
-  completedDays, 
-  onCompleteDay 
-}: { 
-  level: WorkoutLevel; 
-  completedDays: number[]; 
+function ScheduleCalendar({
+  level,
+  completedDays,
+  onCompleteDay,
+}: {
+  level: WorkoutLevel;
+  completedDays: number[];
   onCompleteDay: (day: number) => void;
 }) {
   const { theme } = useTheme();
   const schedule = TRAINING_SCHEDULES[level];
   const color = LEVEL_COLORS[level];
-  
+
   const rows: ScheduleDay[][] = [];
   for (let i = 0; i < schedule.length; i += 7) {
     rows.push(schedule.slice(i, i + 7));
   }
-  
+
   return (
     <View style={scheduleStyles.calendar}>
       <View style={scheduleStyles.weekHeader}>
         {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-          <ThemedText key={i} type="small" style={[scheduleStyles.weekDay, { color: theme.textSecondary }]}>
+          <ThemedText
+            key={i}
+            type="small"
+            style={[scheduleStyles.weekDay, { color: theme.textSecondary }]}
+          >
             {d}
           </ThemedText>
         ))}
@@ -231,7 +259,7 @@ function ScheduleCalendar({
             const isWorkout = day.type === "workout";
             const isRest = day.type === "rest";
             const isRecovery = day.type === "active-recovery";
-            
+
             return (
               <Pressable
                 key={dayIndex}
@@ -248,19 +276,27 @@ function ScheduleCalendar({
                   }
                 }}
               >
-                <ThemedText 
-                  type="small" 
+                <ThemedText
+                  type="small"
                   style={[
-                    scheduleStyles.dayNum, 
+                    scheduleStyles.dayNum,
                     isCompleted ? { color: "#FFFFFF" } : null,
                   ]}
                 >
                   {dayNum}
                 </ThemedText>
                 {isWorkout ? (
-                  <Feather name="target" size={12} color={isCompleted ? "#FFFFFF" : color} />
+                  <Feather
+                    name="target"
+                    size={12}
+                    color={isCompleted ? "#FFFFFF" : color}
+                  />
                 ) : isRecovery ? (
-                  <Feather name="heart" size={12} color={isCompleted ? "#FFFFFF" : "#2196F3"} />
+                  <Feather
+                    name="heart"
+                    size={12}
+                    color={isCompleted ? "#FFFFFF" : "#2196F3"}
+                  />
                 ) : (
                   <Feather name="moon" size={12} color={theme.textSecondary} />
                 )}
@@ -271,16 +307,31 @@ function ScheduleCalendar({
       ))}
       <View style={scheduleStyles.legend}>
         <View style={scheduleStyles.legendItem}>
-          <View style={[scheduleStyles.legendDot, { backgroundColor: color }]} />
-          <ThemedText type="small" style={{ color: theme.textSecondary }}>Workout</ThemedText>
+          <View
+            style={[scheduleStyles.legendDot, { backgroundColor: color }]}
+          />
+          <ThemedText type="small" style={{ color: theme.textSecondary }}>
+            Workout
+          </ThemedText>
         </View>
         <View style={scheduleStyles.legendItem}>
-          <View style={[scheduleStyles.legendDot, { backgroundColor: "#2196F3" }]} />
-          <ThemedText type="small" style={{ color: theme.textSecondary }}>Recovery</ThemedText>
+          <View
+            style={[scheduleStyles.legendDot, { backgroundColor: "#2196F3" }]}
+          />
+          <ThemedText type="small" style={{ color: theme.textSecondary }}>
+            Recovery
+          </ThemedText>
         </View>
         <View style={scheduleStyles.legendItem}>
-          <View style={[scheduleStyles.legendDot, { backgroundColor: theme.textSecondary }]} />
-          <ThemedText type="small" style={{ color: theme.textSecondary }}>Rest</ThemedText>
+          <View
+            style={[
+              scheduleStyles.legendDot,
+              { backgroundColor: theme.textSecondary },
+            ]}
+          />
+          <ThemedText type="small" style={{ color: theme.textSecondary }}>
+            Rest
+          </ThemedText>
         </View>
       </View>
     </View>
@@ -290,16 +341,19 @@ function ScheduleCalendar({
 export default function MuayThaiScreen() {
   const { theme } = useTheme();
   const tabBarHeight = useBottomTabBarHeight();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   const [scheduleLevel, setScheduleLevel] = useState<WorkoutLevel>("beginner");
-  const [completedDays, setCompletedDays] = useState<Record<WorkoutLevel, number[]>>({
+  const [completedDays, setCompletedDays] = useState<
+    Record<WorkoutLevel, number[]>
+  >({
     beginner: [],
     intermediate: [],
     advanced: [],
   });
   const [showSchedule, setShowSchedule] = useState(false);
-  
+
   useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY).then((data) => {
       if (data) {
@@ -310,28 +364,28 @@ export default function MuayThaiScreen() {
       }
     });
   }, []);
-  
+
   const saveProgress = async (newData: Record<WorkoutLevel, number[]>) => {
     setCompletedDays(newData);
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
   };
-  
+
   const handleCompleteDay = (day: number) => {
     const current = completedDays[scheduleLevel];
-    const newDays = current.includes(day) 
-      ? current.filter(d => d !== day)
+    const newDays = current.includes(day)
+      ? current.filter((d) => d !== day)
       : [...current, day];
     saveProgress({ ...completedDays, [scheduleLevel]: newDays });
   };
-  
-  const doTips = muayThaiTips.filter(t => t.type === "do");
-  const dontTips = muayThaiTips.filter(t => t.type === "dont");
-  
+
+  const doTips = muayThaiTips.filter((t) => t.type === "do");
+  const dontTips = muayThaiTips.filter((t) => t.type === "dont");
+
   const handleWorkoutPress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     navigation.navigate("MuayThaiWorkout");
   };
-  
+
   const toggleSchedule = () => {
     Haptics.selectionAsync();
     setShowSchedule(!showSchedule);
@@ -356,7 +410,10 @@ export default function MuayThaiScreen() {
               <ThemedText type="h4" style={{ color: "#FFFFFF" }}>
                 Master Workout
               </ThemedText>
-              <ThemedText type="small" style={{ color: "#FFFFFF" + "CC", marginTop: 2 }}>
+              <ThemedText
+                type="small"
+                style={{ color: "#FFFFFF" + "CC", marginTop: 2 }}
+              >
                 Follow voice-guided combinations
               </ThemedText>
             </View>
@@ -365,12 +422,21 @@ export default function MuayThaiScreen() {
             </View>
           </View>
         </Pressable>
-        
+
         <Card elevation={1} style={styles.scheduleCard}>
           <Pressable onPress={toggleSchedule} style={styles.scheduleHeader}>
             <View style={styles.scheduleHeaderLeft}>
-              <View style={[styles.scheduleIcon, { backgroundColor: LEVEL_COLORS[scheduleLevel] + "20" }]}>
-                <Feather name="calendar" size={20} color={LEVEL_COLORS[scheduleLevel]} />
+              <View
+                style={[
+                  styles.scheduleIcon,
+                  { backgroundColor: LEVEL_COLORS[scheduleLevel] + "20" },
+                ]}
+              >
+                <Feather
+                  name="calendar"
+                  size={20}
+                  color={LEVEL_COLORS[scheduleLevel]}
+                />
               </View>
               <View>
                 <ThemedText type="body" style={{ fontWeight: "600" }}>
@@ -381,34 +447,40 @@ export default function MuayThaiScreen() {
                 </ThemedText>
               </View>
             </View>
-            <Feather 
-              name={showSchedule ? "chevron-up" : "chevron-down"} 
-              size={20} 
-              color={theme.textSecondary} 
+            <Feather
+              name={showSchedule ? "chevron-up" : "chevron-down"}
+              size={20}
+              color={theme.textSecondary}
             />
           </Pressable>
-          
+
           {showSchedule ? (
             <>
               <View style={styles.levelTabs}>
-                {(["beginner", "intermediate", "advanced"] as WorkoutLevel[]).map((lvl) => (
+                {(
+                  ["beginner", "intermediate", "advanced"] as WorkoutLevel[]
+                ).map((lvl) => (
                   <Pressable
                     key={lvl}
                     style={[
                       styles.levelTab,
                       { borderColor: LEVEL_COLORS[lvl] },
-                      scheduleLevel === lvl ? { backgroundColor: LEVEL_COLORS[lvl] } : null,
+                      scheduleLevel === lvl
+                        ? { backgroundColor: LEVEL_COLORS[lvl] }
+                        : null,
                     ]}
                     onPress={() => {
                       Haptics.selectionAsync();
                       setScheduleLevel(lvl);
                     }}
                   >
-                    <ThemedText 
-                      type="small" 
+                    <ThemedText
+                      type="small"
                       style={[
                         { fontWeight: "600", textTransform: "capitalize" },
-                        scheduleLevel === lvl ? { color: "#FFFFFF" } : { color: LEVEL_COLORS[lvl] },
+                        scheduleLevel === lvl
+                          ? { color: "#FFFFFF" }
+                          : { color: LEVEL_COLORS[lvl] },
                       ]}
                     >
                       {lvl}
@@ -416,28 +488,41 @@ export default function MuayThaiScreen() {
                   </Pressable>
                 ))}
               </View>
-              
-              <ScheduleCalendar 
-                level={scheduleLevel} 
-                completedDays={completedDays[scheduleLevel]} 
+
+              <ScheduleCalendar
+                level={scheduleLevel}
+                completedDays={completedDays[scheduleLevel]}
                 onCompleteDay={handleCompleteDay}
               />
             </>
           ) : null}
         </Card>
-        
-        <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
-          Essential tips for your first Muay Thai experience in Thailand. Respect the traditions and enjoy the art.
+
+        <ThemedText
+          type="small"
+          style={[styles.sectionIntro, { color: theme.textSecondary }]}
+        >
+          Essential tips for your first Muay Thai experience in Thailand.
+          Respect the traditions and enjoy the art.
         </ThemedText>
-        
-        <ThemedText type="body" style={[styles.sectionHeader, { color: TYPE_COLORS.do }]}>
+
+        <ThemedText
+          type="body"
+          style={[styles.sectionHeader, { color: TYPE_COLORS.do }]}
+        >
           Things to Do
         </ThemedText>
         {doTips.map((tip) => (
           <MuayThaiCard key={tip.id} tip={tip} />
         ))}
-        
-        <ThemedText type="body" style={[styles.sectionHeader, { color: TYPE_COLORS.dont, marginTop: Spacing.lg }]}>
+
+        <ThemedText
+          type="body"
+          style={[
+            styles.sectionHeader,
+            { color: TYPE_COLORS.dont, marginTop: Spacing.lg },
+          ]}
+        >
           Things to Avoid
         </ThemedText>
         {dontTips.map((tip) => (

@@ -72,10 +72,7 @@ export function CategoryChip({
       />
       <ThemedText
         type="small"
-        style={[
-          styles.label,
-          { color: isSelected ? "#FFFFFF" : theme.text },
-        ]}
+        style={[styles.label, { color: isSelected ? "#FFFFFF" : theme.text }]}
       >
         {label}
       </ThemedText>

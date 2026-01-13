@@ -23,7 +23,8 @@ export default function ProfileScreen() {
   const headerHeight = useHeaderHeight();
   const tabBarHeight = useBottomTabBarHeight();
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
   const {
     userProfile,
     progress,
@@ -37,7 +38,7 @@ export default function ProfileScreen() {
   useFocusEffect(
     useCallback(() => {
       reload();
-    }, [reload])
+    }, [reload]),
   );
 
   const handleAvatarPress = () => {
@@ -107,10 +108,7 @@ export default function ProfileScreen() {
             <ThemedText type="h4" style={styles.statValue}>
               {progress.currentStreak}
             </ThemedText>
-            <ThemedText
-              type="small"
-              style={{ color: theme.textSecondary }}
-            >
+            <ThemedText type="small" style={{ color: theme.textSecondary }}>
               Streak
             </ThemedText>
           </View>
@@ -119,10 +117,7 @@ export default function ProfileScreen() {
             <ThemedText type="h4" style={styles.statValue}>
               {progress.totalXP}
             </ThemedText>
-            <ThemedText
-              type="small"
-              style={{ color: theme.textSecondary }}
-            >
+            <ThemedText type="small" style={{ color: theme.textSecondary }}>
               Total XP
             </ThemedText>
           </View>
@@ -131,10 +126,7 @@ export default function ProfileScreen() {
             <ThemedText type="h4" style={styles.statValue}>
               {progress.lessonsCompleted}
             </ThemedText>
-            <ThemedText
-              type="small"
-              style={{ color: theme.textSecondary }}
-            >
+            <ThemedText type="small" style={{ color: theme.textSecondary }}>
               Lessons
             </ThemedText>
           </View>
@@ -143,10 +135,7 @@ export default function ProfileScreen() {
             <ThemedText type="h4" style={styles.statValue}>
               {getAccuracy()}%
             </ThemedText>
-            <ThemedText
-              type="small"
-              style={{ color: theme.textSecondary }}
-            >
+            <ThemedText type="small" style={{ color: theme.textSecondary }}>
               Accuracy
             </ThemedText>
           </View>

@@ -50,11 +50,7 @@ export function FloatingActionButton({ onPress }: FloatingActionButtonProps) {
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      style={[
-        styles.fab,
-        { bottom: bottomOffset },
-        animatedStyle,
-      ]}
+      style={[styles.fab, { bottom: bottomOffset }, animatedStyle]}
     >
       <Feather name="zap" size={24} color="#FFFFFF" />
     </AnimatedPressable>

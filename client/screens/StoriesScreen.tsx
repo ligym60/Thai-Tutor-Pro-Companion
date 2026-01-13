@@ -86,21 +86,35 @@ function StoryCard({ story, onPress }: StoryCardProps) {
             {story.titleThai}
           </ThemedText>
         </View>
-        <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor + "20" }]}>
-          <ThemedText type="small" style={{ color: difficultyColor, fontWeight: "600" }}>
+        <View
+          style={[
+            styles.difficultyBadge,
+            { backgroundColor: difficultyColor + "20" },
+          ]}
+        >
+          <ThemedText
+            type="small"
+            style={{ color: difficultyColor, fontWeight: "600" }}
+          >
             {DIFFICULTY_LABELS[story.difficulty]}
           </ThemedText>
         </View>
       </View>
-      
-      <ThemedText type="small" style={[styles.storyDescription, { color: theme.textSecondary }]}>
+
+      <ThemedText
+        type="small"
+        style={[styles.storyDescription, { color: theme.textSecondary }]}
+      >
         {story.description}
       </ThemedText>
-      
+
       <View style={styles.storyFooter}>
         <View style={styles.wordCount}>
           <Feather name="type" size={14} color={theme.textSecondary} />
-          <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
+          <ThemedText
+            type="small"
+            style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}
+          >
             {story.words.length} words
           </ThemedText>
         </View>
@@ -110,26 +124,40 @@ function StoryCard({ story, onPress }: StoryCardProps) {
   );
 }
 
-type DifficultyFilter = "all" | "beginner" | "intermediate" | "advanced" | "expert";
+type DifficultyFilter =
+  | "all"
+  | "beginner"
+  | "intermediate"
+  | "advanced"
+  | "expert";
 
 export default function StoriesScreen() {
   const { theme } = useTheme();
   const headerHeight = useHeaderHeight();
   const tabBarHeight = useBottomTabBarHeight();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  
-  const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyFilter>("all");
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const filteredStories = selectedDifficulty === "all"
-    ? STORIES
-    : STORIES.filter((story) => story.difficulty === selectedDifficulty);
+  const [selectedDifficulty, setSelectedDifficulty] =
+    useState<DifficultyFilter>("all");
+
+  const filteredStories =
+    selectedDifficulty === "all"
+      ? STORIES
+      : STORIES.filter((story) => story.difficulty === selectedDifficulty);
 
   const handleStoryPress = (storyId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     navigation.navigate("StoryReader", { storyId });
   };
 
-  const difficulties: DifficultyFilter[] = ["all", "beginner", "intermediate", "advanced", "expert"];
+  const difficulties: DifficultyFilter[] = [
+    "all",
+    "beginner",
+    "intermediate",
+    "advanced",
+    "expert",
+  ];
 
   return (
     <ThemedView style={styles.container}>
@@ -145,9 +173,21 @@ export default function StoriesScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.intro}>
-          <View style={[styles.expertBadge, { backgroundColor: Colors.light.primary + "20" }]}>
+          <View
+            style={[
+              styles.expertBadge,
+              { backgroundColor: Colors.light.primary + "20" },
+            ]}
+          >
             <Feather name="star" size={16} color={Colors.light.primary} />
-            <ThemedText type="small" style={{ color: Colors.light.primary, marginLeft: Spacing.xs, fontWeight: "600" }}>
+            <ThemedText
+              type="small"
+              style={{
+                color: Colors.light.primary,
+                marginLeft: Spacing.xs,
+                fontWeight: "600",
+              }}
+            >
               Expert Mode
             </ThemedText>
           </View>
@@ -155,7 +195,8 @@ export default function StoriesScreen() {
             Story Reading
           </ThemedText>
           <ThemedText type="body" style={{ color: theme.textSecondary }}>
-            Read Thai stories with word-by-word audio and tap any word to see its translation.
+            Read Thai stories with word-by-word audio and tap any word to see
+            its translation.
           </ThemedText>
         </View>
 
@@ -167,7 +208,8 @@ export default function StoriesScreen() {
         >
           {difficulties.map((diff) => {
             const isSelected = selectedDifficulty === diff;
-            const color = diff === "all" ? Colors.light.primary : DIFFICULTY_COLORS[diff];
+            const color =
+              diff === "all" ? Colors.light.primary : DIFFICULTY_COLORS[diff];
             return (
               <Pressable
                 key={diff}
@@ -178,7 +220,9 @@ export default function StoriesScreen() {
                 style={[
                   styles.filterChip,
                   {
-                    backgroundColor: isSelected ? color : theme.backgroundSecondary,
+                    backgroundColor: isSelected
+                      ? color
+                      : theme.backgroundSecondary,
                     borderColor: color,
                     borderWidth: 1,
                   },
@@ -186,7 +230,10 @@ export default function StoriesScreen() {
               >
                 <ThemedText
                   type="small"
-                  style={{ color: isSelected ? "#FFFFFF" : color, fontWeight: "500" }}
+                  style={{
+                    color: isSelected ? "#FFFFFF" : color,
+                    fontWeight: "500",
+                  }}
                 >
                   {diff === "all" ? "All Stories" : DIFFICULTY_LABELS[diff]}
                 </ThemedText>
@@ -197,7 +244,10 @@ export default function StoriesScreen() {
 
         <View style={styles.storiesList}>
           {filteredStories.length === 0 ? (
-            <ThemedText type="body" style={[styles.emptyText, { color: theme.textSecondary }]}>
+            <ThemedText
+              type="body"
+              style={[styles.emptyText, { color: theme.textSecondary }]}
+            >
               No stories found for this level.
             </ThemedText>
           ) : (

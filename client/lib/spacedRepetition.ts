@@ -48,7 +48,9 @@ export async function getSpacedRepetitionData(): Promise<SpacedRepetitionData> {
   }
 }
 
-export async function saveSpacedRepetitionData(data: SpacedRepetitionData): Promise<void> {
+export async function saveSpacedRepetitionData(
+  data: SpacedRepetitionData,
+): Promise<void> {
   await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
@@ -60,9 +62,9 @@ export async function getWordProgress(wordId: string): Promise<WordProgress> {
 export async function getWordsForReview(): Promise<VocabularyWord[]> {
   const data = await getSpacedRepetitionData();
   const now = new Date();
-  
+
   const dueWords: VocabularyWord[] = [];
-  
+
   for (const word of VOCABULARY) {
     const progress = data.words[word.id];
     if (!progress) {
@@ -74,28 +76,33 @@ export async function getWordsForReview(): Promise<VocabularyWord[]> {
       }
     }
   }
-  
+
   dueWords.sort((a, b) => {
     const progressA = data.words[a.id];
     const progressB = data.words[b.id];
     if (!progressA) return -1;
     if (!progressB) return 1;
-    return new Date(progressA.nextReviewDate).getTime() - new Date(progressB.nextReviewDate).getTime();
+    return (
+      new Date(progressA.nextReviewDate).getTime() -
+      new Date(progressB.nextReviewDate).getTime()
+    );
   });
-  
+
   return dueWords;
 }
 
-export async function getNewWordsToLearn(count: number = 5): Promise<VocabularyWord[]> {
+export async function getNewWordsToLearn(
+  count: number = 5,
+): Promise<VocabularyWord[]> {
   const data = await getSpacedRepetitionData();
-  
-  const newWords = VOCABULARY.filter(word => !data.words[word.id]);
-  
+
+  const newWords = VOCABULARY.filter((word) => !data.words[word.id]);
+
   const beginnerFirst = newWords.sort((a, b) => {
     const difficultyOrder = { beginner: 0, intermediate: 1, advanced: 2 };
     return difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
   });
-  
+
   return beginnerFirst.slice(0, count);
 }
 
@@ -103,19 +110,19 @@ export type ReviewQuality = 0 | 1 | 2 | 3 | 4 | 5;
 
 export async function recordReview(
   wordId: string,
-  quality: ReviewQuality
+  quality: ReviewQuality,
 ): Promise<void> {
   const data = await getSpacedRepetitionData();
   const progress = data.words[wordId] || defaultWordProgress(wordId);
-  
+
   const now = new Date();
   progress.lastReviewDate = now.toISOString();
   progress.totalReviews += 1;
-  
+
   if (quality >= 3) {
     progress.correctReviews += 1;
   }
-  
+
   if (quality < 3) {
     progress.repetitions = 0;
     progress.interval = 1;
@@ -129,23 +136,25 @@ export async function recordReview(
     }
     progress.repetitions += 1;
   }
-  
+
   progress.easeFactor = Math.max(
     1.3,
-    progress.easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
+    progress.easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)),
   );
-  
+
   const nextReview = new Date(now);
   nextReview.setDate(nextReview.getDate() + progress.interval);
   progress.nextReviewDate = nextReview.toISOString();
-  
+
   data.words[wordId] = progress;
-  
+
   if (progress.totalReviews === 1) {
     data.totalWordsLearned += 1;
   }
-  
-  const lastSession = data.lastSessionDate ? new Date(data.lastSessionDate) : null;
+
+  const lastSession = data.lastSessionDate
+    ? new Date(data.lastSessionDate)
+    : null;
   const today = new Date().toDateString();
   if (!lastSession || lastSession.toDateString() !== today) {
     if (lastSession) {
@@ -161,7 +170,7 @@ export async function recordReview(
     }
     data.lastSessionDate = now.toISOString();
   }
-  
+
   await saveSpacedRepetitionData(data);
 }
 
@@ -173,11 +182,11 @@ export async function getReviewStats(): Promise<{
 }> {
   const data = await getSpacedRepetitionData();
   const dueWords = await getWordsForReview();
-  
+
   const masteredWords = Object.values(data.words).filter(
-    (w) => w.repetitions >= 5 && w.easeFactor >= 2.0
+    (w) => w.repetitions >= 5 && w.easeFactor >= 2.0,
   ).length;
-  
+
   return {
     totalWordsLearned: data.totalWordsLearned,
     wordsForReview: dueWords.length,
@@ -190,14 +199,14 @@ export async function addWordToReview(
   wordId: string,
   thai: string,
   romanization: string,
-  english: string
+  english: string,
 ): Promise<void> {
   const data = await getSpacedRepetitionData();
-  
+
   if (data.words[wordId]) {
     return;
   }
-  
+
   const now = new Date();
   const newWord: WordProgress = {
     wordId,
@@ -209,7 +218,7 @@ export async function addWordToReview(
     totalReviews: 0,
     correctReviews: 0,
   };
-  
+
   data.words[wordId] = newWord;
   await saveSpacedRepetitionData(data);
 }

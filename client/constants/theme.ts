@@ -108,10 +108,12 @@ export const Typography = {
   thai: {
     fontSize: 28,
     fontWeight: "500" as const,
+    fontFamily: "NotoSansThai",
   },
   thaiLarge: {
     fontSize: 36,
     fontWeight: "600" as const,
+    fontFamily: "NotoSansThai",
   },
 };
 
