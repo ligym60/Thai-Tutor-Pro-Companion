@@ -1,0 +1,13 @@
+{
+  "title": "文化提示",
+  "readTip": "阅读提示",
+  "tipsRead": "已阅读{{count}}条提示",
+  "categories": {
+    "greetings": "问候",
+    "dining": "用餐",
+    "temples": "寺庙",
+    "general": "常规"
+  },
+  "helpful": "有帮助",
+  "markAsRead": "标记为已读"
+}

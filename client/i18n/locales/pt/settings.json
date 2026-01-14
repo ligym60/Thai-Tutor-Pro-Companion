@@ -1,0 +1,20 @@
+{
+  "title": "Configurações",
+  "language": "Idioma",
+  "languageDescription": "Selecione o idioma do aplicativo",
+  "sound": "Som",
+  "soundDescription": "Ativar efeitos sonoros",
+  "theme": "Tema",
+  "themeDescription": "Escolha a aparência do aplicativo",
+  "dailyGoal": "Meta Diária",
+  "dailyGoalDescription": "Defina sua meta de estudo diária",
+  "minutes": "minutos",
+  "notifications": "Notificações",
+  "notificationsDescription": "Ativar lembretes diários",
+  "account": "Conta",
+  "accountDescription": "Gerencie seu perfil",
+  "about": "Sobre",
+  "version": "Versão",
+  "privacyPolicy": "Política de Privacidade",
+  "termsOfService": "Termos de Serviço"
+}

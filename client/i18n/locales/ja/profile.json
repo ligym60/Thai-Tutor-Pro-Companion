@@ -1,0 +1,39 @@
+{
+  "title": "プロフィール",
+  "stats": "統計",
+  "totalXP": "合計XP",
+  "lessonsCompleted": "完了したレッスン",
+  "currentStreak": "現在の連続日数",
+  "longestStreak": "最長連続日数",
+  "days": "日",
+  "achievements": "実績",
+  "locked": "ロック中",
+  "unlocked": "アンロック済み",
+  "achievementNames": {
+    "firstLesson": "初レッスン",
+    "streak7": "週間戦士",
+    "streak30": "月間マスター",
+    "xp100": "センチュリークラブ",
+    "xp500": "ライジングスター",
+    "xp1000": "知識の守護者",
+    "lessons10": "献身的な学習者",
+    "lessons50": "語学愛好家",
+    "perfectLesson": "完璧なスコア"
+  },
+  "achievementDescriptions": {
+    "firstLesson": "最初のレッスンを完了",
+    "streak7": "7日間連続を維持",
+    "streak30": "30日間連続を維持",
+    "xp100": "100XPを獲得",
+    "xp500": "500XPを獲得",
+    "xp1000": "1000XPを獲得",
+    "lessons10": "10レッスンを完了",
+    "lessons50": "50レッスンを完了",
+    "perfectLesson": "任意のレッスンで100%獲得"
+  },
+  "editProfile": "プロフィール編集",
+  "displayName": "表示名",
+  "avatar": "アバター",
+  "tapToChangeAvatar": "タップしてアバターを変更",
+  "yourName": "あなたの名前"
+}

@@ -1,0 +1,17 @@
+{
+  "tabs": {
+    "home": "主页",
+    "lessons": "课程",
+    "stories": "故事",
+    "tips": "提示",
+    "muayThai": "泰拳",
+    "rank": "等级",
+    "profile": "个人资料"
+  },
+  "screens": {
+    "speakingPractice": "口语练习",
+    "vocabularyReview": "词汇复习",
+    "writingPractice": "写作练习",
+    "settings": "设置"
+  }
+}

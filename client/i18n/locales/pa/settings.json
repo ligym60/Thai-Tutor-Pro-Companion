@@ -1,0 +1,20 @@
+{
+  "title": "ਸੈਟਿੰਗਾਂ",
+  "language": "ਭਾਸ਼ਾ",
+  "languageDescription": "ਐਪ ਦੀ ਭਾਸ਼ਾ ਚੁਣੋ",
+  "sound": "ਆਵਾਜ਼",
+  "soundDescription": "ਧੁਨੀ ਪ੍ਰਭਾਵ ਸਮਰੱਥ ਕਰੋ",
+  "theme": "ਥੀਮ",
+  "themeDescription": "ਐਪ ਦੀ ਦਿੱਖ ਚੁਣੋ",
+  "dailyGoal": "ਰੋਜ਼ਾਨਾ ਟੀਚਾ",
+  "dailyGoalDescription": "ਆਪਣਾ ਰੋਜ਼ਾਨਾ ਅਧਿਐਨ ਟੀਚਾ ਨਿਰਧਾਰਤ ਕਰੋ",
+  "minutes": "ਮਿੰਟ",
+  "notifications": "ਸੂਚਨਾਵਾਂ",
+  "notificationsDescription": "ਰੋਜ਼ਾਨਾ ਯਾਦਗਾਰੀਆਂ ਸਮਰੱਥ ਕਰੋ",
+  "account": "ਖਾਤਾ",
+  "accountDescription": "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਪ੍ਰਬੰਧਿਤ ਕਰੋ",
+  "about": "ਬਾਰੇ",
+  "version": "ਸੰਸਕਰਣ",
+  "privacyPolicy": "ਗੋਪਨੀਯਤਾ ਨੀਤੀ",
+  "termsOfService": "ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ"
+}

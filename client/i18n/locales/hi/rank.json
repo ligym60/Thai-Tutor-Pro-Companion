@@ -1,0 +1,10 @@
+{
+  "title": "रैंक",
+  "leaderboard": "लीडरबोर्ड",
+  "yourRank": "आपकी रैंक",
+  "topLearners": "शीर्ष शिक्षार्थी",
+  "points": "अंक",
+  "rank": "रैंक #{{number}}",
+  "thisWeek": "इस सप्ताह",
+  "allTime": "सर्वकालिक"
+}

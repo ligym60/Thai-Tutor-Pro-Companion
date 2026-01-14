@@ -1,0 +1,28 @@
+{
+  "title": "ストーリー",
+  "readStory": "ストーリーを読む",
+  "storiesCompleted": "{{count}}個のストーリーを完了",
+  "difficulty": {
+    "beginner": "初級",
+    "intermediate": "中級",
+    "advanced": "上級",
+    "expert": "エキスパート"
+  },
+  "readMore": "続きを読む",
+  "finish": "終了",
+  "next": "次のストーリー",
+  "allStories": "すべてのストーリー",
+  "noStories": "このレベルのストーリーは見つかりませんでした。",
+  "expertMode": "エキスパートモード",
+  "storyReading": "ストーリー読解",
+  "storyReadingDesc": "単語ごとの音声付きでタイ語のストーリーを読み、任意の単語をタップして翻訳を表示します。",
+  "words": "語",
+  "storyNotFound": "ストーリーが見つかりません",
+  "fullTranslation": "全文翻訳",
+  "tapAnyWord": "任意の単語をタップして発音を聞き、翻訳を表示します",
+  "currentlyPlaying": "現在再生中の単語",
+  "takeQuiz": "クイズに挑戦",
+  "listen": "聞く",
+  "save": "保存",
+  "saved": "保存済み"
+}

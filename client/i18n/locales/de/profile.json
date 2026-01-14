@@ -1,0 +1,18 @@
+{
+  "title": "Profil",
+  "stats": "Statistiken",
+  "totalXP": "Gesamt-XP",
+  "currentStreak": "Aktuelle Serie",
+  "longestStreak": "Längste Serie",
+  "lessonsCompleted": "Abgeschlossene Lektionen",
+  "achievements": "Erfolge",
+  "badges": "Abzeichen",
+  "rank": "Rang",
+  "leaderboard": "Bestenliste",
+  "editProfile": "Profil bearbeiten",
+  "displayName": "Anzeigename",
+  "avatar": "Avatar",
+  "changeAvatar": "Avatar ändern",
+  "tapToChangeAvatar": "Tippen, um Avatar zu ändern",
+  "yourName": "Ihr Name"
+}

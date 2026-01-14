@@ -1,0 +1,17 @@
+{
+  "tabs": {
+    "home": "ホーム",
+    "lessons": "レッスン",
+    "stories": "ストーリー",
+    "tips": "ヒント",
+    "muayThai": "ムエタイ",
+    "rank": "ランク",
+    "profile": "プロフィール"
+  },
+  "screens": {
+    "speakingPractice": "スピーキング練習",
+    "vocabularyReview": "単語復習",
+    "writingPractice": "ライティング練習",
+    "settings": "設定"
+  }
+}

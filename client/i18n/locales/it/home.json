@@ -1,0 +1,20 @@
+{
+  "greeting": "Ciao, {{name}}!",
+  "dailyGoal": "Obiettivo Giornaliero",
+  "minutesToday": "{{minutes}} minuti oggi",
+  "currentStreak": "Serie Attuale",
+  "days": "giorni",
+  "continueLesson": "Continua Lezione",
+  "startLearning": "Inizia ad Imparare",
+  "quickActions": "Azioni Rapide",
+  "practice": "Pratica",
+  "review": "Ripasso",
+  "quiz": "Quiz",
+  "loading": "Caricamento...",
+  "todaysLesson": "Lezione di oggi",
+  "practiceModes": "Modalità di pratica",
+  "listenAndRepeat": "Ascolta e ripeti",
+  "spacedRepetition": "Ripetizione dilazionata",
+  "due": "scaduto",
+  "traceCharacters": "Traccia i caratteri"
+}

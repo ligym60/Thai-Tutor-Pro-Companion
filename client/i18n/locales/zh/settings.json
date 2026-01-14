@@ -1,0 +1,23 @@
+{
+  "title": "设置",
+  "language": "语言",
+  "selectLanguage": "选择语言",
+  "languageDescription": "选择您的首选应用语言",
+  "dailyGoal": "每日目标",
+  "dailyGoalDescription": "设置您的每日学习目标",
+  "minutes": "分钟",
+  "soundEffects": "音效",
+  "soundEffectsDescription": "启用音频反馈",
+  "theme": "主题",
+  "themeDescription": "选择应用外观",
+  "themeLight": "浅色",
+  "themeDark": "深色",
+  "themeAuto": "自动",
+  "dataManagement": "数据管理",
+  "dataManagementDescription": "重置您的学习进度",
+  "resetProgress": "重置所有进度",
+  "resetProgressWarning": "这将删除您的所有进度、成就和统计数据。此操作无法撤消。",
+  "resetProgressConfirm": "您确定要重置所有进度吗？",
+  "progressReset": "进度已重置",
+  "version": "Thai Boxer Companion v1.0.0"
+}

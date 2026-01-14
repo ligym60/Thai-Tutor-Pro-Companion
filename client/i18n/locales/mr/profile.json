@@ -1,0 +1,18 @@
+{
+  "title": "प्रोफाइल",
+  "stats": "आकडेवारी",
+  "totalXP": "एकूण XP",
+  "currentStreak": "सध्याची मालिका",
+  "longestStreak": "सर्वात मोठी मालिका",
+  "lessonsCompleted": "पूर्ण झालेले धडे",
+  "achievements": "उपलब्धी",
+  "badges": "बॅज",
+  "rank": "रँक",
+  "leaderboard": "लीडरबोर्ड",
+  "editProfile": "प्रोफाइल संपादित करा",
+  "displayName": "प्रदर्शन नाव",
+  "avatar": "अवतार",
+  "changeAvatar": "अवतार बदला",
+  "tapToChangeAvatar": "अवतार बदलण्यासाठी टॅप करा",
+  "yourName": "तुमचे नाव"
+}

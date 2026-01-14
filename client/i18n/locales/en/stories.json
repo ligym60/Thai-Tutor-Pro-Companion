@@ -1,0 +1,28 @@
+{
+  "title": "Stories",
+  "readStory": "Read Story",
+  "storiesCompleted": "{{count}} stories completed",
+  "difficulty": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "expert": "Expert"
+  },
+  "readMore": "Read More",
+  "finish": "Finish",
+  "next": "Next Story",
+  "allStories": "All Stories",
+  "noStories": "No stories found for this level.",
+  "expertMode": "Expert Mode",
+  "storyReading": "Story Reading",
+  "storyReadingDesc": "Read Thai stories with word-by-word audio and tap any word to see its translation.",
+  "words": "words",
+  "storyNotFound": "Story not found",
+  "fullTranslation": "Full Translation",
+  "tapAnyWord": "Tap any word to hear pronunciation and see translation",
+  "currentlyPlaying": "Currently playing word",
+  "takeQuiz": "Take Quiz",
+  "listen": "Listen",
+  "save": "Save",
+  "saved": "Saved"
+}

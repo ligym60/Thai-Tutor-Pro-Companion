@@ -1,0 +1,20 @@
+{
+  "greeting": "Hallo, {{name}}!",
+  "dailyGoal": "Tagesziel",
+  "minutesToday": "{{minutes}} Minuten heute",
+  "currentStreak": "Aktuelle Serie",
+  "days": "Tage",
+  "continueLesson": "Lektion fortsetzen",
+  "startLearning": "Lernen beginnen",
+  "quickActions": "Schnellaktionen",
+  "practice": "Übung",
+  "review": "Wiederholung",
+  "quiz": "Quiz",
+  "loading": "Laden...",
+  "todaysLesson": "Heutige Lektion",
+  "practiceModes": "Übungsmodi",
+  "listenAndRepeat": "Hören und wiederholen",
+  "spacedRepetition": "Wiederholung mit Abständen",
+  "due": "fällig",
+  "traceCharacters": "Zeichen nachzeichnen"
+}

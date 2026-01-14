@@ -1,0 +1,17 @@
+{
+  "tabs": {
+    "home": "Home",
+    "lessons": "Lessons",
+    "stories": "Stories",
+    "tips": "Tips",
+    "muayThai": "Muay Thai",
+    "rank": "Rank",
+    "profile": "Profile"
+  },
+  "screens": {
+    "speakingPractice": "Speaking Practice",
+    "vocabularyReview": "Vocabulary Review",
+    "writingPractice": "Writing Practice",
+    "settings": "Settings"
+  }
+}

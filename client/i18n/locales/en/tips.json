@@ -1,0 +1,13 @@
+{
+  "title": "Cultural Tips",
+  "readTip": "Read Tip",
+  "tipsRead": "{{count}} tips read",
+  "categories": {
+    "greetings": "Greetings",
+    "dining": "Dining",
+    "temples": "Temples",
+    "general": "General"
+  },
+  "helpful": "Helpful",
+  "markAsRead": "Mark as Read"
+}

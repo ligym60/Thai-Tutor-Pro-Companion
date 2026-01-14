@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "Morgengruß",
+    "description": "Ein einfaches Morgengespräch zwischen Freunden"
+  },
+  "story-2": {
+    "title": "Auf dem Markt",
+    "description": "Obst auf einem lokalen thailändischen Markt kaufen"
+  },
+  "story-3": {
+    "title": "Den Weg Finden",
+    "description": "Nach dem Weg zu einem berühmten Tempel fragen"
+  },
+  "story-4": {
+    "title": "Essen Bestellen",
+    "description": "Eine Mahlzeit in einem thailändischen Restaurant bestellen"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "greeting": "Привет, {{name}}!",
+  "dailyGoal": "Дневная цель",
+  "minutesToday": "{{minutes}} минут сегодня",
+  "currentStreak": "Текущая серия",
+  "days": "дней",
+  "continueLesson": "Продолжить урок",
+  "startLearning": "Начать обучение",
+  "quickActions": "Быстрые действия",
+  "practice": "Практика",
+  "review": "Повторение",
+  "quiz": "Тест",
+  "loading": "Загрузка...",
+  "todaysLesson": "Сегодняшний урок",
+  "practiceModes": "Режимы практики",
+  "listenAndRepeat": "Слушай и повторяй",
+  "spacedRepetition": "Интервальное повторение",
+  "due": "к выполнению",
+  "traceCharacters": "Обводить символы"
+}

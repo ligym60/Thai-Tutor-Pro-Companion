@@ -1,0 +1,22 @@
+{
+  "greeting": "Hello, {{name}}",
+  "dailyStreak": "Day Streak",
+  "todayProgress": "Today's Progress",
+  "quickPractice": "Quick Practice",
+  "speaking": "Speaking",
+  "vocabulary": "Vocabulary",
+  "writing": "Writing",
+  "currentLevel": "Current Level",
+  "xpToNextLevel": "XP to next level",
+  "continueLesson": "Continue Lesson",
+  "startNewLesson": "Start New Lesson",
+  "practiceMode": "Practice Mode",
+  "loading": "Loading...",
+  "todaysLesson": "Today's Lesson",
+  "practiceModes": "Practice Modes",
+  "listenAndRepeat": "Listen & Repeat",
+  "review": "Review",
+  "spacedRepetition": "Spaced Repetition",
+  "due": "due",
+  "traceCharacters": "Trace Characters"
+}

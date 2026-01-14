@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Thai Boxer Companion",
+    "slug": "thai-boxer-companion",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "thaiboxercompanion",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sawasdeelearn.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#8B4FD9",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.sawasdeelearn.app"
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#8B4FD9",
+          "dark": {
+            "backgroundColor": "#1A1A1A"
+          }
+        }
+      ],
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a812d2e4-1d53-49c7-aaa1-65a81282358e"
+      }
+    }
+  }
+}

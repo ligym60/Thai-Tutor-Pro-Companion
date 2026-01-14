@@ -1,0 +1,20 @@
+{
+  "tabs": {
+    "home": "होम",
+    "lessons": "पाठ",
+    "stories": "कहानियाँ",
+    "profile": "प्रोफ़ाइल"
+  },
+  "screens": {
+    "home": "होम",
+    "lessons": "पाठ",
+    "practice": "अभ्यास",
+    "quiz": "क्विज़",
+    "stories": "कहानियाँ",
+    "tips": "टिप्स",
+    "muaythai": "मुय थाई",
+    "profile": "प्रोफ़ाइल",
+    "settings": "सेटिंग्स",
+    "rank": "रैंक"
+  }
+}

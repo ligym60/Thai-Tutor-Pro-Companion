@@ -1,0 +1,33 @@
+{
+  "title": "Geschichten",
+  "readStory": "Geschichte lesen",
+  "listenToStory": "Geschichte anhören",
+  "difficulty": {
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten",
+    "expert": "Experte"
+  },
+  "duration": "Dauer",
+  "minutes": "Minuten",
+  "completed": "Abgeschlossen",
+  "new": "Neu",
+  "storiesCompleted": "{{count}} Geschichten abgeschlossen",
+  "readMore": "Mehr lesen",
+  "finish": "Beenden",
+  "next": "Nächste Geschichte",
+  "allStories": "Alle Geschichten",
+  "noStories": "Keine Geschichten für dieses Level gefunden.",
+  "expertMode": "Experten-Modus",
+  "storyReading": "Geschichten lesen",
+  "storyReadingDesc": "Lesen Sie thailändische Geschichten mit Wort-für-Wort-Audio und tippen Sie auf ein beliebiges Wort, um die Übersetzung zu sehen.",
+  "words": "Wörter",
+  "storyNotFound": "Geschichte nicht gefunden",
+  "fullTranslation": "Vollständige Übersetzung",
+  "tapAnyWord": "Tippen Sie auf ein beliebiges Wort, um die Aussprache zu hören und die Übersetzung zu sehen",
+  "currentlyPlaying": "Aktuell abgespieltes Wort",
+  "takeQuiz": "Quiz machen",
+  "listen": "Anhören",
+  "save": "Speichern",
+  "saved": "Gespeichert"
+}

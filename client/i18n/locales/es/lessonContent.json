@@ -1,0 +1,644 @@
+{
+  "lessonTitles": {
+    "basics-1": "Hola y Adiós",
+    "basics-2": "Sí y No",
+    "basics-3": "Preguntas Comunes",
+    "basics-4": "Pronombres",
+    "basics-5": "Esto y Eso",
+    "numbers-1": "Números 1-5",
+    "numbers-2": "Números 6-10",
+    "numbers-3": "Números Más Grandes",
+    "food-1": "Palabras Básicas de Comida",
+    "food-2": "Frases de Restaurante",
+    "food-3": "Platos Tailandeses",
+    "food-4": "Ordenar Comida",
+    "travel-1": "Moverse",
+    "travel-2": "Transporte",
+    "travel-3": "En el Hotel",
+    "travel-4": "Pedir Direcciones",
+    "greetings-2": "Expresiones Corteses",
+    "greetings-3": "Conocer Gente",
+    "sentences-1": "Oraciones Simples",
+    "sentences-2": "Actividades Diarias",
+    "sentences-3": "Expresar Sentimientos",
+    "sentences-4": "Hacer Planes",
+    "sentences-5": "Expresiones de Tiempo",
+    "sentences-6": "Comparaciones",
+    "conversations-1": "En un Restaurante",
+    "conversations-2": "De Compras",
+    "conversations-3": "Conversación Casual",
+    "conversations-4": "Frases de Emergencia"
+  },
+  "questions": {
+    "basics-1": {
+      "q1": {
+        "options": ["Hola", "Adiós", "Gracias", "Lo siento"],
+        "hint": "Este es el saludo más común en Tailandia - ¡lo escucharás en todas partes!",
+        "explanation": "สวัสดี (Sa-wat-dee) es el saludo universal tailandés usado tanto para 'hola' como para 'adiós'. Añade ครับ (krap) si eres hombre o ค่ะ (ka) si eres mujer para ser educado."
+      },
+      "q2": {
+        "options": ["Hola", "Adiós", "Por favor", "Sí"],
+        "hint": "Esto es lo que dices cuando te vas de alguien - piensa en 'despedirse'.",
+        "explanation": "ลาก่อน (La-gorn) es una forma más formal de decir adiós, a menudo usada cuando te separas por más tiempo. สวัสดี también se puede usar para adiós en situaciones casuales."
+      },
+      "q3": {
+        "options": ["Lo siento", "Por favor", "Gracias", "De nada"],
+        "hint": "Dices esto cuando alguien te da algo o te ayuda.",
+        "explanation": "ขอบคุณ (Kob-khun) significa 'gracias'. Añade ครับ/ค่ะ para cortesía. Para gratitud extra, di ขอบคุณมาก (Kob-khun maak) que significa 'muchas gracias'."
+      },
+      "q4": {
+        "options": ["Lo siento", "No hay problema / De nada", "Hola", "Adiós"],
+        "hint": "Esta frase significa 'no te preocupes por eso' - ¡una actitud muy tailandesa!",
+        "explanation": "ไม่เป็นไร (Mai-pen-rai) es una expresión tailandesa muy común que significa 'no hay problema', 'no importa' o 'de nada'. Refleja la filosofía tailandesa de no preocuparse por las cosas pequeñas."
+      }
+    },
+    "basics-2": {
+      "q1": {
+        "options": ["No", "Sí", "Quizás", "Después"],
+        "hint": "Esta es la respuesta positiva - ¡suena como el té 'chai'!",
+        "explanation": "ใช่ (Chai) significa 'sí' o 'correcto'. Se usa para confirmar que algo es verdadero o correcto."
+      },
+      "q2": {
+        "options": ["Sí", "Quizás", "No", "Después"],
+        "hint": "Lo opuesto de sí - una palabra simple de una sílaba.",
+        "explanation": "ไม่ (Mai) significa 'no' o 'no'. Se coloca antes de verbos o adjetivos para negarlos. Por ejemplo: ไม่ดี (mai dee) = no bueno."
+      },
+      "q3": {
+        "options": ["Sí lo es", "No / No lo es", "Quizás", "No sé"],
+        "hint": "Combina 'no' + 'sí' para significar 'no, no lo es'.",
+        "explanation": "ไม่ใช่ (Mai-chai) significa 'no es' o 'eso no es correcto'. Es lo opuesto de ใช่ (chai)."
+      },
+      "q4": {
+        "options": ["Gracias", "Lo siento", "Partícula cortés (h/m)", "Hola"],
+        "hint": "Estas palabras no tienen un significado por sí solas - muestran respeto.",
+        "explanation": "ครับ (Krap) es usado por hombres, y ค่ะ (Ka) es usado por mujeres. Estas partículas se añaden al final de las oraciones para mostrar cortesía y respeto."
+      }
+    },
+    "basics-3": {
+      "q1": {
+        "options": ["¿Quién?", "¿Qué?", "¿Dónde?", "¿Cuándo?"],
+        "hint": "Piensa en pedir información sobre una cosa u objeto.",
+        "explanation": "อะไร (A-rai) significa 'qué'. En tailandés, las palabras interrogativas generalmente vienen al final de la oración. Ejemplo: นี่คืออะไร (Nee kue a-rai) = ¿Qué es esto?"
+      },
+      "q2": {
+        "options": ["¿Cómo?", "¿Cuándo?", "¿Por qué?", "¿Qué?"],
+        "hint": "Esto pregunta por una razón o causa.",
+        "explanation": "ทำไม (Tam-mai) significa 'por qué'. Se puede colocar al principio o al final de una pregunta. Ejemplo: ทำไมมาสาย (Tam-mai ma sai) = ¿Por qué llegas tarde?"
+      },
+      "q3": {
+        "options": ["¿Dónde?", "¿Cómo?", "¿Qué?", "¿Cuándo?"],
+        "hint": "Esto pregunta sobre el tiempo.",
+        "explanation": "เมื่อไหร่ (Mua-rai) significa 'cuándo'. Ejemplo: คุณจะมาเมื่อไหร่ (Khun ja ma mua-rai) = ¿Cuándo vendrás?"
+      },
+      "q4": {
+        "options": ["¿Quién?", "¿Qué?", "¿Dónde?", "¿Por qué?"],
+        "hint": "Esto pregunta sobre la identidad de una persona.",
+        "explanation": "ใคร (Krai) significa 'quién'. Ejemplo: นั่นคือใคร (Nan kue krai) = ¿Quién es ese?"
+      },
+      "q5": {
+        "options": ["¿Qué?", "¿Cuándo?", "¿Dónde?", "¿Cómo?"],
+        "hint": "Esto pregunta sobre un lugar o ubicación.",
+        "explanation": "ที่ไหน (Tee-nai) significa 'dónde'. Ejemplo: ห้องน้ำอยู่ที่ไหน (Hong-nam yoo tee-nai) = ¿Dónde está el baño?"
+      }
+    },
+    "basics-4": {
+      "q1": {
+        "options": ["Tú", "Él", "Yo (hombre)", "Nosotros"],
+        "hint": "Esto es lo que los hombres usan para referirse a sí mismos.",
+        "explanation": "ผม (Phom) significa 'yo' cuando es hablado por un hombre. Es la forma cortés usada en la mayoría de las situaciones."
+      },
+      "q2": {
+        "options": ["Yo (mujer)", "Ella", "Ellos", "Tú"],
+        "hint": "Esto es lo que las mujeres usan para referirse a sí mismas.",
+        "explanation": "ฉัน (Chan) significa 'yo' cuando es hablado por una mujer. ดิฉัน (Di-chan) es más formal."
+      },
+      "q3": {
+        "options": ["Yo", "Tú", "Él", "Ella"],
+        "hint": "Usado cuando hablas con alguien - la persona con la que estás hablando.",
+        "explanation": "คุณ (Khun) significa 'tú' y se usa para ambos géneros. Es cortés y respetuoso."
+      },
+      "q4": {
+        "options": ["Yo", "Tú", "Nosotros", "Él/Ella/Ellos"],
+        "hint": "Usado cuando hablas de otra persona - una tercera persona.",
+        "explanation": "เขา (Khao) puede significar 'él', 'ella' o 'ellos'. El tailandés no distingue género en pronombres de tercera persona."
+      },
+      "q5": {
+        "options": ["Nosotros", "Ellos", "Ustedes", "Todos"],
+        "hint": "Usado cuando te refieres a ti mismo y a otros juntos.",
+        "explanation": "เรา (Rao) significa 'nosotros'. También se puede usar informalmente para significar 'yo'."
+      }
+    },
+    "basics-5": {
+      "q1": {
+        "options": ["Eso", "Esto", "Aquí", "Allí"],
+        "explanation": "นี่ (Nee) significa 'esto' para cosas cerca del hablante. Ejemplo: นี่คืออะไร (Nee kue a-rai) = ¿Qué es esto?"
+      },
+      "q2": {
+        "options": ["Esto", "Eso", "Aquí", "Allí"],
+        "explanation": "นั่น (Nan) significa 'eso' para cosas lejos del hablante pero no muy lejos. Ejemplo: นั่นคืออะไร (Nan kue a-rai) = ¿Qué es eso?"
+      },
+      "q3": {
+        "options": ["Esto", "Eso", "Aquello", "Aquí"],
+        "explanation": "โน่น (Noon) significa 'aquello' para cosas lejos tanto del hablante como del oyente."
+      },
+      "q4": {
+        "options": ["Este (modificador)", "Ese (modificador)", "Cuál", "Alguno"],
+        "explanation": "นี้ (Nee) se usa después de sustantivos para significar 'este'. Ejemplo: หนังสือนี้ (Nang-sue nee) = este libro."
+      }
+    },
+    "numbers-1": {
+      "q1": {
+        "options": ["Dos", "Uno", "Tres", "Cuatro"],
+        "explanation": "หนึ่ง (Neung) es el número uno. Al contar objetos, a menudo se convierte en เอ็ด (et) al final de números más grandes."
+      },
+      "q2": {
+        "options": ["Uno", "Tres", "Dos", "Cinco"],
+        "explanation": "สอง (Song) es el número dos. El tailandés usa clasificadores al contar objetos, colocados después del número."
+      },
+      "q3": {
+        "options": ["Dos", "Cuatro", "Cinco", "Tres"],
+        "hint": "Cuenta después de dos: uno, dos, ___",
+        "explanation": "สาม (Sam) es el número tres."
+      },
+      "q4": {
+        "options": ["Cuatro", "Tres", "Cinco", "Seis"],
+        "hint": "Esto viene después de tres.",
+        "explanation": "สี่ (See) es el número cuatro. Nota: สี (See) sin la marca de tono significa 'color'."
+      },
+      "q5": {
+        "options": ["Cuatro", "Seis", "Tres", "Cinco"],
+        "hint": "Cuenta los dedos de una mano.",
+        "explanation": "ห้า (Ha) es el número cinco."
+      }
+    },
+    "numbers-2": {
+      "q1": {
+        "options": ["Cinco", "Seis", "Siete", "Ocho"],
+        "hint": "Uno más que cinco.",
+        "explanation": "หก (Hok) es el número seis."
+      },
+      "q2": {
+        "options": ["Seis", "Ocho", "Siete", "Nueve"],
+        "hint": "Días en una semana.",
+        "explanation": "เจ็ด (Jet) es el número siete."
+      },
+      "q3": {
+        "options": ["Siete", "Nueve", "Diez", "Ocho"],
+        "hint": "Suena como 'pet' en la romanización.",
+        "explanation": "แปด (Paet) es el número ocho."
+      },
+      "q4": {
+        "options": ["Nueve", "Ocho", "Diez", "Siete"],
+        "hint": "Uno antes de diez.",
+        "explanation": "เก้า (Gao) es el número nueve."
+      },
+      "q5": {
+        "options": ["Nueve", "Once", "Ocho", "Diez"],
+        "hint": "Dedos en ambas manos.",
+        "explanation": "สิบ (Sip) es el número diez. Para 11-19, añade la unidad después de สิบ: สิบเอ็ด (11), สิบสอง (12), etc."
+      }
+    },
+    "numbers-3": {
+      "q1": {
+        "options": ["Doce", "Veinte", "Treinta", "Veintidós"],
+        "explanation": "ยี่สิบ (Yee-sip) significa veinte. Nota que la palabra para 'dos' cambia a ยี่ cuando está en la posición de las decenas."
+      },
+      "q2": {
+        "options": ["Diez", "Cincuenta", "Cien", "Mil"],
+        "explanation": "ร้อย (Roy) significa cien. หนึ่งร้อย (Neung roy) = 100, สองร้อย (Song roy) = 200."
+      },
+      "q3": {
+        "options": ["Cien", "Mil", "Diez mil", "Millón"],
+        "explanation": "พัน (Pan) significa mil. หนึ่งพัน (Neung pan) = 1,000."
+      },
+      "q4": {
+        "options": ["Mil", "Diez mil", "Cien mil", "Millón"],
+        "explanation": "หมื่น (Meun) significa diez mil. El tailandés tiene una palabra única para esta unidad, a diferencia del inglés."
+      },
+      "q5": {
+        "options": ["Cien mil", "Millón", "Mil millones", "Diez millones"],
+        "explanation": "ล้าน (Lan) significa millón. หนึ่งล้าน (Neung lan) = 1,000,000."
+      }
+    },
+    "food-1": {
+      "q1": {
+        "options": ["Agua", "Arroz", "Fideos", "Sopa"],
+        "explanation": "ข้าว (Khao) significa arroz, el alimento básico en Tailandia. También se usa en muchos nombres de platos como ข้าวผัด (Khao pad) = arroz frito."
+      },
+      "q2": {
+        "options": ["Arroz", "Jugo", "Agua", "Leche"],
+        "explanation": "น้ำ (Nam) significa agua. น้ำเปล่า (Nam plao) específicamente significa agua simple."
+      },
+      "q3": {
+        "options": ["Cerdo", "Res", "Pescado", "Pollo"],
+        "explanation": "ไก่ (Gai) significa pollo. ไก่ทอด (Gai tod) = pollo frito."
+      },
+      "q4": {
+        "options": ["Cerdo", "Pollo", "Res", "Camarón"],
+        "explanation": "หมู (Moo) significa cerdo, la carne más comúnmente usada en la cocina tailandesa."
+      }
+    },
+    "food-2": {
+      "q1": {
+        "options": ["Picante", "Dulce", "Delicioso", "Agrio"],
+        "explanation": "อร่อย (A-roi) significa delicioso. อร่อยมาก (A-roi maak) = ¡muy delicioso!"
+      },
+      "q2": {
+        "options": ["Picante", "Salado", "Dulce", "Agrio"],
+        "explanation": "เผ็ด (Pet) significa picante. ไม่เผ็ด (Mai pet) = no picante. เผ็ดนิดหน่อย (Pet nit noi) = un poco picante."
+      },
+      "q3": {
+        "options": ["La cuenta por favor", "¿Puedo ver el menú?", "Uno más", "Agua por favor"],
+        "explanation": "ขอเมนู (Kho menu) significa '¿puedo ver el menú?'. ขอ (Kho) significa 'pedir' o 'por favor dame'."
+      },
+      "q4": {
+        "options": ["Más agua", "La cuenta por favor", "Gracias", "Disculpe"],
+        "explanation": "เช็คบิล (Check bin) significa 'la cuenta por favor'. Esto es prestado del inglés."
+      }
+    },
+    "food-3": {
+      "q1": {
+        "options": ["Arroz frito", "Fideos tailandeses salteados", "Sopa Tom Yum", "Curry verde"],
+        "explanation": "ผัดไทย (Pad Thai) es el famoso plato de fideos de arroz salteados de Tailandia con huevos, tofu, camarones y salsa de tamarindo."
+      },
+      "q2": {
+        "options": ["Sopa de coco", "Sopa picante de camarones", "Sopa de fideos", "Sopa clara"],
+        "explanation": "ต้มยำกุ้ง (Tom Yam Goong) es la famosa sopa picante y agria con camarones. ต้ม = hervir, ยำ = mezclado/picante, กุ้ง = camarón."
+      },
+      "q3": {
+        "options": ["Curry rojo", "Curry amarillo", "Curry verde", "Curry Massaman"],
+        "explanation": "แกงเขียวหวาน (Gaeng Kiew Wan) literalmente significa 'curry verde dulce'. Está hecho con chiles verdes y leche de coco."
+      },
+      "q4": {
+        "options": ["Ensalada de mango", "Ensalada de papaya", "Ensalada de pepino", "Ensalada de fideos de cristal"],
+        "explanation": "ส้มตำ (Som Tam) es una ensalada picante de papaya verde del Isaan (Noreste de Tailandia). ส้ม = agrio, ตำ = machacado."
+      }
+    },
+    "food-4": {
+      "q1": {
+        "options": ["Dos arroces fritos por favor", "Un arroz frito por favor", "Un fideo por favor", "Un curry por favor"],
+        "explanation": "ขอข้าวผัดหนึ่งจาน: ขอ (kho) = por favor dame, ข้าวผัด (khao pad) = arroz frito, หนึ่ง (neung) = uno, จาน (jan) = plato."
+      },
+      "q2": {
+        "options": ["Chile extra", "Sin chile por favor", "Un poco de chile", "Muy picante"],
+        "explanation": "ไม่ใส่พริก: ไม่ (mai) = no, ใส่ (sai) = poner/añadir, พริก (prik) = chile. ¡Frase muy útil para quienes no pueden soportar el picante!"
+      },
+      "q3": {
+        "options": ["Comida halal", "Comida vegetariana", "Mariscos", "Comida callejera"],
+        "explanation": "อาหารเจ (A-han jay) significa comida vegetariana. เจ (jay) viene del chino y significa seguir una dieta vegana."
+      },
+      "q4": {
+        "options": ["Una botella de agua", "Dos botellas de agua por favor", "Dos vasos de agua", "Agua fría por favor"],
+        "explanation": "ขอน้ำเปล่าสองขวด: น้ำเปล่า (nam plao) = agua simple, สอง (song) = dos, ขวด (kuat) = botella."
+      }
+    },
+    "travel-1": {
+      "q1": {
+        "options": ["¿Cuánto cuesta?", "¿A dónde vas?", "¿Qué hora es?", "¿Quién es?"],
+        "explanation": "ไปไหน (Pai nai) literalmente significa '¿a dónde vas?' Es un saludo casual muy común en Tailandia, similar a '¿Qué tal?'"
+      },
+      "q2": {
+        "options": ["Allí", "Aquí", "Dónde", "En todas partes"],
+        "explanation": "ที่นี่ (Tee nee) significa 'aquí' o 'este lugar'. ที่ (tee) significa 'lugar' y นี่ (nee) significa 'esto'."
+      },
+      "q3": {
+        "options": ["Aquí", "Dónde", "Allí", "En todas partes"],
+        "explanation": "ที่นั่น (Tee nan) significa 'allí' o 'ese lugar'."
+      },
+      "q4": {
+        "options": ["Derecha", "Recto", "Izquierda", "Atrás"],
+        "explanation": "ซ้าย (Sai) significa izquierda. เลี้ยวซ้าย (Liew sai) = girar a la izquierda."
+      },
+      "q5": {
+        "options": ["Izquierda", "Derecha", "Recto", "Atrás"],
+        "explanation": "ขวา (Kwa) significa derecha. เลี้ยวขวา (Liew kwa) = girar a la derecha."
+      }
+    },
+    "travel-2": {
+      "q1": {
+        "options": ["Autobús", "Coche", "Tren", "Barco"],
+        "explanation": "รถไฟ (Rot fai) significa tren. รถ (rot) = vehículo, ไฟ (fai) = fuego/eléctrico. รถไฟฟ้า (Rot fai fa) = tren eléctrico (BTS/MRT)."
+      },
+      "q2": {
+        "options": ["Tren", "Autobús", "Taxi", "Motocicleta"],
+        "explanation": "รถเมล์ (Rot may) significa autobús. La palabra viene de 'correo' ya que los autobuses solían llevar correo."
+      },
+      "q3": {
+        "options": ["Autobús", "Tren", "Motocicleta", "Taxi"],
+        "explanation": "แท็กซี่ (Taxi) se toma prestado directamente del inglés."
+      },
+      "q4": {
+        "options": ["Avión", "Helicóptero", "Barco", "Tren"],
+        "explanation": "เครื่องบิน (Kreuang bin) significa avión. เครื่อง (kreuang) = máquina, บิน (bin) = volar."
+      }
+    },
+    "travel-3": {
+      "q1": {
+        "options": ["Baño", "Habitación", "Vestíbulo", "Restaurante"],
+        "explanation": "ห้องพัก (Hong pak) significa habitación (para quedarse). ห้อง (hong) = habitación, พัก (pak) = descansar/quedarse."
+      },
+      "q2": {
+        "options": ["¿Cuánto cuesta la habitación?", "¿Tiene una habitación disponible?", "¿Dónde está mi habitación?", "Quiero hacer checkout"],
+        "explanation": "มีห้องว่างไหม: มี (mee) = tener, ห้อง (hong) = habitación, ว่าง (wang) = vacante/libre, ไหม (mai) = partícula de pregunta."
+      },
+      "q3": {
+        "options": ["Hacer checkout", "Hacer check-in", "Reservar una habitación", "Cancelar"],
+        "explanation": "เช็คอิน se toma prestado del inglés. ขอเช็คอิน (Kho check in) = Me gustaría hacer check-in."
+      },
+      "q4": {
+        "options": ["Número de habitación", "Llave de habitación", "Servicio de habitación", "Cerradura de puerta"],
+        "explanation": "กุญแจห้อง (Goon-jae hong) significa llave de habitación. กุญแจ (goon-jae) = llave."
+      }
+    },
+    "travel-4": {
+      "q1": {
+        "options": ["¿Dónde está la estación de tren?", "¿Cómo llego a la estación de tren?", "¿Es esta la estación de tren?", "¿Cuándo sale el tren?"],
+        "explanation": "ไปสถานีรถไฟยังไง: ไป (pai) = ir, สถานี (sa-ta-nee) = estación, รถไฟ (rot fai) = tren, ยังไง (yang-ngai) = cómo."
+      },
+      "q2": {
+        "options": ["Girar a la izquierda", "Girar a la derecha", "Ir recto", "Volver"],
+        "explanation": "ตรงไป (Trong pai) significa ir recto. ตรง (trong) = recto, ไป (pai) = ir."
+      },
+      "q3": {
+        "options": ["¿Está lejos?", "¿Está cerca?", "¿Está aquí?", "¿Está abierto?"],
+        "explanation": "ใกล้ไหม: ใกล้ (glai) = cerca, ไหม (mai) = partícula de pregunta. Nota: ไกล (gai) con tono diferente significa 'lejos'."
+      },
+      "q4": {
+        "options": ["Está al lado", "Está al otro lado de la calle", "Está cerca", "Está arriba"],
+        "explanation": "อยู่ตรงข้าม: อยู่ (yoo) = está ubicado, ตรงข้าม (trong kham) = opuesto/al otro lado de."
+      }
+    },
+    "greetings-2": {
+      "q1": {
+        "options": ["Gracias", "Hola", "Lo siento / Disculpe", "Adiós"],
+        "explanation": "ขอโทษ (Kho thot) significa 'lo siento' o 'disculpe'. Úsalo para disculparte o para llamar la atención de alguien cortésmente."
+      },
+      "q2": {
+        "options": ["Triste", "Enojado", "Contento / Feliz", "Cansado"],
+        "explanation": "ยินดี (Yin dee) significa contento o feliz. ยินดีต้อนรับ (Yin dee torn rap) = ¡bienvenido!"
+      },
+      "q3": {
+        "options": ["Tengo hambre", "Estoy bien / ¿Cómo estás?", "Estoy cansado", "Estoy enfermo"],
+        "explanation": "สบายดี (Sa-bai dee) puede ser tanto una pregunta '¿Cómo estás?' como una respuesta 'Estoy bien'. สบาย (sa-bai) = cómodo/bien."
+      },
+      "q4": {
+        "options": ["Adiós", "Buena suerte", "Nos vemos", "Cuídate"],
+        "explanation": "โชคดี (Chok dee) significa 'buena suerte'. โชค (chok) = suerte, ดี (dee) = bueno."
+      }
+    },
+    "greetings-3": {
+      "q1": {
+        "options": ["¿De dónde eres?", "¿Cuál es tu nombre?", "¿Cuántos años tienes?", "¿A qué te dedicas?"],
+        "explanation": "คุณชื่ออะไร: คุณ (khun) = tú, ชื่อ (chue) = nombre, อะไร (a-rai) = qué."
+      },
+      "q2": {
+        "options": ["Soy de...", "Mi nombre es...", "Trabajo en...", "Me gusta..."],
+        "explanation": "ผมชื่อ (Phom chue) para hombres, ฉันชื่อ (Chan chue) para mujeres, seguido de tu nombre."
+      },
+      "q3": {
+        "options": ["Nos vemos luego", "Encantado de conocerte", "Buenos días", "Cuídate"],
+        "explanation": "ยินดีที่ได้รู้จัก literalmente significa 'contento de haberte conocido'. Esta es la forma formal de decir 'encantado de conocerte'."
+      },
+      "q4": {
+        "options": ["¿De dónde eres?", "¿A dónde vas?", "¿Dónde vives?", "¿Dónde trabajas?"],
+        "explanation": "คุณมาจากไหน: มา (ma) = venir, จาก (jak) = de, ไหน (nai) = dónde."
+      }
+    },
+    "sentences-1": {
+      "q1": {
+        "options": ["Estoy cansado", "Tengo hambre", "Tengo sed", "Estoy lleno"],
+        "explanation": "ผมหิวข้าว: ผม (phom) = yo (hombre), หิว (hiu) = hambriento, ข้าว (khao) = arroz/comida. La estructura tailandesa es Sujeto + Verbo."
+      },
+      "q2": {
+        "options": ["Te extraño", "Te amo", "Me gustas", "Te necesito"],
+        "explanation": "ฉันรักคุณ: ฉัน (chan) = yo (mujer), รัก (rak) = amor, คุณ (khun) = tú. ¡Una de las frases más importantes para saber!"
+      },
+      "q3": {
+        "options": ["Mañana hará calor", "Hoy el clima está agradable", "Ayer estuvo lluvioso", "Hace frío hoy"],
+        "explanation": "วันนี้อากาศดี: วันนี้ (wan nee) = hoy, อากาศ (a-gat) = clima, ดี (dee) = bueno/agradable."
+      },
+      "q4": {
+        "options": ["Cocino comida tailandesa", "Me gusta la comida tailandesa", "La comida tailandesa es picante", "Quiero comida tailandesa"],
+        "explanation": "ฉันชอบอาหารไทย: ชอบ (chop) = gustar, อาหาร (a-han) = comida, ไทย (Thai) = tailandés."
+      }
+    },
+    "sentences-2": {
+      "q1": {
+        "options": ["Me despierto tarde", "Me despierto temprano", "Me acuesto temprano", "Duermo tarde"],
+        "explanation": "ผมตื่นแต่เช้า: ตื่น (teun) = despertar, แต่เช้า (tae chao) = temprano en la mañana."
+      },
+      "q2": {
+        "options": ["Terminé el trabajo", "Estoy trabajando", "Quiero trabajar", "No trabajo"],
+        "explanation": "กำลัง (gam-lang) indica acción en progreso (como '-ing' en inglés). ทำงาน (tam ngan) = trabajar."
+      },
+      "q3": {
+        "options": ["Él va al trabajo todos los días", "Él/Ella va a la escuela todos los días", "Él no va a la escuela", "Él fue a la escuela ayer"],
+        "explanation": "โรงเรียน (rong rian) = escuela, ทุกวัน (took wan) = todos los días."
+      },
+      "q4": {
+        "options": ["Cocinamos juntos", "Comemos juntos", "Vivimos juntos", "Trabajamos juntos"],
+        "explanation": "พวกเรา (puak rao) = nosotros (plural), กินข้าว (gin khao) = comer, ด้วยกัน (duay gan) = juntos."
+      }
+    },
+    "sentences-3": {
+      "q1": {
+        "options": ["Estoy triste", "Estoy feliz", "Estoy cansado", "Estoy enojado"],
+        "explanation": "มีความสุข (mee kwaam suk) = tener felicidad = estar feliz. Este es un patrón común en tailandés."
+      },
+      "q2": {
+        "options": ["Estoy un poco cansado", "Estoy muy cansado", "No estoy cansado", "Estaba cansado"],
+        "explanation": "เหนื่อย (neuy) = cansado, มาก (maak) = muy/mucho. มาก intensifica el adjetivo."
+      },
+      "q3": {
+        "options": ["Ella me ama", "Ella está enojada conmigo", "Ella me extraña", "Ella me conoce"],
+        "explanation": "เธอ (thoe) = ella (informal), โกรธ (grot) = enojado."
+      },
+      "q4": {
+        "options": ["Amo mi hogar", "Extraño mi hogar", "Dejé mi hogar", "Quiero ir a casa"],
+        "explanation": "คิดถึง (kit teung) = extrañar (a alguien/algo), บ้าน (baan) = hogar/casa."
+      }
+    },
+    "sentences-4": {
+      "q1": {
+        "options": ["Ayer viajé", "Mañana iré a viajar", "Me gusta viajar", "Quiero viajar"],
+        "explanation": "พรุ่งนี้ (prung nee) = mañana, จะ (ja) = marcador de futuro, ไปเที่ยว (pai tiew) = ir a viajar/hacer turismo."
+      },
+      "q2": {
+        "options": ["Nos conocimos ayer", "Nos encontraremos por la tarde", "Siempre nos encontramos", "Queremos encontrarnos"],
+        "explanation": "เจอกัน (jur gan) = encontrarse, ตอนเย็น (ton yen) = por la tarde."
+      },
+      "q3": {
+        "options": ["¿Trabajas el sábado?", "¿Estás libre el sábado?", "¿Qué día es?", "¿El sábado es festivo?"],
+        "explanation": "ว่าง (wang) = libre/disponible, วันเสาร์ (wan sao) = sábado, ไหม (mai) = partícula de pregunta."
+      },
+      "q4": {
+        "options": ["Encantado de conocerte", "Nos vemos de nuevo", "Encontrémonos ahora", "Te llamaré"],
+        "explanation": "ไว้ (wai) = más tarde/en el futuro, เจอกันใหม่ (jur gan mai) = encontrarse de nuevo. Una forma común de decir adiós."
+      }
+    },
+    "sentences-5": {
+      "q1": {
+        "options": ["¿Cuándo nos encontramos?", "¿Qué hora es ahora?", "¿Es tarde?", "¿Qué día es?"],
+        "explanation": "ตอนนี้ (ton nee) = ahora, กี่โมง (gee mong) = qué hora. โมง se usa para decir la hora."
+      },
+      "q2": {
+        "options": ["Hoy voy al mercado", "Ayer fui al mercado", "Mañana iré al mercado", "A menudo voy al mercado"],
+        "explanation": "เมื่อวาน (muea wan) = ayer, ตลาด (ta-lat) = mercado. El tailandés no cambia las formas verbales para el pasado."
+      },
+      "q3": {
+        "options": ["Bebo café ahora", "Cada mañana bebo café", "Me gusta el café", "Quiero café"],
+        "explanation": "ทุกเช้า (took chao) = cada mañana, ดื่ม (deum) = beber, กาแฟ (ga-fae) = café."
+      },
+      "q4": {
+        "options": ["La semana pasada fuimos a la playa", "La próxima semana vamos a la playa", "Nos gusta la playa", "La playa es hermosa"],
+        "explanation": "อาทิตย์หน้า (a-tit na) = próxima semana, ทะเล (ta-lay) = mar/playa."
+      }
+    },
+    "sentences-6": {
+      "q1": {
+        "options": ["Este es más barato", "Este es más caro", "Este es del mismo precio", "¿Cuánto cuesta este?"],
+        "explanation": "กว่า (gwa) es el marcador comparativo que significa 'más que'. แพง (paeng) = caro + กว่า = más caro."
+      },
+      "q2": {
+        "options": ["El tailandés es más fácil que el inglés", "El tailandés es más difícil que el inglés", "El tailandés y el inglés son iguales", "Hablo tailandés e inglés"],
+        "explanation": "ยาก (yak) = difícil, ภาษา (pa-sa) = idioma, อังกฤษ (Ang-grit) = inglés."
+      },
+      "q3": {
+        "options": ["Este lugar es caluroso", "Este lugar es el más caluroso", "Hace mucho calor aquí", "¿Hace calor aquí?"],
+        "explanation": "ที่สุด (tee sut) es el marcador superlativo que significa 'el más'. ร้อน (ron) = caluroso + ที่สุด = el más caluroso."
+      },
+      "q4": {
+        "options": ["Diferente", "Igual / Similar", "Mejor", "Peor"],
+        "explanation": "เหมือนกัน (muan gan) significa 'igual' o 'similar'. เหมือน (muan) = como/similar, กัน (gan) = mutuamente."
+      }
+    },
+    "conversations-1": {
+      "q1": {
+        "options": ["Una mesa para uno", "Una mesa para dos personas", "La cuenta por favor", "¿Esta mesa está libre?"],
+        "hint": "Estás pidiendo asientos - 'song' significa dos.",
+        "explanation": "โต๊ะ (toe) = mesa, สำหรับ (sam-rap) = para, สองคน (song kon) = dos personas. คน (kon) es el clasificador para personas."
+      },
+      "q2": {
+        "options": ["¿Qué es esto?", "¿Qué recomienda?", "¿Esto es picante?", "¿Cuánto cuesta esto?"],
+        "hint": "Pregunta al mesero por su sugerencia - 'nae-nam' significa recomendar.",
+        "explanation": "แนะนำ (nae-nam) = recomendar, อะไรดี (a-rai dee) = ¿qué está bueno? ¡Una frase útil al ordenar!"
+      },
+      "q3": {
+        "options": ["Sin hielo por favor", "Con hielo por favor", "Agua fría por favor", "Agua caliente por favor"],
+        "hint": "'Nam kaeng' es agua congelada - ¡perfecta para días calurosos!",
+        "explanation": "น้ำแข็ง (nam kaeng) = hielo, ด้วย (duay) = también/además. ¡Esencial para esos días calurosos tailandeses!"
+      },
+      "q4": {
+        "options": ["No tan bueno", "¡Muy delicioso! (hablante masculino)", "Demasiado picante", "Estoy lleno"],
+        "hint": "Un cumplido positivo sobre la comida - 'maak' significa muy.",
+        "explanation": "¡Un cumplido al chef! อร่อย (a-roi) = delicioso, มาก (maak) = muy, ครับ (krap) = partícula cortés (hombre)."
+      },
+      "q5": {
+        "options": ["Más comida por favor", "¿Puedo pedir la cuenta por favor? (hombre)", "¿Dónde está el baño?", "¿Está incluido el servicio?"],
+        "hint": "Has terminado de comer y estás listo para pagar.",
+        "explanation": "เช็คบิล (check bill) se toma prestado del inglés. ขอ (kho) = solicitar, ด้วย (duay) = por favor."
+      },
+      "q6": {
+        "options": ["Cilantro extra por favor", "Sin cilantro por favor", "Me encanta el cilantro", "¿Qué es el cilantro?"],
+        "hint": "Usa 'mai sai' para excluir un ingrediente que no quieres.",
+        "explanation": "ไม่ใส่ (mai sai) = no añadir, ผักชี (pak chee) = cilantro. ¡Muy útil si no te gustan ciertos ingredientes!"
+      }
+    },
+    "conversations-2": {
+      "q1": {
+        "options": ["¿Qué es esto?", "¿Cuánto cuesta?", "¿Tiene esto?", "¿Dónde está?"],
+        "hint": "Quieres saber el precio - 'ra-ka' significa precio.",
+        "explanation": "ราคา (ra-ka) = precio, เท่าไหร่ (tao-rai) = cuánto. ¡La frase esencial de compras!"
+      },
+      "q2": {
+        "options": ["¿Está en oferta?", "¿Puede reducir el precio?", "¿Esto es caro?", "¿Acepta tarjetas?"],
+        "hint": "Estás regateando - 'lot' significa bajar/reducir.",
+        "explanation": "ลดราคา (lot ra-ka) = reducir precio, ได้ไหม (dai mai) = ¿puede? ¡Regatear es común en los mercados tailandeses!"
+      },
+      "q3": {
+        "options": ["¿Tiene otros colores?", "¿Tiene otras tallas?", "¿Esto es demasiado grande?", "¿Puedo probarme esto?"],
+        "hint": "Necesitas un tamaño diferente - 'size' es prestado del inglés.",
+        "explanation": "ไซส์ (size) = talla (prestado del inglés), อื่น (eun) = otro."
+      },
+      "q4": {
+        "options": ["No quiero esto", "Me llevaré este", "Muéstrame otro", "Esto es demasiado caro"],
+        "hint": "Has decidido comprar - 'ao' significa tomar/querer.",
+        "explanation": "เอา (ao) = tomar/querer, อันนี้ (an nee) = este. อัน (an) es un clasificador general para objetos."
+      },
+      "q5": {
+        "options": ["Solo efectivo por favor", "¿Acepta tarjetas de crédito?", "Pagaré en efectivo", "¿Dónde está el cajero automático?"],
+        "hint": "Quieres saber el método de pago - 'bat credit' suena como 'tarjeta de crédito'.",
+        "explanation": "รับ (rap) = aceptar/recibir, บัตรเครดิต (bat credit) = tarjeta de crédito. ¡Muchas tiendas en Tailandia prefieren efectivo!"
+      },
+      "q6": {
+        "options": ["¿Puedo comprar esto?", "¿Puedo probármelo?", "¿Esto es nuevo?", "¿Tiene un espejo?"],
+        "hint": "Quieres probar antes de comprar - 'long' significa probar.",
+        "explanation": "ลอง (long) = probar, ได้ไหม (dai mai) = ¿puedo? ¡Esencial para comprar ropa!"
+      }
+    },
+    "conversations-3": {
+      "q1": {
+        "options": ["¿Dónde trabajas?", "¿A qué te dedicas?", "¿Te gusta tu trabajo?", "¿Cuándo trabajas?"],
+        "hint": "Preguntando sobre el trabajo de alguien - 'tam ngan' significa trabajar.",
+        "explanation": "ทำงาน (tam ngan) = trabajar, อะไร (a-rai) = qué. Una pregunta común al conocer gente nueva."
+      },
+      "q2": {
+        "options": ["¿A dónde vas?", "¿Dónde vives?", "¿De dónde eres?", "¿Dónde está tu casa?"],
+        "hint": "Preguntando sobre residencia - 'yoo' significa vivir/quedarse.",
+        "explanation": "อยู่ (yoo) = vivir/quedarse, ที่ไหน (tee nai) = dónde."
+      },
+      "q3": {
+        "options": ["¿Has estado en Tailandia?", "¿Te gusta Tailandia?", "¿Eres tailandés?", "¿Tailandia es hermosa?"],
+        "hint": "Preguntando sobre preferencia - 'chop' significa gustar.",
+        "explanation": "เมืองไทย (muang Thai) = Tailandia (literalmente 'país tailandés'), ชอบ (chop) = gustar."
+      },
+      "q4": {
+        "options": ["¿Cuándo viniste a Tailandia?", "¿Cuánto tiempo has estado en Tailandia?", "¿Es tu primera vez?", "¿Te gusta Tailandia?"],
+        "hint": "Preguntando sobre duración - 'nan tao-rai' significa cuánto tiempo.",
+        "explanation": "นาน (nan) = largo (tiempo), เท่าไหร่ (tao-rai) = cuánto/cuánto tiempo."
+      },
+      "q5": {
+        "options": ["¿Tienes hermanos?", "¿Tienes hijos?", "¿Estás casado?", "¿Tienes familia aquí?"],
+        "hint": "Preguntando sobre hermanos y hermanas - 'pee nong' significa hermanos.",
+        "explanation": "พี่น้อง (pee nong) = hermanos. พี่ (pee) = hermano/a mayor, น้อง (nong) = hermano/a menor."
+      },
+      "q6": {
+        "options": ["Hace mucho calor hoy", "El clima está agradable hoy", "¿Va a llover?", "Me gusta el clima frío"],
+        "hint": "Comentando sobre el clima agradable - 'a-gat dee' significa buen clima.",
+        "explanation": "อากาศ (a-gat) = clima, ดี (dee) = bueno, นะ (na) = partícula suavizante para tono amigable."
+      }
+    },
+    "conversations-4": {
+      "q1": {
+        "options": ["Gracias", "¡Ayuda!", "Disculpe", "Lo siento"],
+        "hint": "Llamado urgente para asistencia - 'chuay' significa ayudar.",
+        "explanation": "ช่วยด้วย (Chuay duay) significa '¡Ayuda!' ช่วย (chuay) = ayudar, ด้วย (duay) = por favor/también. ¡Una frase importante para saber!"
+      },
+      "q2": {
+        "options": ["Estoy bien", "No me siento bien", "Estoy cansado", "Tengo hambre"],
+        "hint": "Expresando enfermedad - 'mai sa-bai' es lo opuesto a sentirse bien.",
+        "explanation": "ไม่สบาย (mai sa-bai) = no bien/enfermo. สบาย (sa-bai) = cómodo/bien."
+      },
+      "q3": {
+        "options": ["Necesito medicina", "Llame a un doctor", "¿Dónde está el hospital?", "Tengo seguro"],
+        "hint": "Solicitando ayuda médica - 'mor' significa doctor.",
+        "explanation": "โทร (toh) = llamar (teléfono), เรียก (riak) = convocar/llamar por, หมอ (mor) = doctor."
+      },
+      "q4": {
+        "options": ["¿Dónde está la farmacia?", "¿Dónde está el hospital?", "Necesito ver a un doctor", "¿Hay una clínica cerca?"],
+        "hint": "Pidiendo direcciones para atención médica - 'rong pa-ya-ban' es una instalación médica grande.",
+        "explanation": "โรงพยาบาล (rong pa-ya-ban) = hospital. Una frase crítica para emergencias."
+      },
+      "q5": {
+        "options": ["No me gusta esta comida", "Tengo alergia alimentaria", "Esta comida está mala", "No tengo hambre"],
+        "hint": "Condición médica con comida - 'pae' significa alérgico a.",
+        "explanation": "แพ้ (pae) = alérgico a, อาหาร (a-han) = comida. ¡Muy importante si tienes alergias!"
+      },
+      "q6": {
+        "options": ["¿Dónde está la estación de policía?", "Llame a la policía", "Perdí mi pasaporte", "Necesito un abogado"],
+        "hint": "Solicitando aplicación de la ley - 'tam-ruat' significa policía.",
+        "explanation": "ตำรวจ (tam-ruat) = policía. Importante para emergencias que involucran seguridad o crimen."
+      }
+    }
+  }
+}

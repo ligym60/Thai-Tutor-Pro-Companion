@@ -1,0 +1,22 @@
+{
+  "greeting": "Hola, {{name}}",
+  "dailyStreak": "Racha Diaria",
+  "todayProgress": "Progreso de Hoy",
+  "quickPractice": "Práctica Rápida",
+  "speaking": "Conversación",
+  "vocabulary": "Vocabulario",
+  "writing": "Escritura",
+  "currentLevel": "Nivel Actual",
+  "xpToNextLevel": "XP para el siguiente nivel",
+  "continueLesson": "Continuar Lección",
+  "startNewLesson": "Comenzar Nueva Lección",
+  "practiceMode": "Modo Práctica",
+  "loading": "Cargando...",
+  "todaysLesson": "Lección de Hoy",
+  "practiceModes": "Modos de Práctica",
+  "listenAndRepeat": "Escuchar y Repetir",
+  "review": "Revisar",
+  "spacedRepetition": "Repetición Espaciada",
+  "due": "pendiente",
+  "traceCharacters": "Trazar Caracteres"
+}

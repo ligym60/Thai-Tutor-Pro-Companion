@@ -1,0 +1,40 @@
+{
+  "title": "موي تاي",
+  "techniques": "التقنيات",
+  "terminology": "المصطلحات",
+  "history": "التاريخ",
+  "categories": {
+    "punches": "اللكمات",
+    "kicks": "الركلات",
+    "elbows": "الكوع",
+    "knees": "الركبة",
+    "clinch": "الإمساك",
+    "defense": "الدفاع"
+  },
+  "viewDetails": "عرض التفاصيل",
+  "practiceMove": "ممارسة الحركة",
+  "thaiName": "الاسم التايلاندي",
+  "englishName": "الاسم الإنجليزي",
+  "description": "الوصف",
+  "commonUsage": "الاستخدام الشائع",
+  "masterWorkout": "التمرين الرئيسي",
+  "voiceGuidedCombos": "اتبع التركيبات الموجهة صوتياً",
+  "trainingSchedule": "جدول التدريب لمدة 30 يوماً",
+  "daysCompleted": "{{count}}/30 يوماً مكتملاً",
+  "sectionIntro": "نصائح أساسية لتجربتك الأولى في موي تاي في تايلاند. احترم التقاليد واستمتع بالفن.",
+  "thingsToDo": "أشياء يجب القيام بها",
+  "thingsToAvoid": "أشياء يجب تجنبها",
+  "safety": "السلامة",
+  "do": "افعل",
+  "dont": "لا تفعل",
+  "levels": {
+    "beginner": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم"
+  },
+  "legend": {
+    "workout": "التمرين",
+    "recovery": "الاستشفاء",
+    "rest": "الراحة"
+  }
+}

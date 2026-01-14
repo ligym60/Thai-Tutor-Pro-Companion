@@ -1,0 +1,20 @@
+{
+  "greeting": "नमस्कार, {{name}}!",
+  "dailyGoal": "दैनिक लक्ष्य",
+  "minutesToday": "आज {{minutes}} मिनिटे",
+  "currentStreak": "सध्याची मालिका",
+  "days": "दिवस",
+  "continueLesson": "धडा सुरू ठेवा",
+  "startLearning": "शिकणे सुरू करा",
+  "quickActions": "द्रुत क्रिया",
+  "practice": "सराव",
+  "review": "पुनरावलोकन",
+  "quiz": "प्रश्नमंजुषा",
+  "loading": "लोड होत आहे...",
+  "todaysLesson": "आजचा धडा",
+  "practiceModes": "सराव मोड",
+  "listenAndRepeat": "ऐका आणि पुनरावृत्ती करा",
+  "spacedRepetition": "अंतराल पुनरावृत्ती",
+  "due": "देय",
+  "traceCharacters": "अक्षरांचा मागोवा घ्या"
+}

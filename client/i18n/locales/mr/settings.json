@@ -1,0 +1,20 @@
+{
+  "title": "सेटिंग्ज",
+  "language": "भाषा",
+  "languageDescription": "अॅपची भाषा निवडा",
+  "sound": "आवाज",
+  "soundDescription": "ध्वनी प्रभाव सक्षम करा",
+  "theme": "थीम",
+  "themeDescription": "अॅपचे स्वरूप निवडा",
+  "dailyGoal": "दैनिक लक्ष्य",
+  "dailyGoalDescription": "तुमचे दैनिक अभ्यास लक्ष्य सेट करा",
+  "minutes": "मिनिटे",
+  "notifications": "सूचना",
+  "notificationsDescription": "दैनिक स्मरणपत्रे सक्षम करा",
+  "account": "खाते",
+  "accountDescription": "तुमचे प्रोफाइल व्यवस्थापित करा",
+  "about": "बद्दल",
+  "version": "आवृत्ती",
+  "privacyPolicy": "गोपनीयता धोरण",
+  "termsOfService": "सेवा अटी"
+}

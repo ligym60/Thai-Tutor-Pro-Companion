@@ -1,0 +1,10 @@
+{
+  "title": "Classificação",
+  "leaderboard": "Tabela de Líderes",
+  "yourRank": "Sua Classificação",
+  "topLearners": "Melhores Aprendizes",
+  "points": "pontos",
+  "rank": "Classificação #{{number}}",
+  "thisWeek": "Esta Semana",
+  "allTime": "Todos os Tempos"
+}

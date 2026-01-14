@@ -1,0 +1,40 @@
+{
+  "title": "ਮੁਏ ਥਾਈ",
+  "techniques": "ਤਕਨੀਕਾਂ",
+  "terminology": "ਸ਼ਬਦਾਵਲੀ",
+  "history": "ਇਤਿਹਾਸ",
+  "categories": {
+    "punches": "ਮੁੱਕੇ",
+    "kicks": "ਲੱਤਾਂ",
+    "elbows": "ਕੂਹਣੀਆਂ",
+    "knees": "ਗੋਡੇ",
+    "clinch": "ਕਲਿੰਚ",
+    "defense": "ਬਚਾਅ"
+  },
+  "viewDetails": "ਵੇਰਵੇ ਦੇਖੋ",
+  "practiceMove": "ਅਭਿਆਸ ਕਰੋ",
+  "thaiName": "ਥਾਈ ਨਾਮ",
+  "englishName": "ਅੰਗਰੇਜ਼ੀ ਨਾਮ",
+  "description": "ਵਰਣਨ",
+  "commonUsage": "ਆਮ ਵਰਤੋਂ",
+  "masterWorkout": "ਮਾਸਟਰ ਵਰਕਆਉਟ",
+  "voiceGuidedCombos": "ਆਵਾਜ਼-ਗਾਈਡਡ ਕੰਬੋ ਦਾ ਪਾਲਣ ਕਰੋ",
+  "trainingSchedule": "30-ਦਿਨ ਦੀ ਸਿਖਲਾਈ ਸਮਾ-ਸਾਰਣੀ",
+  "daysCompleted": "{{count}}/30 ਦਿਨ ਪੂਰੇ",
+  "sectionIntro": "ਥਾਈਲੈਂਡ ਵਿੱਚ ਤੁਹਾਡੇ ਪਹਿਲੇ ਮੁਏ ਥਾਈ ਤਜਰਬੇ ਲਈ ਜ਼ਰੂਰੀ ਸੁਝਾਅ। ਪਰੰਪਰਾਵਾਂ ਦਾ ਸਤਿਕਾਰ ਕਰੋ ਅਤੇ ਕਲਾ ਦਾ ਅਨੰਦ ਲਓ।",
+  "thingsToDo": "ਕਰਨ ਯੋਗ ਚੀਜ਼ਾਂ",
+  "thingsToAvoid": "ਬਚਣ ਯੋਗ ਚੀਜ਼ਾਂ",
+  "safety": "ਸੁਰੱਖਿਆ",
+  "do": "ਕਰੋ",
+  "dont": "ਨਾ ਕਰੋ",
+  "levels": {
+    "beginner": "ਸ਼ੁਰੂਆਤੀ",
+    "intermediate": "ਮੱਧਮ",
+    "advanced": "ਉੱਨਤ"
+  },
+  "legend": {
+    "workout": "ਵਰਕਆਉਟ",
+    "recovery": "ਰਿਕਵਰੀ",
+    "rest": "ਆਰਾਮ"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "greeting": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, {{name}}!",
+  "dailyGoal": "ਰੋਜ਼ਾਨਾ ਟੀਚਾ",
+  "minutesToday": "ਅੱਜ {{minutes}} ਮਿੰਟ",
+  "currentStreak": "ਮੌਜੂਦਾ ਲੜੀ",
+  "days": "ਦਿਨ",
+  "continueLesson": "ਸਬਕ ਜਾਰੀ ਰੱਖੋ",
+  "startLearning": "ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰੋ",
+  "quickActions": "ਤੁਰੰਤ ਕਾਰਵਾਈਆਂ",
+  "practice": "ਅਭਿਆਸ",
+  "review": "ਸਮੀਖਿਆ",
+  "quiz": "ਕਵਿਜ਼",
+  "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+  "todaysLesson": "ਅੱਜ ਦਾ ਸਬਕ",
+  "practiceModes": "ਅਭਿਆਸ ਮੋਡ",
+  "listenAndRepeat": "ਸੁਣੋ ਅਤੇ ਦੁਹਰਾਓ",
+  "spacedRepetition": "ਅੰਤਰਾਲ ਦੁਹਰਾਓ",
+  "due": "ਬਕਾਇਆ",
+  "traceCharacters": "ਅੱਖਰਾਂ ਦਾ ਪਤਾ ਲਗਾਓ"
+}

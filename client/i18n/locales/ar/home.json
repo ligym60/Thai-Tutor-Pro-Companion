@@ -1,0 +1,20 @@
+{
+  "greeting": "مرحباً، {{name}}!",
+  "dailyGoal": "الهدف اليومي",
+  "minutesToday": "{{minutes}} دقيقة اليوم",
+  "currentStreak": "السلسلة الحالية",
+  "days": "أيام",
+  "continueLesson": "متابعة الدرس",
+  "startLearning": "بدء التعلم",
+  "quickActions": "إجراءات سريعة",
+  "practice": "الممارسة",
+  "review": "المراجعة",
+  "quiz": "الاختبار",
+  "loading": "جارٍ التحميل...",
+  "todaysLesson": "درس اليوم",
+  "practiceModes": "أنماط الممارسة",
+  "listenAndRepeat": "استمع وكرر",
+  "spacedRepetition": "التكرار المتباعد",
+  "due": "مستحق",
+  "traceCharacters": "تتبع الأحرف"
+}

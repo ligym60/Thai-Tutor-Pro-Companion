@@ -1,0 +1,17 @@
+{
+  "tabs": {
+    "home": "Inicio",
+    "lessons": "Lecciones",
+    "stories": "Historias",
+    "tips": "Consejos",
+    "muayThai": "Muay Thai",
+    "rank": "Rango",
+    "profile": "Perfil"
+  },
+  "screens": {
+    "speakingPractice": "Práctica de Conversación",
+    "vocabularyReview": "Repaso de Vocabulario",
+    "writingPractice": "Práctica de Escritura",
+    "settings": "Configuración"
+  }
+}

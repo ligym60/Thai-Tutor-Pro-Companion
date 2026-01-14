@@ -1,0 +1,20 @@
+{
+  "tabs": {
+    "home": "হোম",
+    "lessons": "পাঠ",
+    "stories": "গল্প",
+    "profile": "প্রোফাইল"
+  },
+  "screens": {
+    "home": "হোম",
+    "lessons": "পাঠ",
+    "practice": "অনুশীলন",
+    "quiz": "কুইজ",
+    "stories": "গল্প",
+    "tips": "টিপস",
+    "muaythai": "মুয়ে থাই",
+    "profile": "প্রোফাইল",
+    "settings": "সেটিংস",
+    "rank": "র‍্যাংক"
+  }
+}

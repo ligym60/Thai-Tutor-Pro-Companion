@@ -1,0 +1,20 @@
+{
+  "tabs": {
+    "home": "Главная",
+    "lessons": "Уроки",
+    "stories": "Истории",
+    "profile": "Профиль"
+  },
+  "screens": {
+    "home": "Главная",
+    "lessons": "Уроки",
+    "practice": "Практика",
+    "quiz": "Тест",
+    "stories": "Истории",
+    "tips": "Советы",
+    "muaythai": "Муай Тай",
+    "profile": "Профиль",
+    "settings": "Настройки",
+    "rank": "Рейтинг"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "greeting": "สวัสดี, {{name}}",
+  "dailyStreak": "วันติดต่อกัน",
+  "todayProgress": "ความคืบหน้าวันนี้",
+  "quickPractice": "ฝึกฝนด่วน",
+  "speaking": "การพูด",
+  "vocabulary": "คำศัพท์",
+  "writing": "การเขียน",
+  "currentLevel": "ระดับปัจจุบัน",
+  "xpToNextLevel": "XP ถึงระดับถัดไป",
+  "continueLesson": "เรียนต่อ",
+  "startNewLesson": "เริ่มบทเรียนใหม่",
+  "practiceMode": "โหมดฝึกฝน",
+  "loading": "กำลังโหลด...",
+  "todaysLesson": "บทเรียนวันนี้",
+  "practiceModes": "โหมดฝึกฝน",
+  "listenAndRepeat": "ฟังและทำซ้ำ",
+  "review": "ทบทวน",
+  "spacedRepetition": "การทบทวนแบบเว้นระยะ",
+  "due": "ถึงกำหนด",
+  "traceCharacters": "ติดตามตัวอักษร"
+}

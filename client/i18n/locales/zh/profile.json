@@ -1,0 +1,39 @@
+{
+  "title": "个人资料",
+  "stats": "统计",
+  "totalXP": "总经验值",
+  "lessonsCompleted": "已完成课程",
+  "currentStreak": "当前连续",
+  "longestStreak": "最长连续",
+  "days": "天",
+  "achievements": "成就",
+  "locked": "已锁定",
+  "unlocked": "已解锁",
+  "achievementNames": {
+    "firstLesson": "第一课",
+    "streak7": "周战士",
+    "streak30": "月度大师",
+    "xp100": "百人俱乐部",
+    "xp500": "冉冉新星",
+    "xp1000": "知识守护者",
+    "lessons10": "专注学习者",
+    "lessons50": "语言爱好者",
+    "perfectLesson": "完美成绩"
+  },
+  "achievementDescriptions": {
+    "firstLesson": "完成您的第一课",
+    "streak7": "保持7天连续",
+    "streak30": "保持30天连续",
+    "xp100": "赚取100经验值",
+    "xp500": "赚取500经验值",
+    "xp1000": "赚取1000经验值",
+    "lessons10": "完成10节课",
+    "lessons50": "完成50节课",
+    "perfectLesson": "在任何课程中获得100%"
+  },
+  "editProfile": "编辑个人资料",
+  "displayName": "显示名称",
+  "avatar": "头像",
+  "tapToChangeAvatar": "点击更改头像",
+  "yourName": "您的名字"
+}

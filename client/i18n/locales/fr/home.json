@@ -1,0 +1,20 @@
+{
+  "greeting": "Bonjour, {{name}}!",
+  "dailyGoal": "Objectif Quotidien",
+  "minutesToday": "{{minutes}} minutes aujourd'hui",
+  "currentStreak": "Série Actuelle",
+  "days": "jours",
+  "continueLesson": "Continuer la Leçon",
+  "startLearning": "Commencer à Apprendre",
+  "quickActions": "Actions Rapides",
+  "practice": "Pratique",
+  "review": "Révision",
+  "quiz": "Quiz",
+  "loading": "Chargement...",
+  "todaysLesson": "Leçon d'aujourd'hui",
+  "practiceModes": "Modes de pratique",
+  "listenAndRepeat": "Écouter et répéter",
+  "spacedRepetition": "Répétition espacée",
+  "due": "à faire",
+  "traceCharacters": "Tracer les caractères"
+}

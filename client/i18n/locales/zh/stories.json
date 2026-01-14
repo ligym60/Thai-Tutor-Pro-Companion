@@ -1,0 +1,28 @@
+{
+  "title": "故事",
+  "readStory": "阅读故事",
+  "storiesCompleted": "已完成{{count}}个故事",
+  "difficulty": {
+    "beginner": "初级",
+    "intermediate": "中级",
+    "advanced": "高级",
+    "expert": "专家"
+  },
+  "readMore": "阅读更多",
+  "finish": "完成",
+  "next": "下一个故事",
+  "allStories": "所有故事",
+  "noStories": "未找到此级别的故事。",
+  "expertMode": "专家模式",
+  "storyReading": "故事阅读",
+  "storyReadingDesc": "阅读泰语故事，配有逐字音频，点击任何单词可查看其翻译。",
+  "words": "词",
+  "storyNotFound": "未找到故事",
+  "fullTranslation": "完整翻译",
+  "tapAnyWord": "点击任何单词以听取发音并查看翻译",
+  "currentlyPlaying": "当前播放的单词",
+  "takeQuiz": "进行测验",
+  "listen": "收听",
+  "save": "保存",
+  "saved": "已保存"
+}

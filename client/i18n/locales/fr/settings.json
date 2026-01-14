@@ -1,0 +1,20 @@
+{
+  "title": "Paramètres",
+  "language": "Langue",
+  "languageDescription": "Sélectionnez la langue de l'application",
+  "sound": "Son",
+  "soundDescription": "Activer les effets sonores",
+  "theme": "Thème",
+  "themeDescription": "Choisissez l'apparence de l'application",
+  "dailyGoal": "Objectif Quotidien",
+  "dailyGoalDescription": "Définissez votre objectif d'étude quotidien",
+  "minutes": "minutes",
+  "notifications": "Notifications",
+  "notificationsDescription": "Activer les rappels quotidiens",
+  "account": "Compte",
+  "accountDescription": "Gérez votre profil",
+  "about": "À propos",
+  "version": "Version",
+  "privacyPolicy": "Politique de Confidentialité",
+  "termsOfService": "Conditions d'Utilisation"
+}

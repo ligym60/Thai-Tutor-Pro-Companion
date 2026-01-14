@@ -1,0 +1,41 @@
+{
+  "title": "Lezioni",
+  "categories": {
+    "basics": "Basi",
+    "greetings": "Saluti",
+    "food": "Cibo",
+    "travel": "Viaggio",
+    "shopping": "Shopping",
+    "emergency": "Emergenza",
+    "all": "Tutti"
+  },
+  "difficulty": {
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato"
+  },
+  "filterCategory": "Categoria",
+  "filterLevel": "Livello",
+  "allLevels": "Tutti i Livelli",
+  "noLessonsFound": "Nessuna lezione trovata in questa categoria.",
+  "progress": "Progresso",
+  "completed": "Completato",
+  "inProgress": "In Corso",
+  "locked": "Bloccato",
+  "startLesson": "Inizia Lezione",
+  "continueLesson": "Continua Lezione",
+  "reviewLesson": "Ripassa Lezione",
+  "lessonNotFound": "Lezione non trovata",
+  "goBack": "Torna Indietro",
+  "whatDoesThisMean": "Cosa significa questo?",
+  "needAHint": "Hai bisogno di un suggerimento?",
+  "check": "Controlla",
+  "continue": "Continua",
+  "perfect": "Perfetto!",
+  "youGotXOutOfY": "Hai ottenuto {{correct}} su {{total}} corretti",
+  "xpEarned": "XP Guadagnati",
+  "outOfLives": "Senza Vite",
+  "outOfLivesMessage": "Hai esaurito le vite. Riprova domani!",
+  "ok": "OK",
+  "explanation": "Spiegazione"
+}

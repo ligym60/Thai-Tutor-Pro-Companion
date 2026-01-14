@@ -1,0 +1,40 @@
+{
+  "title": "泰拳",
+  "techniques": "技巧",
+  "terminology": "术语",
+  "history": "历史",
+  "categories": {
+    "punches": "拳法",
+    "kicks": "腿法",
+    "elbows": "肘法",
+    "knees": "膝法",
+    "clinch": "抱摔",
+    "defense": "防御"
+  },
+  "viewDetails": "查看详情",
+  "practiceMove": "练习动作",
+  "thaiName": "泰语名称",
+  "englishName": "英文名称",
+  "description": "描述",
+  "commonUsage": "常见用法",
+  "masterWorkout": "大师训练",
+  "voiceGuidedCombos": "跟随语音指导组合",
+  "trainingSchedule": "30天训练计划",
+  "daysCompleted": "已完成{{count}}/30天",
+  "sectionIntro": "在泰国首次体验泰拳的基本提示。尊重传统，享受这门艺术。",
+  "thingsToDo": "应该做的事",
+  "thingsToAvoid": "应该避免的事",
+  "safety": "安全",
+  "do": "做",
+  "dont": "不要做",
+  "levels": {
+    "beginner": "初级",
+    "intermediate": "中级",
+    "advanced": "高级"
+  },
+  "legend": {
+    "workout": "训练",
+    "recovery": "恢复",
+    "rest": "休息"
+  }
+}

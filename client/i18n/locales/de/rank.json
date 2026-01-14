@@ -1,0 +1,8 @@
+{
+  "title": "Rang",
+  "leaderboard": "Bestenliste",
+  "yourRank": "Ihr Rang",
+  "topLearners": "Top-Lernende",
+  "points": "Punkte",
+  "rank": "Rang #{{number}}"
+}

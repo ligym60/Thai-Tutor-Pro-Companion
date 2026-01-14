@@ -1,0 +1,20 @@
+{
+  "title": "Настройки",
+  "language": "Язык",
+  "languageDescription": "Выберите язык приложения",
+  "sound": "Звук",
+  "soundDescription": "Включить звуковые эффекты",
+  "theme": "Тема",
+  "themeDescription": "Выберите внешний вид приложения",
+  "dailyGoal": "Дневная цель",
+  "dailyGoalDescription": "Установите свою дневную цель обучения",
+  "minutes": "минут",
+  "notifications": "Уведомления",
+  "notificationsDescription": "Включить ежедневные напоминания",
+  "account": "Аккаунт",
+  "accountDescription": "Управление профилем",
+  "about": "О приложении",
+  "version": "Версия",
+  "privacyPolicy": "Политика конфиденциальности",
+  "termsOfService": "Условия использования"
+}

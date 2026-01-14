@@ -1,0 +1,20 @@
+{
+  "greeting": "হ্যালো, {{name}}!",
+  "dailyGoal": "দৈনিক লক্ষ্য",
+  "minutesToday": "আজ {{minutes}} মিনিট",
+  "currentStreak": "বর্তমান ধারা",
+  "days": "দিন",
+  "continueLesson": "পাঠ চালিয়ে যান",
+  "startLearning": "শেখা শুরু করুন",
+  "quickActions": "দ্রুত ক্রিয়া",
+  "practice": "অনুশীলন",
+  "review": "পর্যালোচনা",
+  "quiz": "কুইজ",
+  "loading": "লোড হচ্ছে...",
+  "todaysLesson": "আজকের পাঠ",
+  "practiceModes": "অনুশীলন মোড",
+  "listenAndRepeat": "শুনুন এবং পুনরাবৃত্তি করুন",
+  "spacedRepetition": "ব্যবধান পুনরাবৃত্তি",
+  "due": "বকেয়া",
+  "traceCharacters": "অক্ষর অনুসরণ করুন"
+}

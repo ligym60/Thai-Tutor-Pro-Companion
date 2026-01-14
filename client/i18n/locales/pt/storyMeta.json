@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "Saudação Matinal",
+    "description": "Uma conversa matinal simples entre amigos"
+  },
+  "story-2": {
+    "title": "No Mercado",
+    "description": "Comprando frutas em um mercado tailandês local"
+  },
+  "story-3": {
+    "title": "Encontrando o Caminho",
+    "description": "Pedindo direções para um templo famoso"
+  },
+  "story-4": {
+    "title": "Pedindo Comida",
+    "description": "Pedindo uma refeição em um restaurante tailandês"
+  }
+}

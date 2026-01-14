@@ -1,0 +1,40 @@
+{
+  "title": "Muay Thaï",
+  "techniques": "Techniques",
+  "terminology": "Terminologie",
+  "history": "Histoire",
+  "categories": {
+    "punches": "Coups de Poing",
+    "kicks": "Coups de Pied",
+    "elbows": "Coups de Coude",
+    "knees": "Coups de Genou",
+    "clinch": "Clinch",
+    "defense": "Défense"
+  },
+  "viewDetails": "Voir les Détails",
+  "practiceMove": "Pratiquer le Mouvement",
+  "thaiName": "Nom Thaï",
+  "englishName": "Nom Anglais",
+  "description": "Description",
+  "commonUsage": "Usage Courant",
+  "masterWorkout": "Entraînement Maître",
+  "voiceGuidedCombos": "Suivez les combinaisons guidées par la voix",
+  "trainingSchedule": "Programme d'Entraînement de 30 Jours",
+  "daysCompleted": "{{count}}/30 jours terminés",
+  "sectionIntro": "Conseils essentiels pour votre première expérience de Muay Thaï en Thaïlande. Respectez les traditions et profitez de l'art.",
+  "thingsToDo": "Choses à Faire",
+  "thingsToAvoid": "Choses à Éviter",
+  "safety": "Sécurité",
+  "do": "Faire",
+  "dont": "Ne Pas Faire",
+  "levels": {
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé"
+  },
+  "legend": {
+    "workout": "Entraînement",
+    "recovery": "Récupération",
+    "rest": "Repos"
+  }
+}

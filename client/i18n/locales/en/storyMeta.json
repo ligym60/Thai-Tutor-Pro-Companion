@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "Morning Greeting",
+    "description": "A simple morning conversation between friends"
+  },
+  "story-2": {
+    "title": "At the Market",
+    "description": "Buying fruits at a local Thai market"
+  },
+  "story-3": {
+    "title": "Finding the Way",
+    "description": "Asking for directions to a famous temple"
+  },
+  "story-4": {
+    "title": "Ordering Food",
+    "description": "Ordering a meal at a Thai restaurant"
+  }
+}

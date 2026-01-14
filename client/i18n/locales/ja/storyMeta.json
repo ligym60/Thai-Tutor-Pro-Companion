@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "朝の挨拶",
+    "description": "友達同士の簡単な朝の会話"
+  },
+  "story-2": {
+    "title": "市場で",
+    "description": "地元のタイの市場で果物を買う"
+  },
+  "story-3": {
+    "title": "道を探す",
+    "description": "有名な寺院への道を尋ねる"
+  },
+  "story-4": {
+    "title": "料理を注文する",
+    "description": "タイ料理レストランで食事を注文する"
+  }
+}

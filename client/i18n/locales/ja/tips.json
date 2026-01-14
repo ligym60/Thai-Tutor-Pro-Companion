@@ -1,0 +1,13 @@
+{
+  "title": "文化のヒント",
+  "readTip": "ヒントを読む",
+  "tipsRead": "{{count}}個のヒントを読みました",
+  "categories": {
+    "greetings": "挨拶",
+    "dining": "食事",
+    "temples": "寺院",
+    "general": "一般"
+  },
+  "helpful": "役に立つ",
+  "markAsRead": "既読にする"
+}

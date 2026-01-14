@@ -1,0 +1,13 @@
+{
+  "title": "Consejos Culturales",
+  "readTip": "Leer Consejo",
+  "tipsRead": "{{count}} consejos leídos",
+  "categories": {
+    "greetings": "Saludos",
+    "dining": "Comida",
+    "temples": "Templos",
+    "general": "General"
+  },
+  "helpful": "Útil",
+  "markAsRead": "Marcar como Leído"
+}

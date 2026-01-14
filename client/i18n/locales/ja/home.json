@@ -1,0 +1,22 @@
+{
+  "greeting": "こんにちは、{{name}}",
+  "dailyStreak": "連続日数",
+  "todayProgress": "今日の進捗",
+  "quickPractice": "クイック練習",
+  "speaking": "スピーキング",
+  "vocabulary": "単語",
+  "writing": "ライティング",
+  "currentLevel": "現在のレベル",
+  "xpToNextLevel": "次のレベルまで",
+  "continueLesson": "レッスンを続ける",
+  "startNewLesson": "新しいレッスンを始める",
+  "practiceMode": "練習モード",
+  "loading": "読み込み中...",
+  "todaysLesson": "今日のレッスン",
+  "practiceModes": "練習モード",
+  "listenAndRepeat": "聞いて繰り返す",
+  "review": "復習",
+  "spacedRepetition": "間隔反復",
+  "due": "期限",
+  "traceCharacters": "文字をなぞる"
+}

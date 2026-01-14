@@ -1,0 +1,33 @@
+{
+  "title": "कथा",
+  "readStory": "कथा वाचा",
+  "listenToStory": "कथा ऐका",
+  "difficulty": {
+    "beginner": "सुरुवातीचे",
+    "intermediate": "मध्यम",
+    "advanced": "प्रगत",
+    "expert": "तज्ञ"
+  },
+  "duration": "कालावधी",
+  "minutes": "मिनिटे",
+  "completed": "पूर्ण झाले",
+  "new": "नवीन",
+  "storiesCompleted": "{{count}} कथा पूर्ण झाल्या",
+  "readMore": "अधिक वाचा",
+  "finish": "समाप्त",
+  "next": "पुढील कथा",
+  "allStories": "सर्व कथा",
+  "noStories": "या स्तरासाठी कोणत्याही कथा सापडल्या नाहीत.",
+  "expertMode": "तज्ञ मोड",
+  "storyReading": "कथा वाचन",
+  "storyReadingDesc": "शब्द-दर-शब्द ऑडिओसह थाई कथा वाचा आणि भाषांतर पाहण्यासाठी कोणत्याही शब्दावर टॅप करा.",
+  "words": "शब्द",
+  "storyNotFound": "कथा सापडली नाही",
+  "fullTranslation": "पूर्ण भाषांतर",
+  "tapAnyWord": "उच्चार ऐकण्यासाठी आणि भाषांतर पाहण्यासाठी कोणत्याही शब्दावर टॅप करा",
+  "currentlyPlaying": "सध्या वाजत असलेला शब्द",
+  "takeQuiz": "प्रश्नमंजुषा घ्या",
+  "listen": "ऐका",
+  "save": "जतन करा",
+  "saved": "जतन केले"
+}

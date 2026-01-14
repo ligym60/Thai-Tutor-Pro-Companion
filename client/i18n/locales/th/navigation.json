@@ -1,0 +1,17 @@
+{
+  "tabs": {
+    "home": "หน้าหลัก",
+    "lessons": "บทเรียน",
+    "stories": "เรื่องราว",
+    "tips": "เคล็ดลับ",
+    "muayThai": "มวยไทย",
+    "rank": "อันดับ",
+    "profile": "โปรไฟล์"
+  },
+  "screens": {
+    "speakingPractice": "ฝึกพูด",
+    "vocabularyReview": "ทบทวนคำศัพท์",
+    "writingPractice": "ฝึกเขียน",
+    "settings": "การตั้งค่า"
+  }
+}

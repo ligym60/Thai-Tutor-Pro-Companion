@@ -1,0 +1,22 @@
+{
+  "story-1": {
+    "title": "Morning Greeting",
+    "description": "A simple morning conversation between friends",
+    "fullTranslation": "Good morning! How are you? I'm fine, thank you for asking."
+  },
+  "story-2": {
+    "title": "At the Market",
+    "description": "Buying fruits at a local Thai market",
+    "fullTranslation": "How much are the mangoes? Fifteen baht per kilo. I'll take two kilos please. Okay!"
+  },
+  "story-3": {
+    "title": "Finding the Way",
+    "description": "Asking for directions to a famous temple",
+    "fullTranslation": "Excuse me, where is the temple? Go straight, then turn right. It's not far, about a 5 minute walk. Thank you very much!"
+  },
+  "story-4": {
+    "title": "Ordering Food",
+    "description": "Ordering a meal at a Thai restaurant",
+    "fullTranslation": "I'd like Pad Thai, not spicy please. And cold water. Coming right up! Here you go, enjoy your meal!"
+  }
+}

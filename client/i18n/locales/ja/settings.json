@@ -1,0 +1,23 @@
+{
+  "title": "設定",
+  "language": "言語",
+  "selectLanguage": "言語を選択",
+  "languageDescription": "アプリの言語を選択してください",
+  "dailyGoal": "1日の目標",
+  "dailyGoalDescription": "毎日の学習目標を設定",
+  "minutes": "分",
+  "soundEffects": "効果音",
+  "soundEffectsDescription": "音声フィードバックを有効にする",
+  "theme": "テーマ",
+  "themeDescription": "アプリの外観を選択",
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "themeAuto": "自動",
+  "dataManagement": "データ管理",
+  "dataManagementDescription": "学習進捗をリセット",
+  "resetProgress": "すべての進捗をリセット",
+  "resetProgressWarning": "すべての進捗、実績、統計が削除されます。この操作は取り消せません。",
+  "resetProgressConfirm": "本当にすべての進捗をリセットしますか？",
+  "progressReset": "進捗がリセットされました",
+  "version": "Thai Boxer Companion v1.0.0"
+}

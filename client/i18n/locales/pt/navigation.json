@@ -1,0 +1,20 @@
+{
+  "tabs": {
+    "home": "Início",
+    "lessons": "Lições",
+    "stories": "Histórias",
+    "profile": "Perfil"
+  },
+  "screens": {
+    "home": "Início",
+    "lessons": "Lições",
+    "practice": "Praticar",
+    "quiz": "Quiz",
+    "stories": "Histórias",
+    "tips": "Dicas",
+    "muaythai": "Muay Thai",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "rank": "Classificação"
+  }
+}

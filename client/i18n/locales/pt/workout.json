@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "Iniciando aquecimento. Vamos preparar seu corpo.",
+  "tenSeconds": "10 segundos",
+  "footworkDrills": "Exercícios de movimentação. Mantenha-se leve nos pés.",
+  "footworkComplete": "Movimentação completa. Iniciando combinações.",
+  "fiveSeconds": "5 segundos",
+  "getReady": "Prepare-se. 5, 4, 3, 2, 1",
+  "combo": "Combinação",
+  "rest": "Descanso",
+  "skippingWarmup": "Pulando aquecimento",
+  "skippingFootwork": "Pulando movimentação",
+  "skippingCombinations": "Pulando combinações",
+  "workoutComplete": "Treino completo. Ótimo trabalho!",
+  "startingCooldown": "Iniciando relaxamento. Vamos alongar e recuperar.",
+  "skipExercise": "Pular Exercício",
+  "skipWarmup": "Pular Aquecimento",
+  "skipDrill": "Pular Exercício",
+  "skipFootwork": "Pular Movimentação",
+  "skipStretch": "Pular Alongamento",
+  "skipCooldown": "Pular Relaxamento",
+  "done": "Concluído",
+  "ready": "Pronto"
+}

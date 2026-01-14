@@ -1,0 +1,644 @@
+{
+  "lessonTitles": {
+    "basics-1": "Hello & Goodbye",
+    "basics-2": "Yes & No",
+    "basics-3": "Common Questions",
+    "basics-4": "Pronouns",
+    "basics-5": "This & That",
+    "numbers-1": "Numbers 1-5",
+    "numbers-2": "Numbers 6-10",
+    "numbers-3": "Bigger Numbers",
+    "food-1": "Basic Food Words",
+    "food-2": "Restaurant Phrases",
+    "food-3": "Thai Dishes",
+    "food-4": "Ordering Food",
+    "travel-1": "Getting Around",
+    "travel-2": "Transportation",
+    "travel-3": "At the Hotel",
+    "travel-4": "Asking for Directions",
+    "greetings-2": "Polite Expressions",
+    "greetings-3": "Meeting People",
+    "sentences-1": "Simple Sentences",
+    "sentences-2": "Daily Activities",
+    "sentences-3": "Expressing Feelings",
+    "sentences-4": "Making Plans",
+    "sentences-5": "Time Expressions",
+    "sentences-6": "Comparisons",
+    "conversations-1": "At a Restaurant",
+    "conversations-2": "Shopping",
+    "conversations-3": "Making Small Talk",
+    "conversations-4": "Emergency Phrases"
+  },
+  "questions": {
+    "basics-1": {
+      "q1": {
+        "options": ["Hello", "Goodbye", "Thank you", "Sorry"],
+        "hint": "This is the most common greeting in Thailand - you'll hear it everywhere!",
+        "explanation": "สวัสดี (Sa-wat-dee) is the universal Thai greeting used for both 'hello' and 'goodbye'. Add ครับ (krap) if you're male or ค่ะ (ka) if you're female to be polite."
+      },
+      "q2": {
+        "options": ["Hello", "Goodbye", "Please", "Yes"],
+        "hint": "This is what you say when leaving someone - think of 'leaving'.",
+        "explanation": "ลาก่อน (La-gorn) is a more formal way to say goodbye, often used when parting for a longer time. สวัสดี can also be used for goodbye in casual situations."
+      },
+      "q3": {
+        "options": ["Sorry", "Please", "Thank you", "Welcome"],
+        "hint": "You say this when someone gives you something or helps you.",
+        "explanation": "ขอบคุณ (Kob-khun) means 'thank you'. Add ครับ/ค่ะ for politeness. For extra gratitude, say ขอบคุณมาก (Kob-khun maak) meaning 'thank you very much'."
+      },
+      "q4": {
+        "options": ["Sorry", "No problem / You're welcome", "Hello", "Goodbye"],
+        "hint": "This phrase means 'don't worry about it' - a very Thai attitude!",
+        "explanation": "ไม่เป็นไร (Mai-pen-rai) is a very common Thai expression meaning 'no problem', 'never mind', or 'you're welcome'. It reflects the Thai philosophy of not worrying about small things."
+      }
+    },
+    "basics-2": {
+      "q1": {
+        "options": ["No", "Yes", "Maybe", "Later"],
+        "hint": "This is the positive response - sounds like 'chai' tea!",
+        "explanation": "ใช่ (Chai) means 'yes' or 'correct'. It's used to confirm something is true or right."
+      },
+      "q2": {
+        "options": ["Yes", "Maybe", "No", "Later"],
+        "hint": "The opposite of yes - a simple one-syllable word.",
+        "explanation": "ไม่ (Mai) means 'no' or 'not'. It's placed before verbs or adjectives to negate them. For example: ไม่ดี (mai dee) = not good."
+      },
+      "q3": {
+        "options": ["Yes it is", "Not / It's not", "Maybe", "I don't know"],
+        "hint": "It combines 'no' + 'yes' to mean 'no, it isn't'.",
+        "explanation": "ไม่ใช่ (Mai-chai) means 'it's not' or 'that's not right'. It's the opposite of ใช่ (chai)."
+      },
+      "q4": {
+        "options": ["Thank you", "Sorry", "Polite particle (m/f)", "Hello"],
+        "hint": "These words don't have a meaning on their own - they show respect.",
+        "explanation": "ครับ (Krap) is used by males, and ค่ะ (Ka) is used by females. These particles are added at the end of sentences to show politeness and respect."
+      }
+    },
+    "basics-3": {
+      "q1": {
+        "options": ["Who?", "What?", "Where?", "When?"],
+        "hint": "Think about asking for information about a thing or object.",
+        "explanation": "อะไร (A-rai) means 'what'. In Thai, question words usually come at the end of the sentence. Example: นี่คืออะไร (Nee kue a-rai) = What is this?"
+      },
+      "q2": {
+        "options": ["How?", "When?", "Why?", "What?"],
+        "hint": "This asks for a reason or cause.",
+        "explanation": "ทำไม (Tam-mai) means 'why'. It can be placed at the beginning or end of a question. Example: ทำไมมาสาย (Tam-mai ma sai) = Why are you late?"
+      },
+      "q3": {
+        "options": ["Where?", "How?", "What?", "When?"],
+        "hint": "This asks about time.",
+        "explanation": "เมื่อไหร่ (Mua-rai) means 'when'. Example: คุณจะมาเมื่อไหร่ (Khun ja ma mua-rai) = When will you come?"
+      },
+      "q4": {
+        "options": ["Who?", "What?", "Where?", "Why?"],
+        "hint": "This asks about a person's identity.",
+        "explanation": "ใคร (Krai) means 'who'. Example: นั่นคือใคร (Nan kue krai) = Who is that?"
+      },
+      "q5": {
+        "options": ["What?", "When?", "Where?", "How?"],
+        "hint": "This asks about a place or location.",
+        "explanation": "ที่ไหน (Tee-nai) means 'where'. Example: ห้องน้ำอยู่ที่ไหน (Hong-nam yoo tee-nai) = Where is the bathroom?"
+      }
+    },
+    "basics-4": {
+      "q1": {
+        "options": ["You", "He", "I (male)", "We"],
+        "hint": "This is what men use to refer to themselves.",
+        "explanation": "ผม (Phom) means 'I' when spoken by a male. It's the polite form used in most situations."
+      },
+      "q2": {
+        "options": ["I (female)", "She", "They", "You"],
+        "hint": "This is what women use to refer to themselves.",
+        "explanation": "ฉัน (Chan) means 'I' when spoken by a female. ดิฉัน (Di-chan) is more formal."
+      },
+      "q3": {
+        "options": ["I", "You", "He", "She"],
+        "hint": "Used when talking to someone - the person you're speaking to.",
+        "explanation": "คุณ (Khun) means 'you' and is used for both genders. It's polite and respectful."
+      },
+      "q4": {
+        "options": ["I", "You", "We", "He/She/They"],
+        "hint": "Used when talking about someone else - a third person.",
+        "explanation": "เขา (Khao) can mean 'he', 'she', or 'they'. Thai doesn't distinguish gender in third-person pronouns."
+      },
+      "q5": {
+        "options": ["We", "They", "You all", "Everyone"],
+        "hint": "Used when referring to yourself and others together.",
+        "explanation": "เรา (Rao) means 'we' or 'us'. It can also be used informally to mean 'I'."
+      }
+    },
+    "basics-5": {
+      "q1": {
+        "options": ["That", "This", "Here", "There"],
+        "explanation": "นี่ (Nee) means 'this' for things close to the speaker. Example: นี่คืออะไร (Nee kue a-rai) = What is this?"
+      },
+      "q2": {
+        "options": ["This", "That", "Here", "There"],
+        "explanation": "นั่น (Nan) means 'that' for things away from the speaker but not too far. Example: นั่นคืออะไร (Nan kue a-rai) = What is that?"
+      },
+      "q3": {
+        "options": ["This", "That", "That over there", "Here"],
+        "explanation": "โน่น (Noon) means 'that over there' for things far from both the speaker and listener."
+      },
+      "q4": {
+        "options": ["This (modifier)", "That (modifier)", "Which", "Some"],
+        "explanation": "นี้ (Nee) is used after nouns to mean 'this'. Example: หนังสือนี้ (Nang-sue nee) = this book."
+      }
+    },
+    "numbers-1": {
+      "q1": {
+        "options": ["Two", "One", "Three", "Four"],
+        "explanation": "หนึ่ง (Neung) is the number one. When counting objects, it often becomes เอ็ด (et) at the end of larger numbers."
+      },
+      "q2": {
+        "options": ["One", "Three", "Two", "Five"],
+        "explanation": "สอง (Song) is the number two. Thai uses classifiers when counting objects, placed after the number."
+      },
+      "q3": {
+        "options": ["Two", "Four", "Five", "Three"],
+        "hint": "Count after two: one, two, ___",
+        "explanation": "สาม (Sam) is the number three."
+      },
+      "q4": {
+        "options": ["Four", "Three", "Five", "Six"],
+        "hint": "This comes after three.",
+        "explanation": "สี่ (See) is the number four. Note: สี (See) without the tone mark means 'color'."
+      },
+      "q5": {
+        "options": ["Four", "Six", "Three", "Five"],
+        "hint": "Count the fingers on one hand.",
+        "explanation": "ห้า (Ha) is the number five."
+      }
+    },
+    "numbers-2": {
+      "q1": {
+        "options": ["Five", "Six", "Seven", "Eight"],
+        "hint": "One more than five.",
+        "explanation": "หก (Hok) is the number six."
+      },
+      "q2": {
+        "options": ["Six", "Eight", "Seven", "Nine"],
+        "hint": "Days in a week.",
+        "explanation": "เจ็ด (Jet) is the number seven."
+      },
+      "q3": {
+        "options": ["Seven", "Nine", "Ten", "Eight"],
+        "hint": "Sounds like 'pet' in the romanization.",
+        "explanation": "แปด (Paet) is the number eight."
+      },
+      "q4": {
+        "options": ["Nine", "Eight", "Ten", "Seven"],
+        "hint": "One before ten.",
+        "explanation": "เก้า (Gao) is the number nine."
+      },
+      "q5": {
+        "options": ["Nine", "Eleven", "Eight", "Ten"],
+        "hint": "Fingers on both hands.",
+        "explanation": "สิบ (Sip) is the number ten. For 11-19, add the unit after สิบ: สิบเอ็ด (11), สิบสอง (12), etc."
+      }
+    },
+    "numbers-3": {
+      "q1": {
+        "options": ["Twelve", "Twenty", "Thirty", "Twenty-two"],
+        "explanation": "ยี่สิบ (Yee-sip) means twenty. Note that the word for 'two' changes to ยี่ when it's in the tens place."
+      },
+      "q2": {
+        "options": ["Ten", "Fifty", "Hundred", "Thousand"],
+        "explanation": "ร้อย (Roy) means hundred. หนึ่งร้อย (Neung roy) = 100, สองร้อย (Song roy) = 200."
+      },
+      "q3": {
+        "options": ["Hundred", "Thousand", "Ten thousand", "Million"],
+        "explanation": "พัน (Pan) means thousand. หนึ่งพัน (Neung pan) = 1,000."
+      },
+      "q4": {
+        "options": ["Thousand", "Ten thousand", "Hundred thousand", "Million"],
+        "explanation": "หมื่น (Meun) means ten thousand. Thai has a unique word for this unit, unlike English."
+      },
+      "q5": {
+        "options": ["Hundred thousand", "Million", "Billion", "Ten million"],
+        "explanation": "ล้าน (Lan) means million. หนึ่งล้าน (Neung lan) = 1,000,000."
+      }
+    },
+    "food-1": {
+      "q1": {
+        "options": ["Water", "Rice", "Noodles", "Soup"],
+        "explanation": "ข้าว (Khao) means rice, the staple food in Thailand. It's also used in many dish names like ข้าวผัด (Khao pad) = fried rice."
+      },
+      "q2": {
+        "options": ["Rice", "Juice", "Water", "Milk"],
+        "explanation": "น้ำ (Nam) means water. น้ำเปล่า (Nam plao) specifically means plain water."
+      },
+      "q3": {
+        "options": ["Pork", "Beef", "Fish", "Chicken"],
+        "explanation": "ไก่ (Gai) means chicken. ไก่ทอด (Gai tod) = fried chicken."
+      },
+      "q4": {
+        "options": ["Pork", "Chicken", "Beef", "Shrimp"],
+        "explanation": "หมู (Moo) means pork, the most commonly used meat in Thai cuisine."
+      }
+    },
+    "food-2": {
+      "q1": {
+        "options": ["Spicy", "Sweet", "Delicious", "Sour"],
+        "explanation": "อร่อย (A-roi) means delicious. อร่อยมาก (A-roi maak) = very delicious!"
+      },
+      "q2": {
+        "options": ["Spicy", "Salty", "Sweet", "Sour"],
+        "explanation": "เผ็ด (Pet) means spicy. ไม่เผ็ด (Mai pet) = not spicy. เผ็ดนิดหน่อย (Pet nit noi) = a little spicy."
+      },
+      "q3": {
+        "options": ["Check please", "May I have the menu?", "One more", "Water please"],
+        "explanation": "ขอเมนู (Kho menu) means 'may I have the menu'. ขอ (Kho) means 'to request' or 'please give me'."
+      },
+      "q4": {
+        "options": ["More water", "Check please", "Thank you", "Excuse me"],
+        "explanation": "เช็คบิล (Check bin) means 'check please' or 'bill please'. This is borrowed from English."
+      }
+    },
+    "food-3": {
+      "q1": {
+        "options": ["Fried rice", "Stir-fried Thai noodles", "Tom Yum soup", "Green curry"],
+        "explanation": "ผัดไทย (Pad Thai) is Thailand's famous stir-fried rice noodle dish with eggs, tofu, shrimp, and tamarind sauce."
+      },
+      "q2": {
+        "options": ["Coconut soup", "Spicy shrimp soup", "Noodle soup", "Clear soup"],
+        "explanation": "ต้มยำกุ้ง (Tom Yam Goong) is the famous hot and sour soup with shrimp. ต้ม = boil, ยำ = mixed/spicy, กุ้ง = shrimp."
+      },
+      "q3": {
+        "options": ["Red curry", "Yellow curry", "Green curry", "Massaman curry"],
+        "explanation": "แกงเขียวหวาน (Gaeng Kiew Wan) literally means 'sweet green curry'. It's made with green chillies and coconut milk."
+      },
+      "q4": {
+        "options": ["Mango salad", "Papaya salad", "Cucumber salad", "Glass noodle salad"],
+        "explanation": "ส้มตำ (Som Tam) is a spicy green papaya salad from Isaan (Northeast Thailand). ส้ม = sour, ตำ = pounded."
+      }
+    },
+    "food-4": {
+      "q1": {
+        "options": ["Two fried rice please", "One fried rice please", "One noodle please", "One curry please"],
+        "explanation": "ขอข้าวผัดหนึ่งจาน: ขอ (kho) = please give me, ข้าวผัด (khao pad) = fried rice, หนึ่ง (neung) = one, จาน (jan) = plate/dish."
+      },
+      "q2": {
+        "options": ["Extra chilli", "No chilli please", "A little chilli", "Very spicy"],
+        "explanation": "ไม่ใส่พริก: ไม่ (mai) = no/not, ใส่ (sai) = put/add, พริก (prik) = chilli. Very useful phrase for those who can't handle spice!"
+      },
+      "q3": {
+        "options": ["Halal food", "Vegetarian food", "Seafood", "Street food"],
+        "explanation": "อาหารเจ (A-han jay) means vegetarian food. เจ (jay) comes from Chinese and means following a vegan diet."
+      },
+      "q4": {
+        "options": ["One bottle of water", "Two bottles of water please", "Two glasses of water", "Cold water please"],
+        "explanation": "ขอน้ำเปล่าสองขวด: น้ำเปล่า (nam plao) = plain water, สอง (song) = two, ขวด (kuat) = bottle."
+      }
+    },
+    "travel-1": {
+      "q1": {
+        "options": ["How much?", "Where are you going?", "What time?", "Who is it?"],
+        "explanation": "ไปไหน (Pai nai) literally means 'go where?' It's a very common casual greeting in Thailand, similar to 'What's up?'"
+      },
+      "q2": {
+        "options": ["There", "Here", "Where", "Everywhere"],
+        "explanation": "ที่นี่ (Tee nee) means 'here' or 'this place'. ที่ (tee) means 'place' and นี่ (nee) means 'this'."
+      },
+      "q3": {
+        "options": ["Here", "Where", "There", "Everywhere"],
+        "explanation": "ที่นั่น (Tee nan) means 'there' or 'that place'."
+      },
+      "q4": {
+        "options": ["Right", "Straight", "Left", "Back"],
+        "explanation": "ซ้าย (Sai) means left. เลี้ยวซ้าย (Liew sai) = turn left."
+      },
+      "q5": {
+        "options": ["Left", "Right", "Straight", "Back"],
+        "explanation": "ขวา (Kwa) means right. เลี้ยวขวา (Liew kwa) = turn right."
+      }
+    },
+    "travel-2": {
+      "q1": {
+        "options": ["Bus", "Car", "Train", "Boat"],
+        "explanation": "รถไฟ (Rot fai) means train. รถ (rot) = vehicle, ไฟ (fai) = fire/electric. รถไฟฟ้า (Rot fai fa) = electric train (BTS/MRT)."
+      },
+      "q2": {
+        "options": ["Train", "Bus", "Taxi", "Motorcycle"],
+        "explanation": "รถเมล์ (Rot may) means bus. The word comes from 'mail' as buses used to carry mail."
+      },
+      "q3": {
+        "options": ["Bus", "Train", "Motorcycle", "Taxi"],
+        "explanation": "แท็กซี่ (Taxi) is borrowed directly from English."
+      },
+      "q4": {
+        "options": ["Airplane", "Helicopter", "Boat", "Train"],
+        "explanation": "เครื่องบิน (Kreuang bin) means airplane. เครื่อง (kreuang) = machine, บิน (bin) = fly."
+      }
+    },
+    "travel-3": {
+      "q1": {
+        "options": ["Bathroom", "Room", "Lobby", "Restaurant"],
+        "explanation": "ห้องพัก (Hong pak) means room (for staying). ห้อง (hong) = room, พัก (pak) = rest/stay."
+      },
+      "q2": {
+        "options": ["How much is the room?", "Do you have a vacant room?", "Where is my room?", "I want to check out"],
+        "explanation": "มีห้องว่างไหม: มี (mee) = have, ห้อง (hong) = room, ว่าง (wang) = vacant/free, ไหม (mai) = question particle."
+      },
+      "q3": {
+        "options": ["Check out", "Check in", "Book a room", "Cancel"],
+        "explanation": "เช็คอิน is borrowed from English. ขอเช็คอิน (Kho check in) = I'd like to check in."
+      },
+      "q4": {
+        "options": ["Room number", "Room key", "Room service", "Door lock"],
+        "explanation": "กุญแจห้อง (Goon-jae hong) means room key. กุญแจ (goon-jae) = key."
+      }
+    },
+    "travel-4": {
+      "q1": {
+        "options": ["Where is the train station?", "How do I get to the train station?", "Is this the train station?", "When does the train leave?"],
+        "explanation": "ไปสถานีรถไฟยังไง: ไป (pai) = go, สถานี (sa-ta-nee) = station, รถไฟ (rot fai) = train, ยังไง (yang-ngai) = how."
+      },
+      "q2": {
+        "options": ["Turn left", "Turn right", "Go straight", "Go back"],
+        "explanation": "ตรงไป (Trong pai) means go straight. ตรง (trong) = straight, ไป (pai) = go."
+      },
+      "q3": {
+        "options": ["Is it far?", "Is it near?", "Is it here?", "Is it open?"],
+        "explanation": "ใกล้ไหม: ใกล้ (glai) = near, ไหม (mai) = question particle. Note: ไกล (gai) with different tone means 'far'."
+      },
+      "q4": {
+        "options": ["It's next door", "It's across the street", "It's nearby", "It's upstairs"],
+        "explanation": "อยู่ตรงข้าม: อยู่ (yoo) = is located, ตรงข้าม (trong kham) = opposite/across from."
+      }
+    },
+    "greetings-2": {
+      "q1": {
+        "options": ["Thank you", "Hello", "Sorry / Excuse me", "Goodbye"],
+        "explanation": "ขอโทษ (Kho thot) means 'sorry' or 'excuse me'. Use it to apologize or to get someone's attention politely."
+      },
+      "q2": {
+        "options": ["Sad", "Angry", "Glad / Happy", "Tired"],
+        "explanation": "ยินดี (Yin dee) means glad or happy. ยินดีต้อนรับ (Yin dee torn rap) = welcome!"
+      },
+      "q3": {
+        "options": ["I'm hungry", "I'm fine / How are you?", "I'm tired", "I'm sick"],
+        "explanation": "สบายดี (Sa-bai dee) can be both a question 'How are you?' and an answer 'I'm fine'. สบาย (sa-bai) = comfortable/well."
+      },
+      "q4": {
+        "options": ["Goodbye", "Good luck", "See you", "Take care"],
+        "explanation": "โชคดี (Chok dee) means 'good luck'. โชค (chok) = luck, ดี (dee) = good."
+      }
+    },
+    "greetings-3": {
+      "q1": {
+        "options": ["Where are you from?", "What is your name?", "How old are you?", "What do you do?"],
+        "explanation": "คุณชื่ออะไร: คุณ (khun) = you, ชื่อ (chue) = name, อะไร (a-rai) = what."
+      },
+      "q2": {
+        "options": ["I am from...", "My name is...", "I work at...", "I like..."],
+        "explanation": "ผมชื่อ (Phom chue) for males, ฉันชื่อ (Chan chue) for females, followed by your name."
+      },
+      "q3": {
+        "options": ["See you later", "Nice to meet you", "Good morning", "Take care"],
+        "explanation": "ยินดีที่ได้รู้จัก literally means 'glad to have met you'. This is the formal way to say 'nice to meet you'."
+      },
+      "q4": {
+        "options": ["Where are you from?", "Where are you going?", "Where do you live?", "Where do you work?"],
+        "explanation": "คุณมาจากไหน: มา (ma) = come, จาก (jak) = from, ไหน (nai) = where."
+      }
+    },
+    "sentences-1": {
+      "q1": {
+        "options": ["I am tired", "I am hungry", "I am thirsty", "I am full"],
+        "explanation": "ผมหิวข้าว: ผม (phom) = I (male), หิว (hiu) = hungry, ข้าว (khao) = rice/food. Thai structure is Subject + Verb."
+      },
+      "q2": {
+        "options": ["I miss you", "I love you", "I like you", "I need you"],
+        "explanation": "ฉันรักคุณ: ฉัน (chan) = I (female), รัก (rak) = love, คุณ (khun) = you. One of the most important phrases to know!"
+      },
+      "q3": {
+        "options": ["Tomorrow will be hot", "Today the weather is nice", "Yesterday was rainy", "It's cold today"],
+        "explanation": "วันนี้อากาศดี: วันนี้ (wan nee) = today, อากาศ (a-gat) = weather, ดี (dee) = good/nice."
+      },
+      "q4": {
+        "options": ["I cook Thai food", "I like Thai food", "Thai food is spicy", "I want Thai food"],
+        "explanation": "ฉันชอบอาหารไทย: ชอบ (chop) = like, อาหาร (a-han) = food, ไทย (Thai) = Thai."
+      }
+    },
+    "sentences-2": {
+      "q1": {
+        "options": ["I wake up late", "I wake up early", "I go to bed early", "I sleep late"],
+        "explanation": "ผมตื่นแต่เช้า: ตื่น (teun) = wake up, แต่เช้า (tae chao) = early morning."
+      },
+      "q2": {
+        "options": ["I finished work", "I am working", "I want to work", "I don't work"],
+        "explanation": "กำลัง (gam-lang) indicates ongoing action (like English '-ing'). ทำงาน (tam ngan) = work."
+      },
+      "q3": {
+        "options": ["He goes to work every day", "He/She goes to school every day", "He doesn't go to school", "He went to school yesterday"],
+        "explanation": "โรงเรียน (rong rian) = school, ทุกวัน (took wan) = every day."
+      },
+      "q4": {
+        "options": ["We cook together", "We eat together", "We live together", "We work together"],
+        "explanation": "พวกเรา (puak rao) = we (plural), กินข้าว (gin khao) = eat, ด้วยกัน (duay gan) = together."
+      }
+    },
+    "sentences-3": {
+      "q1": {
+        "options": ["I am sad", "I am happy", "I am tired", "I am angry"],
+        "explanation": "มีความสุข (mee kwaam suk) = to have happiness = to be happy. This is a common pattern in Thai."
+      },
+      "q2": {
+        "options": ["I am a little tired", "I am very tired", "I am not tired", "I was tired"],
+        "explanation": "เหนื่อย (neuy) = tired, มาก (maak) = very/a lot. มาก intensifies the adjective."
+      },
+      "q3": {
+        "options": ["She loves me", "She is angry at me", "She misses me", "She knows me"],
+        "explanation": "เธอ (thoe) = she/her (informal), โกรธ (grot) = angry."
+      },
+      "q4": {
+        "options": ["I love home", "I miss home", "I left home", "I want to go home"],
+        "explanation": "คิดถึง (kit teung) = to miss (someone/something), บ้าน (baan) = home/house."
+      }
+    },
+    "sentences-4": {
+      "q1": {
+        "options": ["Yesterday I traveled", "Tomorrow I will go traveling", "I like traveling", "I want to travel"],
+        "explanation": "พรุ่งนี้ (prung nee) = tomorrow, จะ (ja) = will (future marker), ไปเที่ยว (pai tiew) = go traveling/sightseeing."
+      },
+      "q2": {
+        "options": ["We met yesterday", "We will meet in the evening", "We always meet", "We want to meet"],
+        "explanation": "เจอกัน (jur gan) = meet each other, ตอนเย็น (ton yen) = in the evening."
+      },
+      "q3": {
+        "options": ["Do you work on Saturday?", "Are you free on Saturday?", "What day is it?", "Is Saturday a holiday?"],
+        "explanation": "ว่าง (wang) = free/available, วันเสาร์ (wan sao) = Saturday, ไหม (mai) = question particle."
+      },
+      "q4": {
+        "options": ["Nice to meet you", "See you again", "Let's meet now", "I'll call you"],
+        "explanation": "ไว้ (wai) = later/in the future, เจอกันใหม่ (jur gan mai) = meet again. A common way to say goodbye."
+      }
+    },
+    "sentences-5": {
+      "q1": {
+        "options": ["When do we meet?", "What time is it now?", "Is it late?", "What day is it?"],
+        "explanation": "ตอนนี้ (ton nee) = now, กี่โมง (gee mong) = what time/how many o'clock. โมง is used for telling time."
+      },
+      "q2": {
+        "options": ["Today I go to the market", "Yesterday I went to the market", "Tomorrow I will go to the market", "I often go to the market"],
+        "explanation": "เมื่อวาน (muea wan) = yesterday, ตลาด (ta-lat) = market. Thai doesn't change verb forms for past tense."
+      },
+      "q3": {
+        "options": ["I drink coffee now", "Every morning I drink coffee", "I like coffee", "I want coffee"],
+        "explanation": "ทุกเช้า (took chao) = every morning, ดื่ม (deum) = drink, กาแฟ (ga-fae) = coffee."
+      },
+      "q4": {
+        "options": ["Last week we went to the beach", "Next week we go to the beach", "We like the beach", "The beach is beautiful"],
+        "explanation": "อาทิตย์หน้า (a-tit na) = next week, ทะเล (ta-lay) = sea/beach."
+      }
+    },
+    "sentences-6": {
+      "q1": {
+        "options": ["This one is cheaper", "This one is more expensive", "This one is the same price", "How much is this?"],
+        "explanation": "กว่า (gwa) is the comparative marker meaning 'more than'. แพง (paeng) = expensive + กว่า = more expensive."
+      },
+      "q2": {
+        "options": ["Thai is easier than English", "Thai is harder than English", "Thai and English are the same", "I speak Thai and English"],
+        "explanation": "ยาก (yak) = difficult, ภาษา (pa-sa) = language, อังกฤษ (Ang-grit) = English."
+      },
+      "q3": {
+        "options": ["This place is hot", "This place is the hottest", "It's very hot here", "Is it hot here?"],
+        "explanation": "ที่สุด (tee sut) is the superlative marker meaning 'the most'. ร้อน (ron) = hot + ที่สุด = the hottest."
+      },
+      "q4": {
+        "options": ["Different", "The same / Similar", "Better", "Worse"],
+        "explanation": "เหมือนกัน (muan gan) means 'the same' or 'similar'. เหมือน (muan) = like/similar, กัน (gan) = each other."
+      }
+    },
+    "conversations-1": {
+      "q1": {
+        "options": ["A table for one", "A table for two people", "The bill please", "Is this table free?"],
+        "hint": "You're asking for seating - 'song' means two.",
+        "explanation": "โต๊ะ (toe) = table, สำหรับ (sam-rap) = for, สองคน (song kon) = two people. คน (kon) is the classifier for people."
+      },
+      "q2": {
+        "options": ["What is this?", "What do you recommend?", "Is this spicy?", "How much is this?"],
+        "hint": "Ask the waiter for their suggestion - 'nae-nam' means suggest.",
+        "explanation": "แนะนำ (nae-nam) = recommend, อะไรดี (a-rai dee) = what is good? A useful phrase when ordering!"
+      },
+      "q3": {
+        "options": ["No ice please", "With ice please", "Cold water please", "Hot water please"],
+        "hint": "'Nam kaeng' is frozen water - perfect for hot days!",
+        "explanation": "น้ำแข็ง (nam kaeng) = ice, ด้วย (duay) = also/as well. Essential for those hot Thai days!"
+      },
+      "q4": {
+        "options": ["Not so good", "Very delicious! (male speaker)", "Too spicy", "I'm full"],
+        "hint": "A positive compliment about the food - 'maak' means very.",
+        "explanation": "A compliment to the chef! อร่อย (a-roi) = delicious, มาก (maak) = very, ครับ (krap) = polite particle (male)."
+      },
+      "q5": {
+        "options": ["More food please", "Can I have the bill please? (male)", "Where is the restroom?", "Is service included?"],
+        "hint": "You're finished eating and ready to pay.",
+        "explanation": "เช็คบิล (check bill) is borrowed from English. ขอ (kho) = request, ด้วย (duay) = please."
+      },
+      "q6": {
+        "options": ["Extra coriander please", "No coriander please", "I love coriander", "What is coriander?"],
+        "hint": "Use 'mai sai' to exclude an ingredient you don't want.",
+        "explanation": "ไม่ใส่ (mai sai) = don't add, ผักชี (pak chee) = coriander/cilantro. Very useful if you don't like certain ingredients!"
+      }
+    },
+    "conversations-2": {
+      "q1": {
+        "options": ["What is this?", "How much does it cost?", "Do you have this?", "Where is it?"],
+        "hint": "You want to know the price - 'ra-ka' means price.",
+        "explanation": "ราคา (ra-ka) = price, เท่าไหร่ (tao-rai) = how much. The essential shopping phrase!"
+      },
+      "q2": {
+        "options": ["Is this on sale?", "Can you reduce the price?", "Is this expensive?", "Do you accept cards?"],
+        "hint": "You're bargaining - 'lot' means lower/reduce.",
+        "explanation": "ลดราคา (lot ra-ka) = reduce price, ได้ไหม (dai mai) = can you? Bargaining is common in Thai markets!"
+      },
+      "q3": {
+        "options": ["Do you have other colors?", "Do you have other sizes?", "Is this too big?", "Can I try this?"],
+        "hint": "You need a different fit - 'size' is borrowed from English.",
+        "explanation": "ไซส์ (size) = size (borrowed from English), อื่น (eun) = other."
+      },
+      "q4": {
+        "options": ["I don't want this", "I'll take this one", "Show me another", "This is too expensive"],
+        "hint": "You've decided to buy - 'ao' means to take/want.",
+        "explanation": "เอา (ao) = take/want, อันนี้ (an nee) = this one. อัน (an) is a general classifier for objects."
+      },
+      "q5": {
+        "options": ["Cash only please", "Do you accept credit cards?", "I'll pay by cash", "Where is the ATM?"],
+        "hint": "You want to know the payment method - 'bat credit' sounds like 'credit card'.",
+        "explanation": "รับ (rap) = accept/receive, บัตรเครดิต (bat credit) = credit card. Many shops in Thailand prefer cash!"
+      },
+      "q6": {
+        "options": ["Can I buy this?", "Can I try it on?", "Is this new?", "Do you have a mirror?"],
+        "hint": "You want to test before buying - 'long' means to try.",
+        "explanation": "ลอง (long) = try, ได้ไหม (dai mai) = can I? Essential for clothes shopping!"
+      }
+    },
+    "conversations-3": {
+      "q1": {
+        "options": ["Where do you work?", "What do you do for work?", "Do you like your job?", "When do you work?"],
+        "hint": "Asking about someone's job - 'tam ngan' means work.",
+        "explanation": "ทำงาน (tam ngan) = work, อะไร (a-rai) = what. A common question when meeting new people."
+      },
+      "q2": {
+        "options": ["Where are you going?", "Where do you live?", "Where are you from?", "Where is your home?"],
+        "hint": "Asking about residence - 'yoo' means live/stay.",
+        "explanation": "อยู่ (yoo) = live/stay, ที่ไหน (tee nai) = where."
+      },
+      "q3": {
+        "options": ["Have you been to Thailand?", "Do you like Thailand?", "Are you Thai?", "Is Thailand beautiful?"],
+        "hint": "Asking about preference - 'chop' means to like.",
+        "explanation": "เมืองไทย (muang Thai) = Thailand (literally 'Thai country'), ชอบ (chop) = like."
+      },
+      "q4": {
+        "options": ["When did you come to Thailand?", "How long have you been in Thailand?", "Is this your first time?", "Do you like Thailand?"],
+        "hint": "Asking about duration - 'nan tao-rai' means how long.",
+        "explanation": "นาน (nan) = long (time), เท่าไหร่ (tao-rai) = how much/how long."
+      },
+      "q5": {
+        "options": ["Do you have siblings?", "Do you have children?", "Are you married?", "Do you have family here?"],
+        "hint": "Asking about brothers and sisters - 'pee nong' means siblings.",
+        "explanation": "พี่น้อง (pee nong) = siblings. พี่ (pee) = older sibling, น้อง (nong) = younger sibling."
+      },
+      "q6": {
+        "options": ["It's very hot today", "The weather is nice today", "Is it going to rain?", "I like cold weather"],
+        "hint": "Commenting on pleasant weather - 'a-gat dee' means good weather.",
+        "explanation": "อากาศ (a-gat) = weather, ดี (dee) = good, นะ (na) = softening particle for friendly tone."
+      }
+    },
+    "conversations-4": {
+      "q1": {
+        "options": ["Thank you", "Help!", "Excuse me", "I'm sorry"],
+        "hint": "Urgent call for assistance - 'chuay' means help.",
+        "explanation": "ช่วยด้วย (Chuay duay) means 'Help!' ช่วย (chuay) = help, ด้วย (duay) = please/also. An important phrase to know!"
+      },
+      "q2": {
+        "options": ["I am fine", "I don't feel well", "I am tired", "I am hungry"],
+        "hint": "Expressing illness - 'mai sa-bai' is the opposite of feeling good.",
+        "explanation": "ไม่สบาย (mai sa-bai) = not well/sick. สบาย (sa-bai) = comfortable/well."
+      },
+      "q3": {
+        "options": ["I need medicine", "Call a doctor", "Where is the hospital?", "I have insurance"],
+        "hint": "Requesting medical help - 'mor' means doctor.",
+        "explanation": "โทร (toh) = call (phone), เรียก (riak) = summon/call for, หมอ (mor) = doctor."
+      },
+      "q4": {
+        "options": ["Where is the pharmacy?", "Where is the hospital?", "I need to see a doctor", "Is there a clinic nearby?"],
+        "hint": "Asking for directions to medical care - 'rong pa-ya-ban' is a large medical facility.",
+        "explanation": "โรงพยาบาล (rong pa-ya-ban) = hospital. A critical phrase for emergencies."
+      },
+      "q5": {
+        "options": ["I don't like this food", "I have a food allergy", "This food is bad", "I'm not hungry"],
+        "hint": "Medical condition with food - 'pae' means allergic to.",
+        "explanation": "แพ้ (pae) = allergic to, อาหาร (a-han) = food. Very important if you have allergies!"
+      },
+      "q6": {
+        "options": ["Where is the police station?", "Call the police", "I lost my passport", "I need a lawyer"],
+        "hint": "Requesting law enforcement - 'tam-ruat' means police.",
+        "explanation": "ตำรวจ (tam-ruat) = police. Important for emergencies involving safety or crime."
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Profile",
+  "stats": "Stats",
+  "totalXP": "Total XP",
+  "lessonsCompleted": "Lessons Completed",
+  "currentStreak": "Current Streak",
+  "longestStreak": "Longest Streak",
+  "days": "days",
+  "achievements": "Achievements",
+  "locked": "Locked",
+  "unlocked": "Unlocked",
+  "achievementNames": {
+    "firstLesson": "First Lesson",
+    "streak7": "7-Day Streak",
+    "streak30": "30-Day Streak",
+    "xp100": "Century Club",
+    "xp500": "Rising Star",
+    "xp1000": "Knowledge Keeper",
+    "lessons10": "Dedicated Learner",
+    "lessons50": "50 Lessons",
+    "perfectLesson": "Perfect Score",
+    "perfectScore": "Perfect Score",
+    "thaiMaster": "Thai Master"
+  },
+  "achievementDescriptions": {
+    "firstLesson": "Complete your first lesson",
+    "streak7": "Maintain a 7-day streak",
+    "streak30": "Maintain a 30-day streak",
+    "xp100": "Earn 100 XP",
+    "xp500": "Earn 500 XP",
+    "xp1000": "Earn 1000 XP",
+    "lessons10": "Complete 10 lessons",
+    "lessons50": "Complete 50 lessons",
+    "perfectLesson": "Score 100% on any lesson"
+  },
+  "editProfile": "Edit Profile",
+  "displayName": "Display Name",
+  "avatar": "Avatar",
+  "tapToChangeAvatar": "Tap to change avatar",
+  "yourName": "Your name",
+  "settings": "Settings"
+}

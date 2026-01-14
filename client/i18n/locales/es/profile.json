@@ -1,0 +1,39 @@
+{
+  "title": "Perfil",
+  "stats": "Estadísticas",
+  "totalXP": "XP Total",
+  "lessonsCompleted": "Lecciones Completadas",
+  "currentStreak": "Racha Actual",
+  "longestStreak": "Racha Más Larga",
+  "days": "días",
+  "achievements": "Logros",
+  "locked": "Bloqueado",
+  "unlocked": "Desbloqueado",
+  "achievementNames": {
+    "firstLesson": "Primera Lección",
+    "streak7": "Guerrero Semanal",
+    "streak30": "Maestro Mensual",
+    "xp100": "Club del Centenario",
+    "xp500": "Estrella en Ascenso",
+    "xp1000": "Guardián del Conocimiento",
+    "lessons10": "Aprendiz Dedicado",
+    "lessons50": "Entusiasta del Idioma",
+    "perfectLesson": "Puntuación Perfecta"
+  },
+  "achievementDescriptions": {
+    "firstLesson": "Completa tu primera lección",
+    "streak7": "Mantén una racha de 7 días",
+    "streak30": "Mantén una racha de 30 días",
+    "xp100": "Gana 100 XP",
+    "xp500": "Gana 500 XP",
+    "xp1000": "Gana 1000 XP",
+    "lessons10": "Completa 10 lecciones",
+    "lessons50": "Completa 50 lecciones",
+    "perfectLesson": "Obtén 100% en cualquier lección"
+  },
+  "editProfile": "Editar Perfil",
+  "displayName": "Nombre para Mostrar",
+  "avatar": "Avatar",
+  "tapToChangeAvatar": "Toca para cambiar avatar",
+  "yourName": "Tu nombre"
+}

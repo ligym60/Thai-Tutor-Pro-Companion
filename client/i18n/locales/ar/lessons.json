@@ -1,0 +1,41 @@
+{
+  "title": "الدروس",
+  "categories": {
+    "basics": "الأساسيات",
+    "greetings": "التحيات",
+    "food": "الطعام",
+    "travel": "السفر",
+    "shopping": "التسوق",
+    "emergency": "الطوارئ",
+    "all": "الكل"
+  },
+  "difficulty": {
+    "beginner": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم"
+  },
+  "filterCategory": "الفئة",
+  "filterLevel": "المستوى",
+  "allLevels": "جميع المستويات",
+  "noLessonsFound": "لم يتم العثور على دروس في هذه الفئة.",
+  "progress": "التقدم",
+  "completed": "مكتمل",
+  "inProgress": "قيد التقدم",
+  "locked": "مقفل",
+  "startLesson": "بدء الدرس",
+  "continueLesson": "متابعة الدرس",
+  "reviewLesson": "مراجعة الدرس",
+  "lessonNotFound": "الدرس غير موجود",
+  "goBack": "العودة",
+  "whatDoesThisMean": "ماذا يعني هذا؟",
+  "needAHint": "هل تحتاج إلى تلميح؟",
+  "check": "تحقق",
+  "continue": "متابعة",
+  "perfect": "ممتاز!",
+  "youGotXOutOfY": "لقد حصلت على {{correct}} من {{total}} صحيح",
+  "xpEarned": "XP المكتسبة",
+  "outOfLives": "نفذت الأرواح",
+  "outOfLivesMessage": "لقد نفذت أرواحك. حاول مرة أخرى غدًا!",
+  "ok": "حسنًا",
+  "explanation": "شرح"
+}
