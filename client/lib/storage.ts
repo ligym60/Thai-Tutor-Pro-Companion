@@ -14,6 +14,8 @@ export interface UserProfile {
   soundEnabled: boolean;
   theme: "light" | "dark" | "auto";
   language?: string;
+  notificationsEnabled: boolean;
+  notificationTime: string; // HH:MM format, e.g., "09:00"
 }
 
 export interface Progress {
@@ -54,6 +56,8 @@ const defaultUserProfile: UserProfile = {
   soundEnabled: true,
   theme: "auto",
   language: "en",
+  notificationsEnabled: false,
+  notificationTime: "09:00",
 };
 
 const defaultProgress: Progress = {

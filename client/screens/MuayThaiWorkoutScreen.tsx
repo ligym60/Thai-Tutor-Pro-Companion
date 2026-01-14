@@ -1377,7 +1377,8 @@ export default function MuayThaiWorkoutScreen() {
   const [cooldownTimeLeft, setCooldownTimeLeft] = useState(0);
   const [currentFootworkIndex, setCurrentFootworkIndex] = useState(0);
   const [footworkTimeLeft, setFootworkTimeLeft] = useState(0);
-  
+  const [useThai, setUseThai] = useState(false);
+
   const scale = useSharedValue(1);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const countdownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);

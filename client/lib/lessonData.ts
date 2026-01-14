@@ -10,6 +10,7 @@ export interface Question {
   correctAnswer: number;
   hint?: string;
   explanation?: string;
+  lessonId?: string;
 }
 
 export interface Lesson {
@@ -1514,7 +1515,9 @@ export function getLessonsByCategory(category: Category): Lesson[] {
 }
 
 export function getRandomPracticeQuestions(count: number = 5): Question[] {
-  const allQuestions = LESSONS.flatMap((lesson) => lesson.questions);
+  const allQuestions = LESSONS.flatMap((lesson) =>
+    lesson.questions.map((q) => ({ ...q, lessonId: lesson.id }))
+  );
   const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
 }

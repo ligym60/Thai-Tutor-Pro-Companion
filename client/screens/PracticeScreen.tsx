@@ -294,7 +294,9 @@ export default function PracticeScreen() {
               <View style={[styles.hintBox, { backgroundColor: theme.backgroundSecondary }]}>
                 <Feather name="help-circle" size={16} color={Colors.light.primary} />
                 <ThemedText type="small" style={[styles.hintText, { color: theme.textSecondary }]}>
-                  {currentQuestion.hint}
+                  {currentQuestion.lessonId
+                    ? t(`lessonContent:questions.${currentQuestion.lessonId}.${currentQuestion.id}.hint`, { defaultValue: currentQuestion.hint })
+                    : currentQuestion.hint}
                 </ThemedText>
               </View>
             ) : (

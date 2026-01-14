@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { View, StyleSheet, Switch, Alert, Pressable, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Switch, Alert, Pressable, TouchableOpacity, Platform, Modal } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { useFocusEffect } from "@react-navigation/native";
@@ -16,6 +16,12 @@ import { useTheme } from "@/hooks/useTheme";
 import { useGameState } from "@/hooks/useGameState";
 import { Spacing, BorderRadius, Colors } from "@/constants/theme";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
+import {
+  requestNotificationPermissions,
+  scheduleWorkoutNotifications,
+  formatTime,
+  parseTimeToString,
+} from "@/lib/notifications";
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
@@ -23,6 +29,9 @@ export default function SettingsScreen() {
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
   const [languagePickerVisible, setLanguagePickerVisible] = useState(false);
+  const [timePickerVisible, setTimePickerVisible] = useState(false);
+  const [tempHour, setTempHour] = useState(9);
+  const [tempMinute, setTempMinute] = useState(0);
   const {
     userProfile,
     loading,
@@ -63,6 +72,49 @@ export default function SettingsScreen() {
         },
       ]
     );
+  };
+
+  const handleNotificationToggle = async () => {
+    if (!userProfile) return;
+
+    const newEnabled = !userProfile.notificationsEnabled;
+
+    if (newEnabled) {
+      const granted = await requestNotificationPermissions();
+      if (!granted) {
+        Alert.alert(
+          t("settings:notificationPermissionDenied"),
+          t("settings:notificationPermissionDeniedDescription")
+        );
+        return;
+      }
+    }
+
+    await updateProfile({ notificationsEnabled: newEnabled });
+    await scheduleWorkoutNotifications(
+      newEnabled,
+      userProfile.notificationTime || "09:00"
+    );
+  };
+
+  const openTimePicker = () => {
+    if (!userProfile) return;
+    const [hours, minutes] = (userProfile.notificationTime || "09:00")
+      .split(":")
+      .map(Number);
+    setTempHour(hours);
+    setTempMinute(minutes);
+    setTimePickerVisible(true);
+  };
+
+  const handleTimeConfirm = async () => {
+    if (!userProfile) return;
+    const newTime = parseTimeToString(tempHour, tempMinute);
+    await updateProfile({ notificationTime: newTime });
+    if (userProfile.notificationsEnabled) {
+      await scheduleWorkoutNotifications(true, newTime);
+    }
+    setTimePickerVisible(false);
   };
 
   const currentLanguage = SUPPORTED_LANGUAGES.find(
@@ -199,6 +251,61 @@ export default function SettingsScreen() {
 
       <Card elevation={1} style={styles.section}>
         <ThemedText type="body" style={styles.sectionTitle}>
+          {t("settings:workoutReminders")}
+        </ThemedText>
+        <ThemedText
+          type="small"
+          style={[styles.description, { color: theme.textSecondary }]}
+        >
+          {t("settings:workoutRemindersDescription")}
+        </ThemedText>
+        <View style={styles.settingRow}>
+          <View style={styles.settingInfo}>
+            <Feather name="bell" size={20} color={theme.text} />
+            <ThemedText type="body" style={styles.settingLabel}>
+              {t("settings:dailyReminder")}
+            </ThemedText>
+          </View>
+          <Switch
+            value={userProfile.notificationsEnabled}
+            onValueChange={handleNotificationToggle}
+            trackColor={{
+              false: theme.backgroundTertiary,
+              true: Colors.light.primary + "80",
+            }}
+            thumbColor={
+              userProfile.notificationsEnabled
+                ? Colors.light.primary
+                : theme.backgroundSecondary
+            }
+          />
+        </View>
+        {userProfile.notificationsEnabled && (
+          <TouchableOpacity
+            style={[styles.timePickerButton, { backgroundColor: theme.backgroundSecondary }]}
+            onPress={openTimePicker}
+          >
+            <View style={styles.settingInfo}>
+              <Feather name="clock" size={20} color={theme.text} />
+              <View style={styles.settingTextContainer}>
+                <ThemedText type="body" style={{ marginLeft: 0 }}>
+                  {t("settings:reminderTime")}
+                </ThemedText>
+                <ThemedText
+                  type="small"
+                  style={{ color: theme.textSecondary, marginTop: 2 }}
+                >
+                  {formatTime(userProfile.notificationTime || "09:00")}
+                </ThemedText>
+              </View>
+            </View>
+            <Feather name="chevron-right" size={20} color={theme.textSecondary} />
+          </TouchableOpacity>
+        )}
+      </Card>
+
+      <Card elevation={1} style={styles.section}>
+        <ThemedText type="body" style={styles.sectionTitle}>
           {t("settings:dataManagement")}
         </ThemedText>
         <ThemedText
@@ -232,6 +339,83 @@ export default function SettingsScreen() {
           updateProfile({ language: lang });
         }}
       />
+
+      <Modal
+        visible={timePickerVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setTimePickerVisible(false)}
+      >
+        <Pressable
+          style={styles.modalOverlay}
+          onPress={() => setTimePickerVisible(false)}
+        >
+          <Pressable
+            style={[styles.timePickerModal, { backgroundColor: theme.backgroundRoot }]}
+            onPress={(e) => e.stopPropagation()}
+          >
+            <ThemedText type="h4" style={styles.timePickerTitle}>
+              {t("settings:selectReminderTime")}
+            </ThemedText>
+            <View style={styles.timePickerRow}>
+              <View style={styles.timePickerColumn}>
+                <Pressable
+                  style={styles.timePickerArrow}
+                  onPress={() => setTempHour((h) => (h + 1) % 24)}
+                >
+                  <Feather name="chevron-up" size={28} color={theme.text} />
+                </Pressable>
+                <ThemedText type="h2" style={styles.timePickerValue}>
+                  {tempHour.toString().padStart(2, "0")}
+                </ThemedText>
+                <Pressable
+                  style={styles.timePickerArrow}
+                  onPress={() => setTempHour((h) => (h - 1 + 24) % 24)}
+                >
+                  <Feather name="chevron-down" size={28} color={theme.text} />
+                </Pressable>
+              </View>
+              <ThemedText type="h2" style={styles.timePickerColon}>:</ThemedText>
+              <View style={styles.timePickerColumn}>
+                <Pressable
+                  style={styles.timePickerArrow}
+                  onPress={() => setTempMinute((m) => (m + 5) % 60)}
+                >
+                  <Feather name="chevron-up" size={28} color={theme.text} />
+                </Pressable>
+                <ThemedText type="h2" style={styles.timePickerValue}>
+                  {tempMinute.toString().padStart(2, "0")}
+                </ThemedText>
+                <Pressable
+                  style={styles.timePickerArrow}
+                  onPress={() => setTempMinute((m) => (m - 5 + 60) % 60)}
+                >
+                  <Feather name="chevron-down" size={28} color={theme.text} />
+                </Pressable>
+              </View>
+            </View>
+            <ThemedText type="small" style={{ color: theme.textSecondary, textAlign: "center", marginBottom: Spacing.lg }}>
+              {formatTime(parseTimeToString(tempHour, tempMinute))}
+            </ThemedText>
+            <View style={styles.timePickerButtons}>
+              <Pressable
+                style={[styles.timePickerButton2, { backgroundColor: theme.backgroundSecondary }]}
+                onPress={() => setTimePickerVisible(false)}
+              >
+                <ThemedText type="body">{t("common:cancel")}</ThemedText>
+              </Pressable>
+              <Pressable
+                style={[styles.timePickerButton2, { backgroundColor: Colors.light.primary }]}
+                onPress={handleTimeConfirm}
+              >
+                <ThemedText type="body" style={{ color: "#FFFFFF" }}>
+                  {t("common:save")}
+                </ThemedText>
+              </Pressable>
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </KeyboardAwareScrollViewCompat>
   );
 }
@@ -295,5 +479,58 @@ const styles = StyleSheet.create({
   },
   appInfo: {
     marginTop: Spacing["2xl"],
+  },
+  timePickerButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: Spacing.md,
+    borderRadius: BorderRadius.md,
+    marginTop: Spacing.md,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  timePickerModal: {
+    width: "80%",
+    maxWidth: 320,
+    borderRadius: BorderRadius.xl,
+    padding: Spacing.xl,
+  },
+  timePickerTitle: {
+    textAlign: "center",
+    marginBottom: Spacing.xl,
+  },
+  timePickerRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: Spacing.md,
+  },
+  timePickerColumn: {
+    alignItems: "center",
+  },
+  timePickerArrow: {
+    padding: Spacing.sm,
+  },
+  timePickerValue: {
+    minWidth: 60,
+    textAlign: "center",
+  },
+  timePickerColon: {
+    marginHorizontal: Spacing.md,
+  },
+  timePickerButtons: {
+    flexDirection: "row",
+    gap: Spacing.md,
+  },
+  timePickerButton2: {
+    flex: 1,
+    paddingVertical: Spacing.md,
+    borderRadius: BorderRadius.md,
+    alignItems: "center",
   },
 });
