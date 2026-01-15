@@ -1,11 +1,37 @@
 {
   "title": "Consigli Culturali",
+  "readTip": "Leggi Consiglio",
+  "tipsRead": "{{count}} consigli letti",
   "categories": {
-    "greetings": "Saluti",
     "etiquette": "Etichetta",
-    "customs": "Costumi",
-    "taboos": "Tabù"
+    "religion": "Religione",
+    "social": "Sociale",
+    "food": "Cibo",
+    "general": "Generale",
+    "greetings": "Saluti",
+    "dining": "Pranzo",
+    "temples": "Templi"
   },
-  "readMore": "Leggi di Più",
-  "didYouKnow": "Lo Sapevi?"
+  "severity": {
+    "high": "Importante",
+    "medium": "Moderato",
+    "low": "Buono a sapersi"
+  },
+  "priority": {
+    "essential": "Essenziale",
+    "recommended": "Consigliato",
+    "helpful": "Utile"
+  },
+  "tabs": {
+    "culture": "Consigli Culturali",
+    "avoid": "Evitare",
+    "travel": "Essenziali"
+  },
+  "intro": {
+    "culture": "Capire la cultura thailandese arricchirà la tua esperienza. Tocca qualsiasi consiglio per saperne di più.",
+    "avoid": "Le 20 cose da evitare quando visiti la Thailandia. Classificate per importanza.",
+    "travel": "Documenti essenziali, assicurazioni e consigli sulla salute per il tuo viaggio in Thailandia."
+  },
+  "helpful": "Utile",
+  "markAsRead": "Segna come Letto"
 }

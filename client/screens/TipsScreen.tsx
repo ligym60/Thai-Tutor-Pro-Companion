@@ -22,24 +22,10 @@ const CATEGORY_COLORS = {
   general: "#2196F3",
 };
 
-const CATEGORY_LABELS = {
-  etiquette: "Etiquette",
-  religion: "Religion",
-  social: "Social",
-  food: "Food",
-  general: "General",
-};
-
 const SEVERITY_COLORS = {
   high: "#E53935",
   medium: "#FF9800",
   low: "#4CAF50",
-};
-
-const SEVERITY_LABELS = {
-  high: "Important",
-  medium: "Moderate",
-  low: "Good to Know",
 };
 
 interface CulturalTipCardProps {
@@ -74,7 +60,7 @@ function CulturalTipCard({ tip }: CulturalTipCardProps) {
         </View>
         <View style={[styles.categoryBadge, { backgroundColor: categoryColor + "20" }]}>
           <ThemedText type="small" style={{ color: categoryColor, fontWeight: "500", fontSize: 10 }}>
-            {CATEGORY_LABELS[tip.category]}
+            {t(`tips:categories.${tip.category}`)}
           </ThemedText>
         </View>
       </View>
@@ -102,6 +88,7 @@ interface AvoidCardProps {
 
 function AvoidCard({ item }: AvoidCardProps) {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
   const handlePress = () => {
@@ -126,7 +113,7 @@ function AvoidCard({ item }: AvoidCardProps) {
           <View style={[styles.severityBadge, { backgroundColor: severityColor + "15" }]}>
             <Feather name={item.icon as any} size={12} color={severityColor} />
             <ThemedText type="small" style={{ color: severityColor, fontWeight: "500", fontSize: 10, marginLeft: 4 }}>
-              {SEVERITY_LABELS[item.severity]}
+              {t(`tips:severity.${item.severity}`)}
             </ThemedText>
           </View>
         </View>
@@ -155,18 +142,13 @@ const PRIORITY_COLORS = {
   helpful: "#4CAF50",
 };
 
-const PRIORITY_LABELS = {
-  essential: "Essential",
-  recommended: "Recommended",
-  helpful: "Helpful",
-};
-
 interface TravelCardProps {
   item: TravelEssential;
 }
 
 function TravelCard({ item }: TravelCardProps) {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
   const handlePress = () => {
@@ -192,7 +174,7 @@ function TravelCard({ item }: TravelCardProps) {
         </View>
         <View style={[styles.priorityBadge, { backgroundColor: priorityColor + "20" }]}>
           <ThemedText type="small" style={{ color: priorityColor, fontWeight: "600", fontSize: 10 }}>
-            {PRIORITY_LABELS[item.priority]}
+            {t(`tips:priority.${item.priority}`)}
           </ThemedText>
         </View>
       </View>
@@ -216,8 +198,9 @@ function TravelCard({ item }: TravelCardProps) {
 
 export default function TipsScreen() {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const tabBarHeight = useBottomTabBarHeight();
-  
+
   const [activeTab, setActiveTab] = useState<TabType>("culture");
 
   const handleTabChange = (tab: TabType) => {
@@ -243,23 +226,23 @@ export default function TipsScreen() {
               activeTab === "culture" && { backgroundColor: Colors.light.primary + "20" },
             ]}
           >
-            <Feather 
-              name="heart" 
-              size={18} 
-              color={activeTab === "culture" ? Colors.light.primary : theme.textSecondary} 
+            <Feather
+              name="heart"
+              size={18}
+              color={activeTab === "culture" ? Colors.light.primary : theme.textSecondary}
             />
-            <ThemedText 
-              type="body" 
-              style={{ 
+            <ThemedText
+              type="body"
+              style={{
                 marginLeft: Spacing.xs,
                 fontWeight: activeTab === "culture" ? "600" : "400",
                 color: activeTab === "culture" ? Colors.light.primary : theme.textSecondary,
               }}
             >
-              Cultural Tips
+              {t("tips:tabs.culture")}
             </ThemedText>
           </Pressable>
-          
+
           <Pressable
             onPress={() => handleTabChange("avoid")}
             style={[
@@ -267,23 +250,23 @@ export default function TipsScreen() {
               activeTab === "avoid" && { backgroundColor: "#E53935" + "20" },
             ]}
           >
-            <Feather 
-              name="alert-triangle" 
-              size={18} 
-              color={activeTab === "avoid" ? "#E53935" : theme.textSecondary} 
+            <Feather
+              name="alert-triangle"
+              size={18}
+              color={activeTab === "avoid" ? "#E53935" : theme.textSecondary}
             />
-            <ThemedText 
-              type="body" 
-              style={{ 
+            <ThemedText
+              type="body"
+              style={{
                 marginLeft: Spacing.xs,
                 fontWeight: activeTab === "avoid" ? "600" : "400",
                 color: activeTab === "avoid" ? "#E53935" : theme.textSecondary,
               }}
             >
-              Avoid
+              {t("tips:tabs.avoid")}
             </ThemedText>
           </Pressable>
-          
+
           <Pressable
             onPress={() => handleTabChange("travel")}
             style={[
@@ -291,20 +274,20 @@ export default function TipsScreen() {
               activeTab === "travel" && { backgroundColor: "#2196F3" + "20" },
             ]}
           >
-            <Feather 
-              name="briefcase" 
-              size={18} 
-              color={activeTab === "travel" ? "#2196F3" : theme.textSecondary} 
+            <Feather
+              name="briefcase"
+              size={18}
+              color={activeTab === "travel" ? "#2196F3" : theme.textSecondary}
             />
-            <ThemedText 
-              type="body" 
-              style={{ 
+            <ThemedText
+              type="body"
+              style={{
                 marginLeft: Spacing.xs,
                 fontWeight: activeTab === "travel" ? "600" : "400",
                 color: activeTab === "travel" ? "#2196F3" : theme.textSecondary,
               }}
             >
-              Essentials
+              {t("tips:tabs.travel")}
             </ThemedText>
           </Pressable>
         </View>
@@ -312,7 +295,7 @@ export default function TipsScreen() {
         {activeTab === "culture" ? (
           <>
             <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
-              Understanding Thai culture will enrich your experience. Tap any tip to learn more.
+              {t("tips:intro.culture")}
             </ThemedText>
             {culturalTips.map((tip) => (
               <CulturalTipCard key={tip.id} tip={tip} />
@@ -321,7 +304,7 @@ export default function TipsScreen() {
         ) : activeTab === "avoid" ? (
           <>
             <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
-              Top 20 things to avoid while visiting Thailand. Ranked by importance.
+              {t("tips:intro.avoid")}
             </ThemedText>
             {thingsToAvoid.map((item) => (
               <AvoidCard key={item.id} item={item} />
@@ -330,7 +313,7 @@ export default function TipsScreen() {
         ) : (
           <>
             <ThemedText type="small" style={[styles.sectionIntro, { color: theme.textSecondary }]}>
-              Essential documents, insurance, and health tips for your Thailand trip.
+              {t("tips:intro.travel")}
             </ThemedText>
             {travelEssentials.map((item) => (
               <TravelCard key={item.id} item={item} />

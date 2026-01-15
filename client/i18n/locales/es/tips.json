@@ -3,10 +3,34 @@
   "readTip": "Leer Consejo",
   "tipsRead": "{{count}} consejos leídos",
   "categories": {
+    "etiquette": "Etiqueta",
+    "religion": "Religión",
+    "social": "Social",
+    "food": "Comida",
+    "general": "General",
     "greetings": "Saludos",
     "dining": "Comida",
-    "temples": "Templos",
-    "general": "General"
+    "temples": "Templos"
+  },
+  "severity": {
+    "high": "Importante",
+    "medium": "Moderado",
+    "low": "Bueno saber"
+  },
+  "priority": {
+    "essential": "Esencial",
+    "recommended": "Recomendado",
+    "helpful": "Útil"
+  },
+  "tabs": {
+    "culture": "Consejos Culturales",
+    "avoid": "Evitar",
+    "travel": "Esenciales"
+  },
+  "intro": {
+    "culture": "Comprender la cultura tailandesa enriquecerá tu experiencia. Toca cualquier consejo para aprender más.",
+    "avoid": "Las 20 cosas que debes evitar al visitar Tailandia. Clasificadas por importancia.",
+    "travel": "Documentos esenciales, seguros y consejos de salud para tu viaje a Tailandia."
   },
   "helpful": "Útil",
   "markAsRead": "Marcar como Leído"

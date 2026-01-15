@@ -3,10 +3,34 @@
   "readTip": "阅读提示",
   "tipsRead": "已阅读{{count}}条提示",
   "categories": {
+    "etiquette": "礼仪",
+    "religion": "宗教",
+    "social": "社交",
+    "food": "美食",
+    "general": "常规",
     "greetings": "问候",
     "dining": "用餐",
-    "temples": "寺庙",
-    "general": "常规"
+    "temples": "寺庙"
+  },
+  "severity": {
+    "high": "重要",
+    "medium": "中等",
+    "low": "了解即可"
+  },
+  "priority": {
+    "essential": "必需",
+    "recommended": "推荐",
+    "helpful": "有帮助"
+  },
+  "tabs": {
+    "culture": "文化提示",
+    "avoid": "避免",
+    "travel": "必备"
+  },
+  "intro": {
+    "culture": "了解泰国文化将丰富您的体验。点击任何提示了解更多。",
+    "avoid": "游览泰国时应避免的20件事。按重要性排名。",
+    "travel": "泰国旅行必备的文件、保险和健康提示。"
   },
   "helpful": "有帮助",
   "markAsRead": "标记为已读"

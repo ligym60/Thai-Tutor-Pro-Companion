@@ -1,11 +1,37 @@
 {
   "title": "Dicas Culturais",
+  "readTip": "Ler Dica",
+  "tipsRead": "{{count}} dicas lidas",
   "categories": {
-    "greetings": "Cumprimentos",
     "etiquette": "Etiqueta",
-    "customs": "Costumes",
-    "taboos": "Tabus"
+    "religion": "Religião",
+    "social": "Social",
+    "food": "Comida",
+    "general": "Geral",
+    "greetings": "Cumprimentos",
+    "dining": "Refeições",
+    "temples": "Templos"
   },
-  "readMore": "Leia Mais",
-  "didYouKnow": "Você Sabia?"
+  "severity": {
+    "high": "Importante",
+    "medium": "Moderado",
+    "low": "Bom saber"
+  },
+  "priority": {
+    "essential": "Essencial",
+    "recommended": "Recomendado",
+    "helpful": "Útil"
+  },
+  "tabs": {
+    "culture": "Dicas Culturais",
+    "avoid": "Evitar",
+    "travel": "Essenciais"
+  },
+  "intro": {
+    "culture": "Entender a cultura tailandesa enriquecerá sua experiência. Toque em qualquer dica para saber mais.",
+    "avoid": "As 20 coisas a evitar ao visitar a Tailândia. Classificadas por importância.",
+    "travel": "Documentos essenciais, seguros e dicas de saúde para sua viagem à Tailândia."
+  },
+  "helpful": "Útil",
+  "markAsRead": "Marcar como Lido"
 }

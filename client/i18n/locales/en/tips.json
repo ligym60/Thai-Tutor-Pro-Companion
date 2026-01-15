@@ -3,10 +3,34 @@
   "readTip": "Read Tip",
   "tipsRead": "{{count}} tips read",
   "categories": {
+    "etiquette": "Etiquette",
+    "religion": "Religion",
+    "social": "Social",
+    "food": "Food",
+    "general": "General",
     "greetings": "Greetings",
     "dining": "Dining",
-    "temples": "Temples",
-    "general": "General"
+    "temples": "Temples"
+  },
+  "severity": {
+    "high": "Important",
+    "medium": "Moderate",
+    "low": "Good to Know"
+  },
+  "priority": {
+    "essential": "Essential",
+    "recommended": "Recommended",
+    "helpful": "Helpful"
+  },
+  "tabs": {
+    "culture": "Cultural Tips",
+    "avoid": "Avoid",
+    "travel": "Essentials"
+  },
+  "intro": {
+    "culture": "Understanding Thai culture will enrich your experience. Tap any tip to learn more.",
+    "avoid": "Top 20 things to avoid while visiting Thailand. Ranked by importance.",
+    "travel": "Essential documents, insurance, and health tips for your Thailand trip."
   },
   "helpful": "Helpful",
   "markAsRead": "Mark as Read"
