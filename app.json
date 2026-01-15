@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "b8969c10-ab6e-43f3-bfd9-356ab2b97d51"
+      }
+    },
+    "android": {
+      "package": "com.ligym60.thaitutorprochanged"
+    }
+  }
+}

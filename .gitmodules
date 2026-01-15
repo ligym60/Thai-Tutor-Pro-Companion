@@ -1,0 +1,3 @@
+[submodule "Thai-Tutor-Pro"]
+	path = Thai-Tutor-Pro
+	url = file://./Thai-Tutor-Pro

@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd multi-language support with i18n integration\n\nImplemented comprehensive internationalization system supporting 14 languages \\(English, Thai, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Chinese, Arabic, Hindi, Bengali, Marathi, Punjabi\\). Added LanguagePicker component, translation files for all app sections, and updated all screens to use i18n. Included Docker deployment configuration and VPS deployment guide.\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(nslookup:*)",
+      "Bash(ping:*)",
+      "Bash(npx tsc:*)",
+      "Bash(eas build:*)",
+      "Bash(git remote add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd notifications, fix i18n translations, fix MuayThai workout\n\n- Add local push notifications for workout reminders with time picker\n- Fix StoryQuizScreen hardcoded strings \\(16+ strings now use i18n\\)\n- Fix PracticeScreen hint translation with lessonId context\n- Add quiz i18n keys to all 15 language files\n- Fix MuayThaiWorkoutScreen missing useThai state\n- Add expo-notifications plugin to app.json\n- Add notification settings UI to SettingsScreen\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(ssh-keyscan:*)",
+      "Bash(~/.ssh/known_hosts)",
+      "Bash(git remote set-url:*)",
+      "Bash(eas build:cancel:*)",
+      "Bash(curl:*)",
+      "Bash(ssh thai_boxer@72.62.174.113 \"curl -s http://127.0.0.1:8000/openapi.json | python3 -c \"\"import sys, json; data = json.load\\(sys.stdin\\); print\\(json.dumps\\({k: list\\(v.keys\\(\\)\\) for k, v in data.get\\(''paths'', {}\\).items\\(\\)}, indent=2\\)\\)\"\"\")",
+      "Bash(sshpass -p 'Zebradev@123' ssh -o StrictHostKeyChecking=no root@72.62.174.113 \"ls -la /home/zebradev/htdocs/zebradev.cloud/.nginx* 2>/dev/null || echo ''no .nginx files found''; ls -la /etc/nginx/vhost* 2>/dev/null || echo ''no vhost files''; cat /etc/nginx/nginx.conf | head -50\")",
+      "Bash(wc:*)",
+      "Bash(git commit:*)",
+      "Bash(xcopy:*)"
+    ]
+  }
+}

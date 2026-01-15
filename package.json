@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "expo-localization": "^17.0.8",
+    "i18next": "^25.7.3",
+    "react-i18next": "^16.5.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.8",
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
+  },
+  "scripts": {}
+}
