@@ -1,20 +1,20 @@
 {
+  "appTitle": "Compagnon du Boxeur Thaï",
   "tabs": {
     "home": "Accueil",
     "lessons": "Leçons",
     "stories": "Histoires",
+    "tips": "Conseils",
+    "travelTips": "Conseils de Voyage",
+    "muayThai": "Muay Thaï",
+    "rank": "Classement",
+    "leaderboard": "Classement",
     "profile": "Profil"
   },
   "screens": {
-    "home": "Accueil",
-    "lessons": "Leçons",
-    "practice": "Pratique",
-    "quiz": "Quiz",
-    "stories": "Histoires",
-    "tips": "Conseils",
-    "muaythai": "Muay Thaï",
-    "profile": "Profil",
-    "settings": "Paramètres",
-    "rank": "Classement"
+    "speakingPractice": "Pratique Orale",
+    "vocabularyReview": "Révision du Vocabulaire",
+    "writingPractice": "Pratique d'Écriture",
+    "settings": "Paramètres"
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTranslation } from "react-i18next";
 import MainTabNavigator from "@/navigation/MainTabNavigator";
 import LessonDetailScreen from "@/screens/LessonDetailScreen";
 import PracticeScreen from "@/screens/PracticeScreen";
@@ -27,6 +28,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootStackNavigator() {
   const screenOptions = useScreenOptions();
+  const { t } = useTranslation("navigation");
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
@@ -56,7 +58,7 @@ export default function RootStackNavigator() {
         component={SpeakingPracticeScreen}
         options={{
           presentation: "card",
-          headerTitle: "Speaking Practice",
+          headerTitle: t("screens.speakingPractice"),
         }}
       />
       <Stack.Screen
@@ -64,7 +66,7 @@ export default function RootStackNavigator() {
         component={ReviewScreen}
         options={{
           presentation: "card",
-          headerTitle: "Vocabulary Review",
+          headerTitle: t("screens.vocabularyReview"),
         }}
       />
       <Stack.Screen
@@ -88,7 +90,7 @@ export default function RootStackNavigator() {
         component={WritingPracticeScreen}
         options={{
           presentation: "card",
-          headerTitle: "Writing Practice",
+          headerTitle: t("screens.writingPractice"),
         }}
       />
       <Stack.Screen

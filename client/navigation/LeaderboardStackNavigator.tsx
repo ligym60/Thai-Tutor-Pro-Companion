@@ -1,5 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTranslation } from "react-i18next";
 import LeaderboardScreen from "@/screens/LeaderboardScreen";
 import { useScreenOptions } from "@/hooks/useScreenOptions";
 
@@ -11,6 +12,7 @@ const Stack = createNativeStackNavigator<LeaderboardStackParamList>();
 
 export default function LeaderboardStackNavigator() {
   const screenOptions = useScreenOptions();
+  const { t } = useTranslation("navigation");
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
@@ -18,7 +20,7 @@ export default function LeaderboardStackNavigator() {
         name="Leaderboard"
         component={LeaderboardScreen}
         options={{
-          headerTitle: "Leaderboard",
+          headerTitle: t("tabs.leaderboard"),
         }}
       />
     </Stack.Navigator>

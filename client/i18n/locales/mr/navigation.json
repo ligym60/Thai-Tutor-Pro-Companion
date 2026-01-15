@@ -1,20 +1,20 @@
 {
+  "appTitle": "थाई बॉक्सर साथी",
   "tabs": {
     "home": "मुख्यपृष्ठ",
     "lessons": "धडे",
     "stories": "कथा",
+    "tips": "टिप्स",
+    "travelTips": "प्रवास टिप्स",
+    "muayThai": "मुय थाई",
+    "rank": "रँक",
+    "leaderboard": "लीडरबोर्ड",
     "profile": "प्रोफाइल"
   },
   "screens": {
-    "home": "मुख्यपृष्ठ",
-    "lessons": "धडे",
-    "practice": "सराव",
-    "quiz": "प्रश्नमंजुषा",
-    "stories": "कथा",
-    "tips": "टिप्स",
-    "muaythai": "मुय थाई",
-    "profile": "प्रोफाइल",
-    "settings": "सेटिंग्ज",
-    "rank": "रँक"
+    "speakingPractice": "बोलण्याचा सराव",
+    "vocabularyReview": "शब्दसंग्रह पुनरावलोकन",
+    "writingPractice": "लेखन सराव",
+    "settings": "सेटिंग्ज"
   }
 }

@@ -29,21 +29,5 @@
   "takeQuiz": "Quiz machen",
   "listen": "Anhören",
   "save": "Speichern",
-  "saved": "Gespeichert",
-  "loadingQuiz": "Loading quiz...",
-  "quizComplete": "Quiz Complete",
-  "storyQuizTitle": "{{title}} Quiz",
-  "whatDoesThisMean": "What does this word mean?",
-  "howDoYouSayInThai": "How do you say this in Thai?",
-  "tapToHear": "Tap to hear",
-  "correct": "Correct!",
-  "notQuite": "Not quite",
-  "correctAnswerIs": "The correct answer is: {{answer}}",
-  "seeResults": "See Results",
-  "tryAgain": "Try Again",
-  "percentCorrect": "{{percentage}}% Correct",
-  "excellentMessage": "Excellent! You really know this story!",
-  "greatJobMessage": "Great job! Keep practicing!",
-  "goodEffortMessage": "Good effort! Try reading the story again.",
-  "keepLearningMessage": "Keep learning! Practice makes perfect."
+  "saved": "Gespeichert"
 }

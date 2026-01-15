@@ -1,20 +1,20 @@
 {
+  "appTitle": "رفيق الملاكم التايلاندي",
   "tabs": {
     "home": "الرئيسية",
     "lessons": "الدروس",
     "stories": "القصص",
+    "tips": "النصائح",
+    "travelTips": "نصائح السفر",
+    "muayThai": "موي تاي",
+    "rank": "الترتيب",
+    "leaderboard": "لوحة المتصدرين",
     "profile": "الملف الشخصي"
   },
   "screens": {
-    "home": "الرئيسية",
-    "lessons": "الدروس",
-    "practice": "الممارسة",
-    "quiz": "الاختبار",
-    "stories": "القصص",
-    "tips": "النصائح",
-    "muaythai": "موي تاي",
-    "profile": "الملف الشخصي",
-    "settings": "الإعدادات",
-    "rank": "الترتيب"
+    "speakingPractice": "ممارسة التحدث",
+    "vocabularyReview": "مراجعة المفردات",
+    "writingPractice": "ممارسة الكتابة",
+    "settings": "الإعدادات"
   }
 }

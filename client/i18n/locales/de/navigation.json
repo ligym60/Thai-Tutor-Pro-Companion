@@ -1,20 +1,20 @@
 {
+  "appTitle": "Thai Boxer Begleiter",
   "tabs": {
     "home": "Start",
     "lessons": "Lektionen",
     "stories": "Geschichten",
+    "tips": "Tipps",
+    "travelTips": "Reisetipps",
+    "muayThai": "Muay Thai",
+    "rank": "Rangliste",
+    "leaderboard": "Rangliste",
     "profile": "Profil"
   },
   "screens": {
-    "home": "Start",
-    "lessons": "Lektionen",
-    "practice": "Übung",
-    "quiz": "Quiz",
-    "stories": "Geschichten",
-    "tips": "Tipps",
-    "muaythai": "Muay Thai",
-    "profile": "Profil",
-    "settings": "Einstellungen",
-    "rank": "Rangliste"
+    "speakingPractice": "Sprechübung",
+    "vocabularyReview": "Vokabelwiederholung",
+    "writingPractice": "Schreibübung",
+    "settings": "Einstellungen"
   }
 }

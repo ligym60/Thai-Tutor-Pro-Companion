@@ -1,11 +1,14 @@
 {
+  "appTitle": "เพื่อนนักมวยไทย",
   "tabs": {
     "home": "หน้าหลัก",
     "lessons": "บทเรียน",
     "stories": "เรื่องราว",
     "tips": "เคล็ดลับ",
+    "travelTips": "เคล็ดลับการเดินทาง",
     "muayThai": "มวยไทย",
     "rank": "อันดับ",
+    "leaderboard": "กระดานผู้นำ",
     "profile": "โปรไฟล์"
   },
   "screens": {

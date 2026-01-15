@@ -1,20 +1,20 @@
 {
+  "appTitle": "ਥਾਈ ਬਾਕਸਰ ਸਾਥੀ",
   "tabs": {
     "home": "ਘਰ",
     "lessons": "ਸਬਕ",
     "stories": "ਕਹਾਣੀਆਂ",
+    "tips": "ਸੁਝਾਅ",
+    "travelTips": "ਯਾਤਰਾ ਸੁਝਾਅ",
+    "muayThai": "ਮੁਏ ਥਾਈ",
+    "rank": "ਰੈਂਕ",
+    "leaderboard": "ਲੀਡਰਬੋਰਡ",
     "profile": "ਪ੍ਰੋਫਾਈਲ"
   },
   "screens": {
-    "home": "ਘਰ",
-    "lessons": "ਸਬਕ",
-    "practice": "ਅਭਿਆਸ",
-    "quiz": "ਕਵਿਜ਼",
-    "stories": "ਕਹਾਣੀਆਂ",
-    "tips": "ਸੁਝਾਅ",
-    "muaythai": "ਮੁਏ ਥਾਈ",
-    "profile": "ਪ੍ਰੋਫਾਈਲ",
-    "settings": "ਸੈਟਿੰਗਾਂ",
-    "rank": "ਰੈਂਕ"
+    "speakingPractice": "ਬੋਲਣ ਦਾ ਅਭਿਆਸ",
+    "vocabularyReview": "ਸ਼ਬਦਾਵਲੀ ਸਮੀਖਿਆ",
+    "writingPractice": "ਲਿਖਣ ਦਾ ਅਭਿਆਸ",
+    "settings": "ਸੈਟਿੰਗਾਂ"
   }
 }

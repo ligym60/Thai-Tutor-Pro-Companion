@@ -24,21 +24,5 @@
   "takeQuiz": "ทำแบบทดสอบ",
   "listen": "ฟัง",
   "save": "บันทึก",
-  "saved": "บันทึกแล้ว",
-  "loadingQuiz": "กำลังโหลดแบบทดสอบ...",
-  "quizComplete": "ทำแบบทดสอบเสร็จแล้ว",
-  "storyQuizTitle": "แบบทดสอบ {{title}}",
-  "whatDoesThisMean": "คำนี้แปลว่าอะไร?",
-  "howDoYouSayInThai": "พูดเป็นภาษาไทยว่าอย่างไร?",
-  "tapToHear": "แตะเพื่อฟัง",
-  "correct": "ถูกต้อง!",
-  "notQuite": "ยังไม่ถูก",
-  "correctAnswerIs": "คำตอบที่ถูกคือ: {{answer}}",
-  "seeResults": "ดูผลลัพธ์",
-  "tryAgain": "ลองอีกครั้ง",
-  "percentCorrect": "ถูก {{percentage}}%",
-  "excellentMessage": "ยอดเยี่ยม! คุณรู้เรื่องนี้ดีมาก!",
-  "greatJobMessage": "ทำได้ดีมาก! ฝึกต่อไปนะ!",
-  "goodEffortMessage": "พยายามดีแล้ว! ลองอ่านเรื่องอีกครั้งนะ",
-  "keepLearningMessage": "เรียนรู้ต่อไป! ฝึกฝนทำให้สมบูรณ์แบบ"
+  "saved": "บันทึกแล้ว"
 }

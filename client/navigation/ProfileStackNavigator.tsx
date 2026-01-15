@@ -1,5 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTranslation } from "react-i18next";
 
 import ProfileScreen from "@/screens/ProfileScreen";
 import SettingsScreen from "@/screens/SettingsScreen";
@@ -14,6 +15,7 @@ const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
 export default function ProfileStackNavigator() {
   const screenOptions = useScreenOptions();
+  const { t } = useTranslation("navigation");
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
@@ -21,14 +23,14 @@ export default function ProfileStackNavigator() {
         name="Profile"
         component={ProfileScreen}
         options={{
-          headerTitle: "Profile",
+          headerTitle: t("tabs.profile"),
         }}
       />
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
-          headerTitle: "Settings",
+          headerTitle: t("screens.settings"),
         }}
       />
     </Stack.Navigator>

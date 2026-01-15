@@ -1,11 +1,14 @@
 {
+  "appTitle": "Compañero del Boxeador Tailandés",
   "tabs": {
     "home": "Inicio",
     "lessons": "Lecciones",
     "stories": "Historias",
     "tips": "Consejos",
+    "travelTips": "Consejos de Viaje",
     "muayThai": "Muay Thai",
     "rank": "Rango",
+    "leaderboard": "Clasificación",
     "profile": "Perfil"
   },
   "screens": {
