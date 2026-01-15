@@ -1,0 +1,37 @@
+{
+  "title": "文化のヒント",
+  "readTip": "ヒントを読む",
+  "tipsRead": "{{count}}個のヒントを読みました",
+  "categories": {
+    "etiquette": "エチケット",
+    "religion": "宗教",
+    "social": "社会",
+    "food": "食べ物",
+    "general": "一般",
+    "greetings": "挨拶",
+    "dining": "食事",
+    "temples": "寺院"
+  },
+  "severity": {
+    "high": "重要",
+    "medium": "中程度",
+    "low": "知っておくと良い"
+  },
+  "priority": {
+    "essential": "必須",
+    "recommended": "推奨",
+    "helpful": "役に立つ"
+  },
+  "tabs": {
+    "culture": "文化のヒント",
+    "avoid": "避けるべき",
+    "travel": "必需品"
+  },
+  "intro": {
+    "culture": "タイの文化を理解することで、体験がより豊かになります。ヒントをタップして詳しく学びましょう。",
+    "avoid": "タイ訪問中に避けるべき20のこと。重要度順にランク付け。",
+    "travel": "タイ旅行に必要な書類、保険、健康のヒント。"
+  },
+  "helpful": "役に立つ",
+  "markAsRead": "既読にする"
+}

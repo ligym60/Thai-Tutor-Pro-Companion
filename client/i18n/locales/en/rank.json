@@ -1,0 +1,23 @@
+{
+  "title": "Rank",
+  "yourRank": "Your Rank",
+  "currentLevel": "Current Level",
+  "nextLevel": "Next Level",
+  "xpProgress": "{{current}} / {{required}} XP",
+  "rankNames": {
+    "1": "Novice",
+    "2": "Learner",
+    "3": "Student",
+    "4": "Practitioner",
+    "5": "Intermediate",
+    "6": "Advanced",
+    "7": "Expert",
+    "8": "Master",
+    "9": "Grand Master",
+    "10": "Legend"
+  },
+  "keepLearning": "Keep learning to reach the next level!",
+  "congratulations": "Congratulations!",
+  "thisWeek": "This Week",
+  "allTime": "All Time"
+}

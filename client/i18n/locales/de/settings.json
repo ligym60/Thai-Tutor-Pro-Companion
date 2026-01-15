@@ -1,0 +1,20 @@
+{
+  "title": "Einstellungen",
+  "language": "Sprache",
+  "languageDescription": "App-Sprache auswählen",
+  "sound": "Ton",
+  "soundDescription": "Soundeffekte aktivieren",
+  "theme": "Design",
+  "themeDescription": "App-Erscheinungsbild auswählen",
+  "dailyGoal": "Tagesziel",
+  "dailyGoalDescription": "Legen Sie Ihr tägliches Lernziel fest",
+  "minutes": "Minuten",
+  "notifications": "Benachrichtigungen",
+  "notificationsDescription": "Tägliche Erinnerungen aktivieren",
+  "account": "Konto",
+  "accountDescription": "Verwalten Sie Ihr Profil",
+  "about": "Über",
+  "version": "Version",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "termsOfService": "Nutzungsbedingungen"
+}

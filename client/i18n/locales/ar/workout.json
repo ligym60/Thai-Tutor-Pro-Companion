@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "بدء الإحماء. دعونا نجهز جسمك.",
+  "tenSeconds": "10 ثوان",
+  "footworkDrills": "تمارين حركة القدمين. ابق خفيفاً على قدميك.",
+  "footworkComplete": "حركة القدمين مكتملة. بدء التركيبات.",
+  "fiveSeconds": "5 ثوان",
+  "getReady": "استعد. 5، 4، 3، 2، 1",
+  "combo": "تركيبة",
+  "rest": "استراحة",
+  "skippingWarmup": "تخطي الإحماء",
+  "skippingFootwork": "تخطي حركة القدمين",
+  "skippingCombinations": "تخطي التركيبات",
+  "workoutComplete": "التمرين مكتمل. عمل رائع!",
+  "startingCooldown": "بدء التهدئة. دعونا نتمدد ونتعافى.",
+  "skipExercise": "تخطي التمرين",
+  "skipWarmup": "تخطي الإحماء",
+  "skipDrill": "تخطي التدريب",
+  "skipFootwork": "تخطي حركة القدمين",
+  "skipStretch": "تخطي التمدد",
+  "skipCooldown": "تخطي التهدئة",
+  "done": "تم",
+  "ready": "جاهز"
+}

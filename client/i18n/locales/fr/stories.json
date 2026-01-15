@@ -1,0 +1,33 @@
+{
+  "title": "Histoires",
+  "readStory": "Lire l'Histoire",
+  "listenToStory": "Écouter l'Histoire",
+  "difficulty": {
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé",
+    "expert": "Expert"
+  },
+  "duration": "Durée",
+  "minutes": "minutes",
+  "completed": "Terminé",
+  "new": "Nouveau",
+  "storiesCompleted": "{{count}} histoires terminées",
+  "readMore": "Lire Plus",
+  "finish": "Terminer",
+  "next": "Histoire Suivante",
+  "allStories": "Toutes les Histoires",
+  "noStories": "Aucune histoire trouvée pour ce niveau.",
+  "expertMode": "Mode Expert",
+  "storyReading": "Lecture d'Histoires",
+  "storyReadingDesc": "Lisez des histoires thaïlandaises avec audio mot par mot et appuyez sur n'importe quel mot pour voir sa traduction.",
+  "words": "mots",
+  "storyNotFound": "Histoire non trouvée",
+  "fullTranslation": "Traduction Complète",
+  "tapAnyWord": "Appuyez sur n'importe quel mot pour entendre la prononciation et voir la traduction",
+  "currentlyPlaying": "Mot en cours de lecture",
+  "takeQuiz": "Faire le Quiz",
+  "listen": "Écouter",
+  "save": "Enregistrer",
+  "saved": "Enregistré"
+}

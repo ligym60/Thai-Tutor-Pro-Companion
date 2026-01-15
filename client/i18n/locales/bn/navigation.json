@@ -1,0 +1,20 @@
+{
+  "appTitle": "থাই বক্সার সঙ্গী",
+  "tabs": {
+    "home": "হোম",
+    "lessons": "পাঠ",
+    "stories": "গল্প",
+    "tips": "টিপস",
+    "travelTips": "ভ্রমণ টিপস",
+    "muayThai": "মুয়ে থাই",
+    "rank": "র‍্যাংক",
+    "leaderboard": "লিডারবোর্ড",
+    "profile": "প্রোফাইল"
+  },
+  "screens": {
+    "speakingPractice": "কথা বলার অভ্যাস",
+    "vocabularyReview": "শব্দভান্ডার পর্যালোচনা",
+    "writingPractice": "লেখার অভ্যাস",
+    "settings": "সেটিংস"
+  }
+}

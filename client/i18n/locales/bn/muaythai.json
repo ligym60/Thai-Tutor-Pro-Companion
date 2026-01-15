@@ -1,0 +1,40 @@
+{
+  "title": "মুয়ে থাই",
+  "techniques": "কৌশল",
+  "terminology": "পরিভাষা",
+  "history": "ইতিহাস",
+  "categories": {
+    "punches": "ঘুষি",
+    "kicks": "লাথি",
+    "elbows": "কনুই",
+    "knees": "হাঁটু",
+    "clinch": "ক্লিঞ্চ",
+    "defense": "প্রতিরক্ষা"
+  },
+  "viewDetails": "বিস্তারিত দেখুন",
+  "practiceMove": "অনুশীলন করুন",
+  "thaiName": "থাই নাম",
+  "englishName": "ইংরেজি নাম",
+  "description": "বিবরণ",
+  "commonUsage": "সাধারণ ব্যবহার",
+  "masterWorkout": "মাস্টার ওয়ার্কআউট",
+  "voiceGuidedCombos": "ভয়েস-গাইডেড কম্বো অনুসরণ করুন",
+  "trainingSchedule": "৩০-দিনের প্রশিক্ষণ সময়সূচী",
+  "daysCompleted": "{{count}}/৩০ দিন সম্পন্ন",
+  "sectionIntro": "থাইল্যান্ডে আপনার প্রথম মুয়ে থাই অভিজ্ঞতার জন্য প্রয়োজনীয় টিপস। ঐতিহ্যকে সম্মান করুন এবং শিল্প উপভোগ করুন।",
+  "thingsToDo": "করণীয় বিষয়",
+  "thingsToAvoid": "এড়ানোর বিষয়",
+  "safety": "নিরাপত্তা",
+  "do": "করুন",
+  "dont": "করবেন না",
+  "levels": {
+    "beginner": "নতুন",
+    "intermediate": "মধ্যবর্তী",
+    "advanced": "উন্নত"
+  },
+  "legend": {
+    "workout": "ওয়ার্কআউট",
+    "recovery": "পুনরুদ্ধার",
+    "rest": "বিশ্রাম"
+  }
+}

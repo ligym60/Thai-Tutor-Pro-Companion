@@ -1,0 +1,33 @@
+{
+  "title": "গল্প",
+  "readStory": "গল্প পড়ুন",
+  "listenToStory": "গল্প শুনুন",
+  "difficulty": {
+    "beginner": "শিক্ষানবিস",
+    "intermediate": "মধ্যবর্তী",
+    "advanced": "উন্নত",
+    "expert": "বিশেষজ্ঞ"
+  },
+  "duration": "সময়কাল",
+  "minutes": "মিনিট",
+  "completed": "সম্পন্ন",
+  "new": "নতুন",
+  "storiesCompleted": "{{count}} গল্প সম্পন্ন",
+  "readMore": "আরও পড়ুন",
+  "finish": "শেষ",
+  "next": "পরবর্তী গল্প",
+  "allStories": "সমস্ত গল্প",
+  "noStories": "এই স্তরের জন্য কোনো গল্প পাওয়া যায়নি।",
+  "expertMode": "বিশেষজ্ঞ মোড",
+  "storyReading": "গল্প পড়া",
+  "storyReadingDesc": "শব্দ-বাই-ওয়ার্ড অডিও সহ থাই গল্প পড়ুন এবং অনুবাদ দেখতে কোনো শব্দে ট্যাপ করুন।",
+  "words": "শব্দ",
+  "storyNotFound": "গল্প পাওয়া যায়নি",
+  "fullTranslation": "সম্পূর্ণ অনুবাদ",
+  "tapAnyWord": "উচ্চারণ শুনতে এবং অনুবাদ দেখতে কোনো শব্দে ট্যাপ করুন",
+  "currentlyPlaying": "বর্তমানে চলছে শব্দ",
+  "takeQuiz": "কুইজ নিন",
+  "listen": "শুনুন",
+  "save": "সংরক্ষণ করুন",
+  "saved": "সংরক্ষিত"
+}

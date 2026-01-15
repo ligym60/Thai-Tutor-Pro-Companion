@@ -1,0 +1,22 @@
+{
+  "greeting": "你好，{{name}}",
+  "dailyStreak": "连续天数",
+  "todayProgress": "今日进度",
+  "quickPractice": "快速练习",
+  "speaking": "口语",
+  "vocabulary": "词汇",
+  "writing": "写作",
+  "currentLevel": "当前等级",
+  "xpToNextLevel": "升级所需经验值",
+  "continueLesson": "继续课程",
+  "startNewLesson": "开始新课程",
+  "practiceMode": "练习模式",
+  "loading": "加载中...",
+  "todaysLesson": "今日课程",
+  "practiceModes": "练习模式",
+  "listenAndRepeat": "听与重复",
+  "review": "复习",
+  "spacedRepetition": "间隔重复",
+  "due": "到期",
+  "traceCharacters": "描字"
+}

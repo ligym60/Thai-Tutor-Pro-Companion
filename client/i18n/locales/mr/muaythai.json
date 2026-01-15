@@ -1,0 +1,40 @@
+{
+  "title": "मुय थाई",
+  "techniques": "तंत्रे",
+  "terminology": "शब्दावली",
+  "history": "इतिहास",
+  "categories": {
+    "punches": "ठोसे",
+    "kicks": "लाथा",
+    "elbows": "कोपर",
+    "knees": "गुडघे",
+    "clinch": "क्लिंच",
+    "defense": "संरक्षण"
+  },
+  "viewDetails": "तपशील पहा",
+  "practiceMove": "सराव करा",
+  "thaiName": "थाई नाव",
+  "englishName": "इंग्रजी नाव",
+  "description": "वर्णन",
+  "commonUsage": "सामान्य वापर",
+  "masterWorkout": "मास्टर वर्कआउट",
+  "voiceGuidedCombos": "आवाज-मार्गदर्शित कॉम्बोचे अनुसरण करा",
+  "trainingSchedule": "30-दिवसांचे प्रशिक्षण वेळापत्रक",
+  "daysCompleted": "{{count}}/30 दिवस पूर्ण",
+  "sectionIntro": "थायलंडमधील तुमच्या पहिल्या मुय थाई अनुभवासाठी आवश्यक टिप्स. परंपरांचा आदर करा आणि कलेचा आनंद घ्या.",
+  "thingsToDo": "करण्यायोग्य गोष्टी",
+  "thingsToAvoid": "टाळण्यायोग्य गोष्टी",
+  "safety": "सुरक्षा",
+  "do": "करा",
+  "dont": "करू नका",
+  "levels": {
+    "beginner": "नवशिक्या",
+    "intermediate": "मध्यम",
+    "advanced": "प्रगत"
+  },
+  "legend": {
+    "workout": "वर्कआउट",
+    "recovery": "पुनर्प्राप्ती",
+    "rest": "विश्रांती"
+  }
+}

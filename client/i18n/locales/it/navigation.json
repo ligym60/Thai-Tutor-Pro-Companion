@@ -1,0 +1,20 @@
+{
+  "appTitle": "Compagno del Pugile Thailandese",
+  "tabs": {
+    "home": "Home",
+    "lessons": "Lezioni",
+    "stories": "Storie",
+    "tips": "Consigli",
+    "travelTips": "Consigli di Viaggio",
+    "muayThai": "Muay Thai",
+    "rank": "Classifica",
+    "leaderboard": "Classifica",
+    "profile": "Profilo"
+  },
+  "screens": {
+    "speakingPractice": "Pratica di Conversazione",
+    "vocabularyReview": "Revisione del Vocabolario",
+    "writingPractice": "Pratica di Scrittura",
+    "settings": "Impostazioni"
+  }
+}

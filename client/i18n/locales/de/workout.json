@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "Aufwärmen beginnt. Bereiten wir Ihren Körper vor.",
+  "tenSeconds": "10 Sekunden",
+  "footworkDrills": "Fußarbeit-Übungen. Bleiben Sie leichtfüßig.",
+  "footworkComplete": "Fußarbeit abgeschlossen. Kombinationen beginnen.",
+  "fiveSeconds": "5 Sekunden",
+  "getReady": "Machen Sie sich bereit. 5, 4, 3, 2, 1",
+  "combo": "Kombination",
+  "rest": "Pause",
+  "skippingWarmup": "Aufwärmen überspringen",
+  "skippingFootwork": "Fußarbeit überspringen",
+  "skippingCombinations": "Kombinationen überspringen",
+  "workoutComplete": "Training abgeschlossen. Großartige Arbeit!",
+  "startingCooldown": "Abkühlen beginnt. Dehnen und erholen wir uns.",
+  "skipExercise": "Übung Überspringen",
+  "skipWarmup": "Aufwärmen Überspringen",
+  "skipDrill": "Übung Überspringen",
+  "skipFootwork": "Fußarbeit Überspringen",
+  "skipStretch": "Dehnung Überspringen",
+  "skipCooldown": "Abkühlen Überspringen",
+  "done": "Fertig",
+  "ready": "Bereit"
+}

@@ -1,0 +1,37 @@
+{
+  "title": "Kulturtipps",
+  "readTip": "Tipp lesen",
+  "tipsRead": "{{count}} Tipps gelesen",
+  "categories": {
+    "etiquette": "Etikette",
+    "religion": "Religion",
+    "social": "Soziales",
+    "food": "Essen",
+    "general": "Allgemein",
+    "greetings": "Begrüßungen",
+    "dining": "Essen",
+    "temples": "Tempel"
+  },
+  "severity": {
+    "high": "Wichtig",
+    "medium": "Mäßig",
+    "low": "Gut zu wissen"
+  },
+  "priority": {
+    "essential": "Wesentlich",
+    "recommended": "Empfohlen",
+    "helpful": "Hilfreich"
+  },
+  "tabs": {
+    "culture": "Kulturtipps",
+    "avoid": "Vermeiden",
+    "travel": "Wichtiges"
+  },
+  "intro": {
+    "culture": "Das Verständnis der thailändischen Kultur wird Ihre Erfahrung bereichern. Tippen Sie auf einen Tipp, um mehr zu erfahren.",
+    "avoid": "Die 20 Dinge, die Sie in Thailand vermeiden sollten. Nach Wichtigkeit geordnet.",
+    "travel": "Wichtige Dokumente, Versicherungen und Gesundheitstipps für Ihre Thailand-Reise."
+  },
+  "helpful": "Hilfreich",
+  "markAsRead": "Als gelesen markieren"
+}

@@ -1,0 +1,23 @@
+{
+  "title": "等级",
+  "yourRank": "您的等级",
+  "currentLevel": "当前等级",
+  "nextLevel": "下一等级",
+  "xpProgress": "{{current}} / {{required}} 经验值",
+  "rankNames": {
+    "1": "新手",
+    "2": "学习者",
+    "3": "学生",
+    "4": "练习者",
+    "5": "中级",
+    "6": "高级",
+    "7": "专家",
+    "8": "大师",
+    "9": "宗师",
+    "10": "传奇"
+  },
+  "keepLearning": "继续学习以达到下一级别！",
+  "congratulations": "恭喜！",
+  "thisWeek": "本周",
+  "allTime": "全部时间"
+}

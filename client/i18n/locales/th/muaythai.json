@@ -1,0 +1,40 @@
+{
+  "title": "มวยไทย",
+  "techniques": "เทคนิค",
+  "terminology": "ศัพท์เทคนิค",
+  "history": "ประวัติศาสตร์",
+  "categories": {
+    "punches": "หมัด",
+    "kicks": "เตะ",
+    "elbows": "ศอก",
+    "knees": "เข่า",
+    "clinch": "รวบ",
+    "defense": "การป้องกัน"
+  },
+  "viewDetails": "ดูรายละเอียด",
+  "practiceMove": "ฝึกท่า",
+  "thaiName": "ชื่อภาษาไทย",
+  "englishName": "ชื่อภาษาอังกฤษ",
+  "description": "คำอธิบาย",
+  "commonUsage": "การใช้งานทั่วไป",
+  "masterWorkout": "การฝึกซ้อมแบบมาสเตอร์",
+  "voiceGuidedCombos": "ตามคำแนะนำด้วยเสียงสำหรับการต่อเทคนิค",
+  "trainingSchedule": "ตารางฝึกซ้อม 30 วัน",
+  "daysCompleted": "ฝึกแล้ว {{count}}/30 วัน",
+  "sectionIntro": "คำแนะนำสำคัญสำหรับประสบการณ์มวยไทยครั้งแรกของคุณในประเทศไทย เคารพประเพณีและเพลิดเพลินกับศิลปะ",
+  "thingsToDo": "สิ่งที่ควรทำ",
+  "thingsToAvoid": "สิ่งที่ควรหลีกเลี่ยง",
+  "safety": "ความปลอดภัย",
+  "do": "ทำ",
+  "dont": "ไม่ทำ",
+  "levels": {
+    "beginner": "ผู้เริ่มต้น",
+    "intermediate": "ระดับกลาง",
+    "advanced": "ระดับสูง"
+  },
+  "legend": {
+    "workout": "ฝึกซ้อม",
+    "recovery": "การพักฟื้น",
+    "rest": "พักผ่อน"
+  }
+}

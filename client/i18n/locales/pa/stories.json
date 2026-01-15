@@ -1,0 +1,33 @@
+{
+  "title": "ਕਹਾਣੀਆਂ",
+  "readStory": "ਕਹਾਣੀ ਪੜ੍ਹੋ",
+  "listenToStory": "ਕਹਾਣੀ ਸੁਣੋ",
+  "difficulty": {
+    "beginner": "ਸ਼ੁਰੂਆਤੀ",
+    "intermediate": "ਮੱਧਮ",
+    "advanced": "ਉੱਨਤ",
+    "expert": "ਮਾਹਰ"
+  },
+  "duration": "ਅਵਧੀ",
+  "minutes": "ਮਿੰਟ",
+  "completed": "ਪੂਰਾ ਹੋਇਆ",
+  "new": "ਨਵਾਂ",
+  "storiesCompleted": "{{count}} ਕਹਾਣੀਆਂ ਪੂਰੀਆਂ",
+  "readMore": "ਹੋਰ ਪੜ੍ਹੋ",
+  "finish": "ਖਤਮ",
+  "next": "ਅਗਲੀ ਕਹਾਣੀ",
+  "allStories": "ਸਾਰੀਆਂ ਕਹਾਣੀਆਂ",
+  "noStories": "ਇਸ ਪੱਧਰ ਲਈ ਕੋਈ ਕਹਾਣੀਆਂ ਨਹੀਂ ਮਿਲੀਆਂ।",
+  "expertMode": "ਮਾਹਰ ਮੋਡ",
+  "storyReading": "ਕਹਾਣੀ ਪੜ੍ਹਨਾ",
+  "storyReadingDesc": "ਸ਼ਬਦ-ਦਰ-ਸ਼ਬਦ ਆਡੀਓ ਨਾਲ ਥਾਈ ਕਹਾਣੀਆਂ ਪੜ੍ਹੋ ਅਤੇ ਅਨੁਵਾਦ ਦੇਖਣ ਲਈ ਕਿਸੇ ਵੀ ਸ਼ਬਦ 'ਤੇ ਟੈਪ ਕਰੋ।",
+  "words": "ਸ਼ਬਦ",
+  "storyNotFound": "ਕਹਾਣੀ ਨਹੀਂ ਮਿਲੀ",
+  "fullTranslation": "ਪੂਰਾ ਅਨੁਵਾਦ",
+  "tapAnyWord": "ਉਚਾਰਨ ਸੁਣਨ ਅਤੇ ਅਨੁਵਾਦ ਦੇਖਣ ਲਈ ਕਿਸੇ ਵੀ ਸ਼ਬਦ 'ਤੇ ਟੈਪ ਕਰੋ",
+  "currentlyPlaying": "ਵਰਤਮਾਨ ਵਿੱਚ ਚੱਲ ਰਿਹਾ ਸ਼ਬਦ",
+  "takeQuiz": "ਕੁਇਜ਼ ਲਓ",
+  "listen": "ਸੁਣੋ",
+  "save": "ਸੁਰੱਖਿਅਤ ਕਰੋ",
+  "saved": "ਸੁਰੱਖਿਅਤ ਕੀਤਾ"
+}

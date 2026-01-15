@@ -1,0 +1,23 @@
+{
+  "title": "Rango",
+  "yourRank": "Tu Rango",
+  "currentLevel": "Nivel Actual",
+  "nextLevel": "Siguiente Nivel",
+  "xpProgress": "{{current}} / {{required}} XP",
+  "rankNames": {
+    "1": "Novato",
+    "2": "Aprendiz",
+    "3": "Estudiante",
+    "4": "Practicante",
+    "5": "Intermedio",
+    "6": "Avanzado",
+    "7": "Experto",
+    "8": "Maestro",
+    "9": "Gran Maestro",
+    "10": "Leyenda"
+  },
+  "keepLearning": "¡Sigue aprendiendo para alcanzar el siguiente nivel!",
+  "congratulations": "¡Felicitaciones!",
+  "thisWeek": "Esta Semana",
+  "allTime": "Todo el Tiempo"
+}

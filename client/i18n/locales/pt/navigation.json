@@ -1,0 +1,20 @@
+{
+  "appTitle": "Companheiro do Boxeador Tailandês",
+  "tabs": {
+    "home": "Início",
+    "lessons": "Lições",
+    "stories": "Histórias",
+    "tips": "Dicas",
+    "travelTips": "Dicas de Viagem",
+    "muayThai": "Muay Thai",
+    "rank": "Classificação",
+    "leaderboard": "Classificação",
+    "profile": "Perfil"
+  },
+  "screens": {
+    "speakingPractice": "Prática de Fala",
+    "vocabularyReview": "Revisão de Vocabulário",
+    "writingPractice": "Prática de Escrita",
+    "settings": "Configurações"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "मुय थाई",
+  "techniques": "तकनीकें",
+  "terminology": "शब्दावली",
+  "history": "इतिहास",
+  "categories": {
+    "punches": "मुक्के",
+    "kicks": "किक",
+    "elbows": "कोहनी",
+    "knees": "घुटने",
+    "clinch": "क्लिंच",
+    "defense": "रक्षा"
+  },
+  "viewDetails": "विवरण देखें",
+  "practiceMove": "अभ्यास करें",
+  "thaiName": "थाई नाम",
+  "englishName": "अंग्रेजी नाम",
+  "description": "विवरण",
+  "commonUsage": "सामान्य उपयोग",
+  "masterWorkout": "मास्टर वर्कआउट",
+  "voiceGuidedCombos": "वॉयस-गाइडेड कॉम्बो का पालन करें",
+  "trainingSchedule": "30-दिवसीय प्रशिक्षण कार्यक्रम",
+  "daysCompleted": "{{count}}/30 दिन पूर्ण",
+  "sectionIntro": "थाईलैंड में आपके पहले मुय थाई अनुभव के लिए आवश्यक टिप्स। परंपराओं का सम्मान करें और कला का आनंद लें।",
+  "thingsToDo": "करने योग्य बातें",
+  "thingsToAvoid": "बचने योग्य बातें",
+  "safety": "सुरक्षा",
+  "do": "करें",
+  "dont": "न करें",
+  "levels": {
+    "beginner": "शुरुआती",
+    "intermediate": "मध्यवर्ती",
+    "advanced": "उन्नत"
+  },
+  "legend": {
+    "workout": "वर्कआउट",
+    "recovery": "रिकवरी",
+    "rest": "आराम"
+  }
+}

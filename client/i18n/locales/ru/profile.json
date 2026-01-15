@@ -1,0 +1,18 @@
+{
+  "title": "Профиль",
+  "stats": "Статистика",
+  "totalXP": "Всего XP",
+  "currentStreak": "Текущая серия",
+  "longestStreak": "Лучшая серия",
+  "lessonsCompleted": "Уроков завершено",
+  "achievements": "Достижения",
+  "badges": "Значки",
+  "rank": "Рейтинг",
+  "leaderboard": "Таблица лидеров",
+  "editProfile": "Редактировать профиль",
+  "displayName": "Отображаемое имя",
+  "avatar": "Аватар",
+  "changeAvatar": "Изменить аватар",
+  "tapToChangeAvatar": "Нажмите, чтобы изменить аватар",
+  "yourName": "Ваше имя"
+}

@@ -1,0 +1,20 @@
+{
+  "title": "الإعدادات",
+  "language": "اللغة",
+  "languageDescription": "اختر لغة التطبيق",
+  "sound": "الصوت",
+  "soundDescription": "تفعيل المؤثرات الصوتية",
+  "theme": "المظهر",
+  "themeDescription": "اختر مظهر التطبيق",
+  "dailyGoal": "الهدف اليومي",
+  "dailyGoalDescription": "حدد هدف الدراسة اليومي",
+  "minutes": "دقائق",
+  "notifications": "الإشعارات",
+  "notificationsDescription": "تفعيل التذكيرات اليومية",
+  "account": "الحساب",
+  "accountDescription": "إدارة ملفك الشخصي",
+  "about": "حول",
+  "version": "الإصدار",
+  "privacyPolicy": "سياسة الخصوصية",
+  "termsOfService": "شروط الخدمة"
+}

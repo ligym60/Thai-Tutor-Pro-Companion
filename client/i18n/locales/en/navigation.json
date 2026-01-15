@@ -1,0 +1,20 @@
+{
+  "appTitle": "Thai Boxer Companion",
+  "tabs": {
+    "home": "Home",
+    "lessons": "Lessons",
+    "stories": "Stories",
+    "tips": "Tips",
+    "travelTips": "Travel Tips",
+    "muayThai": "Muay Thai",
+    "rank": "Rank",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile"
+  },
+  "screens": {
+    "speakingPractice": "Speaking Practice",
+    "vocabularyReview": "Vocabulary Review",
+    "writingPractice": "Writing Practice",
+    "settings": "Settings"
+  }
+}

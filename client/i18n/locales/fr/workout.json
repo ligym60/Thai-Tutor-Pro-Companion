@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "Début de l'échauffement. Préparons votre corps.",
+  "tenSeconds": "10 secondes",
+  "footworkDrills": "Exercices de jeu de jambes. Restez léger sur vos pieds.",
+  "footworkComplete": "Jeu de jambes terminé. Début des combinaisons.",
+  "fiveSeconds": "5 secondes",
+  "getReady": "Préparez-vous. 5, 4, 3, 2, 1",
+  "combo": "Combinaison",
+  "rest": "Repos",
+  "skippingWarmup": "Saut de l'échauffement",
+  "skippingFootwork": "Saut du jeu de jambes",
+  "skippingCombinations": "Saut des combinaisons",
+  "workoutComplete": "Entraînement terminé. Excellent travail!",
+  "startingCooldown": "Début du retour au calme. Étirons-nous et récupérons.",
+  "skipExercise": "Sauter l'Exercice",
+  "skipWarmup": "Sauter l'Échauffement",
+  "skipDrill": "Sauter l'Exercice",
+  "skipFootwork": "Sauter le Jeu de Jambes",
+  "skipStretch": "Sauter l'Étirement",
+  "skipCooldown": "Sauter le Retour au Calme",
+  "done": "Terminé",
+  "ready": "Prêt"
+}

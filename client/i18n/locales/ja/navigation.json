@@ -1,0 +1,20 @@
+{
+  "appTitle": "タイボクサーの仲間",
+  "tabs": {
+    "home": "ホーム",
+    "lessons": "レッスン",
+    "stories": "ストーリー",
+    "tips": "ヒント",
+    "travelTips": "旅行のヒント",
+    "muayThai": "ムエタイ",
+    "rank": "ランク",
+    "leaderboard": "リーダーボード",
+    "profile": "プロフィール"
+  },
+  "screens": {
+    "speakingPractice": "スピーキング練習",
+    "vocabularyReview": "単語復習",
+    "writingPractice": "ライティング練習",
+    "settings": "設定"
+  }
+}

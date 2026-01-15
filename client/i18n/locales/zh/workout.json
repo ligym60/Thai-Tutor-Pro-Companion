@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "开始热身。让我们准备好你的身体。",
+  "tenSeconds": "10秒",
+  "footworkDrills": "步法训练。保持脚步轻盈。",
+  "footworkComplete": "步法完成。开始组合动作。",
+  "fiveSeconds": "5秒",
+  "getReady": "准备好。5、4、3、2、1",
+  "combo": "组合",
+  "rest": "休息",
+  "skippingWarmup": "跳过热身",
+  "skippingFootwork": "跳过步法",
+  "skippingCombinations": "跳过组合",
+  "workoutComplete": "训练完成。做得好！",
+  "startingCooldown": "开始放松。让我们伸展和恢复。",
+  "skipExercise": "跳过练习",
+  "skipWarmup": "跳过热身",
+  "skipDrill": "跳过训练",
+  "skipFootwork": "跳过步法",
+  "skipStretch": "跳过伸展",
+  "skipCooldown": "跳过放松",
+  "done": "完成",
+  "ready": "准备"
+}

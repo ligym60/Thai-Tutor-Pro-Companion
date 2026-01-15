@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "ਵਾਰਮ-ਅੱਪ ਸ਼ੁਰੂ ਕਰ ਰਹੇ ਹਾਂ। ਆਪਣੇ ਸਰੀਰ ਨੂੰ ਤਿਆਰ ਕਰੀਏ।",
+  "tenSeconds": "10 ਸਕਿੰਟ",
+  "footworkDrills": "ਫੁੱਟਵਰਕ ਅਭਿਆਸ। ਹਲਕੇ ਪੈਰਾਂ 'ਤੇ ਰਹੋ।",
+  "footworkComplete": "ਫੁੱਟਵਰਕ ਪੂਰਾ। ਸੰਯੋਜਨ ਸ਼ੁਰੂ ਕਰ ਰਹੇ ਹਾਂ।",
+  "fiveSeconds": "5 ਸਕਿੰਟ",
+  "getReady": "ਤਿਆਰ ਹੋ ਜਾਓ। 5, 4, 3, 2, 1",
+  "combo": "ਸੰਯੋਜਨ",
+  "rest": "ਆਰਾਮ",
+  "skippingWarmup": "ਵਾਰਮ-ਅੱਪ ਛੱਡ ਰਹੇ ਹਾਂ",
+  "skippingFootwork": "ਫੁੱਟਵਰਕ ਛੱਡ ਰਹੇ ਹਾਂ",
+  "skippingCombinations": "ਸੰਯੋਜਨ ਛੱਡ ਰਹੇ ਹਾਂ",
+  "workoutComplete": "ਵਰਕਆਉਟ ਪੂਰਾ। ਬਹੁਤ ਵਧੀਆ ਕੰਮ!",
+  "startingCooldown": "ਕੂਲ-ਡਾਊਨ ਸ਼ੁਰੂ ਕਰ ਰਹੇ ਹਾਂ। ਆਓ ਸਟ੍ਰੈਚ ਕਰੀਏ ਅਤੇ ਠੀਕ ਹੋਈਏ।",
+  "skipExercise": "ਕਸਰਤ ਛੱਡੋ",
+  "skipWarmup": "ਵਾਰਮ-ਅੱਪ ਛੱਡੋ",
+  "skipDrill": "ਅਭਿਆਸ ਛੱਡੋ",
+  "skipFootwork": "ਫੁੱਟਵਰਕ ਛੱਡੋ",
+  "skipStretch": "ਸਟ੍ਰੈਚ ਛੱਡੋ",
+  "skipCooldown": "ਕੂਲ-ਡਾਊਨ ਛੱਡੋ",
+  "done": "ਹੋ ਗਿਆ",
+  "ready": "ਤਿਆਰ"
+}

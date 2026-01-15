@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "वॉर्म-अप सुरू करत आहे। आपले शरीर तयार करूया।",
+  "tenSeconds": "10 सेकंद",
+  "footworkDrills": "फूटवर्क सराव। हलक्या पायांवर राहा।",
+  "footworkComplete": "फूटवर्क पूर्ण। संयोजन सुरू करत आहे।",
+  "fiveSeconds": "5 सेकंद",
+  "getReady": "तयार व्हा। 5, 4, 3, 2, 1",
+  "combo": "संयोजन",
+  "rest": "विश्रांती",
+  "skippingWarmup": "वॉर्म-अप वगळत आहे",
+  "skippingFootwork": "फूटवर्क वगळत आहे",
+  "skippingCombinations": "संयोजन वगळत आहे",
+  "workoutComplete": "वर्कआउट पूर्ण। छान काम!",
+  "startingCooldown": "कूल-डाउन सुरू करत आहे। चला स्ट्रेच करूया आणि पुनर्प्राप्त करूया।",
+  "skipExercise": "व्यायाम वगळा",
+  "skipWarmup": "वॉर्म-अप वगळा",
+  "skipDrill": "सराव वगळा",
+  "skipFootwork": "फूटवर्क वगळा",
+  "skipStretch": "स्ट्रेच वगळा",
+  "skipCooldown": "कूल-डाउन वगळा",
+  "done": "पूर्ण",
+  "ready": "तयार"
+}

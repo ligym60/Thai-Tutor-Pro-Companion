@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "早晨问候",
+    "description": "朋友之间简单的早晨对话"
+  },
+  "story-2": {
+    "title": "在市场",
+    "description": "在当地泰国市场购买水果"
+  },
+  "story-3": {
+    "title": "找路",
+    "description": "询问去著名寺庙的路"
+  },
+  "story-4": {
+    "title": "点餐",
+    "description": "在泰国餐厅点餐"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Muay Thai",
+  "techniques": "Techniken",
+  "terminology": "Terminologie",
+  "history": "Geschichte",
+  "categories": {
+    "punches": "Schläge",
+    "kicks": "Tritte",
+    "elbows": "Ellbogen",
+    "knees": "Knie",
+    "clinch": "Clinch",
+    "defense": "Verteidigung"
+  },
+  "viewDetails": "Details anzeigen",
+  "practiceMove": "Bewegung üben",
+  "thaiName": "Thai-Name",
+  "englishName": "Englischer Name",
+  "description": "Beschreibung",
+  "commonUsage": "Übliche Verwendung",
+  "masterWorkout": "Meister-Training",
+  "voiceGuidedCombos": "Folgen Sie sprachgeführten Kombinationen",
+  "trainingSchedule": "30-Tage-Trainingsplan",
+  "daysCompleted": "{{count}}/30 Tage abgeschlossen",
+  "sectionIntro": "Wichtige Tipps für Ihre erste Muay-Thai-Erfahrung in Thailand. Respektieren Sie die Traditionen und genießen Sie die Kunst.",
+  "thingsToDo": "Zu tun",
+  "thingsToAvoid": "Zu vermeiden",
+  "safety": "Sicherheit",
+  "do": "Tun",
+  "dont": "Nicht tun",
+  "levels": {
+    "beginner": "Anfänger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Experte"
+  },
+  "legend": {
+    "workout": "Training",
+    "recovery": "Erholung",
+    "rest": "Ruhe"
+  }
+}

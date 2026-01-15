@@ -1,0 +1,37 @@
+{
+  "title": "Conseils Culturels",
+  "readTip": "Lire le conseil",
+  "tipsRead": "{{count}} conseils lus",
+  "categories": {
+    "etiquette": "Étiquette",
+    "religion": "Religion",
+    "social": "Social",
+    "food": "Nourriture",
+    "general": "Général",
+    "greetings": "Salutations",
+    "dining": "Restauration",
+    "temples": "Temples"
+  },
+  "severity": {
+    "high": "Important",
+    "medium": "Modéré",
+    "low": "Bon à savoir"
+  },
+  "priority": {
+    "essential": "Essentiel",
+    "recommended": "Recommandé",
+    "helpful": "Utile"
+  },
+  "tabs": {
+    "culture": "Conseils Culturels",
+    "avoid": "À éviter",
+    "travel": "Essentiels"
+  },
+  "intro": {
+    "culture": "Comprendre la culture thaïlandaise enrichira votre expérience. Appuyez sur un conseil pour en savoir plus.",
+    "avoid": "Les 20 choses à éviter en Thaïlande. Classées par importance.",
+    "travel": "Documents essentiels, assurances et conseils santé pour votre voyage en Thaïlande."
+  },
+  "helpful": "Utile",
+  "markAsRead": "Marquer comme lu"
+}

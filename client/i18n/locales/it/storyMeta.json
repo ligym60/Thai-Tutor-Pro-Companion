@@ -1,0 +1,18 @@
+{
+  "story-1": {
+    "title": "Saluto Mattutino",
+    "description": "Una semplice conversazione mattutina tra amici"
+  },
+  "story-2": {
+    "title": "Al Mercato",
+    "description": "Comprare frutta in un mercato thailandese locale"
+  },
+  "story-3": {
+    "title": "Trovare la Strada",
+    "description": "Chiedere indicazioni per un tempio famoso"
+  },
+  "story-4": {
+    "title": "Ordinare Cibo",
+    "description": "Ordinare un pasto in un ristorante thailandese"
+  }
+}

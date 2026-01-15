@@ -1,0 +1,23 @@
+{
+  "startingWarmup": "ウォームアップを開始します。体を準備しましょう。",
+  "tenSeconds": "10秒",
+  "footworkDrills": "フットワークドリル。軽快に動きましょう。",
+  "footworkComplete": "フットワーク完了。コンビネーションを開始します。",
+  "fiveSeconds": "5秒",
+  "getReady": "準備してください。5、4、3、2、1",
+  "combo": "コンビネーション",
+  "rest": "休憩",
+  "skippingWarmup": "ウォームアップをスキップ",
+  "skippingFootwork": "フットワークをスキップ",
+  "skippingCombinations": "コンビネーションをスキップ",
+  "workoutComplete": "トレーニング完了。よくできました！",
+  "startingCooldown": "クールダウンを開始します。ストレッチと回復をしましょう。",
+  "skipExercise": "エクササイズをスキップ",
+  "skipWarmup": "ウォームアップをスキップ",
+  "skipDrill": "ドリルをスキップ",
+  "skipFootwork": "フットワークをスキップ",
+  "skipStretch": "ストレッチをスキップ",
+  "skipCooldown": "クールダウンをスキップ",
+  "done": "完了",
+  "ready": "準備"
+}

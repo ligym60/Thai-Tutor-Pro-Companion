@@ -1,0 +1,33 @@
+{
+  "title": "القصص",
+  "readStory": "قراءة القصة",
+  "listenToStory": "الاستماع إلى القصة",
+  "difficulty": {
+    "beginner": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم",
+    "expert": "خبير"
+  },
+  "duration": "المدة",
+  "minutes": "دقائق",
+  "completed": "مكتمل",
+  "new": "جديد",
+  "storiesCompleted": "{{count}} قصص مكتملة",
+  "readMore": "اقرأ المزيد",
+  "finish": "إنهاء",
+  "next": "القصة التالية",
+  "allStories": "جميع القصص",
+  "noStories": "لم يتم العثور على قصص لهذا المستوى.",
+  "expertMode": "وضع الخبير",
+  "storyReading": "قراءة القصص",
+  "storyReadingDesc": "اقرأ قصصاً تايلاندية مع صوت كلمة بكلمة واضغط على أي كلمة لرؤية ترجمتها.",
+  "words": "كلمات",
+  "storyNotFound": "لم يتم العثور على القصة",
+  "fullTranslation": "الترجمة الكاملة",
+  "tapAnyWord": "اضغط على أي كلمة لسماع النطق ورؤية الترجمة",
+  "currentlyPlaying": "الكلمة المشغلة حالياً",
+  "takeQuiz": "خذ الاختبار",
+  "listen": "استمع",
+  "save": "حفظ",
+  "saved": "محفوظ"
+}

@@ -1,0 +1,20 @@
+{
+  "title": "सेटिंग्स",
+  "language": "भाषा",
+  "languageDescription": "ऐप की भाषा चुनें",
+  "sound": "ध्वनि",
+  "soundDescription": "ध्वनि प्रभाव सक्षम करें",
+  "theme": "थीम",
+  "themeDescription": "ऐप की उपस्थिति चुनें",
+  "dailyGoal": "दैनिक लक्ष्य",
+  "dailyGoalDescription": "अपना दैनिक अध्ययन लक्ष्य निर्धारित करें",
+  "minutes": "मिनट",
+  "notifications": "सूचनाएं",
+  "notificationsDescription": "दैनिक रिमाइंडर सक्षम करें",
+  "account": "खाता",
+  "accountDescription": "अपनी प्रोफ़ाइल प्रबंधित करें",
+  "about": "के बारे में",
+  "version": "संस्करण",
+  "privacyPolicy": "गोपनीयता नीति",
+  "termsOfService": "सेवा की शर्तें"
+}

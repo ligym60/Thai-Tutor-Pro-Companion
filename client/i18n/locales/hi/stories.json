@@ -1,0 +1,33 @@
+{
+  "title": "कहानियाँ",
+  "readStory": "कहानी पढ़ें",
+  "listenToStory": "कहानी सुनें",
+  "difficulty": {
+    "beginner": "शुरुआती",
+    "intermediate": "मध्यवर्ती",
+    "advanced": "उन्नत",
+    "expert": "विशेषज्ञ"
+  },
+  "duration": "अवधि",
+  "minutes": "मिनट",
+  "completed": "पूर्ण",
+  "new": "नया",
+  "storiesCompleted": "{{count}} कहानियाँ पूर्ण",
+  "readMore": "और पढ़ें",
+  "finish": "समाप्त",
+  "next": "अगली कहानी",
+  "allStories": "सभी कहानियाँ",
+  "noStories": "इस स्तर के लिए कोई कहानी नहीं मिली।",
+  "expertMode": "विशेषज्ञ मोड",
+  "storyReading": "कहानी पढ़ना",
+  "storyReadingDesc": "शब्द-दर-शब्द ऑडियो के साथ थाई कहानियाँ पढ़ें और अनुवाद देखने के लिए किसी भी शब्द पर टैप करें।",
+  "words": "शब्द",
+  "storyNotFound": "कहानी नहीं मिली",
+  "fullTranslation": "पूर्ण अनुवाद",
+  "tapAnyWord": "उच्चारण सुनने और अनुवाद देखने के लिए किसी भी शब्द पर टैप करें",
+  "currentlyPlaying": "वर्तमान में चल रहा शब्द",
+  "takeQuiz": "प्रश्नोत्तरी लें",
+  "listen": "सुनें",
+  "save": "सहेजें",
+  "saved": "सहेजा गया"
+}

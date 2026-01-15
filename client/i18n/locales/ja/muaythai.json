@@ -1,0 +1,40 @@
+{
+  "title": "ムエタイ",
+  "techniques": "技",
+  "terminology": "用語",
+  "history": "歴史",
+  "categories": {
+    "punches": "パンチ",
+    "kicks": "キック",
+    "elbows": "エルボー",
+    "knees": "ニー",
+    "clinch": "クリンチ",
+    "defense": "防御"
+  },
+  "viewDetails": "詳細を見る",
+  "practiceMove": "技を練習",
+  "thaiName": "タイ語名",
+  "englishName": "英語名",
+  "description": "説明",
+  "commonUsage": "一般的な使用法",
+  "masterWorkout": "マスターワークアウト",
+  "voiceGuidedCombos": "音声ガイド付きコンビネーションに従う",
+  "trainingSchedule": "30日間トレーニングスケジュール",
+  "daysCompleted": "{{count}}/30日完了",
+  "sectionIntro": "タイでの初めてのムエタイ体験のための基本的なヒント。伝統を尊重し、この武道を楽しんでください。",
+  "thingsToDo": "すべきこと",
+  "thingsToAvoid": "避けるべきこと",
+  "safety": "安全",
+  "do": "する",
+  "dont": "しない",
+  "levels": {
+    "beginner": "初級",
+    "intermediate": "中級",
+    "advanced": "上級"
+  },
+  "legend": {
+    "workout": "トレーニング",
+    "recovery": "回復",
+    "rest": "休息"
+  }
+}

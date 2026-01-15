@@ -1,0 +1,20 @@
+{
+  "appTitle": "Компаньон Тайского Боксера",
+  "tabs": {
+    "home": "Главная",
+    "lessons": "Уроки",
+    "stories": "Истории",
+    "tips": "Советы",
+    "travelTips": "Советы по путешествиям",
+    "muayThai": "Муай Тай",
+    "rank": "Рейтинг",
+    "leaderboard": "Таблица лидеров",
+    "profile": "Профиль"
+  },
+  "screens": {
+    "speakingPractice": "Практика речи",
+    "vocabularyReview": "Повторение слов",
+    "writingPractice": "Практика письма",
+    "settings": "Настройки"
+  }
+}

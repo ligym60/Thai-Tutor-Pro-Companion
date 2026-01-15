@@ -1,0 +1,20 @@
+{
+  "title": "Impostazioni",
+  "language": "Lingua",
+  "languageDescription": "Seleziona la lingua dell'app",
+  "sound": "Suono",
+  "soundDescription": "Attiva gli effetti sonori",
+  "theme": "Tema",
+  "themeDescription": "Scegli l'aspetto dell'app",
+  "dailyGoal": "Obiettivo Giornaliero",
+  "dailyGoalDescription": "Imposta il tuo obiettivo di studio giornaliero",
+  "minutes": "minuti",
+  "notifications": "Notifiche",
+  "notificationsDescription": "Attiva i promemoria giornalieri",
+  "account": "Account",
+  "accountDescription": "Gestisci il tuo profilo",
+  "about": "Informazioni",
+  "version": "Versione",
+  "privacyPolicy": "Informativa sulla Privacy",
+  "termsOfService": "Termini di Servizio"
+}

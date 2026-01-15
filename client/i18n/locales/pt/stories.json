@@ -1,0 +1,33 @@
+{
+  "title": "Histórias",
+  "readStory": "Ler História",
+  "listenToStory": "Ouvir História",
+  "difficulty": {
+    "beginner": "Iniciante",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado",
+    "expert": "Especialista"
+  },
+  "duration": "Duração",
+  "minutes": "minutos",
+  "completed": "Concluído",
+  "new": "Novo",
+  "storiesCompleted": "{{count}} histórias concluídas",
+  "readMore": "Ler Mais",
+  "finish": "Terminar",
+  "next": "Próxima História",
+  "allStories": "Todas as Histórias",
+  "noStories": "Nenhuma história encontrada para este nível.",
+  "expertMode": "Modo Especialista",
+  "storyReading": "Leitura de Histórias",
+  "storyReadingDesc": "Leia histórias em tailandês com áudio palavra por palavra e toque em qualquer palavra para ver sua tradução.",
+  "words": "palavras",
+  "storyNotFound": "História não encontrada",
+  "fullTranslation": "Tradução Completa",
+  "tapAnyWord": "Toque em qualquer palavra para ouvir a pronúncia e ver a tradução",
+  "currentlyPlaying": "Palavra atualmente reproduzindo",
+  "takeQuiz": "Fazer Questionário",
+  "listen": "Ouvir",
+  "save": "Salvar",
+  "saved": "Salvo"
+}

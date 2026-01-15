@@ -1,0 +1,20 @@
+{
+  "title": "সেটিংস",
+  "language": "ভাষা",
+  "languageDescription": "অ্যাপের ভাষা নির্বাচন করুন",
+  "sound": "শব্দ",
+  "soundDescription": "শব্দ প্রভাব সক্ষম করুন",
+  "theme": "থিম",
+  "themeDescription": "অ্যাপের চেহারা নির্বাচন করুন",
+  "dailyGoal": "দৈনিক লক্ষ্য",
+  "dailyGoalDescription": "আপনার দৈনিক অধ্যয়ন লক্ষ্য সেট করুন",
+  "minutes": "মিনিট",
+  "notifications": "বিজ্ঞপ্তি",
+  "notificationsDescription": "দৈনিক অনুস্মারক সক্ষম করুন",
+  "account": "অ্যাকাউন্ট",
+  "accountDescription": "আপনার প্রোফাইল পরিচালনা করুন",
+  "about": "সম্পর্কে",
+  "version": "সংস্করণ",
+  "privacyPolicy": "গোপনীয়তা নীতি",
+  "termsOfService": "সেবা পাবার শর্ত"
+}
