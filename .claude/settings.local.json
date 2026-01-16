@@ -21,6 +21,9 @@
       "Bash(wc:*)",
       "Bash(git commit:*)",
       "Bash(xcopy:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\ligym\\Downloads\\Thai-Tutor-Pro-Server\\client\\i18n\\locales\\en"
     ]
   }
 }
