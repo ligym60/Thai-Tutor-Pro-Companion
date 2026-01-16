@@ -1218,66 +1218,66 @@ const COOLDOWN_EXERCISES: WarmupExercise[] = [
 const WORKOUTS: Workout[] = [
   {
     id: "beginner-1",
-    name: "Foundation Training",
+    name: "",
     level: "beginner",
     duration: "22 min",
     warmupDuration: 630,
     restBetweenCombos: 12,
     combinations: [
-      { id: "b1", name: "Basic 1-2", moves: [MOVES.jab, MOVES.cross], description: "The fundamental punch combo", repetitions: 12 },
-      { id: "b2", name: "1-2-3", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Add the hook", repetitions: 12 },
-      { id: "b3", name: "Double Jab", moves: [MOVES.jab, MOVES.jab, MOVES.cross], description: "Set up with jabs", repetitions: 10 },
-      { id: "b4", name: "Teep Drill", moves: [MOVES.teep, MOVES.teep], description: "Double push kick", repetitions: 12 },
-      { id: "b5", name: "Jab-Teep", moves: [MOVES.jab, MOVES.teep], description: "Range management", repetitions: 12 },
-      { id: "b6", name: "Jab-Kick", moves: [MOVES.jab, MOVES.rightKick], description: "Punch to kick", repetitions: 12 },
-      { id: "b7", name: "1-2-Kick", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic combo", repetitions: 10 },
-      { id: "b8", name: "Hook Practice", moves: [MOVES.leftHook, MOVES.rightHook], description: "Power hooks", repetitions: 12 },
-      { id: "b9", name: "Teep-Cross", moves: [MOVES.teep, MOVES.cross], description: "Push and punch", repetitions: 12 },
-      { id: "b10", name: "Final 1-2-3", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Finish strong", repetitions: 12 },
+      { id: "b1", name: "", moves: [MOVES.jab, MOVES.cross], description: "The fundamental punch combo", repetitions: 12 },
+      { id: "b2", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Add the hook", repetitions: 12 },
+      { id: "b3", name: "", moves: [MOVES.jab, MOVES.jab, MOVES.cross], description: "Set up with jabs", repetitions: 10 },
+      { id: "b4", name: "", moves: [MOVES.teep, MOVES.teep], description: "Double push kick", repetitions: 12 },
+      { id: "b5", name: "", moves: [MOVES.jab, MOVES.teep], description: "Range management", repetitions: 12 },
+      { id: "b6", name: "", moves: [MOVES.jab, MOVES.rightKick], description: "Punch to kick", repetitions: 12 },
+      { id: "b7", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic combo", repetitions: 10 },
+      { id: "b8", name: "", moves: [MOVES.leftHook, MOVES.rightHook], description: "Power hooks", repetitions: 12 },
+      { id: "b9", name: "", moves: [MOVES.teep, MOVES.cross], description: "Push and punch", repetitions: 12 },
+      { id: "b10", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook], description: "Finish strong", repetitions: 12 },
     ],
   },
   {
     id: "intermediate-1",
-    name: "Power Development",
+    name: "",
     level: "intermediate",
     duration: "28 min",
     warmupDuration: 630,
     restBetweenCombos: 10,
     combinations: [
-      { id: "i1", name: "1-2-Kick", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic Muay Thai", repetitions: 12 },
-      { id: "i2", name: "Hook-Cross-Hook", moves: [MOVES.leftHook, MOVES.cross, MOVES.leftHook], description: "Power punching", repetitions: 12 },
-      { id: "i3", name: "Teep-Cross-Kick", moves: [MOVES.teep, MOVES.cross, MOVES.rightKick], description: "Range control", repetitions: 10 },
-      { id: "i4", name: "1-2-Knee", moves: [MOVES.jab, MOVES.cross, MOVES.rightKnee], description: "Close distance", repetitions: 10 },
-      { id: "i5", name: "Double Kick", moves: [MOVES.rightKick, MOVES.leftKick], description: "Switching kicks", repetitions: 12 },
-      { id: "i6", name: "1-2-3-2", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross], description: "Boxing combo", repetitions: 10 },
-      { id: "i7", name: "Teep-Knee", moves: [MOVES.teep, MOVES.rightKnee], description: "Push then knee", repetitions: 12 },
-      { id: "i8", name: "Hook-Kick", moves: [MOVES.leftHook, MOVES.rightKick], description: "Same side attack", repetitions: 12 },
-      { id: "i9", name: "Triple Kick", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick], description: "Kick flow", repetitions: 10 },
-      { id: "i10", name: "1-2-Elbow", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow], description: "Close range", repetitions: 10 },
-      { id: "i11", name: "Full Combo", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combo", repetitions: 12 },
-      { id: "i12", name: "Finisher", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross, MOVES.rightKick], description: "5-hit finish", repetitions: 10 },
+      { id: "i1", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick], description: "Classic Muay Thai", repetitions: 12 },
+      { id: "i2", name: "", moves: [MOVES.leftHook, MOVES.cross, MOVES.leftHook], description: "Power punching", repetitions: 12 },
+      { id: "i3", name: "", moves: [MOVES.teep, MOVES.cross, MOVES.rightKick], description: "Range control", repetitions: 10 },
+      { id: "i4", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.rightKnee], description: "Close distance", repetitions: 10 },
+      { id: "i5", name: "", moves: [MOVES.rightKick, MOVES.leftKick], description: "Switching kicks", repetitions: 12 },
+      { id: "i6", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross], description: "Boxing combo", repetitions: 10 },
+      { id: "i7", name: "", moves: [MOVES.teep, MOVES.rightKnee], description: "Push then knee", repetitions: 12 },
+      { id: "i8", name: "", moves: [MOVES.leftHook, MOVES.rightKick], description: "Same side attack", repetitions: 12 },
+      { id: "i9", name: "", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick], description: "Kick flow", repetitions: 10 },
+      { id: "i10", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow], description: "Close range", repetitions: 10 },
+      { id: "i11", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combo", repetitions: 12 },
+      { id: "i12", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.cross, MOVES.rightKick], description: "5-hit finish", repetitions: 10 },
     ],
   },
   {
     id: "advanced-1",
-    name: "Warrior Workout",
+    name: "",
     level: "advanced",
     duration: "35 min",
     warmupDuration: 630,
     restBetweenCombos: 8,
     combinations: [
-      { id: "a1", name: "Full Combo", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combination", repetitions: 14 },
-      { id: "a2", name: "Elbow Entry", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow, MOVES.rightElbow], description: "Close range", repetitions: 12 },
-      { id: "a3", name: "Knee Storm", moves: [MOVES.leftKnee, MOVES.rightKnee, MOVES.leftKnee, MOVES.rightKnee], description: "Clinch knees", repetitions: 12 },
-      { id: "a4", name: "Kick-Punch-Kick", moves: [MOVES.rightKick, MOVES.jab, MOVES.cross, MOVES.leftKick], description: "Full range", repetitions: 12 },
-      { id: "a5", name: "Defense Counter", moves: [MOVES.slip, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "Counter attack", repetitions: 12 },
-      { id: "a6", name: "Elbow-Knee", moves: [MOVES.leftElbow, MOVES.rightKnee, MOVES.rightElbow, MOVES.leftKnee], description: "Clinch weapons", repetitions: 10 },
-      { id: "a7", name: "Triple Kick Flow", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick, MOVES.teep], description: "Kick variety", repetitions: 12 },
-      { id: "a8", name: "Box-Kick-Box", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick, MOVES.jab, MOVES.cross], description: "Mix it up", repetitions: 12 },
-      { id: "a9", name: "Uppercut Entry", moves: [MOVES.jab, MOVES.leftUppercut, MOVES.rightUppercut, MOVES.leftHook], description: "Inside fighting", repetitions: 10 },
-      { id: "a10", name: "Teep-Kick-Knee", moves: [MOVES.teep, MOVES.rightKick, MOVES.rightKnee], description: "Leg weapons", repetitions: 12 },
-      { id: "a11", name: "All Eight", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.leftElbow, MOVES.rightKnee, MOVES.rightKick], description: "All weapons", repetitions: 10 },
-      { id: "a12", name: "The Finisher", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightUppercut, MOVES.rightKick], description: "KO combo", repetitions: 14 },
+      { id: "a1", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "4-hit combination", repetitions: 14 },
+      { id: "a2", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftElbow, MOVES.rightElbow], description: "Close range", repetitions: 12 },
+      { id: "a3", name: "", moves: [MOVES.leftKnee, MOVES.rightKnee, MOVES.leftKnee, MOVES.rightKnee], description: "Clinch knees", repetitions: 12 },
+      { id: "a4", name: "", moves: [MOVES.rightKick, MOVES.jab, MOVES.cross, MOVES.leftKick], description: "Full range", repetitions: 12 },
+      { id: "a5", name: "", moves: [MOVES.slip, MOVES.cross, MOVES.leftHook, MOVES.rightKick], description: "Counter attack", repetitions: 12 },
+      { id: "a6", name: "", moves: [MOVES.leftElbow, MOVES.rightKnee, MOVES.rightElbow, MOVES.leftKnee], description: "Clinch weapons", repetitions: 10 },
+      { id: "a7", name: "", moves: [MOVES.rightKick, MOVES.leftKick, MOVES.rightKick, MOVES.teep], description: "Kick variety", repetitions: 12 },
+      { id: "a8", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.rightKick, MOVES.jab, MOVES.cross], description: "Mix it up", repetitions: 12 },
+      { id: "a9", name: "", moves: [MOVES.jab, MOVES.leftUppercut, MOVES.rightUppercut, MOVES.leftHook], description: "Inside fighting", repetitions: 10 },
+      { id: "a10", name: "", moves: [MOVES.teep, MOVES.rightKick, MOVES.rightKnee], description: "Leg weapons", repetitions: 12 },
+      { id: "a11", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.leftElbow, MOVES.rightKnee, MOVES.rightKick], description: "All weapons", repetitions: 10 },
+      { id: "a12", name: "", moves: [MOVES.jab, MOVES.cross, MOVES.leftHook, MOVES.rightUppercut, MOVES.rightKick], description: "KO combo", repetitions: 14 },
     ],
   },
 ];
@@ -1303,57 +1303,57 @@ const TRAINING_SCHEDULES: Record<string, TrainingDay[]> = {
     const day = i + 1;
     const week = Math.ceil(day / 7);
     const dayOfWeek = ((day - 1) % 7) + 1;
-    
-    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
-    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: "Stretching & light cardio", description: "Active recovery" };
-    
-    const focuses = ["Fundamentals", "Punch combos", "Kick technique", "Defense basics", "Full combinations"];
+
+    if (dayOfWeek === 7) return { day, type: "rest", description: t("workout:schedule.restDay") };
+    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: t("workout:schedule.stretchingCardio"), description: t("workout:schedule.activeRecovery") };
+
+    const focuses = [t("workout:schedule.fundamentals"), t("workout:schedule.punchCombos"), t("workout:schedule.kickTechnique"), t("workout:schedule.defenseBasics"), t("workout:schedule.fullCombinations")];
     const focusIndex = (day - 1) % focuses.length;
-    
+
     return {
       day,
       type: "workout",
       workoutId: "beginner-1",
       focus: focuses[focusIndex],
-      description: `Week ${week} - ${focuses[focusIndex]}`,
+      description: `${t("workout:schedule.week")} ${week} - ${focuses[focusIndex]}`,
     };
   }),
   intermediate: Array.from({ length: 30 }, (_, i) => {
     const day = i + 1;
     const week = Math.ceil(day / 7);
     const dayOfWeek = ((day - 1) % 7) + 1;
-    
-    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
-    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: "Mobility & shadow boxing", description: "Active recovery" };
-    
-    const focuses = ["Power punches", "Kick combinations", "Knee & clinch", "Counter attacks", "Flow drills", "Conditioning"];
+
+    if (dayOfWeek === 7) return { day, type: "rest", description: t("workout:schedule.restDay") };
+    if (dayOfWeek === 4) return { day, type: "active-recovery", focus: t("workout:schedule.mobilityShadowBoxing"), description: t("workout:schedule.activeRecovery") };
+
+    const focuses = [t("workout:schedule.powerPunches"), t("workout:schedule.kickCombinations"), t("workout:schedule.kneeClinch"), t("workout:schedule.counterAttacks"), t("workout:schedule.flowDrills"), t("workout:schedule.conditioning")];
     const focusIndex = (day - 1) % focuses.length;
-    
+
     return {
       day,
       type: "workout",
       workoutId: "intermediate-1",
       focus: focuses[focusIndex],
-      description: `Week ${week} - ${focuses[focusIndex]}`,
+      description: `${t("workout:schedule.week")} ${week} - ${focuses[focusIndex]}`,
     };
   }),
   advanced: Array.from({ length: 30 }, (_, i) => {
     const day = i + 1;
     const week = Math.ceil(day / 7);
     const dayOfWeek = ((day - 1) % 7) + 1;
-    
-    if (dayOfWeek === 7) return { day, type: "rest", description: "Full rest day - recover" };
-    if (dayOfWeek === 3 || dayOfWeek === 6) return { day, type: "active-recovery", focus: "Technical drilling", description: "Active recovery" };
-    
-    const focuses = ["All 8 limbs", "Speed & timing", "Power rounds", "Clinch work", "Sparring prep"];
+
+    if (dayOfWeek === 7) return { day, type: "rest", description: t("workout:schedule.restDay") };
+    if (dayOfWeek === 3 || dayOfWeek === 6) return { day, type: "active-recovery", focus: t("workout:schedule.technicalDrilling"), description: t("workout:schedule.activeRecovery") };
+
+    const focuses = [t("workout:schedule.allEightLimbs"), t("workout:schedule.speedTiming"), t("workout:schedule.powerRounds"), t("workout:schedule.clinchWork"), t("workout:schedule.sparringPrep")];
     const focusIndex = (day - 1) % focuses.length;
-    
+
     return {
       day,
       type: "workout",
       workoutId: "advanced-1",
       focus: focuses[focusIndex],
-      description: `Week ${week} - ${focuses[focusIndex]}`,
+      description: `${t("workout:schedule.week")} ${week} - ${focuses[focusIndex]}`,
     };
   }),
 };
@@ -1377,7 +1377,7 @@ export default function MuayThaiWorkoutScreen() {
   const [cooldownTimeLeft, setCooldownTimeLeft] = useState(0);
   const [currentFootworkIndex, setCurrentFootworkIndex] = useState(0);
   const [footworkTimeLeft, setFootworkTimeLeft] = useState(0);
-  const [useThai, setUseThai] = useState(false);
+  // Removed useThai state - now using main language selection from i18n
 
   const scale = useSharedValue(1);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1644,7 +1644,46 @@ export default function MuayThaiWorkoutScreen() {
     setCurrentMoveIndex(-1);
     
     if (repIndex === 0) {
-      const text = `${t("workout:combo")}: ${combo.name}`;
+      // Get the translated combo name based on the combo ID
+    let comboName = combo.name;
+    if (combo.name === "") {
+      // Map the combo ID to the appropriate translation key
+      if (combo.id === "b1") comboName = t("workout:combos.basic12");
+      else if (combo.id === "b2") comboName = t("workout:combos.onetwothree");
+      else if (combo.id === "b3") comboName = t("workout:combos.doubleJab");
+      else if (combo.id === "b4") comboName = t("workout:combos.teepDrill");
+      else if (combo.id === "b5") comboName = t("workout:combos.jabTeep");
+      else if (combo.id === "b6") comboName = t("workout:combos.jabKick");
+      else if (combo.id === "b7") comboName = t("workout:combos.onetwoKick");
+      else if (combo.id === "b8") comboName = t("workout:combos.hookPractice");
+      else if (combo.id === "b9") comboName = t("workout:combos.teepCross");
+      else if (combo.id === "b10") comboName = t("workout:combos.finalOnetwothree");
+      else if (combo.id === "i1") comboName = t("workout:combos.onetwoKick");
+      else if (combo.id === "i2") comboName = t("workout:combos.hookCrossHook");
+      else if (combo.id === "i3") comboName = t("workout:combos.teepCrossKick");
+      else if (combo.id === "i4") comboName = t("workout:combos.onetwoKnee");
+      else if (combo.id === "i5") comboName = t("workout:combos.doubleKick");
+      else if (combo.id === "i6") comboName = t("workout:combos.onetwothreeTwo");
+      else if (combo.id === "i7") comboName = t("workout:combos.teepKnee");
+      else if (combo.id === "i8") comboName = t("workout:combos.hookKick");
+      else if (combo.id === "i9") comboName = t("workout:combos.tripleKick");
+      else if (combo.id === "i10") comboName = t("workout:combos.onetwoElbow");
+      else if (combo.id === "i11") comboName = t("workout:combos.fullCombo");
+      else if (combo.id === "i12") comboName = t("workout:combos.finisher");
+      else if (combo.id === "a1") comboName = t("workout:combos.fullCombo");
+      else if (combo.id === "a2") comboName = t("workout:combos.elbowEntry");
+      else if (combo.id === "a3") comboName = t("workout:combos.kneeStorm");
+      else if (combo.id === "a4") comboName = t("workout:combos.kickPunchKick");
+      else if (combo.id === "a5") comboName = t("workout:combos.defenseCounter");
+      else if (combo.id === "a6") comboName = t("workout:combos.elbowKnee");
+      else if (combo.id === "a7") comboName = t("workout:combos.tripleKickFlow");
+      else if (combo.id === "a8") comboName = t("workout:combos.boxKickBox");
+      else if (combo.id === "a9") comboName = t("workout:combos.uppercutEntry");
+      else if (combo.id === "a10") comboName = t("workout:combos.teepKickKnee");
+      else if (combo.id === "a11") comboName = t("workout:combos.allEight");
+      else if (combo.id === "a12") comboName = t("workout:combos.theFinisher");
+    }
+    const text = `${t("workout:combo")}: ${comboName}`;
       speakText(text, 0.8);
     }
     
@@ -1938,10 +1977,80 @@ export default function MuayThaiWorkoutScreen() {
                 </ThemedText>
                 
                 <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
-                  {i18n.language === 'th' ? currentWarmup.thai : currentWarmup.name}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentWarmup.thai;
+                    } else {
+                      // Map English names to translation keys
+                      const exerciseKeyMap: Record<string, string> = {
+                        "Jumping Jacks": "jumpingJacks",
+                        "Arm Circles": "armCircles",
+                        "Standing Side Stretch": "standingSideStretch",
+                        "Hip Rotations": "hipRotations",
+                        "Quad Stretch": "quadStretch",
+                        "High Knees": "highKnees",
+                        "Leg Swings": "legSwings",
+                        "Hamstring Stretch": "hamstringStretch",
+                        "Shadow Boxing": "shadowBoxing",
+                        "Neck Rotations": "neckRotations",
+                        "Torso Twists": "torsoTwists",
+                        "Calf Stretch": "calfStretch",
+                        "Ankle Circles": "ankleCircles",
+                        "Light Bouncing": "lightBouncing",
+                        "Slow Teeps": "slowTeeps",
+                        "Knee Raises": "kneeRaises",
+                        "Deep Breathing": "deepBreathing",
+                        "Forward Fold": "forwardFold",
+                        "Hip Flexor Stretch": "hipFlexorStretch",
+                        "Shoulder Stretch": "shoulderStretch",
+                        "Tricep Stretch": "tricepStretch",
+                        "Neck Stretch": "neckStretch",
+                        "Seated Twist": "seatedTwist",
+                        "Butterfly Stretch": "butterflyStretch",
+                        "Child's Pose": "childsPose"
+                      };
+                      const key = exerciseKeyMap[currentWarmup.name] || currentWarmup.name.toLowerCase().replace(/\s+/g, '');
+                      return t(`workout:exercises.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  {i18n.language === 'th' ? currentWarmup.romanization : currentWarmup.description}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentWarmup.romanization;
+                    } else {
+                      // Map English descriptions to translation keys
+                      const descriptionKeyMap: Record<string, string> = {
+                        "Full body warm up": "fullBodyWarmUp",
+                        "Shoulder mobility": "shoulderMobility",
+                        "Side body stretch": "sideBodyStretch",
+                        "Hip flexibility": "hipFlexibility",
+                        "Front thigh stretch": "frontThighStretch",
+                        "Cardio warm up": "cardioWarmUp",
+                        "Dynamic stretching": "dynamicStretching",
+                        "Back of leg stretch": "backOfLegStretch",
+                        "Light punching practice": "lightPunchingPractice",
+                        "Neck mobility": "neckMobility",
+                        "Core activation": "coreActivation",
+                        "Lower leg stretch": "lowerLegStretch",
+                        "Ankle mobility": "ankleMobility",
+                        "Ready stance practice": "readyStancePractice",
+                        "Kick technique warm up": "kickTechniqueWarmUp",
+                        "Balance and core": "balanceAndCore",
+                        "Slow your heart rate": "slowHeartRate",
+                        "Hamstring and back stretch": "hamstringAndBackStretch",
+                        "Hip opening stretch": "hipOpeningStretch",
+                        "Shoulder release": "shoulderRelease",
+                        "Upper arm stretch": "upperArmStretch",
+                        "Neck release": "neckRelease",
+                        "Spine rotation": "spineRotation",
+                        "Inner thigh stretch": "innerThighStretch",
+                        "Full body relaxation": "fullBodyRelaxation"
+                      };
+                      const key = descriptionKeyMap[currentWarmup.description] || currentWarmup.description.toLowerCase().replace(/\s+/g, '');
+                      return t(`workout:exerciseDescriptions.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 
                 <View style={styles.skipButtonsRow}>
@@ -2006,23 +2115,66 @@ export default function MuayThaiWorkoutScreen() {
                 </ThemedText>
                 
                 <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
-                  {i18n.language === 'th' ? currentFootwork.thai : currentFootwork.name}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentFootwork.thai;
+                    } else {
+                      // Map English names to translation keys
+                      const exerciseKeyMap: Record<string, string> = {
+                        "Basic Shuffle": "basicShuffle",
+                        "Forward-Back Step": "forwardBackStep",
+                        "Circle Left": "circleLeft",
+                        "Circle Right": "circleRight",
+                        "Diamond Steps": "diamondSteps",
+                        "Angle Off": "angleOff",
+                        "Switch Stance": "switchStance",
+                        "Retreat & Reset": "retreatReset",
+                        "Bounce Step": "bounceStep",
+                        "L-Step": "lStep",
+                        "Pendulum": "pendulum",
+                        "Check Step": "checkStep"
+                      };
+                      const key = exerciseKeyMap[currentFootwork.name] || currentFootwork.name.toLowerCase().replace(/\s+/g, '').replace('&', 'and');
+                      return t(`workout:exercises.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  {i18n.language === 'th' ? currentFootwork.romanization : currentFootwork.description}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentFootwork.romanization;
+                    } else {
+                      // Map English descriptions to translation keys
+                      const descriptionKeyMap: Record<string, string> = {
+                        "Side to side movement": "sideToSideMovement",
+                        "In and out movement": "inAndOutMovement",
+                        "Pivot around opponent": "pivotAroundOpponent",
+                        "Move in diamond pattern": "moveInDiamondPattern",
+                        "Cut angles after strikes": "cutAnglesAfterStrikes",
+                        "Orthodox to southpaw": "orthodoxToSouthpaw",
+                        "Create distance": "createDistance",
+                        "Stay light and mobile": "stayLightAndMobile",
+                        "Exit at 90 degrees": "exitAtNinetyDegrees",
+                        "Weight shift rhythm": "weightShiftRhythm",
+                        "Feint with footwork": "feintWithFootwork"
+                      };
+                      const key = descriptionKeyMap[currentFootwork.description] || currentFootwork.description.toLowerCase().replace(/\s+/g, '');
+                      return t(`workout:exerciseDescriptions.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 
                 <View style={styles.skipButtonsRow}>
                   <Pressable onPress={skipFootworkDrill} style={[styles.skipButton, { borderColor: "#2196F3" }]}>
                     <Feather name="skip-forward" size={16} color="#2196F3" />
                     <ThemedText type="small" style={{ color: "#2196F3", marginLeft: Spacing.xs }}>
-                      {useThai ? "ข้ามท่านี้" : "Skip Drill"}
+                      {t("workout:skipDrill")}
                     </ThemedText>
                   </Pressable>
                   <Pressable onPress={skipFootwork} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
                     <Feather name="fast-forward" size={16} color={theme.textSecondary} />
                     <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
-                      {useThai ? "ข้ามก้าวเท้า" : "Skip Footwork"}
+                      {t("workout:skipFootwork")}
                     </ThemedText>
                   </Pressable>
                 </View>
@@ -2037,10 +2189,10 @@ export default function MuayThaiWorkoutScreen() {
                   <Feather name="moon" size={64} color="#9C27B0" />
                 </View>
                 <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
-                  {useThai ? "คูลดาวน์" : "Cool Down"}
+                  {t("workout:coolDown")}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  {useThai ? "ยืดกล้ามเนื้อและผ่อนคลาย" : "Stretching and recovery time"}
+                  {t("workout:stretchingRecovery")}
                 </ThemedText>
               </>
             ) : (
@@ -2074,23 +2226,67 @@ export default function MuayThaiWorkoutScreen() {
                 </ThemedText>
                 
                 <ThemedText type="h2" style={{ marginTop: Spacing.md }}>
-                  {useThai ? currentCooldown.thai : currentCooldown.name}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentCooldown.thai;
+                    } else {
+                      // Map English names to translation keys
+                      const exerciseKeyMap: Record<string, string> = {
+                        "Deep Breathing": "deepBreathing",
+                        "Standing Side Stretch": "standingSideStretch",
+                        "Forward Fold": "forwardFold",
+                        "Quad Stretch": "quadStretch",
+                        "Hip Flexor Stretch": "hipFlexorStretch",
+                        "Calf Stretch": "calfStretch",
+                        "Shoulder Stretch": "shoulderStretch",
+                        "Tricep Stretch": "tricepStretch",
+                        "Neck Stretch": "neckStretch",
+                        "Seated Twist": "seatedTwist",
+                        "Butterfly Stretch": "butterflyStretch",
+                        "Child's Pose": "childsPose"
+                      };
+                      const key = exerciseKeyMap[currentCooldown.name] || currentCooldown.name.toLowerCase().replace(/\s+/g, '');
+                      return t(`workout:exercises.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  {useThai ? currentCooldown.romanization : currentCooldown.description}
+                  {(() => {
+                    if (i18n.language === 'th') {
+                      return currentCooldown.romanization;
+                    } else {
+                      // Map English descriptions to translation keys
+                      const descriptionKeyMap: Record<string, string> = {
+                        "Slow your heart rate": "slowHeartRate",
+                        "Side body stretch": "sideBodyStretch",
+                        "Hamstring and back stretch": "hamstringAndBackStretch",
+                        "Front thigh stretch": "frontThighStretch",
+                        "Hip opening stretch": "hipOpeningStretch",
+                        "Lower leg stretch": "lowerLegStretch",
+                        "Shoulder release": "shoulderRelease",
+                        "Upper arm stretch": "upperArmStretch",
+                        "Neck release": "neckRelease",
+                        "Spine rotation": "spineRotation",
+                        "Inner thigh stretch": "innerThighStretch",
+                        "Full body relaxation": "fullBodyRelaxation"
+                      };
+                      const key = descriptionKeyMap[currentCooldown.description] || currentCooldown.description.toLowerCase().replace(/\s+/g, '');
+                      return t(`workout:exerciseDescriptions.${key}`);
+                    }
+                  })()}
                 </ThemedText>
                 
                 <View style={styles.skipButtonsRow}>
                   <Pressable onPress={skipCooldownExercise} style={[styles.skipButton, { borderColor: "#9C27B0" }]}>
                     <Feather name="skip-forward" size={16} color="#9C27B0" />
                     <ThemedText type="small" style={{ color: "#9C27B0", marginLeft: Spacing.xs }}>
-                      {useThai ? "ข้ามท่านี้" : "Skip Stretch"}
+                      {t("workout:skipStretch")}
                     </ThemedText>
                   </Pressable>
                   <Pressable onPress={skipCooldown} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
                     <Feather name="fast-forward" size={16} color={theme.textSecondary} />
                     <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
-                      {useThai ? "ข้ามคูลดาวน์" : "Skip Cooldown"}
+                      {t("workout:skipCooldown")}
                     </ThemedText>
                   </Pressable>
                 </View>
@@ -2123,7 +2319,7 @@ export default function MuayThaiWorkoutScreen() {
                   {countdown}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary }}>
-                  {useThai ? "เตรียมตัว" : "Get Ready"}
+                  {t("workout:getReadyShort")}
                 </ThemedText>
               </View>
             ) : phase === "rest" ? (
@@ -2132,7 +2328,7 @@ export default function MuayThaiWorkoutScreen() {
                   {restCountdown}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary }}>
-                  {useThai ? "พัก - คอมโบถัดไปกำลังมา" : "Rest - Next combo coming up"}
+                  {t("workout:restNextCombo")}
                 </ThemedText>
               </View>
             ) : phase === "complete" ? (
@@ -2141,17 +2337,17 @@ export default function MuayThaiWorkoutScreen() {
                   <Feather name="check" size={64} color="#4CAF50" />
                 </View>
                 <ThemedText type="h2" style={{ marginTop: Spacing.xl }}>
-                  {useThai ? "ฝึกซ้อมเสร็จแล้ว!" : "Workout Complete!"}
+                  {t("workout:workoutCompleteTitle")}
                 </ThemedText>
                 <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.sm }}>
-                  {useThai ? "ทำได้ดีมาก" : "Great training session"}
+                  {t("workout:greatTraining")}
                 </ThemedText>
                 <Pressable
                   onPress={stopWorkout}
                   style={[styles.doneButton, { backgroundColor: LEVEL_COLORS[selectedWorkout.level] }]}
                 >
                   <ThemedText type="body" style={{ color: "#FFFFFF", fontWeight: "600" }}>
-                    {useThai ? "เสร็จสิ้น" : "Done"}
+                    {t("workout:done")}
                   </ThemedText>
                 </Pressable>
               </View>
@@ -2159,9 +2355,51 @@ export default function MuayThaiWorkoutScreen() {
               <View style={styles.centerContent}>
                 {currentCombo ? (
                   <>
-                    <ThemedText type="body" style={{ color: theme.textSecondary }}>
-                      {currentCombo.name}
-                    </ThemedText>
+                    {/* Display the translated combo name */}
+                    {currentCombo ? (
+                      (() => {
+                        // Get the translated combo name based on the combo ID
+                        let comboName = currentCombo.name;
+                        if (currentCombo.name === "") {
+                          // Map the combo ID to the appropriate translation key
+                          if (currentCombo.id === "b1") comboName = t("workout:combos.basic12");
+                          else if (currentCombo.id === "b2") comboName = t("workout:combos.onetwothree");
+                          else if (currentCombo.id === "b3") comboName = t("workout:combos.doubleJab");
+                          else if (currentCombo.id === "b4") comboName = t("workout:combos.teepDrill");
+                          else if (currentCombo.id === "b5") comboName = t("workout:combos.jabTeep");
+                          else if (currentCombo.id === "b6") comboName = t("workout:combos.jabKick");
+                          else if (currentCombo.id === "b7") comboName = t("workout:combos.onetwoKick");
+                          else if (currentCombo.id === "b8") comboName = t("workout:combos.hookPractice");
+                          else if (currentCombo.id === "b9") comboName = t("workout:combos.teepCross");
+                          else if (currentCombo.id === "b10") comboName = t("workout:combos.finalOnetwothree");
+                          else if (currentCombo.id === "i1") comboName = t("workout:combos.onetwoKick");
+                          else if (currentCombo.id === "i2") comboName = t("workout:combos.hookCrossHook");
+                          else if (currentCombo.id === "i3") comboName = t("workout:combos.teepCrossKick");
+                          else if (currentCombo.id === "i4") comboName = t("workout:combos.onetwoKnee");
+                          else if (currentCombo.id === "i5") comboName = t("workout:combos.doubleKick");
+                          else if (currentCombo.id === "i6") comboName = t("workout:combos.onetwothreeTwo");
+                          else if (currentCombo.id === "i7") comboName = t("workout:combos.teepKnee");
+                          else if (currentCombo.id === "i8") comboName = t("workout:combos.hookKick");
+                          else if (currentCombo.id === "i9") comboName = t("workout:combos.tripleKick");
+                          else if (currentCombo.id === "i10") comboName = t("workout:combos.onetwoElbow");
+                          else if (currentCombo.id === "i11") comboName = t("workout:combos.fullCombo");
+                          else if (currentCombo.id === "i12") comboName = t("workout:combos.finisher");
+                          else if (currentCombo.id === "a1") comboName = t("workout:combos.fullCombo");
+                          else if (currentCombo.id === "a2") comboName = t("workout:combos.elbowEntry");
+                          else if (currentCombo.id === "a3") comboName = t("workout:combos.kneeStorm");
+                          else if (currentCombo.id === "a4") comboName = t("workout:combos.kickPunchKick");
+                          else if (currentCombo.id === "a5") comboName = t("workout:combos.defenseCounter");
+                          else if (currentCombo.id === "a6") comboName = t("workout:combos.elbowKnee");
+                          else if (currentCombo.id === "a7") comboName = t("workout:combos.tripleKickFlow");
+                          else if (currentCombo.id === "a8") comboName = t("workout:combos.boxKickBox");
+                          else if (currentCombo.id === "a9") comboName = t("workout:combos.uppercutEntry");
+                          else if (currentCombo.id === "a10") comboName = t("workout:combos.teepKickKnee");
+                          else if (currentCombo.id === "a11") comboName = t("workout:combos.allEight");
+                          else if (currentCombo.id === "a12") comboName = t("workout:combos.theFinisher");
+                        }
+                        return <ThemedText type="body" style={{ color: theme.textSecondary }}>{comboName}</ThemedText>;
+                      })()
+                    ) : null}
                     
                     {currentMove ? (
                       <View style={styles.moveAnimationContainer}>
@@ -2176,15 +2414,49 @@ export default function MuayThaiWorkoutScreen() {
                       {currentMove ? (
                         <>
                           <ThemedText type="h1" style={styles.moveName}>
-                            {useThai ? currentMove.thai : currentMove.name}
+                            {(() => {
+                              // Determine which language to show based on i18n
+                              if (i18n.language === 'th') {
+                                return currentMove.thai;
+                              } else {
+                                // For other languages, use translation key
+                                const moveNameKeyMap: Record<string, string> = {
+                                  "Jab": "jab",
+                                  "Cross": "cross",
+                                  "Left Hook": "leftHook",
+                                  "Right Hook": "rightHook",
+                                  "Left Kick": "leftKick",
+                                  "Right Kick": "rightKick",
+                                  "Left Knee": "leftKnee",
+                                  "Right Knee": "rightKnee",
+                                  "Left Elbow": "leftElbow",
+                                  "Right Elbow": "rightElbow",
+                                  "Teep": "teep",
+                                  "Block": "block",
+                                  "Slip": "slip",
+                                  "Left Uppercut": "leftUppercut",
+                                  "Right Uppercut": "rightUppercut"
+                                };
+                                const key = moveNameKeyMap[currentMove.name] || currentMove.name.toLowerCase().replace(/\s+/g, '');
+                                return t(`workout:moves.${key}`);
+                              }
+                            })()}
                           </ThemedText>
                           <ThemedText type="h3" style={{ color: LEVEL_COLORS[selectedWorkout.level], marginTop: Spacing.sm }}>
-                            {useThai ? currentMove.name : currentMove.romanization}
+                            {(() => {
+                              // Determine which language to show based on i18n
+                              if (i18n.language === 'th') {
+                                return currentMove.romanization;
+                              } else {
+                                // For other languages, just show the English name
+                                return currentMove.name;
+                              }
+                            })()}
                           </ThemedText>
                         </>
                       ) : (
                         <ThemedText type="h2" style={{ color: theme.textSecondary }}>
-                          {useThai ? "เตรียมพร้อม..." : "Ready..."}
+                          {t("workout:ready")}
                         </ThemedText>
                       )}
                     </Animated.View>
@@ -2211,7 +2483,13 @@ export default function MuayThaiWorkoutScreen() {
                               fontSize: 10,
                             }}
                           >
-                            {useThai ? move.romanization.split(" ")[0] : move.number || move.name.split(" ")[0]}
+                            {(() => {
+                              if (i18n.language === 'th') {
+                                return move.romanization.split(" ")[0];
+                              } else {
+                                return move.number || move.name.split(" ")[0];
+                              }
+                            })()}
                           </ThemedText>
                         </View>
                       ))}
@@ -2221,13 +2499,13 @@ export default function MuayThaiWorkoutScreen() {
                       <Pressable onPress={skipCombo} style={[styles.skipButton, { borderColor: LEVEL_COLORS[selectedWorkout.level] }]}>
                         <Feather name="skip-forward" size={16} color={LEVEL_COLORS[selectedWorkout.level]} />
                         <ThemedText type="small" style={{ color: LEVEL_COLORS[selectedWorkout.level], marginLeft: Spacing.xs }}>
-                          {useThai ? "ข้ามคอมโบ" : "Skip Combo"}
+                          {t("workout:skipCombo")}
                         </ThemedText>
                       </Pressable>
                       <Pressable onPress={skipCombos} style={[styles.skipButton, { borderColor: theme.textSecondary }]}>
                         <Feather name="fast-forward" size={16} color={theme.textSecondary} />
                         <ThemedText type="small" style={{ color: theme.textSecondary, marginLeft: Spacing.xs }}>
-                          {useThai ? "ข้ามทุกคอมโบ" : "Skip All"}
+                          {t("workout:skipAll")}
                         </ThemedText>
                       </Pressable>
                     </View>
@@ -2260,38 +2538,30 @@ export default function MuayThaiWorkoutScreen() {
           </ThemedText>
         </Pressable>
         
-        <ThemedText type="h2" style={{ marginTop: Spacing.md }}>Master Workout</ThemedText>
+        <ThemedText type="h2" style={{ marginTop: Spacing.md }}>{t("workout:masterWorkout")}</ThemedText>
         <ThemedText type="body" style={{ color: theme.textSecondary, marginTop: Spacing.xs }}>
-          20-30 minute sessions with 10 min warmup
+          {t("workout:sessionDuration", { duration: "20-30", warmup: "10" })}
         </ThemedText>
         
-        <View style={styles.languageToggle}>
-          <ThemedText type="body">
-            Voice Commands:
-          </ThemedText>
-          <View style={styles.toggleContainer}>
-            <ThemedText type="body" style={{ color: !useThai ? theme.primary : theme.textSecondary }}>
-              English
-            </ThemedText>
-            <Switch
-              value={useThai}
-              onValueChange={setUseThai}
-              trackColor={{ false: theme.backgroundSecondary, true: "#FF9800" }}
-              thumbColor="#FFFFFF"
-              style={{ marginHorizontal: Spacing.sm }}
-            />
-            <ThemedText type="body" style={{ color: useThai ? "#FF9800" : theme.textSecondary }}>
-              Thai
-            </ThemedText>
-          </View>
-        </View>
+        {/* Removed language toggle - now using main language selection from settings */}
         
-        {WORKOUTS.map((workout) => (
+        {WORKOUTS.map((workout) => {
+          // Get the translated workout name based on the level
+          let workoutName = "";
+          if (workout.level === "beginner") {
+            workoutName = t("workout:workouts.foundation");
+          } else if (workout.level === "intermediate") {
+            workoutName = t("workout:workouts.powerDevelopment");
+          } else if (workout.level === "advanced") {
+            workoutName = t("workout:workouts.warriorWorkout");
+          }
+
+          return (
           <Card key={workout.id} style={{ marginTop: Spacing.lg }}>
             <View style={styles.workoutCard}>
               <View style={styles.workoutInfo}>
                 <View style={styles.workoutTitleRow}>
-                  <ThemedText type="h3">{workout.name}</ThemedText>
+                  <ThemedText type="h3">{workoutName}</ThemedText>
                   <View
                     style={[
                       styles.levelBadge,
@@ -2302,11 +2572,11 @@ export default function MuayThaiWorkoutScreen() {
                       type="small"
                       style={{ color: LEVEL_COLORS[workout.level], fontWeight: "600" }}
                     >
-                      {workout.level.charAt(0).toUpperCase() + workout.level.slice(1)}
+                      {t(`muaythai:levels.${workout.level}`)}
                     </ThemedText>
                   </View>
                 </View>
-                
+
                 <View style={styles.workoutMeta}>
                   <View style={styles.metaItem}>
                     <Feather name="clock" size={14} color={theme.textSecondary} />
@@ -2321,21 +2591,63 @@ export default function MuayThaiWorkoutScreen() {
                     </ThemedText>
                   </View>
                 </View>
-                
+
                 <View style={styles.combosList}>
-                  {workout.combinations.slice(0, 3).map((combo, idx) => (
-                    <ThemedText key={idx} type="small" style={{ color: theme.textSecondary }}>
-                      {combo.name}: {combo.moves.map(m => m.name).join(" - ")}
-                    </ThemedText>
-                  ))}
+                  {workout.combinations.slice(0, 3).map((combo, idx) => {
+                    // Get the translated combo name
+                    let comboName = "";
+                    if (combo.name === "") {
+                      // Map the combo ID to the appropriate translation key
+                      if (combo.id === "b1") comboName = t("workout:combos.basic12");
+                      else if (combo.id === "b2") comboName = t("workout:combos.onetwothree");
+                      else if (combo.id === "b3") comboName = t("workout:combos.doubleJab");
+                      else if (combo.id === "b4") comboName = t("workout:combos.teepDrill");
+                      else if (combo.id === "b5") comboName = t("workout:combos.jabTeep");
+                      else if (combo.id === "b6") comboName = t("workout:combos.jabKick");
+                      else if (combo.id === "b7") comboName = t("workout:combos.onetwoKick");
+                      else if (combo.id === "b8") comboName = t("workout:combos.hookPractice");
+                      else if (combo.id === "b9") comboName = t("workout:combos.teepCross");
+                      else if (combo.id === "b10") comboName = t("workout:combos.finalOnetwothree");
+                      else if (combo.id === "i1") comboName = t("workout:combos.onetwoKick");
+                      else if (combo.id === "i2") comboName = t("workout:combos.hookCrossHook");
+                      else if (combo.id === "i3") comboName = t("workout:combos.teepCrossKick");
+                      else if (combo.id === "i4") comboName = t("workout:combos.onetwoKnee");
+                      else if (combo.id === "i5") comboName = t("workout:combos.doubleKick");
+                      else if (combo.id === "i6") comboName = t("workout:combos.onetwothreeTwo");
+                      else if (combo.id === "i7") comboName = t("workout:combos.teepKnee");
+                      else if (combo.id === "i8") comboName = t("workout:combos.hookKick");
+                      else if (combo.id === "i9") comboName = t("workout:combos.tripleKick");
+                      else if (combo.id === "i10") comboName = t("workout:combos.onetwoElbow");
+                      else if (combo.id === "i11") comboName = t("workout:combos.fullCombo");
+                      else if (combo.id === "i12") comboName = t("workout:combos.finisher");
+                      else if (combo.id === "a1") comboName = t("workout:combos.fullCombo");
+                      else if (combo.id === "a2") comboName = t("workout:combos.elbowEntry");
+                      else if (combo.id === "a3") comboName = t("workout:combos.kneeStorm");
+                      else if (combo.id === "a4") comboName = t("workout:combos.kickPunchKick");
+                      else if (combo.id === "a5") comboName = t("workout:combos.defenseCounter");
+                      else if (combo.id === "a6") comboName = t("workout:combos.elbowKnee");
+                      else if (combo.id === "a7") comboName = t("workout:combos.tripleKickFlow");
+                      else if (combo.id === "a8") comboName = t("workout:combos.boxKickBox");
+                      else if (combo.id === "a9") comboName = t("workout:combos.uppercutEntry");
+                      else if (combo.id === "a10") comboName = t("workout:combos.teepKickKnee");
+                      else if (combo.id === "a11") comboName = t("workout:combos.allEight");
+                      else if (combo.id === "a12") comboName = t("workout:combos.theFinisher");
+                    }
+
+                    return (
+                      <ThemedText key={idx} type="small" style={{ color: theme.textSecondary }}>
+                        {comboName}: {combo.moves.map(m => m.name).join(" - ")}
+                      </ThemedText>
+                    );
+                  })}
                   {workout.combinations.length > 3 ? (
                     <ThemedText type="small" style={{ color: theme.textSecondary, fontStyle: "italic" }}>
-                      + {workout.combinations.length - 3} more combos
+                      + {workout.combinations.length - 3} {t("workout:combos.more")}
                     </ThemedText>
                   ) : null}
                 </View>
               </View>
-              
+
               <Pressable
                 onPress={() => startWorkout(workout)}
                 style={[styles.startButton, { backgroundColor: LEVEL_COLORS[workout.level] }]}
@@ -2344,7 +2656,7 @@ export default function MuayThaiWorkoutScreen() {
               </Pressable>
             </View>
           </Card>
-        ))}
+        )})}
         
         <View style={{ height: Spacing.xl }} />
       </ScrollView>

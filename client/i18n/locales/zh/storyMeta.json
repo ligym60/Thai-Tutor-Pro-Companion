@@ -14,5 +14,37 @@
   "story-4": {
     "title": "点餐",
     "description": "在泰国餐厅点餐"
+  },
+  "story-5": {
+    "title": "海滩的一天",
+    "description": "描述在泰国海滩的休闲一天"
+  },
+  "story-6": {
+    "title": "泰历新年",
+    "description": "庆祝宋干节，泰国的新年节日"
+  },
+  "story-7": {
+    "title": "大象保护区",
+    "description": "参观泰国北部的大象保护区"
+  },
+  "story-8": {
+    "title": "生活在曼谷",
+    "description": "在泰国首都的日常生活体验"
+  },
+  "story-9": {
+    "title": "参观寺庙",
+    "description": "对泰国佛教寺庙的尊重访问"
+  },
+  "story-10": {
+    "title": "传统泰式按摩",
+    "description": "体验传统的泰式按摩疗法"
+  },
+  "story-11": {
+    "title": "河中钓鱼",
+    "description": "在泰国河畔进行的宁静钓鱼体验"
+  },
+  "story-12": {
+    "title": "夜市购物",
+    "description": "探索泰国充满活力的夜市"
   }
 }

@@ -14,5 +14,37 @@
   "story-4": {
     "title": "Ordering Food",
     "description": "Ordering a meal at a Thai restaurant"
+  },
+  "story-5": {
+    "title": "A Day at the Beach",
+    "description": "Describing a relaxing day at a Thai beach"
+  },
+  "story-6": {
+    "title": "Thai New Year",
+    "description": "Celebrating Songkran, the Thai New Year festival"
+  },
+  "story-7": {
+    "title": "The Elephant Sanctuary",
+    "description": "Visiting an elephant sanctuary in Northern Thailand"
+  },
+  "story-8": {
+    "title": "Living in Bangkok",
+    "description": "Daily life experiences in Thailand's capital city"
+  },
+  "story-9": {
+    "title": "Visiting the Temple",
+    "description": "A respectful visit to a Thai Buddhist temple"
+  },
+  "story-10": {
+    "title": "Traditional Thai Massage",
+    "description": "Experiencing traditional Thai massage therapy"
+  },
+  "story-11": {
+    "title": "Fishing in the River",
+    "description": "A peaceful fishing experience along the Thai riverside"
+  },
+  "story-12": {
+    "title": "Night Market Shopping",
+    "description": "Exploring a vibrant night market in Thailand"
   }
 }

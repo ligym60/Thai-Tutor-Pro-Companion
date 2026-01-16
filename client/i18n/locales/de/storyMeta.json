@@ -14,5 +14,37 @@
   "story-4": {
     "title": "Essen Bestellen",
     "description": "Eine Mahlzeit in einem thailändischen Restaurant bestellen"
+  },
+  "story-5": {
+    "title": "Ein Tag am Strand",
+    "description": "Beschreibung eines entspannten Tages am thailändischen Strand"
+  },
+  "story-6": {
+    "title": "Thailändisches Neujahr",
+    "description": "Songkran feiern, das thailändische Neujahrsfest"
+  },
+  "story-7": {
+    "title": "Das Elefanten-Schutzgebiet",
+    "description": "Besuch eines Elefanten-Schutzgebiets im Norden von Thailand"
+  },
+  "story-8": {
+    "title": "Leben in Bangkok",
+    "description": "Tägliche Lebenserfahrungen in der Hauptstadt von Thailand"
+  },
+  "story-9": {
+    "title": "Tempelbesuch",
+    "description": "Ein respektvoller Besuch eines thailändischen buddhistischen Tempels"
+  },
+  "story-10": {
+    "title": "Traditionelle Thai-Massage",
+    "description": "Erfahrung mit traditioneller thailändischer Massagetherapie"
+  },
+  "story-11": {
+    "title": "Fischen im Fluss",
+    "description": "Eine friedliche Angel-Erfahrung an den Ufern des thailändischen Flusses"
+  },
+  "story-12": {
+    "title": "Einkaufen auf dem Nachtmarkt",
+    "description": "Erkundung eines lebendigen Nachtmarktes in Thailand"
   }
 }

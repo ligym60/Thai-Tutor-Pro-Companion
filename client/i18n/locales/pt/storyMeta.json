@@ -14,5 +14,37 @@
   "story-4": {
     "title": "Pedindo Comida",
     "description": "Pedindo uma refeição em um restaurante tailandês"
+  },
+  "story-5": {
+    "title": "Um Dia na Praia",
+    "description": "Descrevendo um dia relaxante em uma praia tailandesa"
+  },
+  "story-6": {
+    "title": "Ano Novo Tailandês",
+    "description": "Celebrando o Songkran, o festival do Ano Novo tailandês"
+  },
+  "story-7": {
+    "title": "O Santuário dos Elefantes",
+    "description": "Visitando um santuário de elefantes no norte da Tailândia"
+  },
+  "story-8": {
+    "title": "Vivendo em Bangkok",
+    "description": "Experiências de vida diária na capital da Tailândia"
+  },
+  "story-9": {
+    "title": "Visitando o Templo",
+    "description": "Uma visita respeitosa a um templo budista tailandês"
+  },
+  "story-10": {
+    "title": "Massagem Tailandesa Tradicional",
+    "description": "Experimentando terapia de massagem tailandesa tradicional"
+  },
+  "story-11": {
+    "title": "Pescaria no Rio",
+    "description": "Uma experiência tranquila de pesca na margem do rio tailandês"
+  },
+  "story-12": {
+    "title": "Compras no Mercado Noturno",
+    "description": "Explorando um vibrante mercado noturno na Tailândia"
   }
 }

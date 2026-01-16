@@ -14,5 +14,37 @@
   "story-4": {
     "title": "Ordinare Cibo",
     "description": "Ordinare un pasto in un ristorante thailandese"
+  },
+  "story-5": {
+    "title": "Una Giornata in Spiaggia",
+    "description": "Descrivere una giornata rilassante su una spiaggia tailandese"
+  },
+  "story-6": {
+    "title": "Capodanno Thailandese",
+    "description": "Celebrare il Songkran, il festival del Capodanno tailandese"
+  },
+  "story-7": {
+    "title": "Il Santuario degli Elefanti",
+    "description": "Visitare un santuario degli elefanti nel nord della Thailandia"
+  },
+  "story-8": {
+    "title": "Vita a Bangkok",
+    "description": "Esperienze quotidiane nella capitale della Thailandia"
+  },
+  "story-9": {
+    "title": "Visita al Tempio",
+    "description": "Una visita rispettosa a un tempio buddista tailandese"
+  },
+  "story-10": {
+    "title": "Massaggio Tradizionale Thailandese",
+    "description": "Sperimentare la terapia del massaggio tradizionale tailandese"
+  },
+  "story-11": {
+    "title": "Pesca nel Fiume",
+    "description": "Un'esperienza tranquilla di pesca lungo la riva del fiume tailandese"
+  },
+  "story-12": {
+    "title": "Shopping al Mercato Notturno",
+    "description": "Esplorare un vivace mercato notturno in Thailandia"
   }
 }

@@ -14,5 +14,37 @@
   "story-4": {
     "title": "Commander de la Nourriture",
     "description": "Commander un repas dans un restaurant thaïlandais"
+  },
+  "story-5": {
+    "title": "Une Journée à la Plage",
+    "description": "Décrire une journée relaxante sur une plage thaïlandaise"
+  },
+  "story-6": {
+    "title": "Nouvel An Thaïlandais",
+    "description": "Célébrer le Songkran, le festival du Nouvel An thaïlandais"
+  },
+  "story-7": {
+    "title": "Le Sanctuaire des Éléphants",
+    "description": "Visiter un sanctuaire d'éléphants dans le nord de la Thaïlande"
+  },
+  "story-8": {
+    "title": "Vivre à Bangkok",
+    "description": "Expériences de vie quotidienne dans la capitale de la Thaïlande"
+  },
+  "story-9": {
+    "title": "Visite du Temple",
+    "description": "Une visite respectueuse à un temple bouddhiste thaïlandais"
+  },
+  "story-10": {
+    "title": "Massage Traditionnel Thaïlandais",
+    "description": "Expérience de la thérapie par massage traditionnel thaïlandais"
+  },
+  "story-11": {
+    "title": "Pêche dans la Rivière",
+    "description": "Une expérience paisible de pêche sur les berges de la rivière thaïlandaise"
+  },
+  "story-12": {
+    "title": "Shopping au Marché Nocturne",
+    "description": "Explorer un marché nocturne animé en Thaïlande"
   }
 }
